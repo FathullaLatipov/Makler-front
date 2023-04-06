@@ -40,7 +40,7 @@ const BannerCarousel = () => {
   const [bannerData, setBannerData] = useState([]);
   useEffect(() => {
     axios
-      .get("https://api.makleruz.uz//api/v1/carousels/")
+      .get("https://api.makleruz.uz/api/v1/carousels/")
       .then((res) => setBannerData(res.data.results))
       .catch((err) => console.log(err));
   }, []);
