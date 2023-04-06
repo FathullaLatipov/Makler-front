@@ -82,7 +82,7 @@ export default function CreateIndustriya() {
 
   useEffect(() => {
     axios
-      .get("https://api.makleruz.uz//store2/api/v1/store/how_store")
+      .get("https://api.makleruz.uz/store2/api/v1/store/how_store")
       .then((res) => {
         setStoreAminities(res.data.results);
       })
@@ -246,7 +246,7 @@ export default function CreateIndustriya() {
     const userToken = localStorage.getItem("access");
 
     axios
-      .post("https://api.makleruz.uz//store2/api/v1/store/create/", formData, {
+      .post("https://api.makleruz.uz/store2/api/v1/store/create/", formData, {
         headers: {
           Authorization: `Bearer ${userToken}`,
         },
@@ -269,7 +269,7 @@ export default function CreateIndustriya() {
         <div className="create-product edit-page">
           <form className="create-product__left" onSubmit={handleSubmit}>
             <h1 className="edit__card__title">
-              Регистрируйтес как мастер, получите работы
+              Создайте свой товар
             </h1>
             <p className="edit__card__text">
               Объявление будет доступно на{" "}
@@ -372,7 +372,7 @@ export default function CreateIndustriya() {
                   marginTop: "2rem",
                 }}
               >
-                <h5>Бранд</h5>
+                <h5>Бренд</h5>
                 <div
                   className="form-price"
                   style={{

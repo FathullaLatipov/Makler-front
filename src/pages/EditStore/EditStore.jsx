@@ -80,7 +80,7 @@ export default function EditStore() {
 
   useEffect(() => {
     axios
-      .get("https://api.makleruz.uz//store2/api/v1/store/how_store")
+      .get("https://api.makleruz.uz/store2/api/v1/store/how_store")
       .then((res) => {
         setStoreAminities(res.data.results);
       })

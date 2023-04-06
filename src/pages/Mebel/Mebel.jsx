@@ -23,7 +23,7 @@ const Mebel = () => {
   const { search, category, service } = form;
   useEffect(() => {
     axios
-      .get("https://api.makleruz.uz//mebel/api/v1/mebels/", {
+      .get("https://api.makleruz.uz/mebel/api/v1/mebels/", {
         params: {
           category,
         },

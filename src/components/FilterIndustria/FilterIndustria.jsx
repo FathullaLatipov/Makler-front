@@ -17,7 +17,7 @@ const FilterIndustria = ({ change, value }) => {
 
   useEffect(() => {
     axios
-      .get("https://api.makleruz.uz//store2/api/v1/store/how_store")
+      .get("https://api.makleruz.uz/store2/api/v1/store/how_store")
       .then((res) => {
         setOption2(res.data.results?.sort((a, b) => a.id - b.id));
       })

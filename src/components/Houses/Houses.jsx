@@ -15,7 +15,7 @@ const Houses = ({ value, start, focus }) => {
   const [limit, setLimit] = useState(8);
   const [searchLimit, setSearchLimit] = useState(8);
   const [url, setUrl] = useState(
-    `https://api.makleruz.uz//products/web/api/v1/all-web-houses/?limit=${limit}&offset=4`
+    `https://api.makleruz.uz/products/web/api/v1/all-web-houses/?limit=${limit}&offset=4`
   );
   const [nextUrl, setNextUrl] = useState();
   const [prevUrl, setPrevUrl] = useState();
@@ -35,7 +35,7 @@ const Houses = ({ value, start, focus }) => {
     setLoading(true);
 
     const res = await axios.get(
-      `https://api.makleruz.uz//products/web/api/v1/all-web-houses/`
+      `https://api.makleruz.uz/products/web/api/v1/all-web-houses/`
     );
 
     setDisplayData(res.data.results);
@@ -45,7 +45,7 @@ const Houses = ({ value, start, focus }) => {
   const init2 = async () => {
     setLoading(true);
     const res = await axios.get(
-      `https://api.makleruz.uz//products/web/api/v1/all-web-houses/?limit=${limit}&product_status=&object=${encodeURI(
+      `https://api.makleruz.uz/products/web/api/v1/all-web-houses/?limit=${limit}&product_status=&object=${encodeURI(
         building
       )}&building_type=&number_of_rooms=${room}&type=${typeRoom}&rental_type=`
     );
@@ -59,7 +59,7 @@ const Houses = ({ value, start, focus }) => {
     if (!sort) return;
     setLoading(true);
     const res = await axios.get(
-      `https://api.makleruz.uz//products/web/api/v1/all-web-houses/?ordering=${sort}`
+      `https://api.makleruz.uz/products/web/api/v1/all-web-houses/?ordering=${sort}`
     );
 
     setDisplayData(res.data.results);

@@ -12,7 +12,7 @@ const SavedProduct = () => {
     const userid = localStorage.getItem("userId");
     axios
       .get(
-        `https://api.makleruz.uz//products/api/v1/houses/get-wishlist-houses?user=${userid}`
+        `https://api.makleruz.uz/products/api/v1/houses/get-wishlist-houses?user=${userid}`
       )
       .then((data) => setSaveProducts(data.data.results))
       .catch((er) => console.log(er))

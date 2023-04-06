@@ -280,7 +280,7 @@ export default function CreateMebel() {
     const userToken = localStorage.getItem("access");
 
     axios
-      .post("https://api.makleruz.uz//mebel/api/v1/mebels/create/", formData, {
+      .post("https://api.makleruz.uz/mebel/api/v1/mebels/create/", formData, {
         headers: {
           Authorization: `Bearer ${userToken}`,
         },
@@ -303,7 +303,7 @@ export default function CreateMebel() {
         <div className="create-product edit-page">
           <form className="create-product__left" onSubmit={handleSubmit}>
             <h1 className="edit__card__title">
-              Регистрируйтес как мебель, получите работы
+              Создайте и продавайте мебели
             </h1>
             <p className="edit__card__text">
               Объявление будет доступно на{" "}
@@ -419,7 +419,7 @@ export default function CreateMebel() {
                   marginTop: "2rem",
                 }}
               >
-                <h5>Бранд</h5>
+                <h5>Бренд</h5>
                 <div
                   className="form-price"
                   style={{

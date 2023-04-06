@@ -69,7 +69,7 @@ const CreateProduct = () => {
 
     axios
       .post(
-        `https://api.makleruz.uz//products/web/api/v1/web-houses/create/`,
+        `https://api.makleruz.uz/products/web/api/v1/web-houses/create/`,
         data,
         {
           headers: {

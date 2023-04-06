@@ -22,7 +22,7 @@ const Workers = () => {
   const { search, profession, service } = form;
   useEffect(() => {
     axios
-      .get(`https://api.makleruz.uz//master/api/v1/maklers/`)
+      .get(`https://api.makleruz.uz/master/api/v1/maklers/`)
       .then((data) => setDisplayData(data.data.results))
       .catch((err) => console.log(err))
       .finally(() => setLoading(false));
@@ -40,7 +40,7 @@ const Workers = () => {
       delete params.how_service;
     }
     axios
-      .get(`https://api.makleruz.uz//master/api/v1/maklers/`, {
+      .get(`https://api.makleruz.uz/master/api/v1/maklers/`, {
         params,
       })
       .then((data) => {

@@ -44,7 +44,7 @@ const UserSettings = ({ name, email, password, number, img }) => {
     const userId = localStorage.getItem("userId");
 
     axios
-      .put(`https://api.makleruz.uz//users/api/v1/update-user/${userId}/`, formData)
+      .put(`https://api.makleruz.uz/users/api/v1/update-user/${userId}/`, formData)
       .then(() => {
         toast.success("Успешно!");
         window.location.reload();

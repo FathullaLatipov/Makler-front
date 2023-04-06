@@ -24,7 +24,7 @@ const ProductCard = ({ data, wishlist, wishId, deleteMount }) => {
     if (wishlist) {
       axios
         .delete(
-          `https://api.makleruz.uz//products/api/v1/houses/wishlist-houses/${wishId}/`
+          `https://api.makleruz.uz/products/api/v1/houses/wishlist-houses/${wishId}/`
         )
         .then(() => {
           deleteMount((prev) => !prev);
@@ -61,7 +61,7 @@ const ProductCard = ({ data, wishlist, wishId, deleteMount }) => {
     const userid = localStorage.getItem("userId");
     axios
       .get(
-        `https://api.makleruz.uz//products/api/v1/houses/get-wishlist-houses?user=${userid}`
+        `https://api.makleruz.uz/products/api/v1/houses/get-wishlist-houses?user=${userid}`
       )
       .then((data) => {
         setWishAllId(() => {

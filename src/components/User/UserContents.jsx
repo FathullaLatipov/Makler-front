@@ -47,18 +47,18 @@ const UserContents = ({ data, content, mounted, draft }) => {
     switch (content) {
       case "house":
         deleteData(
-          "https://api.makleruz.uz//products/api/v1/houses/delete",
+          "https://api.makleruz.uz/products/api/v1/houses/delete",
           data.id
         );
         break;
       case "store":
-        deleteData("https://api.makleruz.uz//store2/api/v1/store/delete", data.id);
+        deleteData("https://api.makleruz.uz/store2/api/v1/store/delete", data.id);
         break;
       case "master":
-        deleteData("https://api.makleruz.uz//master/api/v1/maklers/delete", data.pk);
+        deleteData("https://api.makleruz.uz/master/api/v1/maklers/delete", data.pk);
         break;
       case "mebel":
-        deleteData("https://api.makleruz.uz//mebel/api/v1/mebels/delete", data.id);
+        deleteData("https://api.makleruz.uz/mebel/api/v1/mebels/delete", data.id);
         break;
       default:
         break;

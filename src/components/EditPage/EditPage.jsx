@@ -263,7 +263,7 @@ export default function EditPage() {
     const userToken = localStorage.getItem("access");
 
     axios
-      .post("https://api.makleruz.uz//master/api/v1/maklers/create/", formData, {
+      .post("https://api.makleruz.uz/master/api/v1/maklers/create/", formData, {
         headers: {
           Authorization: `Bearer ${userToken}`,
         },

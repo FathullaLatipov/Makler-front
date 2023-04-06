@@ -86,16 +86,16 @@ function App() {
           />
           <Route path="/cabinet/:id" element={<UserCabinet />} />
           <Route path="/cabinet" element={<CabinetPage />} />
-          <Route path="/edit-house/:id" element={<EditHouse />} />
+          <Route path="/edit-product/:id" element={<EditHouse />} />
           <Route path="/edit-master/:id" element={<EditMaster />} />
           <Route path="/edit-store/:id" element={<EditStore />} />
           <Route path="/edit-mebel/:id" element={<EditMebel />} />
           <Route path="/edit-mebel" element={<CabinetPage />} />
-          <Route path="/edit-house" element={<CabinetPage />} />
+          <Route path="/edit-product" element={<CabinetPage />} />
           <Route path="/edit-master" element={<CabinetPage />} />
           <Route path="/edit-store" element={<CabinetPage />} />
           <Route path="/create/master" element={<EditPage />} />
-          <Route path="/create/house" element={<CreateProduct />} />
+          <Route path="/create/product" element={<CreateProduct />} />
           <Route path="/create/mebel" element={<CreateMebel />} />
           <Route path="/save-products" element={<SavedProduct />} />
           <Route path="/product/:id" element={<SingleProduct />} />

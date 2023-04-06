@@ -341,7 +341,7 @@ export default function EditMebel() {
     const userToken = localStorage.getItem("access");
 
     axios
-      .put(`https://api.makleruz.uz//mebel/api/v1/mebels/update/${id}`, formData, {
+      .put(`https://api.makleruz.uz/mebel/api/v1/mebels/update/${id}`, formData, {
         headers: {
           Authorization: `Bearer ${userToken}`,
         },
@@ -364,7 +364,7 @@ export default function EditMebel() {
         <div className="create-product edit-page">
           <form className="create-product__left" onSubmit={handleSubmit}>
             <h1 className="edit__card__title">
-              Регистрируйтес как мебель, получите работы
+              Изменить мебель
             </h1>
             <p className="edit__card__text">
               Объявление будет доступно на{" "}
@@ -479,7 +479,7 @@ export default function EditMebel() {
                   marginTop: "2rem",
                 }}
               >
-                <h5>Бранд</h5>
+                <h5>Бренд</h5>
                 <div
                   className="form-price"
                   style={{
