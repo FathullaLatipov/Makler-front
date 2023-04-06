@@ -1,0 +1,151 @@
+@import "../../styles/modules.scss";
+
+// .master-card {
+//   padding-top: 20px;
+//   padding-bottom: 40px;
+//   padding-left: 20px;
+//   padding-right: 20px;
+//   width: 343px;
+//   height: 318px;
+//   border-radius: 5px;
+//   background-color: #fff;
+// }
+.user-card {
+  width: 300px;
+  height: 280px;
+}
+.user-name {
+  font-size: 15px;
+  color: #111;
+}
+
+.info-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  margin-bottom: 24px;
+}
+
+.user-info {
+  margin-top: 24px;
+}
+.user-level {
+  font-size: 12px;
+  line-height: 15px;
+  color: #111111;
+  opacity: 0.4;
+  margin-top: 5px;
+  margin-bottom: 24px;
+}
+.info-box {
+  padding: 5px 20px;
+  border: 1px solid #000;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.user-loc {
+  font-size: 10px;
+  color: #783c11;
+}
+
+.app__worker-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  @include tablet {
+    display: block;
+  }
+
+  .app__worker-left {
+    background-color: #fff;
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 3px;
+    width: 70%;
+
+    @include laptop {
+      width: 60%;
+    }
+
+    @include tablet {
+      width: 100%;
+    }
+
+    @include phones {
+      display: block;
+    }
+
+    .app__worker-info--wrapper {
+      align-self: flex-end;
+    }
+
+    .app__worker-info {
+      margin-bottom: 22px;
+      text-align: end;
+      @include phones {
+        text-align: left;
+      }
+      h1 {
+        font-weight: 700;
+        font-size: 15px;
+      }
+
+      p {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 15px;
+        text-decoration-line: underline;
+        margin-top: 5px;
+        color: #0085ff;
+      }
+    }
+
+    .worker-btn {
+      font-size: 13px;
+      color: white;
+      background: #c56622;
+      padding: 14px 30px;
+      border-radius: 3rem;
+      border: none;
+      cursor: pointer;
+
+      @include phones {
+        width: 100%;
+      }
+    }
+  }
+
+  .app__worker-right {
+    background-color: #fff;
+    width: 28%;
+    padding: 40px;
+    border-radius: 3px;
+
+    @include laptop {
+      width: 38%;
+    }
+
+    @include tablet {
+      width: 100%;
+      margin-top: 3rem;
+    }
+
+    h1 {
+      font-weight: 700;
+      font-size: 15px;
+      line-height: 18px;
+      margin-bottom: 20px;
+      color: #000000;
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 23px;
+      color: #000000;
+    }
+  }
+}

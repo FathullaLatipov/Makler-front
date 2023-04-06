@@ -1,0 +1,508 @@
+@import "../../styles/modules.scss";
+
+.header {
+  background: #ffffff;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.05);
+  &-body {
+    padding: rem(15px) 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__left {
+    display: flex;
+    align-items: center;
+    & > * {
+      &:not(:last-child) {
+        margin-right: rem(40px);
+      }
+    }
+    a {
+      img {
+        width: 150px;
+      }
+    }
+  }
+  &-nav {
+    display: flex;
+    align-items: center;
+    position: relative;
+    ul {
+      display: flex;
+      justify-content: flex-start;
+      @include tablet {
+        position: absolute;
+        background: #fff;
+        height: 93vh;
+        top: 100%;
+        z-index: 10000;
+        right: -400px;
+        flex-direction: column;
+        padding: 0 40px;
+        align-items: flex-end;
+        justify-content: center;
+        & > * {
+          &:not(:last-child) {
+            margin-bottom: 30px;
+          }
+        }
+        margin-right: 0;
+        width: 274px;
+        opacity: 0;
+        visibility: hidden;
+        transition: all ease 0.4s;
+        &.active {
+          visibility: visible;
+          opacity: 1;
+          right: -20px;
+        }
+      }
+
+      & > * {
+        &:not(:last-child) {
+          margin-right: rem(20px);
+        }
+      }
+      li {
+        display: flex;
+        align-items: center;
+        a {
+          display: flex;
+          align-items: center;
+          font-family: SFProDisplay_600;
+          color: $black;
+          font-size: rem(13px);
+        }
+        svg {
+          margin-right: rem(5px);
+          fill: $white;
+        }
+      }
+    }
+  }
+}
+
+.hamburger {
+  display: none;
+  padding: 5px 0 0;
+  @include tablet {
+    display: block;
+  }
+}
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  @include tablet {
+    display: none;
+  }
+  & > * {
+    &:not(:last-child) {
+      margin-right: 15px;
+      a {
+        color: rgba(11, 11, 11, 0.2);
+        position: relative;
+        &::after {
+          content: "/";
+          font-family: inherit;
+          color: rgba(11, 11, 11, 0.2);
+          position: absolute;
+          right: rem(-10px);
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+    }
+  }
+  li {
+    &:first-child {
+      a {
+        position: relative;
+
+        &::after {
+          content: "|";
+          font-family: inherit;
+          color: rgba(11, 11, 11, 0.2);
+          position: absolute;
+          right: rem(-10px);
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+    }
+    a {
+      font-family: SFProDisplay_600;
+      font-size: rem(13px);
+      line-height: rem(16px);
+    }
+    &:last-child {
+      a {
+        color: #0b0b0b;
+      }
+    }
+  }
+}
+
+.additional-nav {
+  &-s {
+    padding: rem(61px) 0 rem(10px);
+  }
+  &-list {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: rem(10px);
+    margin-top: rem(24px);
+    @include laptop {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include phones {
+      grid-template-columns: 1fr;
+    }
+    & > * {
+      &:not(:last-child) {
+        margin-right: 0.7%;
+      }
+    }
+  }
+  ul {
+    flex-basis: 16.1%;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    padding: rem(30px) rem(10px) rem(50px) rem(30px);
+    li {
+      a {
+        font-weight: 400;
+        line-height: rem(15px);
+        text-decoration-line: underline;
+        color: $black;
+        transition: all ease 0.2s;
+        &:hover {
+          color: $orange;
+        }
+      }
+    }
+    & > * {
+      &:not(:last-child) {
+        margin-bottom: rem(12px);
+      }
+    }
+  }
+}
+.balls {
+  margin-left: 20%;
+  padding: 10px;
+}
+.cabinet-nav {
+  padding: rem(40px) rem(37px) rem(64px);
+  background: #ffffff;
+  width: rem(342px);
+  margin-top: 2rem;
+  @include laptop {
+    padding: 20px 20px 40px;
+  }
+}
+
+.cabinet {
+  &-profile {
+    display: flex;
+    margin-bottom: rem(40px);
+    &-logo {
+      margin-right: rem(15px);
+      img {
+        width: rem(96px);
+        height: rem(96px);
+        object-fit: cover;
+      }
+    }
+    &-info {
+      h4 {
+        font-family: SFProDisplay_700;
+        font-size: rem(17px);
+        line-height: rem(20px);
+        color: #000000;
+        margin-bottom: rem(8px);
+      }
+      p {
+        font-family: SFProDisplay_400;
+        font-size: rem(11px);
+        line-height: rem(13px);
+        color: #000000;
+        opacity: 0.5;
+      }
+    }
+  }
+  &-nav {
+    &-list {
+      li {
+        &.active {
+          button {
+            font-family: SFProDisplay_600;
+            color: $orange;
+            background: #f9f0e9;
+            svg {
+              &:last-of-type {
+                display: none;
+              }
+
+              &:first-child {
+                display: block;
+              }
+            }
+          }
+        }
+        button {
+          transition: all ease 0.2s;
+          font-family: SFProDisplay_400;
+          font-size: rem(15px);
+          line-height: rem(18px);
+          color: #000000;
+          padding: rem(14px) rem(20px);
+          width: auto;
+          white-space: nowrap;
+          svg {
+            &:first-child {
+              display: none;
+            }
+          }
+          &:hover {
+            font-family: SFProDisplay_600;
+            color: $orange;
+            svg {
+              &:last-of-type {
+                display: none;
+              }
+              &:first-child {
+                display: block;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.logout-link {
+  font-family: SFProDisplay_400;
+  font-size: rem(15px);
+  line-height: rem(18px);
+  color: #000000;
+  display: flex;
+  margin-top: rem(105px);
+  margin-left: rem(20px);
+  svg {
+    &:first-child {
+      display: none;
+    }
+  }
+  &:hover {
+    font-family: SFProDisplay_600;
+    color: $orange;
+
+    svg {
+      &:last-of-type {
+        display: none;
+      }
+
+      &:first-child {
+        display: block;
+      }
+    }
+  }
+}
+
+.nav-search {
+  margin-top: rem(43px);
+  .btn-search {
+    font-family: SFProDisplay_700;
+    padding: rem(15px) rem(32px);
+    font-size: rem(13px);
+    line-height: rem(16px);
+    text-align: center;
+    color: #ffffff;
+    @include phones {
+      width: 100%;
+    }
+  }
+  &-body {
+    background: #ffffff;
+    border-radius: rem(3px);
+    padding: rem(9px) rem(10px);
+    display: flex;
+    flex-wrap: wrap;
+    & > li {
+      position: relative;
+      display: flex;
+      align-items: center;
+      @include tablet {
+        &:nth-child(1),
+        &:nth-child(2) {
+          flex-basis: 50%;
+          margin-bottom: 60px;
+          margin-top: 30px;
+        }
+        &:nth-child(3) {
+          flex-basis: 100%;
+          margin-bottom: 60px;
+        }
+      }
+      @include phones {
+        &:last-child {
+          flex-basis: 100%;
+          margin-top: 30px;
+        }
+      }
+      label.nav-label {
+        position: absolute;
+        top: -30px;
+      }
+      &:last-of-type {
+        flex-grow: 0;
+        flex-shrink: 0;
+      }
+      a {
+        color: $black;
+      }
+      .choose-btn-round {
+        padding: rem(10px) rem(14px);
+      }
+      .choose-btn {
+        svg {
+          transition: all ease 0.3s;
+          fill: $white;
+        }
+        &.active {
+          svg {
+            transform: scale(-1);
+          }
+        }
+      }
+    }
+  }
+  &_how {
+    padding-right: rem(29px);
+    flex-shrink: 0;
+    flex-grow: 0;
+    @include phones {
+      padding-right: 10px;
+    }
+  }
+  &_rooms {
+    flex-grow: 1;
+    flex-shrink: 0;
+    padding-right: rem(29px);
+  }
+  &_address {
+    flex-shrink: 0;
+    flex-grow: 1;
+    padding-right: rem(29px);
+    svg {
+      margin-right: rem(6px);
+      fill: $white;
+    }
+  }
+  &_type {
+    flex-shrink: 0;
+    flex-grow: 0;
+    padding-right: rem(29px);
+    width: rem(290px);
+    & > a {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 0;
+    }
+  }
+}
+.nav-body-choose {
+  background: #ffffff;
+  box-shadow: 0px 10px 28px rgba(0, 0, 0, 0.12);
+  border-radius: 3px;
+  position: absolute;
+  top: calc(100% + 13px);
+  padding: rem(7px) rem(7px) rem(20px);
+  left: rem(-10px);
+  z-index: 12;
+  display: flex;
+  width: max-content;
+  opacity: 0;
+  transition: all ease 0.3s;
+  visibility: hidden;
+
+  @include tablet {
+    display: block;
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+  }
+  & > * {
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+  }
+  a,
+  label {
+    width: rem(181px);
+    display: flex;
+    align-items: center;
+  }
+  &.active {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+.rooms-list {
+  display: flex;
+  & > * {
+    &:not(:last-child) {
+      margin-right: rem(5px);
+    }
+  }
+  li {
+    a,
+    label {
+      border-radius: rem(50px);
+      background: $gray;
+      display: flex;
+      width: 100%;
+      height: rem(36px);
+      min-width: rem(36px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 rem(14px);
+      font-family: SFProDisplay_600;
+      color: $black;
+      transition: all ease 0.2s;
+      line-height: rem(16px);
+      &:hover {
+        background: $orange;
+        color: $white;
+      }
+      &.active {
+        color: $white;
+        background: $orange;
+      }
+    }
+  }
+}
+
+.nav-search-container {
+  display: flex;
+  align-items: center;
+  ul {
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+  & > * {
+    &:not(:last-child) {
+      margin-right: rem(14px);
+    }
+  }
+}

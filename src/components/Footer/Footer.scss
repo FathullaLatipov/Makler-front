@@ -1,0 +1,193 @@
+@import "../../styles/modules.scss";
+
+.footer {
+	background: $black;
+	padding: rem(30px) 0 rem(20px);
+
+	&__top {
+		border-bottom: 1px solid rgba(225,225,225, .1);
+		padding-bottom: rem(27px);
+		&-body {
+			display: flex;
+			align-items: center;
+			@include laptop {
+				align-items: flex-start;
+			}
+			@include phones {
+				flex-wrap: wrap;
+				& > a {
+					flex-basis: 100%;
+				}
+			}
+			ul {
+				display: flex;
+				@include laptop {
+					flex-wrap: wrap;
+					& > * {&:not(:last-child) {
+						margin-bottom: 10px;
+					}}
+				}
+				@include phones {
+					flex-basis: 50%;
+					margin-top: 50px;
+				}
+				& > * {&:not(:last-child) {
+					margin-right: rem(30px);
+				}}
+				li {
+					@include laptop {
+						flex-basis: 100%;
+					}
+					a {
+						color: $white;
+						font-weight: 400;
+						transition: all ease .2s;
+						&:hover {
+							color: $orange;
+						}
+					}
+				}
+				&:first-of-type {
+					padding-left: rem(150px);
+					@include phones {
+						padding-left: 0;
+					}
+				}
+				&:last-of-type	{
+					margin-left: auto;
+					&>* {
+							&:not(:last-child) {
+								margin-right: rem(22px);
+							}
+						}
+				}
+			}
+		}
+	}
+	&__center {
+		padding: rem(12px) 0;
+		border-bottom: 1px solid rgba(225, 225, 225, .1);
+		&-body {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			@include phones {
+				flex-wrap: wrap;
+				& > * {&:not(:last-child) {
+					margin-bottom: 20px;
+				}}
+			}
+		}
+		p {
+			flex-shrink: 1;
+			font-size: rem(10px);
+			line-height: rem(16px);
+			color: #FFFFFF;
+			opacity: 0.4;
+			width: rem(446px);
+			padding-right: rem(10px);
+		}
+		ul {
+			display: flex;
+			
+			& > * {&:not(:last-child) {
+				margin-right: 5px;
+			}}
+			li {
+				background: #FFFFFF;
+				border-radius: 4px;
+				height: rem(34px);
+				width: rem(70px);
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				img {
+					max-width: 77%;
+					max-height: 70%;
+				}
+			}
+		}
+	}
+	&__bottom {
+		padding-top: rem(13px);
+		&-body {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			@include tablet {
+				flex-wrap: wrap;
+				& > * {&:not(:last-child) {
+					margin-bottom: 20px;
+				}}
+			}
+			ul:first-of-type {
+				display: flex;
+				@include phones {
+					flex-basis: 100%;
+					flex-wrap: wrap;
+					& > * {&:not(:last-child) {
+						margin-bottom: 10px;
+					}}
+					li {
+						flex-basis: 100%;
+						text-align: center;
+					}
+				}
+				li {
+					p {
+						font-weight: 400;
+						font-size: rem(10px);
+						line-height: rem(19px);
+						color: #FFFFFF;
+						opacity: 0.4;
+						transition: all ease .2s;
+						margin-right: rem(28px);
+						@include phones {
+							margin-right: 0;
+						}
+					}
+					a {
+						margin-right: rem(17px);
+						@include phones {
+							margin-right: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+ul.social-links {
+	display: flex;
+	@include phones {
+		flex-basis: 100%;
+		justify-content: center;
+	}
+	& > * {&:not(:last-child) {
+		margin-right: 24px;
+	}}
+	li {
+		a {
+			display: flex;
+			transition: all ease .2s;
+			svg {
+				fill: $white;
+			}
+			&:hover {
+				transform: scale(1.2);
+			}
+		}
+	}
+}
+.line-link {
+	font-weight: 400;
+	font-size: rem(10px);
+	line-height: rem(19px);
+	text-decoration-line: underline;
+	color: #FFFFFF;
+	opacity: 0.4;
+	transition: all ease .2s;
+	&:hover {
+		opacity: 1;
+	}
+}

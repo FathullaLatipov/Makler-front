@@ -1,0 +1,61 @@
+$breakpoints: (
+  "phone": 400px,
+  "phone-wide": 480px,
+  "phablet": 560px,
+  "tablet-small": 640px,
+  "tablet": 768px,
+  "tablet-wide": 1024px,
+  "desktop": 1248px,
+  "desktop-wide": 1440px,
+);
+
+@mixin size($a,$b: $a) {
+  width: $a;
+  height: $b;
+}
+
+@function rem($px) {
+  @return calc($px/16px) + 0rem;
+}
+@function pers($px) {
+  @return (calc($px/1400px)*100%);
+}
+@mixin laptop-max-m {
+  @media screen and (max-width: 1500px) {
+    @content;
+  }
+}
+@mixin laptop-max {
+  @media screen and (max-width: 1200px) {
+    @content;
+  }
+}
+@mixin laptop-1100 {
+  @media screen and (max-width: 1100px) {
+    @content;
+  }
+}
+@mixin laptop {
+  @media screen and (max-width: 1000px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (max-width: 760px) {
+    @content;
+  }
+}
+@mixin phones {
+  @media screen and (max-width: 480px) {
+    @content;
+  }
+}
+
+
+@mixin placeholder {
+  ::-webkit-input-placeholder {@content}
+  :-moz-placeholder           {@content}
+  ::-moz-placeholder          {@content}
+  :-ms-input-placeholder      {@content}
+}

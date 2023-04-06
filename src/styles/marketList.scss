@@ -1,0 +1,159 @@
+.cards {
+	&-s {
+		padding: rem(31px) 0 rem(53px);
+	}
+	&-head {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		& > ul {
+			display: flex;
+			& > * {&:not(:last-child) {
+				margin-right: rem(21px);
+			}}
+			li {
+				&:first-child {
+					a {
+						svg {
+							transform: scale(-1);
+						}
+					}
+				}
+				a {
+					display: flex;
+					transition: all ease .2s;
+					svg {
+						fill: $white;
+					}
+					&:hover {
+						transform: scale(1.1);
+					}
+				}
+			}
+		}
+	}
+	&-list {
+		position: relative;
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		margin-bottom: rem(40px);
+		margin-top: rem(20px);
+		gap: rem(10px);
+		@include tablet {
+			grid-template-columns: repeat(2, 1fr);
+		}
+		@include phones {
+			grid-template-columns: 1fr;
+		}
+	}
+	&-item {
+		position: relative;
+		background: #FFFFFF;
+		overflow: hidden;
+		border-radius: rem(3px);
+		margin-bottom: rem(10px);
+		cursor: pointer;
+		&.top {
+			&:hover {
+				.cards-item-info__top {
+					p {
+						font-weight: 700;
+						color: $white;
+					}
+				}
+			}
+			span.top-span {
+				font-weight: 900;
+				font-size: rem(12px);
+				line-height: rem(15px);
+				color: #FFFFFF;
+				padding: rem(6px) rem(12px);
+				background: $orange;
+				border-radius: 50px;
+				position: absolute;
+				top: rem(15px);
+				left: rem(15px);
+				z-index: 10;
+			}
+			.cards-item__bottom {
+				background: $orange;
+				p,span {
+					color: $white;
+				}
+			}
+   		}
+		&:hover {
+			.cards-item__top {
+				&::after {
+					opacity: .4;
+				}
+				img {
+					transform: scale(1.1);
+				}
+			} 
+			.cards-item-info__top {
+				p {
+					font-weight: 700;
+					color: $orange;
+				}
+			}
+		}
+		&__top {
+			height: rem(152px);
+			overflow: hidden;
+			position: relative;
+			&::after {
+				content: '';
+				width: 100%;
+				height: 100%;
+				background-color: $black;
+				opacity: 0;
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				z-index: 1;
+				transition: all ease .3s;
+			}
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				transition: all ease .3s;
+			}
+		}
+		&-info {
+			padding: rem(13px) rem(15px) rem(16px);
+			& > div {
+				display: flex;
+				justify-content: space-between;
+			}
+			&__top {
+				p, span {
+					font-weight: 400;
+					font-size: rem(12px);
+					line-height: rem(15px);
+					color: $black;
+					transition: all ease .2s;
+				}
+				margin-bottom: rem(5px);
+			}
+			&__bottom {
+			p, span {
+					font-weight: 400;
+					font-size: rem(10px);
+					line-height: rem(12px);
+					color: $brown
+				}
+			}
+		}
+	}
+	button {
+		margin: 0 auto;
+	}
+}
+
+.save {
+	svg {
+		fill: $white;
+	}
+}

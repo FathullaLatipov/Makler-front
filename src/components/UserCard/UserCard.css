@@ -1,0 +1,55 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.master-card {
+  /* padding-top: 20px; */
+  /* padding-bottom: 40px;
+  padding-left: 20px;
+  padding-right: 20px; */
+  width: 343px;
+  /* height: 318px; */
+  border-radius: 5px;
+  background-color: #fff;
+}
+.main-card .user-card {
+  width: 100%;
+  padding: 0 1rem 1.5rem;
+  height: auto !important;
+}
+
+.user-name {
+  font-size: 15px;
+  color: #111;
+}
+
+.info-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  margin-bottom: 24px;
+}
+
+.user-info {
+  margin-top: 24px;
+}
+.user-level {
+  font-size: 12px;
+  line-height: 15px;
+  color: #111111;
+  opacity: 0.4;
+  margin-bottom: 24px;
+}
+.info-box {
+  padding: 5px 20px;
+  border: 1px solid #000;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.user-loc {
+  font-size: 10px;
+  color: #783c11;
+}

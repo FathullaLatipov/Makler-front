@@ -1,0 +1,133 @@
+import { v4 as uuid } from "uuid";
+import img1 from "../../assets/img/cards/1.png";
+
+export const announceData = [
+  {
+    id: uuid(),
+    pendingType: "Ожидание подтверждения",
+    imgUrl: img1,
+    price: 400,
+    date: "Дата создание: 12 Август. 2022 | 19:32",
+    room: "2 Комнатая кв, 63м²",
+    position: "Ташкент, Шайхантахурский район",
+    pm: 334,
+    comment: 13,
+    like: 209,
+  },
+  {
+    id: uuid(),
+    pendingType: "Подтвержден",
+    imgUrl: img1,
+    price: 400,
+    date: "Дата создание: 12 Август. 2022 | 19:32",
+    room: "2 Комнатая кв, 63м²",
+    position: "Ташкент, Шайхантахурский район",
+    pm: 334,
+    comment: 13,
+    like: 209,
+  },
+  {
+    id: uuid(),
+    pendingType: "Отказaна!",
+    imgUrl: img1,
+    price: 400,
+    date: "Дата создание: 12 Август. 2022 | 19:32",
+    room: "2 Комнатая кв, 63м²",
+    position: "Ташкент, Шайхантахурский район",
+    pm: 334,
+    comment: 13,
+    like: 209,
+  },
+  {
+    id: uuid(),
+    pendingType: "Отказaна!",
+    imgUrl: img1,
+    price: 400,
+    date: "Дата создание: 12 Август. 2022 | 19:32",
+    room: "2 Комнатая кв, 63м²",
+    position: "Ташкент, Шайхантахурский район",
+    pm: 334,
+    comment: 13,
+    like: 209,
+  },
+];
+
+export const archive = [
+  {
+    id: uuid(),
+    imgUrl: img1,
+    price: 400,
+    date: "Дата создание: 12 Август. 2022 | 19:32",
+    room: "2 Комнатая кв, 63м²",
+    position: "Ташкент, Шайхантахурский район",
+    pm: 334,
+    comment: 13,
+    like: 209,
+  },
+  {
+    id: uuid(),
+    imgUrl: img1,
+    price: 400,
+    date: "Дата создание: 12 Август. 2022 | 19:32",
+    room: "2 Комнатая кв, 63м²",
+    position: "Ташкент, Шайхантахурский район",
+    pm: 334,
+    comment: 13,
+    like: 209,
+  },
+];
+export const draft = [
+  {
+    id: uuid(),
+    imgUrl: img1,
+    price: 400,
+    date: "Дата создание: 12 Август. 2022 | 19:32",
+    room: "2 Комнатая кв, 63м²",
+    position: "Ташкент, Шайхантахурский район",
+    pm: 334,
+    comment: 13,
+    like: 209,
+  },
+  {
+    id: uuid(),
+    imgUrl: img1,
+    price: 400,
+    date: "Дата создание: 12 Август. 2022 | 19:32",
+    room: "2 Комнатая кв, 63м²",
+    position: "Ташкент, Шайхантахурский район",
+    pm: 334,
+    comment: 13,
+    like: 209,
+  },
+];
+
+export const userCabinetNavigator = [
+  {
+    id: 1,
+    class: "svg-sprite-icon icon-fi_book-o fill-n w-16",
+    icon1: "fi_book-o",
+    icon2: "fi_book",
+    text: "Мои объявления",
+  },
+  {
+    id: 3,
+    class: "svg-sprite-icon icon-fi_archive-o fill-n w-16",
+    icon1: "fi_archive-o",
+    icon2: "fi_archive",
+    text: "Архив",
+  },
+  {
+    id: 4,
+    class: "svg-sprite-icon icon-fi_book-o fill-n w-16",
+    icon1: "fi_book-o",
+    icon2: "fi_book",
+    text: "Черновик",
+  },
+  {
+    id: 5,
+    class: "svg-sprite-icon icon-fi_settings-o fill-n w-16",
+    icon1: "fi_settings-o",
+    icon2: "fi_settings",
+    text: "Настроить профиль",
+  },
+];

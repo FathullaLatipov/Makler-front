@@ -1,0 +1,272 @@
+.btn {
+	cursor: pointer;
+	border-radius: 3px;
+	border: none;
+}
+
+.btn-big {
+	padding: rem(14px);
+	width: rem(211px);
+	display: flex;
+	justify-content: center;
+}
+
+.btn-orange-text {
+	color: $orange;
+	font-weight: 800;
+	background: $orange-light;
+	padding: rem(13px) rem(15px);
+	transition: all ease .2s;	
+	svg {
+		fill: $orange;
+	}
+
+	span {
+		color: $orange;
+		font-weight: 800;
+	}
+	&:hover {
+		background: $orange;
+		span {
+			color: $white;
+		}
+		svg {
+			fill: $white;
+			path {
+				stroke: $white;
+			}
+		}
+	}
+}
+
+.choose-btn-round {
+	border: 1px solid rgba(17, 17, 17, 0.2);
+	border-radius: 50px;
+	padding: 0 rem(14px);
+	height: 100%;
+	display: flex;
+	align-items: center;
+	min-width: rem(124px);
+	justify-content: space-between;
+	font-family: SFProDisplay_400;
+	color: $black
+}
+
+.show-btn-orange {
+	padding: 0 rem(32px);
+	font-size: rem(13px);
+	font-family: SFProDisplay_700;
+	background: $orange;
+	color: $white;
+	height: 100%;
+	transition: all ease .2s;
+	&:hover {
+		background: darken($orange, 5)
+	}
+}
+
+
+.btn-save {
+	position: absolute;
+	right: rem(24px);
+	top: rem(15px);
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	padding: 0;
+	transition: all ease .2s;
+	z-index: 10;
+	&:hover {
+		transform: scale(1.1);
+	}
+	svg {
+		width: rem(20px);
+		height: rem(20px);
+		fill: none;
+	}
+}
+.btn-white {
+	background: #FFFFFF;
+	font-family: SFProDisplay_500;
+	font-size: rem(13px);
+	color: #121212;
+	transition: all ease .2s;
+	&:hover {
+		color: $orange
+	}
+}
+.btn-gray {
+	background: $gray-bg;
+	border-radius: 50px;
+	width: rem(128px);
+	padding: rem(14px) 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: all ease .2s;
+	&:hover {
+		background: #d0d0d0;
+	}
+}
+.left-icon {
+	svg {
+		margin-right: rem(5px);
+	}
+}
+.btn-long {
+	width: rem(225px);
+}
+.text-left {
+	justify-content: flex-start;
+	padding-left: rem(25px);
+}
+
+.btn-black {
+	padding: rem(13px) rem(20px);
+	color: $white;
+	background: $black;
+	border-radius: rem(50px);
+	font-family: SFProDisplay_400;
+	font-size: rem(13px);
+	line-height: rem(18px);
+	transition: all ease .2s;
+}
+
+.btn-orange-light {
+	width: rem(186px);
+	height: rem(43px);
+	background: $white;
+	border-radius: rem(50px);
+	display: flex;
+	align-items: center;
+	padding: 0 rem(20px);
+	margin-bottom: rem(5px);
+	transition: all ease .3s;
+	&.active {
+		background: rgba(197, 102, 34, 0.1);
+	}
+	&:hover {
+		background: rgba(197, 102, 34, 0.1);
+	}
+}
+.btn-orange-50 {
+	background: rgba(197, 102, 34, 0.1);
+	padding: rem(14px) rem(24px);
+	font-weight: 800;
+	font-size: rem(13px);	
+	line-height: rem(16px);
+	text-align: center;
+	color: $orange;
+	transition: all ease .2s;
+	&:hover {
+		color: $white;
+		background: $orange;
+	}
+}
+.btn-orange {
+	background: $orange;
+	color: white;
+	border-radius: 3px;
+	padding: rem(14px) 0;
+	width: 100%;
+	font-family: SFProDisplay_400;
+	transition: all ease .2s;
+	&:hover {
+		background: darken($orange, 5)
+	}
+}
+
+.btn-black-big {
+	font-family: SFProDisplay_600;
+	font-size: rem(14px);
+	line-height: rem(17px);
+	text-align: center;
+	color: $white;
+	border-radius: 3px;
+}
+
+.btn-border-orange {
+	padding: rem(7px) rem(20px);
+	border: 1px solid $orange;
+	border-radius: 50px;
+	font-family: SFProDisplay_700;
+	font-size: rem(15px);
+	line-height: rem(18px);
+	color: $orange;
+	transition: all ease .2s;
+	&:hover {
+		background: $orange;
+		color: $white;
+	}
+}
+
+.switch-btn {
+	display: flex;
+	label {
+		position: relative;
+		cursor: pointer;
+		&::after {
+			content:'';
+			position: absolute;
+			left: rem(-36px);
+			top: 50%;
+			transform: translateY(-50%);
+			width: rem(27px);
+			height: rem(18px);
+			border: 1px solid #CBCBCB;
+			border-radius: 50px;
+			transition: all ease .3s;
+		}
+		&::before {
+			content: '';
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			width: rem(14px);
+			height: rem(14px);
+			background: #C4C4C4;
+			border-radius: 50px;
+			left: rem(-34px);
+			transition: all ease .3s;
+		}
+	}	
+	input {
+		display: none;
+		&:checked + label {
+			&::before {
+				background: $orange;
+				left: rem(-25px);	
+			}
+		}
+	}
+}
+
+.switch-list {
+	display: flex;
+	padding-left: rem(38px);
+	flex-wrap: wrap;
+	li {
+		margin-bottom: 20px;
+	}
+	& > * {&:not(:last-child) {
+		margin-right: rem(60px);
+	}}
+}
+
+.btn-dark-gray {
+	font-weight: 800;
+	font-size: rem(13px);
+	line-height: rem(16px);
+	text-align: center;
+	color: #000000;
+	padding: rem(18px) rem(25px);
+	background: rgba(0, 0, 0, 0.1);
+	border-radius: 3px;
+	svg {
+		margin-right: rem(14px);
+	}
+	transition: all ease .2s;
+	&:hover {
+		background: rgba(0, 0, 0, 0.2);
+	}
+}

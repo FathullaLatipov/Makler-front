@@ -1,0 +1,363 @@
+@import "../../styles/modules.scss";
+
+.cabinet {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  @include tablet {
+    flex-direction: column;
+    align-items: center;
+  }
+  &-s {
+    padding: rem(46px) 0 rem(293px);
+  }
+}
+
+.all-products-header {
+  display: block;
+  margin-bottom: 1rem !important;
+  font-family: SFProDisplay_400;
+  font-size: 0.9rem;
+  color: black;
+  text-transform: capitalize;
+}
+
+.cabinet-s {
+  .settings-s,
+  .advert-s,
+  .photos-work-s {
+    margin-right: rem(129px);
+    @include laptop {
+      margin-right: 0.625rem;
+    }
+  }
+  .photos-work-s {
+    width: rem(459px);
+  }
+}
+
+.advert {
+  .alert-advert {
+    margin-bottom: rem(22px);
+  }
+  &-list {
+    min-width: 460px;
+    @media screen and (max-width: 530px) {
+      min-width: none !important;
+      width: 100%;
+    }
+    & > * {
+      &:not(:last-child) {
+        margin-bottom: rem(30px);
+      }
+    }
+  }
+  &-item {
+    width: 100%;
+    &__top {
+      height: rem(217px);
+      position: relative;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    &__bottom {
+      padding: rem(15px) rem(20px) rem(28px) rem(15px);
+      background-color: $white;
+    }
+    &-info {
+      &__top {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: rem(10px);
+        p,
+        span {
+          font-family: SFProDisplay_400;
+          line-height: rem(17px);
+          color: #111111;
+        }
+      }
+      &__bottom {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: rem(20px);
+        p,
+        span {
+          font-family: SFProDisplay_400;
+          font-size: rem(10px);
+          line-height: rem(12px);
+          color: #783c11;
+        }
+      }
+    }
+    &-date {
+      p {
+        font-family: SFProDisplay_400;
+        font-size: rem(10px);
+        line-height: rem(12px);
+        color: #111111;
+        opacity: 0.5;
+        margin-top: rem(10px);
+      }
+    }
+    &-status {
+      padding: rem(4px) rem(12px) rem(4px) rem(5px);
+      position: absolute;
+      left: rem(15px);
+      top: rem(20px);
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: rem(11px);
+      line-height: rem(13px);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      & > * {
+        &:not(:last-child) {
+          margin-right: 5px;
+        }
+      }
+      &-icon {
+        display: flex;
+        @include size(rem(16px));
+        border-radius: 50%;
+        background: $white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      svg {
+        max-width: rem(8px);
+        max-height: rem(8px);
+        position: relative;
+        right: -0.5px;
+      }
+      &.wait-status {
+        background: $warning;
+        svg {
+          fill: $orange;
+        }
+      }
+      &.error-status {
+        background: $red;
+        svg {
+          fill: $red;
+          right: 0;
+        }
+      }
+      &.done-status {
+        background: $green;
+        svg {
+          right: 0;
+        }
+      }
+    }
+  }
+  &-settings {
+    position: relative;
+    &-body {
+      position: absolute;
+      top: rem(55px);
+      right: rem(-14px);
+      padding: rem(25px) rem(40px) rem(25px) rem(25px);
+      background: $white;
+      border-radius: 3px;
+      box-shadow: 0px 0px 10px 3px rgb(0, 0, 0, 0.05);
+      visibility: visible;
+      opacity: 0;
+      z-index: 4;
+      visibility: hidden;
+      transition: all ease 0.2s;
+      &.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      ul {
+        & > * {
+          &:not(:last-child) {
+            margin-bottom: 20px;
+          }
+        }
+      }
+      span {
+        font-family: SFProDisplay_600;
+        font-size: rem(14px);
+        // width: max-content;
+        white-space: nowrap;
+        color: $black;
+        transition: all ease 0.2s;
+        &:hover {
+          color: $orange;
+        }
+      }
+    }
+  }
+}
+.statistic-list {
+  display: flex;
+  & > * {
+    &:not(:last-child) {
+      margin-right: rem(30px);
+    }
+  }
+  li {
+    display: flex;
+    span {
+      font-family: SFProDisplay_400;
+      font-size: rem(12px);
+      line-height: rem(14px);
+      color: #111111;
+      opacity: 0.5;
+      margin-right: 9px;
+      display: block;
+    }
+    strong {
+      font-family: SFProDisplay_600;
+      font-size: rem(12px);
+      line-height: rem(14px);
+      color: #111111;
+    }
+  }
+}
+.alert-advert {
+  background: #ffffff;
+  border-radius: 4px;
+  padding: rem(25px);
+  h5 {
+    font-family: SFProDisplay_600;
+    font-size: rem(15px);
+    line-height: rem(18px);
+    color: #0b0b0b;
+    margin-bottom: rem(5px);
+  }
+  p {
+    font-family: SFProDisplay_400;
+    line-height: rem(17px);
+    color: #0b0b0b;
+    opacity: 0.6;
+    margin-bottom: rem(20px);
+  }
+  button {
+    margin-right: rem(40px);
+  }
+  a {
+    font-weight: 800;
+    font-size: rem(13px);
+    line-height: rem(16px);
+    text-align: center;
+    color: $orange;
+  }
+}
+
+.btn-settings {
+  background: #ffffff;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.12);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: rem(40px);
+  height: rem(40px);
+  border-radius: 50px;
+  position: absolute;
+  right: rem(10px);
+  top: rem(10px);
+}
+
+.settings {
+  &-profile {
+    display: flex;
+    & > * {
+      &:not(:last-child) {
+        margin-right: rem(16px);
+      }
+    }
+    &-logo {
+      width: rem(96px);
+      height: rem(96px);
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    &-info {
+      padding-top: rem(14px);
+      h3 {
+        font-family: SFProDisplay_700;
+        font-size: rem(17px);
+        line-height: rem(20px);
+        color: #000000;
+        margin-bottom: rem(12px);
+      }
+      button {
+        padding: rem(5px) rem(10px);
+        font-size: rem(11px);
+        line-height: rem(13px);
+      }
+    }
+  }
+  &-form {
+    margin-top: rem(22px);
+    display: flex;
+    flex-wrap: wrap;
+    & > *:not(:nth-child(2n)) {
+      margin-right: 2.1%;
+    }
+    .form-input {
+      flex-basis: 48.95%;
+    }
+    .change-password {
+      margin-right: 0;
+    }
+  }
+  .btn-orange {
+    width: auto;
+    padding: rem(13px) rem(32px);
+  }
+}
+
+.change-password {
+  background: #ffffff;
+  border-radius: 3px;
+  padding: rem(30px) rem(60px) rem(65px) rem(30px);
+  margin-bottom: rem(48px);
+  h3 {
+    font-family: SFProDisplay_800;
+    font-size: rem(22px);
+    line-height: rem(26px);
+    color: #0b0b0b;
+    margin-bottom: 7px;
+  }
+  &-subtitle {
+    font-family: SFProDisplay_400;
+    font-size: rem(11px);
+    line-height: rem(16px);
+    color: #0b0b0b;
+    margin-bottom: rem(27px);
+  }
+  label {
+    font-family: SFProDisplay_400;
+    font-size: rem(13px);
+    line-height: rem(18px);
+    color: #0f1826;
+    display: flex;
+    margin-bottom: rem(10px);
+  }
+  input {
+    background: #ffffff;
+    border: 1px solid #dedede;
+    border-radius: 4px;
+    padding: rem(14px);
+    width: 100%;
+  }
+  &-par {
+    font-family: SFProDisplay_400;
+    font-size: rem(11px);
+    line-height: rem(13px);
+    color: #0f1826;
+    opacity: 0.4;
+    margin-top: rem(10px);
+  }
+}

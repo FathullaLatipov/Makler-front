@@ -1,0 +1,62 @@
+@import "../../styles/modules.scss";
+
+.download-app {
+	display: flex;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	padding: rem(190px) 0 rem(69px) 28rem;
+	background: url('../../assets/img/download-bg.png') left bottom -204px no-repeat;
+	@include tablet {
+		padding: 190px 0 28rem;
+		background-position: left 70px bottom -204px;
+	}
+	@include phones {
+		padding: 120px 0 28rem;
+		background-position: left 110% bottom -204px;
+	}
+	&-s {
+		.white-icon {
+			svg {
+				fill: none;
+			}
+		}
+	}
+	& > * {&:not(:last-child) {
+		margin-right: rem(113px);
+	}}
+	.app {
+		margin-bottom: rem(40px);
+		&-btns {
+			display: flex;
+			margin-bottom: rem(21px);
+			& > * {&:not(:last-child) {
+				margin-right: rem(5px);
+			}}
+		}
+		h3 {
+			margin-bottom: rem(8px);
+		}
+		p {
+			line-height: rem(19px);
+			max-width: rem(221px);
+			width: 100%;
+		}
+	}
+	.doc {
+		padding-right: 10%;
+		button {
+			margin-bottom: rem(21px);
+			span {
+				color: $black;
+			}
+		}
+		h3 {
+			margin-bottom: rem(8px);
+		}
+		p {
+			line-height: rem(19px);
+			max-width: rem(400px);
+			width: 100%;
+		}
+	}
+}

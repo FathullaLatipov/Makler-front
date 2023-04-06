@@ -1,0 +1,110 @@
+@import "../../styles/modules.scss";
+
+.modal {
+	width: 100%;
+  display: flex;
+	height: 100%;
+	position: fixed;
+	left: 0;
+	top: 0;
+	background: rgba($color: #000000, $alpha: 0.4);
+	justify-content: center;
+	align-items: center;
+	z-index: 10000;
+	
+	&-body {
+		position: relative;
+		background: $white;
+		padding: rem(50px) rem(55px) rem(56px) rem(60px);
+		h4 {
+			font-family: SFProDisplay_700;
+			font-size: rem(22px);
+			line-height: rem(27px);
+			color: #000000;
+			margin-bottom: rem(5px);
+		}
+		p {
+			font-weight: SFProDisplay_400;
+			font-size: rem(13px);
+			line-height: rem(20px);
+		}
+	}
+}
+.alert-form {
+	background: rgba($color: $orange, $alpha: .1);
+	border-radius: 4px;
+	display: flex;
+	align-items: center;
+	padding: rem(10px) rem(16px) rem(10px);
+	img {
+		margin-right: rem(6px);
+	}
+	p {
+		font-family: TimesNewRoman_400;
+		font-size: rem(13px);
+		line-height: rem(17px);
+		color: $orange;
+		font-style: italic;
+	}
+	margin: rem(23px) 0 rem(30px);
+}
+.login-modal {
+	.modal-body {
+		max-width: rem(576px);
+		width: 100%;
+	}
+	form {
+		.form-input {
+			margin-bottom: 0;
+		}
+		label {
+			font-family: SFProDisplay_400;
+		}
+		max-width: rem(367px);
+		width: 100%;
+		button {
+			margin-top: rem(15px);
+			margin-bottom: rem(35px);
+		}
+		p {
+			color: #000;
+			a {
+				font-size: rem(13px);
+				line-height: rem(16px);
+				text-decoration-line: underline;
+				color: #1B74FF;
+				&:first-child {
+					margin-right: rem(10px);
+				}
+				&:last-of-type {
+					margin-left: rem(10px);
+					color: $orange
+				}
+			}
+		}
+	}
+}
+
+.close-btn {
+	position: absolute;
+	right: rem(10px);
+	top: rem(10px);
+	display: flex;
+	transition: all ease .2s;
+	svg {
+		width: rem(24px);
+		height: rem(24px);
+	}
+	&:hover {
+		transform: scale(1.1);
+	}
+}
+
+.confirm-modal {
+	form {
+		margin-top: rem(30px);
+		label {
+			color: #0F1826;
+		}
+	}
+}
