@@ -29,7 +29,7 @@ const FilterMebel = ({ change, value }) => {
   // }, []);
   // useEffect(() => {
   //   axios
-  //     .get("https://api.makleruz.uz//store2/api/v1/store/use_for")
+  //     .get("https://api.makleruz.uz/store2/api/v1/store/use_for")
   //     .then((res) => {
   //       setOption1(res.data.results?.sort((a, b) => a.id - b.id));
   //     })
