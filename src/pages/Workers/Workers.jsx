@@ -75,39 +75,41 @@ const Workers = () => {
         <div>
           <FilterWorker change={changeHandler} value={form} />
           <div className="app__cards--wrapper">
-            {!loading ? (
+          {!loading ? (
               !search.length ? (
                 displayData.length ? (
                   displayData?.slice(0, limit)?.map((data, i) => (
-                    <div
-                      key={i}
-                      style={{
-                        marginRight: "0.5rem",
-                      }}
-                    >
-                      <UserCard data={data} />
-                    </div>
+                      data.product_status === 1 && 
+                        <div
+                          key={i}
+                          style={{
+                            marginRight: "0.5rem",
+                          }}
+                        >
+                          <UserCard data={data} />
+                        </div>
                   ))
                 ) : (
                   <h1>Ничего нет</h1>
                 )
               ) : searchData.length ? (
                 searchData?.slice(0, searchLimit)?.map((data, i) => (
-                  <div
-                    key={i}
-                    style={{
-                      marginRight: "0.5rem",
-                    }}
-                  >
-                    <UserCard data={data} />
-                  </div>
+                    data.product_status === 1 && 
+                      <div
+                        key={i}
+                        style={{
+                          marginRight: "0.5rem",
+                        }}
+                      >
+                        <UserCard data={data} />
+                      </div>
                 ))
               ) : (
                 <h1>Предметы не найдены!</h1>
               )
             ) : (
               <Loading />
-            )}
+        )}
           </div>
         </div>
         <button

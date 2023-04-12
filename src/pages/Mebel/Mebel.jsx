@@ -94,7 +94,7 @@ const Mebel = () => {
             <div className="app__cards--wrapper">
               {!search.length ? (
                 displayData?.length ? (
-                  displayData?.slice(0, limit)?.map((data) => (
+                  displayData?.slice(0, limit)?.map((data) => data.product_status === 1 && (
                     <div
                       style={{
                         marginRight: "0.5rem",
@@ -108,7 +108,7 @@ const Mebel = () => {
                   <h1>Нет товаров.</h1>
                 )
               ) : searchData.length ? (
-                searchData?.slice(0, searchLimit)?.map((data) => (
+                searchData?.slice(0, searchLimit)?.map((data) => data.product_status === 1 && (
                   <div
                     style={{
                       marginRight: "0.5rem",

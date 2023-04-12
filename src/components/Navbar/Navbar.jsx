@@ -12,6 +12,13 @@ const Navbar = () => {
   const { userData, loginModalFunc } = useContext(ContextApp);
   const userId = localStorage.getItem("userId");
   const access = localStorage.getItem("access");
+  const keys = {
+    product:"Продукт",
+    master:"Мастер",
+    industria:"Обустройства",
+    mebel:"Мебель",
+    cabinet:"Кабинет"
+  }
   useEffect(() => {
     if (access) {
       setIsLogin(true);
@@ -41,7 +48,7 @@ const Navbar = () => {
                 </a>
               </li>
               <li>
-                <Link to={"/"}>Home</Link>
+                <Link to={"/"}>Главная</Link>
               </li>
               {router.pathname
                 .split("/")
@@ -54,7 +61,7 @@ const Navbar = () => {
                         textTransform: "capitalize",
                       }}
                     >
-                      {item}
+                      {keys[item] || item}
                     </Link>
                     {/* <Link to={""}></Link> */}
                   </li>

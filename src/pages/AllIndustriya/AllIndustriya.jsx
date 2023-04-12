@@ -76,7 +76,7 @@ const AllIndustriya = () => {
             <div className="app__cards--wrapper">
               {!search.length ? (
                 data.length ? (
-                  data?.slice(0, limit)?.map((data) => (
+                  data?.slice(0, limit)?.map((data) => data.product_status === 1 && (
                     <div
                       style={{
                         marginRight: "0.5rem",
@@ -90,7 +90,7 @@ const AllIndustriya = () => {
                   <h1>Нет товаров.</h1>
                 )
               ) : searchData.length ? (
-                searchData?.slice(0, searchLimit)?.map((data, i) => (
+                searchData?.slice(0, searchLimit)?.map((data, i) => data.product_status === 1 && (
                   <div
                     style={{
                       marginRight: "0.5rem",

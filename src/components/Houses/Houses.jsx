@@ -168,14 +168,14 @@ const Houses = ({ value, start, focus }) => {
                 displayData.length ? (
                   displayData
                     ?.slice(0, limit)
-                    ?.map((item) => <ProductCard key={item.id} data={item} />)
+                    ?.map((item) => item.product_status === 1 && <ProductCard key={item.id} data={item} />)
                 ) : (
                   <h1>Ничего нет</h1>
                 )
               ) : searchData.length ? (
                 searchData
                   ?.slice(0, searchLimit)
-                  ?.map((item) => <ProductCard key={item.id} data={item} />)
+                  ?.map((item) => item.product_status === 1 && <ProductCard key={item.id} data={item} />)
               ) : (
                 <h1>Предметы не найдены!</h1>
               )}
