@@ -86,7 +86,7 @@ const Navbar = () => {
                   <svg className="svg-sprite-icon icon-fi_globe w-16">
                     <use href={`${spirite}#fi_globe`}></use>
                   </svg>
-                  <span>Русский </span>
+                  <span>Ру / <span style={{ color: 'rgba(11, 11, 11, 0.2)'}}> Uz</span></span>
                 </a>
               </li>
               <li>

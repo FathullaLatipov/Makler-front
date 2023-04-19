@@ -90,7 +90,7 @@ const FilterMebel = ({ change, value }) => {
                   cursor: "pointer",
                 }}
               >
-                <span>{profess ? profess : "mebel_cat1"}</span>
+                <span>{profess ? profess : "Категория"}</span>
                 <svg className="svg-sprite-icon icon-fi_chevron-down w-12">
                   <use href={`${spirite}#fi_chevron-down`}></use>
                 </svg>
