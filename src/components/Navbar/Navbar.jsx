@@ -88,14 +88,20 @@ const Navbar = () => {
                   <svg className="svg-sprite-icon icon-fi_globe w-16">
                     <use href={`${spirite}#fi_globe`}></use>
                   </svg>
-                  <span>
+                  <span style={{fontSize: "15px"}}>
                     <span
                         style={{ color: i18n.language !== "ru" ? 'rgba(11, 11, 11, 0.2)' : null}}
-                        onClick={() => i18n.changeLanguage("ru")}
+                        onClick={() => {
+                          i18n.changeLanguage("ru")
+                          window.location.reload();
+                        }}
                     >Ру / </span>
                     <span
                         style={{ color: i18n.language !== "uz" ? 'rgba(11, 11, 11, 0.2)' : null}}
-                        onClick={() => i18n.changeLanguage("uz")}
+                        onClick={() => {
+                          i18n.changeLanguage("uz")
+                          window.location.reload();
+                        }}
                     > Uz</span>
                   </span>
                 </a>
