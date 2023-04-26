@@ -6,8 +6,11 @@ import click from "../../assets/img/svg/click.svg";
 import upay from "../../assets/img/svg/upay.svg";
 import spirite from "../../assets/img/symbol/sprite.svg";
 import { Link } from "react-router-dom";
+import {useTranslation} from "react-i18next";
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   return (
     <footer className="footer">
       <div className="footer__top">
@@ -26,25 +29,25 @@ const Footer = () => {
             <ul>
               <li>
                 {" "}
-                <a href="#">Реклама дателям</a>
+                <a href="#">{t("footer.advertisers")}</a>
               </li>
               <li>
                 {" "}
-                <a href="#">Инструкции по публикации</a>
+                <a href="#">{t("footer.postingInstructions")}</a>
               </li>
               <li>
                 {" "}
-                <a href="#">Инструкции по публикации</a>
+                <a href="#">{t("footer.postingInstructions")}</a>
               </li>
             </ul>
             <ul>
               <li>
                 {" "}
-                <a href="#">Помощь</a>
+                <a href="#">{t("footer.help")}</a>
               </li>
               <li>
                 {" "}
-                <a href="#">Тех поддержка </a>
+                <a href="#">{t("footer.support")} </a>
               </li>
               <li>
                 {" "}
@@ -91,12 +94,12 @@ const Footer = () => {
               </li>
               <li>
                 <a className="line-link" href="#">
-                  Условия использование{" "}
+                  {t("footer.termsofuse")}{" "}
                 </a>
               </li>
               <li>
                 <a className="line-link" href="#">
-                  Политика конфеденциалности
+                  {t("footer.privacypolicy")}
                 </a>
               </li>
             </ul>

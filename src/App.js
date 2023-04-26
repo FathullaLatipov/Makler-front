@@ -48,6 +48,7 @@ const CabinetPage = () => {
   return <Navigate to={`/`} />;
 };
 
+
 function App() {
   const [isLogin, setIsLogin] = useState(false);
 
@@ -61,11 +62,6 @@ function App() {
     }
   }, []);
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setBannerModal(true);
-  //   }, 4000);
-  // }, []);
 
   return (
     <>

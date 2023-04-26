@@ -6,6 +6,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { baseURL } from "../../requests/requests";
 import Loading from "../Loading/Loading";
+import {useTranslation} from "react-i18next";
 
 const Houses = ({ value, start, focus }) => {
   const { typeRoom, room, search, building, sort } = value;
@@ -19,6 +20,7 @@ const Houses = ({ value, start, focus }) => {
   );
   const [nextUrl, setNextUrl] = useState();
   const [prevUrl, setPrevUrl] = useState();
+  const { t } = useTranslation();
 
   useEffect(() => {
     setLoading(true);
@@ -116,7 +118,7 @@ const Houses = ({ value, start, focus }) => {
       <div className="container">
         <div className="cards">
           <div className="cards-head">
-            <h4>Рекомендованные ЖК</h4>
+            <h4>{t("houses.recommendation")}</h4>
             <ul>
               <li>
                 {" "}
@@ -170,14 +172,14 @@ const Houses = ({ value, start, focus }) => {
                     ?.slice(0, limit)
                     ?.map((item) => item.product_status === 1 && <ProductCard key={item.id} data={item} />)
                 ) : (
-                  <h1>Ничего нет</h1>
+                  <h1>{t("houses.nothing")}</h1>
                 )
               ) : searchData.length ? (
                 searchData
                   ?.slice(0, searchLimit)
                   ?.map((item) => item.product_status === 1 && <ProductCard key={item.id} data={item} />)
               ) : (
-                <h1>Предметы не найдены!</h1>
+                <h1>{t("houses.notfound")}</h1>
               )}
             </ul>
           ) : (
@@ -189,7 +191,7 @@ const Houses = ({ value, start, focus }) => {
             className="btn btn-big btn-white"
             id="show-more"
           >
-            Показать ещё
+            {t("houses.showmore")}
           </button>
         </div>
       </div>

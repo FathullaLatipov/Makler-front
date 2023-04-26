@@ -1,3 +1,5 @@
+import {useTranslation} from "react-i18next";
+
 const menu = [
   [
     {
@@ -158,11 +160,13 @@ const menu = [
 ];
 
 const FooterMenu = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="additional-nav-s bg-white">
       <div className="container">
         <div className="additional-nav">
-          <h4>Вспомогательные меню</h4>
+          <h4>{t("footer.auxiliary")}</h4>
           <div className="additional-nav-list">
             {menu.map((item, i) => (
               <ul key={i}>

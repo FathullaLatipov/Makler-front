@@ -9,7 +9,11 @@ const requests = {
 
 export const getRequests = async () => {
   const [categories, allHouses, masters, stores] = await Promise.all([
-    fetch(requests.fetchCategories).then((res) => res.json()),
+    fetch(requests.fetchCategories, {
+      headers: {
+        "Accept-Language": localStorage.getItem("i18nextLng") || "ru"
+      }
+    }).then((res) => res.json()),
     fetch(requests.fetchAllHouses).then((res) => res.json()),
     fetch(requests.fetchAllMasters).then((res) => res.json()),
     fetch(requests.fetchAllStores).then((res) => res.json()),

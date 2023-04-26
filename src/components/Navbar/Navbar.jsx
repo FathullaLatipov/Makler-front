@@ -4,6 +4,7 @@ import spirite from "../../assets/img/symbol/sprite.svg";
 import { Link, useLocation } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import ContextApp from "../../context/context";
+import {useTranslation} from "react-i18next";
 
 const Navbar = () => {
   const router = useLocation();
@@ -12,13 +13,14 @@ const Navbar = () => {
   const { userData, loginModalFunc } = useContext(ContextApp);
   const userId = localStorage.getItem("userId");
   const access = localStorage.getItem("access");
+  const { t, i18n } = useTranslation();
   const keys = {
-    product:"Продукт",
-    master:"Мастер",
-    industria:"Обустройства",
-    mebel:"Мебель",
-    cabinet:"Кабинет"
-  }
+    product: "Продукт",
+    master: "Мастер",
+    industria: "Обустройства",
+    mebel: "Мебель",
+    cabinet: "Кабинет"
+  };
   useEffect(() => {
     if (access) {
       setIsLogin(true);
@@ -26,6 +28,7 @@ const Navbar = () => {
       setIsLogin(false);
     }
   }, [access]);
+
 
   return (
     <header className="header">
@@ -48,7 +51,7 @@ const Navbar = () => {
                 </a>
               </li>
               <li>
-                <Link to={"/"}>Главная</Link>
+                <Link to={"/"}>{t("navbar.main")}</Link>
               </li>
               {router.pathname
                 .split("/")
@@ -63,7 +66,6 @@ const Navbar = () => {
                     >
                       {keys[item] || item}
                     </Link>
-                    {/* <Link to={""}></Link> */}
                   </li>
                 ))}
             </ul>
@@ -86,7 +88,16 @@ const Navbar = () => {
                   <svg className="svg-sprite-icon icon-fi_globe w-16">
                     <use href={`${spirite}#fi_globe`}></use>
                   </svg>
-                  <span>Ру / <span style={{ color: 'rgba(11, 11, 11, 0.2)'}}> Uz</span></span>
+                  <span>
+                    <span
+                        style={{ color: i18n.language !== "ru" ? 'rgba(11, 11, 11, 0.2)' : null}}
+                        onClick={() => i18n.changeLanguage("ru")}
+                    >Ру / </span>
+                    <span
+                        style={{ color: i18n.language !== "uz" ? 'rgba(11, 11, 11, 0.2)' : null}}
+                        onClick={() => i18n.changeLanguage("uz")}
+                    > Uz</span>
+                  </span>
                 </a>
               </li>
               <li>
@@ -95,7 +106,7 @@ const Navbar = () => {
                   <svg className="svg-sprite-icon icon-fi_heart w-16">
                     <use href={`${spirite}#fi_heart`}></use>
                   </svg>
-                  <span>Избранное</span>
+                  <span>{t("navbar.favourite")}</span>
                 </Link>
               </li>
               <li>
@@ -104,7 +115,7 @@ const Navbar = () => {
                     <svg className="svg-sprite-icon icon-fi_log-in w-16">
                       <use href={`${spirite}#fi_log-in`}></use>
                     </svg>
-                    <span>Профиль </span>
+                    <span>{t("navbar.profile")} </span>
                   </Link>
                 ) : (
                   <button
@@ -120,7 +131,7 @@ const Navbar = () => {
                     <svg className="svg-sprite-icon icon-fi_log-in w-16">
                       <use href={`${spirite}#fi_log-in`}></use>
                     </svg>
-                    Войти{" "}
+                    {t("navbar.sign")}{" "}
                   </button>
                 )}
               </li>
@@ -141,7 +152,7 @@ const Navbar = () => {
                         strokeLinejoin="round"
                       />
                     </svg>
-                    <span>разместить объявление</span>
+                    <span>{t("navbar.placeanadd")}</span>
                   </Link>
                 ) : (
                   ""

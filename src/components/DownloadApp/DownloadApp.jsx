@@ -1,7 +1,10 @@
 import "./DownloadApp.scss";
 import sprite from "../../assets/img/symbol/sprite.svg";
+import {useTranslation} from "react-i18next";
 
 const DownloadApp = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="download-app-s bg-white">
       <div className="container">
@@ -21,20 +24,19 @@ const DownloadApp = () => {
                 <span>AppStore</span>
               </button>
             </div>
-            <h3 className="small-title">Загрузите наше приложение</h3>
-            <p>С нашим приложением M-makler это еще удобнее!</p>
+            <h3 className="small-title">{t("footer.downloadApp")}</h3>
+            <p>{t("footer.moreConvinient")}</p>
           </div>
           <div className="doc">
             <button className="btn btn-gray left-icon btn-long text-left white-icon">
               <svg className="svg-sprite-icon icon-fi_download w-12">
                 <use href={`${sprite}#fi_download`}></use>
               </svg>
-              <span>Скачать форма док</span>
+              <span>{t("footer.download")}</span>
             </button>
-            <h3 className="small-title">Для рекламодателей</h3>
+            <h3 className="small-title">{t("footer.foradvertisers")}</h3>
             <p>
-              Для упрощения поиска у нас реализована система рекомендаций
-              похожих объявлений.
+              {t("footer.recommendation")}
             </p>
           </div>
         </div>
