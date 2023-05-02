@@ -5,10 +5,13 @@ import ContextApp from "../../context/context";
 import useForm from "../../hooks/useForm";
 import { baseURL } from "../../requests/requests";
 import Loading from "../../components/Loading/Loading";
+import Slider from "react-slick";
+import styled from "styled-components";
 
 const Mebel = () => {
-  const { masters } = useContext(ContextApp);
+  // const { masters } = useContext(ContextApp);
 
+  const [ categories, setCategories ] = useState([]);
   const [displayData, setDisplayData] = useState("");
   const [loading, setLoading] = useState(true);
 
@@ -33,15 +36,17 @@ const Mebel = () => {
       .finally(() => setLoading(false));
   }, [category]);
 
-  useEffect(() => {
+  const fetchData = async () => {
     setLoading(true);
-    axios
-      .get(`${baseURL}/mebel/api/v1/mebels/?search=${search}`)
-      .then((res) => setSearchData(res.data.results))
-      .catch((err) => console.log(err))
-      .finally(() => {
-        setLoading(false);
-      });
+    const response = await axios.get(`${baseURL}/mebel/api/v1/mebels/?search=${search}`)
+    const categories = await axios.get(`${baseURL}/mebel/api/v1/mebel-categories/`);
+    setSearchData(response.data.results);
+    setCategories(categories.data.results);
+    setLoading(false);
+  }
+
+  useEffect(() => {
+    fetchData();
   }, [search]);
 
   // useMemo(() => {
@@ -85,11 +90,94 @@ const Mebel = () => {
     }
   };
 
+  const settings = {
+    infinite: true,
+    dots: false,
+    speed: 2000,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    slidesToShow: 6,
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  }
+
+  const SliderItem = styled.div`
+    background: #ffffff;
+    width: 95% !important;
+    border-radius: 30px;
+    padding: 20px;
+    text-align: center;
+    margin: 0 10px;
+    font-size: 15px;
+  `
+
   return (
     <section className="content">
       <div className="container">
         <div>
           <FilterMebel change={changeHandler} value={form} />
+          <Slider
+            {...settings}  
+          >
+            {categories.map((item, index) => (
+              <div
+                onClick={() => {
+                  if(item.id === form.brand_id) {
+                    return changeHandler({
+                      target: {
+                        name: "brand_id",
+                        value: -1
+                      }
+                    });
+                  }
+                  changeHandler({
+                    target: {
+                      name: "brand_id",
+                      value: item.id
+                    }
+                  })
+                }}
+              >
+                <SliderItem 
+                  key={index} 
+                  style={{background: item.id === form.brand_id && `#c56622`,
+                  color: item.id === form.brand_id && `#fff`}}
+                >
+                  <div 
+                    className="slider-item"
+                    
+                  >
+                    {item.title}
+                  </div>
+                </SliderItem>
+              </div>
+            ))}
+          </Slider>
           {!loading ? (
             <div className="app__cards--wrapper">
               {!search.length ? (
@@ -105,7 +193,9 @@ const Mebel = () => {
                     </div>
                   ))
                 ) : (
-                  <h1>Нет товаров.</h1>
+                  <h1 style={{
+                    marginTop: "100px"
+                  }}>Нет товаров.</h1>
                 )
               ) : searchData.length ? (
                 searchData?.slice(0, searchLimit)?.map((data) => data.product_status === 1 && (
