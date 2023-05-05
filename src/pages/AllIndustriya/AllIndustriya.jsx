@@ -52,7 +52,6 @@ const   AllIndustriya = () => {
     setLoading(true);
     const response = await axios.get(`${baseURL}/store2/api/v1/store/search?search=${search}`);
     const brands = await axios.get(`${baseURL}/store2/api/v1/store/brands`);
-
     setBrands(brands.data.results);
     setSearchData(response.data.results)
     setLoading(false);
@@ -114,6 +113,18 @@ const   AllIndustriya = () => {
     text-align: center;
     margin: 0 10px;
     font-size: 15px;
+    .slider-item {
+      display: flex;
+      justify-content: center;
+    }
+    .slider-image {
+      height: 20px;
+      margin-right: 10px;
+    }
+    .slider-image > img{
+      width: 100%;
+      height: 100%;
+    }
   `
 
   return (
@@ -154,8 +165,12 @@ const   AllIndustriya = () => {
                 >
                   <div 
                     className="slider-item"
-                    
                   >
+                    <div className="slider-image">
+                      <img 
+                        src={item.image}
+                      />
+                    </div>
                     {item.title}
                   </div>
                 </SliderItem>

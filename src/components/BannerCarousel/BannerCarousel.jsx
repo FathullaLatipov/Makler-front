@@ -5,6 +5,7 @@ import sprite from "../../assets/img/symbol/sprite.svg";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import PersonPng from "../../assets/img/PersonImg.png";
 
 function CustomLeftArrow({ className, style, onClick }) {
   return (
@@ -48,7 +49,13 @@ const BannerCarousel = () => {
   return (
     <div className="container">
       <Card>
+        <div className="person-img">
+          <img 
+            src={PersonPng}
+          />
+        </div>
         <Slider
+            className=""
             infinite={true}
             speed={2000}
             autoplay={true}
@@ -119,6 +126,13 @@ const Card = styled.div`
   .icon-left-arr {
     left: 10px !important;
     top: 50% !important;
+  }
+  .person-img {
+    position: absolute;
+    z-index: 1;
+    height: 60%;
+    right: 0;
+    bottom: 0;
   }
 `;
 

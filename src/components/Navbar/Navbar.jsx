@@ -29,6 +29,8 @@ const Navbar = () => {
     }
   }, [access]);
 
+  console.log(i18n)
+
 
   return (
     <header className="header">
@@ -90,14 +92,14 @@ const Navbar = () => {
                   </svg>
                   <span style={{fontSize: "15px"}}>
                     <span
-                        style={{ color: i18n.language !== "ru" ? 'rgba(11, 11, 11, 0.2)' : null}}
+                        style={{ color: i18n.resolvedLanguage !== "ru" ? 'rgba(11, 11, 11, 0.2)' : null}}
                         onClick={() => {
                           i18n.changeLanguage("ru")
                           window.location.reload();
                         }}
                     >Ру / </span>
                     <span
-                        style={{ color: i18n.language !== "uz" ? 'rgba(11, 11, 11, 0.2)' : null}}
+                        style={{ color: i18n.resolvedLanguage !== "uz" ? 'rgba(11, 11, 11, 0.2)' : null}}
                         onClick={() => {
                           i18n.changeLanguage("uz")
                           window.location.reload();
