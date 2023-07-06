@@ -22,6 +22,7 @@ const Houses = ({ value, start, focus }) => {
   const [prevUrl, setPrevUrl] = useState();
   const { t } = useTranslation();
 
+
   useEffect(() => {
     setLoading(true);
     axios
@@ -55,6 +56,7 @@ const Houses = ({ value, start, focus }) => {
     setDisplayData(res.data.results);
     setNextUrl(res.data.next);
     setPrevUrl(res.data.previous);
+    
     setLoading(false);
   };
   const init3 = async () => {
@@ -75,6 +77,7 @@ const Houses = ({ value, start, focus }) => {
   useMemo(() => {
     init2();
   }, [url, typeRoom, room, building, start]);
+
   useMemo(() => {
     init3();
   }, [sort]);

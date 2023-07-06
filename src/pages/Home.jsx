@@ -1,16 +1,10 @@
-import { fabClasses } from "@mui/material";
-import axios from "axios";
 import { useEffect } from "react";
-import { useMemo } from "react";
-import { useContext } from "react";
 import { useState } from "react";
 import {
   BannerCarousel,
   BannerModal,
   Categories,
   DownloadApp,
-  EditPage,
-  Filter,
   FooterMenu,
   Houses,
 } from "../components";
@@ -25,6 +19,7 @@ const Home = () => {
   });
   const [bannerModal, setBannerModal] = useState(false);
 
+
   const [start, setStart] = useState(1);
   const [focus, setFocus] = useState(false);
 
@@ -37,11 +32,12 @@ const Home = () => {
     if (!modal) {
       setTimeout(() => {
         setBannerModal(true);
-      }, 2000);
+      }, 0);
     }
 
     return;
   }, []);
+  
   // window.addEventListener("DOMContentLoaded", () => {
   //   setBannerModal(true);
   // });

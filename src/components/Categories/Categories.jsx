@@ -10,7 +10,6 @@ const links = ["product", "master", "industria", "mebel"];
 
 const Categories = () => {
   const { categories } = useContext(ContextApp);
-  const [data, setData] = useState();
 
   // useEffect(() => {
   //   axios
@@ -18,6 +17,8 @@ const Categories = () => {
   //     .then((res) => setData(res.data.results))
   //     .catch((err) => console.log(err));
   // }, []);
+
+  console.log(categories)
 
   return (
     <section className="categories-s">

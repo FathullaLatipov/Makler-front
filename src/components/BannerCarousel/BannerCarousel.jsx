@@ -3,9 +3,10 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import sprite from "../../assets/img/symbol/sprite.svg";
 import styled from "styled-components";
-import { useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import axios from "axios";
 import PersonPng from "../../assets/img/PersonImg.png";
+import { AppContext } from "../../store/AppStore";
 
 function CustomLeftArrow({ className, style, onClick }) {
   return (
@@ -34,15 +35,13 @@ function CustomRightArrow({ className, style, onClick }) {
   );
 }
 
-const products = ["/images/new.jpeg", "/images/new2.jpeg"];
-
 const BannerCarousel = () => {
-  const [bannerData, setBannerData] = useState([]);
-
+  const [ { carousel }, setStore ] = useContext(AppContext);
+  
   useEffect(() => {
     axios
       .get("https://api.makleruz.uz/api/v1/carousels/")
-      .then((res) => setBannerData(res.data.results))
+      .then((res) => setStore(prev => ({ ...prev, carousel: { isLoading: false, list: res.data.results } })))
       .catch((err) => console.log(err));
   }, []);
 
@@ -52,6 +51,7 @@ const BannerCarousel = () => {
         <div className="person-img">
           <img 
             src={PersonPng}
+            alt=""
           />
         </div>
         <Slider
@@ -65,7 +65,7 @@ const BannerCarousel = () => {
             nextArrow={<CustomRightArrow />}
             prevArrow={<CustomLeftArrow />}
         >
-          {bannerData?.map((item, i) => (
+          {carousel.list?.map((item, i) => (
             <div key={i}>
               {item && (
                 <div>

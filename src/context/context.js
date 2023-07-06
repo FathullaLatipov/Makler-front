@@ -1,8 +1,6 @@
-import { useStepContext } from "@mui/material";
-import axios from "axios";
 import { createContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { baseURL, getRequests } from "../requests/requests";
+import { getRequests } from "../requests/requests";
 
 const ContextApp = createContext();
 
@@ -13,7 +11,11 @@ export const ContextProvider = ({ children }) => {
   const [homeHouses, setHomeHouses] = useState();
   const [houseData, setHouseData] = useState();
   const [userId, setUserId] = useState();
+
+  const [carouselData, setCarouselData] = useState([]);
+
   const navigate = useNavigate();
+
   const loginModalFunc = (newState) => {
     setOpenLoginModal(newState);
   };

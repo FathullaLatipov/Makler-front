@@ -6,15 +6,13 @@ import {
   Navigate,
 } from "react-router-dom";
 import {
-  BannerModal,
   EditPage,
   Footer,
   LoginModal,
   Navbar,
   ScrollTop,
 } from "./components";
-import ContextApp, { ContextProvider } from "./context/context";
-import ProtectedRoute from "./helpers/ProtectedRoute";
+import ContextApp from "./context/context";
 import "react-toastify/dist/ReactToastify.css";
 import {
   AllIndustriya,
@@ -53,6 +51,7 @@ function App() {
   const [isLogin, setIsLogin] = useState(false);
 
   const { openLoginModal } = useContext(ContextApp);
+
   useEffect(() => {
     let access = localStorage.getItem("access");
     if (access) {
