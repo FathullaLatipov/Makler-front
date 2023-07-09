@@ -9,19 +9,10 @@ import {
   Houses,
 } from "../components";
 import useForm from "../hooks/useForm";
+import HomeHouses from "../components/HomeHouses/HomeHouses";
 
 const Home = () => {
-  const { form, changeHandler } = useForm({
-    typeRoom: "",
-    room: "",
-    building: "",
-    search: "",
-  });
   const [bannerModal, setBannerModal] = useState(false);
-
-
-  const [start, setStart] = useState(1);
-  const [focus, setFocus] = useState(false);
 
   // useEffect(() => {
   //  searchData?.splice(0, 8);
@@ -30,9 +21,7 @@ const Home = () => {
   useEffect(() => {
     const modal = sessionStorage.getItem("modal");
     if (!modal) {
-      setTimeout(() => {
-        setBannerModal(true);
-      }, 0);
+      setBannerModal(true);
     }
 
     return;
@@ -74,7 +63,7 @@ const Home = () => {
       {bannerModal && <BannerModal setOpen={closeModal} />}
       <BannerCarousel />
       <Categories />
-      <Houses value={form} start={start} focus={focus} />
+      <HomeHouses />
       <FooterMenu />
       <DownloadApp />
     </>

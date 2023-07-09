@@ -8,6 +8,10 @@ const AppStore = ({ children }) => {
       isLoading: true,
       list: [],
     },
+    houses: {
+      isLoading: true,
+      list: [],
+    }
   });
 
   return (

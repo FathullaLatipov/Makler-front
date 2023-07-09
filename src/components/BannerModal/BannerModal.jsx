@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import spirite from "../../assets/img/symbol/sprite.svg";
+import mainImg from "../../assets/img/main-image.jpeg";
+
 
 const BannerModal = ({ setOpen }) => {
   return (
@@ -13,7 +15,7 @@ const BannerModal = ({ setOpen }) => {
           </svg>
         </SvgWrapper>
         <ImageWrapper>
-          <img src="/images/new.jpeg" alt="" />
+          <img src={mainImg} alt="" />
         </ImageWrapper>
       </Wrapper>
     </div>
