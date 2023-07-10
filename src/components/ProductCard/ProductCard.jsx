@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useContext } from "react";
 import { useEffect, useId } from "react";
 import { useState } from "react";
@@ -8,6 +7,7 @@ import sprite from "../../assets/img/symbol/sprite.svg";
 import ContextApp from "../../context/context";
 import { baseURL } from "../../requests/requests";
 import LoadingPost from "../LoadingPost/LoadingPost";
+import $host from "../../http";
 
 const ProductCard = ({ data, wishlist, wishId, deleteMount }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -22,7 +22,7 @@ const ProductCard = ({ data, wishlist, wishId, deleteMount }) => {
     setIsLoading(true);
     const isThere = wishAllId.some((item) => item === data?.id);
     if (wishlist) {
-      axios
+      $host
         .delete(
           `https://api.makleruz.uz/products/api/v1/houses/wishlist-houses/${wishId}/`
         )
@@ -39,7 +39,7 @@ const ProductCard = ({ data, wishlist, wishId, deleteMount }) => {
     }
     if (!isThere) {
       const userId = localStorage.getItem("userId");
-      axios
+      $host
         .post(`${baseURL}/products/api/v1/houses/wishlist-houses/`, {
           user: userId,
           product: data.id,
@@ -59,7 +59,7 @@ const ProductCard = ({ data, wishlist, wishId, deleteMount }) => {
 
   useEffect(() => {
     const userid = localStorage.getItem("userId");
-    axios
+    $host
       .get(
         `https://api.makleruz.uz/products/api/v1/houses/get-wishlist-houses?user=${userid}`
       )

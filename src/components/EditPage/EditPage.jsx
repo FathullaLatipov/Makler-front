@@ -19,11 +19,11 @@ import {
   FormControl,
 } from "@mui/material";
 import useForm from "../../hooks/useForm";
-import axios from "axios";
 import { toast } from "react-toastify";
 import LoadingPost from "../LoadingPost/LoadingPost";
 import ContextApp from "../../context/context";
 import { baseURL } from "../../requests/requests";
+import $host from "../../http";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -82,7 +82,7 @@ export default function EditPage() {
   // ];
 
   useEffect(() => {
-    axios
+    $host
       .get(`${baseURL}/master/api/v1/maklers/professions`)
       .then((res) => setNames(res.data.results))
       .catch((err) => {
@@ -262,7 +262,7 @@ export default function EditPage() {
     formData.append("experience", form.experience);
     const userToken = localStorage.getItem("access");
 
-    axios
+    $host
       .post("https://api.makleruz.uz/master/api/v1/maklers/create/", formData, {
         headers: {
           Authorization: `Bearer ${userToken}`,

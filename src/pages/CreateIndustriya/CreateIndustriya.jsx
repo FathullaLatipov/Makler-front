@@ -20,13 +20,13 @@ import {
   Map,
 } from "@pbe/react-yandex-maps";
 import useForm from "../../hooks/useForm";
-import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { LoadingPost } from "../../components";
 import { useContext } from "react";
 import ContextApp from "../../context/context";
 import { baseURL } from "../../requests/requests";
+import $host from "../../http";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -81,7 +81,7 @@ export default function CreateIndustriya() {
   const [storeAminities, setStoreAminities] = useState([]);
 
   useEffect(() => {
-    axios
+    $host
       .get("https://api.makleruz.uz/store2/api/v1/store/how_store")
       .then((res) => {
         setStoreAminities(res.data.results);
@@ -150,7 +150,7 @@ export default function CreateIndustriya() {
   };
 
   useEffect(() => {
-    axios
+    $host
       .get(`${baseURL}/store2/api/v1/store/brands`)
       .then((res) => {
         setBrandData(res.data.results);
@@ -245,7 +245,7 @@ export default function CreateIndustriya() {
 
     const userToken = localStorage.getItem("access");
 
-    axios
+    $host
       .post("https://api.makleruz.uz/store2/api/v1/store/create/", formData, {
         headers: {
           Authorization: `Bearer ${userToken}`,

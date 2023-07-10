@@ -1,11 +1,11 @@
 import "./UserSingle.scss";
 import { ProductSingle, SliderContent, UserCard } from "../../components";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { baseURL } from "../../requests/requests";
 import { toast } from "react-toastify";
 import Loading from "../Loading/Loading";
 import { useLocation } from "react-router-dom";
+import $host from "../../http";
 const UserSingle = ({ data, id }) => {
   const locat = useLocation();
   const [masterData, setMasterData] = useState([]);
@@ -14,7 +14,7 @@ const UserSingle = ({ data, id }) => {
   const router = useLocation();
   const getData = (url, setData) => {
     setIsLoading(true);
-    axios
+    $host
       .get(`${baseURL}/${url}`)
       .then((res) => setData(res.data.results))
       .catch(() => {

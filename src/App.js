@@ -68,9 +68,13 @@ function App() {
         <ToastContainer />
         <ScrollTop />
         <Navbar />
+
+
         {openLoginModal && <LoginModal />}
+
+
         <Routes>
-          <Route path="/" element={<Home />} />
+          
           <Route
             path="/create"
             element={
@@ -79,6 +83,8 @@ function App() {
               </CreatePageProtect>
             }
           />
+
+          <Route path="/" element={<Home />} />
           <Route path="/cabinet/:id" element={<UserCabinet />} />
           <Route path="/cabinet" element={<CabinetPage />} />
           <Route path="/edit-product/:id" element={<EditHouse />} />
@@ -102,6 +108,8 @@ function App() {
           <Route path="/industria/:id" element={<Industriya />} />
           <Route path="/industria" element={<AllIndustriya />} />
           <Route path="/create/industria" element={<CreateIndustriya />} />
+
+          
         </Routes>
         <Footer />
       </div>

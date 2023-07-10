@@ -20,13 +20,13 @@ import {
   Map,
 } from "@pbe/react-yandex-maps";
 import useForm from "../../hooks/useForm";
-import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { LoadingPost } from "../../components";
 import { useContext } from "react";
 import ContextApp from "../../context/context";
 import { baseURL } from "../../requests/requests";
+import $host from "../../http";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -137,7 +137,7 @@ export default function CreateMebel() {
   };
 
   useEffect(() => {
-    axios
+    $host
       .get(`${baseURL}/mebel/api/v1/mebel-categories/`)
       .then((res) => {
         setCategoryData(res.data.results);
@@ -279,7 +279,7 @@ export default function CreateMebel() {
 
     const userToken = localStorage.getItem("access");
 
-    axios
+    $host
       .post("https://api.makleruz.uz/mebel/api/v1/mebels/create/", formData, {
         headers: {
           Authorization: `Bearer ${userToken}`,

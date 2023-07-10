@@ -4,9 +4,9 @@ import "slick-carousel/slick/slick-theme.css";
 import sprite from "../../assets/img/symbol/sprite.svg";
 import styled from "styled-components";
 import { useContext, useEffect } from "react";
-import axios from "axios";
 import PersonPng from "../../assets/img/PersonImg.png";
 import { AppContext } from "../../store/AppStore";
+import $host from "../../http";
 
 function CustomLeftArrow({ className, style, onClick }) {
   return (
@@ -37,12 +37,20 @@ function CustomRightArrow({ className, style, onClick }) {
 
 const BannerCarousel = () => {
   const [ { carousel }, setStore ] = useContext(AppContext);
+
+  const fetchCarousels = async () => {
+
+    try {
+      const res = await $host.get("https://api.makleruz.uz/api/v1/carousels/");
+      setStore(prev => ({ ...prev, carousel: { isLoading: false, list: res.data.results } }))
+    } catch (error) {
+      console.log(error);
+    }
+
+  } 
   
   useEffect(() => {
-    axios
-      .get("https://api.makleruz.uz/api/v1/carousels/")
-      .then((res) => setStore(prev => ({ ...prev, carousel: { isLoading: false, list: res.data.results } })))
-      .catch((err) => console.log(err));
+    fetchCarousels();
   }, []);
 
   return (

@@ -11,10 +11,10 @@ import {
   ZoomControl,
 } from "@pbe/react-yandex-maps";
 import useForm from "../../hooks/useForm";
-import axios from "axios";
 import { baseURL } from "../../requests/requests";
 import { toast } from "react-toastify";
 import { useNavigate, useParams } from "react-router-dom";
+import $host from "../../http";
 
 const EditHouse = () => {
   const navigate = useNavigate();
@@ -33,7 +33,7 @@ const EditHouse = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    axios
+    $host
       .get(`${baseURL}/products/api/v1/houses/updates/${id}`)
       .then((res) => {
         setEditData(res.data);
@@ -149,7 +149,7 @@ const EditHouse = () => {
     setLoading(true);
     const userToken = localStorage.getItem("access");
 
-    axios
+    $host
       .put(`${baseURL}/products/api/v1/houses/updates/${id}`, data, {
         headers: {
           Authorization: `Bearer ${userToken}`,

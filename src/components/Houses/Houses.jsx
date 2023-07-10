@@ -2,11 +2,11 @@ import { useMemo, useState } from "react";
 
 import sprite from "../../assets/img/symbol/sprite.svg";
 import ProductCard from "../ProductCard/ProductCard";
-import axios from "axios";
 import { useEffect } from "react";
 import { baseURL } from "../../requests/requests";
 import Loading from "../Loading/Loading";
 import {useTranslation} from "react-i18next";
+import $host from "../../http";
 
 const Houses = ({ value, start, focus }) => {
   const { typeRoom, room, search, building, sort } = value;
@@ -25,7 +25,7 @@ const Houses = ({ value, start, focus }) => {
 
   useEffect(() => {
     setLoading(true);
-    axios
+    $host
       .get(`${baseURL}/products/web/api/v1/web-houses/search/?search=${search}`)
       .then((res) => setSearchData(res.data.results))
       .catch((err) => console.log(err))
@@ -37,7 +37,7 @@ const Houses = ({ value, start, focus }) => {
   const init = async () => {
     setLoading(true);
 
-    const res = await axios.get(
+    const res = await $host.get(
       `https://api.makleruz.uz/products/web/api/v1/all-web-houses/`
     );
 
@@ -47,7 +47,7 @@ const Houses = ({ value, start, focus }) => {
 
   const init2 = async () => {
     setLoading(true);
-    const res = await axios.get(
+    const res = await $host.get(
       `https://api.makleruz.uz/products/web/api/v1/all-web-houses/?limit=${limit}&product_status=&object=${encodeURI(
         building
       )}&building_type=&number_of_rooms=${room}&type=${typeRoom}&rental_type=`
@@ -62,7 +62,7 @@ const Houses = ({ value, start, focus }) => {
   const init3 = async () => {
     if (!sort) return;
     setLoading(true);
-    const res = await axios.get(
+    const res = await $host.get(
       `https://api.makleruz.uz/products/web/api/v1/all-web-houses/?ordering=${sort}`
     );
 

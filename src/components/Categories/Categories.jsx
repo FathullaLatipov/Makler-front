@@ -1,24 +1,12 @@
-import axios from "axios";
-import { useState } from "react";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import ContextApp from "../../context/context";
-import { baseURL } from "../../requests/requests";
 import "./Categories.scss";
 
 const links = ["product", "master", "industria", "mebel"];
 
 const Categories = () => {
   const { categories } = useContext(ContextApp);
-
-  // useEffect(() => {
-  //   axios
-  //     .get(`${baseURL}/api/v1/categories/`)
-  //     .then((res) => setData(res.data.results))
-  //     .catch((err) => console.log(err));
-  // }, []);
-
-  console.log(categories)
 
   return (
     <section className="categories-s">

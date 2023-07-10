@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useMemo, useState } from "react";
 import { useContext, useEffect } from "react";
 import { FilterIndustria, ProductSingle } from "../../components";
@@ -8,6 +7,7 @@ import useForm from "../../hooks/useForm";
 import { baseURL } from "../../requests/requests";
 import Slider from "react-slick";
 import styled from "styled-components";
+import $host from "../../http";
 
 const   AllIndustriya = () => {
   const { stores } = useContext(ContextApp);
@@ -26,7 +26,7 @@ const   AllIndustriya = () => {
 
   const { search, useFor, how_store_service, brand_id } = form;
   useEffect(() => {
-    axios
+    $host
       .get(`${baseURL}/store2/api/v1/store/`)
       .then((data) => setData(data.data.results))
       .catch((err) => console.log(err))
@@ -35,7 +35,7 @@ const   AllIndustriya = () => {
 
   useMemo(() => {
     setLoading(true);
-    axios
+    $host
       .get(`${baseURL}/store2/api/v1/store/`, {
         params: {
           use_for: useFor,
@@ -50,8 +50,8 @@ const   AllIndustriya = () => {
 
   const fetchData = async () => {
     setLoading(true);
-    const response = await axios.get(`${baseURL}/store2/api/v1/store/search?search=${search}`);
-    const brands = await axios.get(`${baseURL}/store2/api/v1/store/brands`);
+    const response = await $host.get(`${baseURL}/store2/api/v1/store/search?search=${search}`);
+    const brands = await $host.get(`${baseURL}/store2/api/v1/store/brands`);
     setBrands(brands.data.results);
     setSearchData(response.data.results)
     setLoading(false);

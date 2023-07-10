@@ -14,13 +14,17 @@ const Navbar = () => {
   const userId = localStorage.getItem("userId");
   const access = localStorage.getItem("access");
   const { t, i18n } = useTranslation();
+  
+  
   const keys = {
-    product: "Продукт",
-    master: "Мастер",
-    industria: "Обустройства",
-    mebel: "Мебель",
-    cabinet: "Кабинет"
+    product: t("navbar.product"),
+    master: t("navbar.master"),
+    industria: t("navbar.industria"),
+    mebel: t("navbar.furniture"),
+    cabinet: t("navbar.cabinet")
   };
+
+  
   useEffect(() => {
     if (access) {
       setIsLogin(true);

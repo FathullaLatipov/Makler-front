@@ -1,8 +1,8 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import spirite from "../../assets/img/symbol/sprite.svg";
 import { baseURL } from "../../requests/requests";
+import $host from "../../http";
 
 const FilterIndustria = ({ change, value }) => {
   const [show1, setShow1] = useState(false);
@@ -16,7 +16,7 @@ const FilterIndustria = ({ change, value }) => {
   const [option3, setOption3] = useState([]);
 
   useEffect(() => {
-    axios
+    $host
       .get("https://api.makleruz.uz/store2/api/v1/store/how_store")
       .then((res) => {
         setOption2(res.data.results?.sort((a, b) => a.id - b.id));
@@ -27,7 +27,7 @@ const FilterIndustria = ({ change, value }) => {
       });
   }, []);
   useEffect(() => {
-    axios
+    $host
       .get("https://api.makleruz.uz/store2/api/v1/store/use_for")
       .then((res) => {
         setOption1(res.data.results?.sort((a, b) => a.id - b.id));
@@ -38,7 +38,7 @@ const FilterIndustria = ({ change, value }) => {
       });
   }, []);
   useEffect(() => {
-    axios
+    $host
       .get(`${baseURL}/store2/api/v1/store/brands`)
       .then((res) => {
         setOption3(res.data.results?.sort((a, b) => a.id - b.id));

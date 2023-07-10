@@ -2,11 +2,11 @@ import "./LoginModal.scss";
 import modalSvg from "../../assets/img/svg/30.svg";
 import sprite from "../../assets/img/symbol/sprite.svg";
 import useForm from "../../hooks/useForm";
-import axios from "axios";
 import { baseURL } from "../../requests/requests";
 import { useContext, useState } from "react";
 import ContextApp from "../../context/context";
 import { toast } from "react-toastify";
+import $host from "../../http";
 
 const LoginModal = () => {
   const { loginModalFunc, getUserId } = useContext(ContextApp);
@@ -20,7 +20,7 @@ const LoginModal = () => {
     const info = {
       phone_number: form.number.toString(),
     };
-    axios
+    $host
       .post(`${baseURL}/authorization/signup/`, info)
       .then((data) => {
         localStorage.setItem("access", data?.data.token?.access);

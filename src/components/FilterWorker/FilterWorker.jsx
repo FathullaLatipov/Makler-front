@@ -1,9 +1,9 @@
-import { Map, YMaps } from "@pbe/react-yandex-maps";
-import axios from "axios";
-import { useEffect, useRef, useState } from "react";
+// import { Map, YMaps } from "@pbe/react-yandex-maps";
+import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import spirite from "../../assets/img/symbol/sprite.svg";
 import { baseURL } from "../../requests/requests";
+import $host from "../../http";
 
 const FilterWorker = ({ change, value }) => {
   const [show1, setShow1] = useState(false);
@@ -14,7 +14,7 @@ const FilterWorker = ({ change, value }) => {
 
   const { profession, service } = value;
   useEffect(() => {
-    axios
+    $host
       .get(`${baseURL}/master/api/v1/maklers/professions`)
       .then((res) => setOption1(res.data.results))
       .catch((err) => {
@@ -22,24 +22,7 @@ const FilterWorker = ({ change, value }) => {
         toast.error("Ошибка!");
       });
   }, []);
-  // const option1 = [
-  //   {
-  //     label: "Ingener",
-  //     value: 1,
-  //   },
-  //   {
-  //     label: "Santexnik",
-  //     value: 2,
-  //   },
-  //   // {
-  //   //   label: "Master",
-  //   //   value: 3,
-  //   // },
-  //   // {
-  //   //   label: "Oyna ustasi",
-  //   //   value: 4,
-  //   // },
-  // ];
+ 
   const serviceType = [
     {
       label: "Ремонт",

@@ -12,8 +12,8 @@ import {
   ZoomControl,
 } from "@pbe/react-yandex-maps";
 import useForm from "../../hooks/useForm";
-import axios from "axios";
 import { toast } from "react-toastify";
+import $host from "../../http";
 
 const CreateProduct = () => {
   const [navActive, setNavActive] = useState(false);
@@ -67,7 +67,7 @@ const CreateProduct = () => {
     setLoading(true);
     const userToken = localStorage.getItem("access");
 
-    axios
+    $host
       .post(
         `https://api.makleruz.uz/products/web/api/v1/web-houses/create/`,
         data,

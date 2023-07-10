@@ -1,10 +1,10 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import spirite from "../../assets/img/symbol/sprite.svg";
 import { baseURL } from "../../requests/requests";
 import LoadingPost from "../LoadingPost/LoadingPost";
+import $host from "../../http";
 
 const UserContents = ({ data, content, mounted, draft }) => {
   const [display, setDisplay] = useState(false);
@@ -30,7 +30,7 @@ const UserContents = ({ data, content, mounted, draft }) => {
   };
 
   const deleteData = (url, id) => {
-    axios
+    $host
       .delete(`${url}/${id}/`)
       .then(() => {
         toast.success("Успешно");
@@ -67,7 +67,7 @@ const UserContents = ({ data, content, mounted, draft }) => {
 
   const draftFunc = (url) => {
     setLoading(true);
-    axios
+    $host
       .patch(url, {
         draft: !draft,
         product_status: 0,
@@ -87,7 +87,7 @@ const UserContents = ({ data, content, mounted, draft }) => {
   };
   const addedToDraftFunc = (url) => {
     setLoading(true);
-    axios
+    $host
       .patch(url, {
         product_status: data?.product_status !== 3 ? 3 : 0,
         draft: false,

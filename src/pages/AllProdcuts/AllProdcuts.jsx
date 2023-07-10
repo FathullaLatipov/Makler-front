@@ -6,9 +6,9 @@ import Slider from "react-slick";
 // import "../../assets/scss/_slider.scss";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import axios from "axios";
 import {baseURL} from "../../requests/requests";
 import styled from "styled-components";
+import $host from "../../http";
 
 const AllProducts = () => {
   const [ objects, setObjects ] = useState([]);
@@ -25,7 +25,7 @@ const AllProducts = () => {
 
   const fetchObjects = async () => {
     try {
-      const response = await axios.get(`${baseURL}/products/houses/filter-web/objects`);
+      const response = await $host.get(`${baseURL}/products/houses/filter-web/objects`);
       let result = response.data.results;
       if(result.length > 0) {
         while(result.length < 6) {
@@ -190,7 +190,7 @@ const AllProducts = () => {
                 <SliderItem 
                   key={index} 
                   style={{background: item.object === form.building && `#c56622`,
-                  color: item.object === form.building && `#fff`}}
+                  color: item.object === form.building && `#fff`, cursor: "pointer"}}
                 >
                   <div 
                     className="slider-item"

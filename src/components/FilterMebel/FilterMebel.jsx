@@ -1,8 +1,8 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import spirite from "../../assets/img/symbol/sprite.svg";
 import { baseURL } from "../../requests/requests";
+import $host from "../../http";
 
 const FilterMebel = ({ change, value }) => {
   const [show1, setShow1] = useState(false);
@@ -51,7 +51,7 @@ const FilterMebel = ({ change, value }) => {
   // }, []);
 
   useEffect(() => {
-    axios
+    $host
       .get(`${baseURL}/mebel/api/v1/mebel-categories/`)
       .then((res) => {
         setCategoryData(res.data.results?.sort((a, b) => a.id - b.id));

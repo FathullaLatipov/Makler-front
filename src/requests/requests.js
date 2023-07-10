@@ -1,3 +1,5 @@
+import $host from "../http";
+
 export const baseURL = "https://api.makleruz.uz";
 
 const requests = {
@@ -7,16 +9,13 @@ const requests = {
   fetchAllStores: `${baseURL}/store2/api/v1/store/`,
 };
 
+
 export const getRequests = async () => {
   const [categories, allHouses, masters, stores] = await Promise.all([
-    fetch(requests.fetchCategories, {
-      headers: {
-        "Accept-Language": localStorage.getItem("i18nextLng") || "ru"
-      }
-    }).then((res) => res.json()),
-    fetch(requests.fetchAllHouses).then((res) => res.json()),
-    fetch(requests.fetchAllMasters).then((res) => res.json()),
-    fetch(requests.fetchAllStores).then((res) => res.json()),
+    $host.get(requests.fetchCategories).then((res) => res.data),
+    $host.get(requests.fetchAllHouses).then((res) => res.data),
+    $host.get(requests.fetchAllMasters).then((res) => res.data),
+    $host.get(requests.fetchAllStores).then((res) => res.data),
   ]);
 
   return {

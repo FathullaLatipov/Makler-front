@@ -1,10 +1,10 @@
 import { useContext, useState } from "react";
 import ProductCard from "../ProductCard/ProductCard";
-import axios from "axios";
 import { useEffect } from "react";
 import Loading from "../Loading/Loading";
 import {useTranslation} from "react-i18next";
 import { AppContext } from "../../store/AppStore";
+import $host from "../../http";
 
 const HomeHouses = () => {
   const [ { houses }, setStore ] = useContext(AppContext);
@@ -12,9 +12,7 @@ const HomeHouses = () => {
   const { t } = useTranslation();
 
   const init = async () => {
-    const res = await axios.get(
-      `https://api.makleruz.uz/products/web/api/v1/all-web-houses/?limit=${limit}`
-    );
+    const res = await $host.get(`https://api.makleruz.uz/products/web/api/v1/all-web-houses/?limit=${limit}`);
     setStore(prev => ({ ...prev, houses: { isLoading: false, list: res.data.results } }));
   };
 

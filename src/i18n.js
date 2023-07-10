@@ -16,7 +16,12 @@ i18next
                         favourite: "Избранное",
                         sign: "Войти",
                         profile: "Профиль",
-                        placeanadd: "Разместить объявление"
+                        placeanadd: "Разместить объявление",
+                        product: "Продукт",
+                        master: "Мастер",
+                        industria: "Обустройства",
+                        furniture: "Мебель",
+                        cabinet: "Кабинет"
                     },
                     houses: {
                         recommendation: "Рекомендованные Жилой Комплекс",
@@ -47,7 +52,12 @@ i18next
                         favourite: "Sevimlilar",
                         sign: "Kirish",
                         profile: "Profil",
-                        placeanadd: "Reklama joylashtiring"
+                        placeanadd: "Reklama joylashtiring",
+                        product: "Mahsulot",
+                        master: "Usta",
+                        industria: "Aranjirovkalar",
+                        furniture: "Mebel",
+                        cabinet: "Kabinet"
                     },
                     houses: {
                         recommendation: "Tanlangan turar-joy majmuasi",

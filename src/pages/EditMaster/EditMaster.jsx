@@ -16,12 +16,12 @@ import {
   InputLabel,
   FormControl,
 } from "@mui/material";
-import axios from "axios";
 import { toast } from "react-toastify";
 import LoadingPost from "../../components/LoadingPost/LoadingPost";
 import { useParams } from "react-router-dom";
 import { baseURL } from "../../requests/requests";
 import ContextApp from "../../context/context";
+import $host from "../../http";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -104,7 +104,7 @@ export default function EditMaster() {
   };
 
   useEffect(() => {
-    axios
+    $host
       .get(`${baseURL}/master/api/v1/maklers/professions`)
       .then((res) => setNames(res.data.results))
       .catch((err) => {
@@ -176,7 +176,7 @@ export default function EditMaster() {
   });
 
   useEffect(() => {
-    axios
+    $host
       .get(`${baseURL}/master/api/v1/maklers/update/${id}`)
       .then((res) => {
         setEditData(res.data);
@@ -241,7 +241,7 @@ export default function EditMaster() {
     formData.append("experience", form.experience);
     const userToken = localStorage.getItem("access");
 
-    axios
+    $host
       .put(`${baseURL}/master/api/v1/maklers/update/${id}`, formData, {
         headers: {
           Authorization: `Bearer ${userToken}`,
