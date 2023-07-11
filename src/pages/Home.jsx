@@ -6,17 +6,12 @@ import {
   Categories,
   DownloadApp,
   FooterMenu,
-  Houses,
 } from "../components";
-import useForm from "../hooks/useForm";
 import HomeHouses from "../components/HomeHouses/HomeHouses";
 
 const Home = () => {
   const [bannerModal, setBannerModal] = useState(false);
 
-  // useEffect(() => {
-  //  searchData?.splice(0, 8);
-  // }, []);
 
   useEffect(() => {
     const modal = sessionStorage.getItem("modal");
@@ -27,25 +22,6 @@ const Home = () => {
     return;
   }, []);
   
-  // window.addEventListener("DOMContentLoaded", () => {
-  //   setBannerModal(true);
-  // });
-
-  // useEffect(() => {
-  //   setLoading(true);
-  //   axios
-  //     .get(
-  //       `${baseURL}/products/web/api/v1/web-houses/search/?search=${form.search}`
-  //     )
-  //     .then((res) => setSearchData(res.data.results))
-  //     .catch((err) => console.log(err))
-  //     .finally(() => {
-  //       setLoading(false);
-  //     });
-  // }, [form.search]);
-
-  // console.log(form.search.length);
-
   const closeModal = () => {
     setBannerModal(false);
     sessionStorage.setItem("modal", true);
@@ -53,13 +29,6 @@ const Home = () => {
 
   return (
     <>
-      {/* <Filter
-        value={form}
-        change={changeHandler}
-        start={setStart}
-        setFocus={setFocus}
-      /> */}
-      {/* {form.search.length ? <SearchResults data={searchData} loading={loading} /> : ""} */}
       {bannerModal && <BannerModal setOpen={closeModal} />}
       <BannerCarousel />
       <Categories />

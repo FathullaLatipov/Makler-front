@@ -171,6 +171,7 @@
 	width: 100%;
 	font-family: SFProDisplay_400;
 	transition: all ease .2s;
+	font-weight: 600;
 	&:hover {
 		background: darken($orange, 5)
 	}
@@ -269,4 +270,11 @@
 	&:hover {
 		background: rgba(0, 0, 0, 0.2);
 	}
+}
+
+.default-link {
+	color: rgba(27, 116, 255, 1);
+	text-decoration: underline;
+	font-size: rem(13px);
+	cursor: pointer;
 }

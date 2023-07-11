@@ -13,7 +13,7 @@ const Filter = ({ value, change, start }) => {
           <ul className="nav-search-body">
             <li className="nav-search_how select-choose">
               <label className="nav-label">Как</label>
-              <a
+              <div
                 className="choose-btn choose-btn-round"
                 id="choose-how"
                 onClick={() => setShow1((prev) => !prev)}
@@ -25,7 +25,7 @@ const Filter = ({ value, change, start }) => {
                 <svg className="svg-sprite-icon icon-fi_chevron-down w-12">
                   <use href={`${spirite}#fi_chevron-down`}></use>
                 </svg>
-              </a>
+              </div>
               <div className={`nav-body-choose ${show1 ? "active" : ""}`}>
                 <ul>
                   <li>
@@ -99,7 +99,7 @@ const Filter = ({ value, change, start }) => {
             </li>
             <li className="nav-search_type select-choose">
               <label className="nav-label">Тип</label>
-              <a
+              <div
                 className="choose-btn choose-btn-link"
                 id="choose-type"
                 onClick={() => setShow2((prev) => !prev)}
@@ -111,7 +111,7 @@ const Filter = ({ value, change, start }) => {
                 <svg className="svg-sprite-icon icon-fi_chevron-down w-12">
                   <use href={`${spirite}#fi_chevron-down`}></use>
                 </svg>
-              </a>
+              </div>
               <div className={`nav-body-choose ${show2 ? "active" : ""}`}>
                 <ul>
                   {[
@@ -163,14 +163,6 @@ const Filter = ({ value, change, start }) => {
                       label: "Участка",
                       value: "участка",
                     },
-                    // {
-                    //   label: "Town house",
-                    //   value: "townhouse",
-                    // },
-                    // {
-                    //   label: "Bed space",
-                    //   value: "bed_space",
-                    // },
                   ].map((item) => (
                     <li key={item.value}>
                       <label
@@ -257,13 +249,6 @@ const Filter = ({ value, change, start }) => {
       <div className="container">
         <div className="main"></div>
       </div>
-      {/* <section className="categories-s">
-        <div className="container">
-          <div className="categories">
-            <ul id="categories-list"></ul>
-          </div>
-        </div>
-      </section> */}
     </section>
   );
 };

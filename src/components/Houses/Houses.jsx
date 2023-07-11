@@ -131,7 +131,7 @@ const Houses = ({ value, start, focus }) => {
                   }}
                 >
                   {prevUrl && (
-                    <a
+                    <div
                       style={{
                         cursor: "pointer",
                       }}
@@ -140,7 +140,7 @@ const Houses = ({ value, start, focus }) => {
                       <svg className="svg-sprite-icon icon-fi_chevron-left w-12">
                         <use href={`${sprite}#fi_chevron-left`}></use>
                       </svg>
-                    </a>
+                    </div>
                   )}
                 </div>
               </li>
@@ -152,7 +152,7 @@ const Houses = ({ value, start, focus }) => {
                   }}
                 >
                   {nextUrl && (
-                    <a
+                    <div
                       style={{
                         cursor: "pointer",
                       }}
@@ -161,7 +161,7 @@ const Houses = ({ value, start, focus }) => {
                       <svg className="svg-sprite-icon icon-fi_chevron-left w-12">
                         <use href={`${sprite}#fi_chevron-left`}></use>
                       </svg>
-                    </a>
+                    </div>
                   )}
                 </div>
               </li>

@@ -12,8 +12,8 @@ import $host from "../../http";
 
 const AllProducts = () => {
   const [ objects, setObjects ] = useState([]);
+  const [show1, setShow1] = useState(false);
   const [ loading, setLoading ] = useState(true);
-  const [ selectObject, setSelectObject ] = useState('');
 
   const { form, changeHandler } = useForm({
     typeRoom: "",
@@ -26,6 +26,7 @@ const AllProducts = () => {
   const fetchObjects = async () => {
     try {
       const response = await $host.get(`${baseURL}/products/houses/filter-web/objects`);
+
       let result = response.data.results;
       if(result.length > 0) {
         while(result.length < 6) {
@@ -34,6 +35,7 @@ const AllProducts = () => {
       }
       setObjects(result);
       setLoading(false);
+
     } catch (e) {
       console.log(e);
     }
@@ -88,7 +90,6 @@ const AllProducts = () => {
     ]
   }
 
-  const [show1, setShow1] = useState(false);
   return (
     <div className="content">
       <div className="container">
@@ -114,7 +115,6 @@ const AllProducts = () => {
                 style={{
                   background: "transparent",
                   border: "none",
-                  // fontWeight: "600",
                 }}
                 onClick={() => setShow1((prev) => !prev)}
               >
@@ -151,7 +151,6 @@ const AllProducts = () => {
                         onClick={(e) => {
                           changeHandler(e);
                           setShow1(false);
-                          // setPriceText(item.text);
                         }}
                         value={item.id}
                         readOnly

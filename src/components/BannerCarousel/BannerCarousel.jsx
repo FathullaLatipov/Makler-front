@@ -59,7 +59,7 @@ const BannerCarousel = () => {
         <div className="person-img">
           <img 
             src={PersonPng}
-            alt=""
+            alt="person-img"
           />
         </div>
         <Slider
