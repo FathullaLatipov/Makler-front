@@ -56,14 +56,15 @@ const BannerCarousel = () => {
   }, []);
 
   return (
-    <div className="container">
-      <Card>
-        <div className="person-img">
-          <img 
+    <Container className="container" style={{ position: "relative" }}>
+      <div className="person-img">
+        <img
             src={PersonPng}
             alt="person-img"
-          />
-        </div>
+        />
+      </div>
+      <Card>
+
         <Slider
             className=""
             infinite={true}
@@ -88,9 +89,31 @@ const BannerCarousel = () => {
           ))}
         </Slider>
       </Card>
-    </div>
+    </Container>
   );
 };
+
+const Container = styled.div`
+  .person-img {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    bottom: 0;
+  }
+
+  .person-img > img {
+    object-fit: contain;
+    height: 280px;
+  }
+
+  @media(max-width: 640px) {
+    .person-img > img {
+      object-fit: contain;
+      height: 200px;
+    }  
+  }
+  
+`
 
 const Card = styled.div`
   height: 415px;
@@ -115,7 +138,6 @@ const Card = styled.div`
        height: 358px;
      } */
   }
-  position: relative;
   img {
     width: 100%;
     height: 100%;
@@ -136,19 +158,6 @@ const Card = styled.div`
   .icon-left-arr {
     left: 10px !important;
     top: 50% !important;
-  }
-  .person-img {
-    position: absolute;
-    z-index: 1;
-    height: 30vh;
-    right: 0;
-    bottom: 0;
-  }
-  
-  @media(max-width: 500px) {
-    .person-img {
-      height: 100px;
-    }
   }
   
 `;
