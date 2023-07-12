@@ -3,10 +3,10 @@ import $host from "../http";
 export const baseURL = "https://api.makleruz.uz";
 
 const requests = {
-  fetchCategories: `${baseURL}/api/v1/categories/`,
-  fetchAllHouses: `${baseURL}/products/web/api/v1/all-web-houses/`,
-  fetchAllMasters: `${baseURL}/master/api/v1/maklers/`,
-  fetchAllStores: `${baseURL}/store2/api/v1/store/`,
+  fetchCategories: `/api/v1/categories/`,
+  fetchAllHouses: `/products/web/api/v1/all-web-houses/`,
+  fetchAllMasters: `/master/api/v1/maklers/`,
+  fetchAllStores: `/store2/api/v1/store/`,
 };
 
 

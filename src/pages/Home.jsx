@@ -18,8 +18,6 @@ const Home = () => {
     if (!modal) {
       setBannerModal(true);
     }
-
-    return;
   }, []);
   
   const closeModal = () => {

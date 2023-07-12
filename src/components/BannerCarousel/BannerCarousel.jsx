@@ -41,11 +41,13 @@ const BannerCarousel = () => {
   const fetchCarousels = async () => {
 
     try {
-      const res = await $host.get("https://api.makleruz.uz/api/v1/carousels/");
+      const res = await $host.get("/api/v1/carousels/");
       setStore(prev => ({ ...prev, carousel: { isLoading: false, list: res.data.results } }))
     } catch (error) {
       console.log(error);
     }
+
+    
 
   } 
   

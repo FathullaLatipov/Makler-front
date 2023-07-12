@@ -1,10 +1,34 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import styled from "styled-components";
 import spirite from "../../assets/img/symbol/sprite.svg";
-import mainImg from "../../assets/img/main-image.jpeg";
+import $host from "../../http";
+import {get} from "axios";
 
 
 const BannerModal = ({ setOpen }) => {
+    const [image, setImage] = useState({});
+    const [loading, setLoading] = useState(true);
+
+    const getBanner = async () => {
+        try {
+            const { data } = await $host.get('/api/v1/banner-ads/');
+            console.log(data);
+            setImage(data.results[0]);
+            setLoading(false);
+        } catch (e) {
+            setOpen();
+            console.log(e);
+        }
+    }
+
+    useEffect(() => {
+        getBanner();
+    }, []);
+
+    if(loading) {
+        return null;
+    }
+
   return (
     <div id="banner-modal">
       <BgofBanner onClick={setOpen} />
@@ -15,7 +39,9 @@ const BannerModal = ({ setOpen }) => {
           </svg>
         </SvgWrapper>
         <ImageWrapper>
-          <img src={mainImg} alt="" />
+            <a href={image.url}>
+                <img src={image.image} alt="" />
+            </a>
         </ImageWrapper>
       </Wrapper>
     </div>

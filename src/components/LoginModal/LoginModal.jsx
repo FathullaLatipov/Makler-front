@@ -2,8 +2,7 @@ import "./LoginModal.scss";
 import modalSvg from "../../assets/img/svg/30.svg";
 import sprite from "../../assets/img/symbol/sprite.svg";
 import useForm from "../../hooks/useForm";
-import { baseURL } from "../../requests/requests";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import ContextApp from "../../context/context";
 import { toast } from "react-toastify";
 import $host from "../../http";
@@ -24,36 +23,79 @@ const LoginModal = () => {
     opt_code: "",
   });
 
+  const setError = (error) => {
+    if(error.response.data) {
+      
+      return Object.keys(error.response.data).forEach((key) => {
+        toast.error(error.response.data[key]);
+      });
+    }
+    toast.error("Something went wrong!");
+  };
 
-  const handeSubmit = (e) => {
+  const sendOptCode = async (optCode, number) => {
+    try {
+      const { data } = await $host.post('/authorization/api/v1/confirmation/', {
+        confirmation_code: optCode,
+        phone_number: number,
+      });
+      if(data.error) {
+        return toast.error(data.error);
+      }
+      localStorage.setItem("access", data.access);
+      localStorage.setItem("userId", data.id);
+      window.location.reload();
+    } catch (error) {
+      setError(error);
+    }
+  };
+
+  const handeSubmit = async (e) => {
     e.preventDefault();
-    const { password, confirm_password, number } = form;
+    const { password, confirm_password, number, opt_code } = form;
 
-    if(step === 2) {
-      if(!number.trim() || !password.trim() || !confirm_password.trim()) {
-        toast.error('Все поля должны быть заполнены');
-      }
-      if(password !== confirm_password) {
-        toast.error("Ваш пароль не совпадает");
-      }
-    
-      $host
-        .post(`/authorization/signup/`, {
+    if(step === 3) {
+      return sendOptCode(opt_code, number);
+    }
+
+    try {
+      if(step === 1) {
+        if(!number.trim() || !password.trim()) {
+          return toast.error('Все поля должны быть заполнены');
+        }
+        const { data } = await $host.post('/authorization/api/v1/login/', { 
           phone_number: number,
           password: password,
-        })
-        .then(({ data }) => {
-          localStorage.setItem("access", data.token?.access);
-          localStorage.setItem("userId", data.token?.id);
-          // setDa(data);
-        })
-        .catch(() => toast.error("Something went wrong!"))
-        .finally(() => {
-          // loginModalFunc(false);
-          // window.location.reload();
         });
-    }
-    
+        localStorage.setItem("access", data.access);
+        localStorage.setItem("userId", data.id);
+        window.location.reload();
+      }
+  
+      if(step === 2) {
+        if(!number.trim() || !password.trim() || !confirm_password.trim()) {
+          return toast.error('Все поля должны быть заполнены');
+        }
+        if(password !== confirm_password) {
+          return toast.error("Ваш пароль не совпадает");
+        }
+        await $host
+          .post(`/authorization/signup/`, {
+            phone_number: number,
+            password: password,
+          })
+        setStep(3);
+      }
+      
+    } catch (error) {
+      if(error.response.data) {
+      
+        return Object.keys(error.response.data).forEach((key) => {
+          toast.error(error.response.data[key])
+        });
+      }
+      toast.error("Something went wrong!")
+    } 
   };
 
   const changeStep = (step) => {
