@@ -33,8 +33,6 @@ const Navbar = () => {
     }
   }, [access]);
 
-  console.log(i18n)
-
 
   return (
     <header className="header">
@@ -131,7 +129,10 @@ const Navbar = () => {
                   </Link>
                 ) : (
                   <button
-                    onClick={() => loginModalFunc(true)}
+                    onClick={() => {
+                      // setShowNav((prev) => !prev);
+                      loginModalFunc(true);
+                    }}
                     style={{
                       border: "none",
                       background: "transparent",

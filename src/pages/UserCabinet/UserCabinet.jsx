@@ -126,9 +126,7 @@ const UserCabinet = () => {
                 <div className="alert-advert">
                   <h5>{t('cabinet.addToTheTop')}</h5>
                   <p>
-                    Как только вы зарегистрируетесь в качестве мастера, вы
-                    сможете получать заказы по направлениям, введенным через наш
-                    портал!
+                    {t("cabinet.addToTheTopText")}
                   </p>
                   <div className="alert-advert-btns">
                     <button className="btn btn-orange-50">
