@@ -140,7 +140,7 @@ const Card = styled.div`
   .person-img {
     position: absolute;
     z-index: 1;
-    height: 60%;
+    height: 30vh;
     right: 0;
     bottom: 0;
   }

@@ -45,7 +45,8 @@ i18next
                     },
                     cabinet: {
                         addToTheTop: "Продвигайте свое объявление в ТОП!",
-                        addToTheTopText: "Как только вы зарегистрируетесь в качестве мастера, вы сможете получать заказы по направлениям, введенным через наш портал!"
+                        addToTheTopText: "Как только вы зарегистрируетесь в качестве мастера, вы сможете получать заказы по направлениям, введенным через наш портал!",
+                        activateToTop: "Активировать в топ",
                     }
                 }
             },
@@ -85,7 +86,8 @@ i18next
                     },
                     cabinet: {
                         addToTheTop: "E'loningizni TOP ga ko'taring!",
-                        addToTheTopText: "Magistr sifatida ro'yxatdan o'tganingizdan so'ng, siz orqali kirgan yo'nalishlarga buyurtmalarni qabul qilish imkoniyatiga ega bo'ladi portal!"
+                        addToTheTopText: "Magistr sifatida ro'yxatdan o'tganingizdan so'ng, siz orqali kirgan yo'nalishlarga buyurtmalarni qabul qilish imkoniyatiga ega bo'ladi portal!",
+                        activateToTop: "Yuqoriga faollashtirish"
                     }
                 }
             }
