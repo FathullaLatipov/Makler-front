@@ -12,6 +12,7 @@ import { baseURL } from "../../requests/requests";
 import ContextApp from "../../context/context";
 import { useStepContext } from "@mui/material";
 import Loading from "../../components/Loading/Loading";
+import {useTranslation} from "react-i18next";
 
 const UserCabinet = () => {
   const [holdId, setHoldId] = useState(1);
@@ -30,9 +31,11 @@ const UserCabinet = () => {
   const [userOwnData, setUserOwnData] = useState([]);
   const [draft, setDraft] = useState(null);
   const navigate = useNavigate();
+  const { t, i18n } = useTranslation();
   // console.log(maklers);
   const { id } = useParams();
   // https://api.makleruz.uz//users/api/v1/user-products/2/
+
   const getData = (setData, url) => {
     let userToken = localStorage.getItem("access");
     axios
@@ -121,7 +124,7 @@ const UserCabinet = () => {
             <div className="container-sm">
               <div className="advert">
                 <div className="alert-advert">
-                  <h5>Продвигайте свое объявление в ТОП!</h5>
+                  <h5>{t('cabinet.addToTheTop')}</h5>
                   <p>
                     Как только вы зарегистрируетесь в качестве мастера, вы
                     сможете получать заказы по направлениям, введенным через наш
@@ -155,7 +158,6 @@ const UserCabinet = () => {
                               draftArg.filteredArr?.length
                             ? "Мебель"
                             : ""}
-                          {console.log()}
                         </span>
                         {draftArg.filteredArr?.map((item, i) => (
                           <UserContents
@@ -546,9 +548,9 @@ const UserCabinet = () => {
                 </picture>
               </div>
               <div className="cabinet-profile-info">
-                <h4>Name: {userOwnData?.first_name}</h4>
+                <h4>Имя: Пустой</h4>
                 <p>id: {userOwnData?.id}</p>
-                <p>Email: {userOwnData?.email}</p>
+                <p>Номер телефона: {userOwnData?.phone_number}</p>
               </div>
             </div>
             <ul className="cabinet-nav-list">
