@@ -144,6 +144,13 @@ const Card = styled.div`
     right: 0;
     bottom: 0;
   }
+  
+  @media(max-width: 500px) {
+    .person-img {
+      height: 100px;
+    }
+  }
+  
 `;
 
 export default BannerCarousel;
