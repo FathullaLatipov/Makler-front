@@ -1,6 +1,5 @@
 import React, {useEffect} from "react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import { useContext } from "react";
 import ContextApp from "../../context/context";
 
@@ -44,15 +43,17 @@ const Categories = () => {
               <ul>
               {categories?.map((item, i) => (
               <li key={i}>
-                <Link to={`${links[i]}`}>
-                  <div className="info">
-                    <h2>{item.title}</h2>
-                    <p>{item.subtitle}</p>
-                  </div>
-                  <div className="img">
-                    <img src={item.image} alt={item.title} />
-                  </div>
-                </Link>
+                <span>
+                  <Link to={`${links[i]}`}>
+                      <div className="info">
+                        <h2>{item.title}</h2>
+                        <p>{item.subtitle}</p>
+                      </div>
+                      <div className="img">
+                        <img src={item.image} alt={item.title} />
+                      </div>
+                  </Link>
+                </span>
               </li>
             ))}
               </ul>

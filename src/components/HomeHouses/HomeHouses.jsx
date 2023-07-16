@@ -30,7 +30,9 @@ const HomeHouses = () => {
       <div className="container">
         <div className="cards">
           <div className="cards-head">
-            <h4>{t("houses.recommendation")}</h4>
+            <div className="cards-head-hd">
+              <h4>{t("houses.recommendation")}</h4>
+            </div>
           </div>
           {!houses.isLoading ? (
             <ul className="cards-list" id="houses-list">
