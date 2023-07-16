@@ -11,8 +11,9 @@ import $host from "../../http";
 
 const ProductCard = ({ data, wishlist, wishId, deleteMount }) => {
   const [isLoading, setIsLoading] = useState(false);
-  const [wishAllId, setWishAllId] = useState([]);
-  const { loginModalFunc } = useContext(ContextApp);
+  const { loginModalFunc, favorites, setFavorites } = useContext(ContextApp);
+  const hasInWishlist = favorites.find((item) => item.product.id === data.id);
+
   const handleClick = () => {
     const userId = localStorage.getItem("userId");
     if (!userId) {
@@ -20,14 +21,10 @@ const ProductCard = ({ data, wishlist, wishId, deleteMount }) => {
       return;
     }
     setIsLoading(true);
-    const isThere = wishAllId.some((item) => item === data?.id);
-    if (wishlist) {
-      $host
-        .delete(
-          `https://api.makleruz.uz/products/api/v1/houses/wishlist-houses/${wishId}/`
-        )
+    if (hasInWishlist) {
+      $host.delete( `/products/api/v1/houses/wishlist-houses/${hasInWishlist.id}/`)
         .then(() => {
-          deleteMount((prev) => !prev);
+          setFavorites(prev => prev.filter((item) => item.id !== hasInWishlist.id));
           toast.success("Успешно!");
         })
         .catch((err) => {
@@ -36,15 +33,13 @@ const ProductCard = ({ data, wishlist, wishId, deleteMount }) => {
         })
         .finally(() => setIsLoading(false));
       return;
-    }
-    if (!isThere) {
-      const userId = localStorage.getItem("userId");
-      $host
-        .post(`${baseURL}/products/api/v1/houses/wishlist-houses/`, {
+    } else {
+        $host.post(`/products/api/v1/houses/wishlist-houses/`, {
           user: userId,
           product: data.id,
         })
-        .then(() => {
+        .then(({ data }) => {
+          setFavorites(prev => ([...prev, { ...data, product: { id: data.product } }]));
           toast.success("Успешно!");
         })
         .catch((err) => {
@@ -52,32 +47,16 @@ const ProductCard = ({ data, wishlist, wishId, deleteMount }) => {
           toast.error("Ошибка!");
         })
         .finally(() => setIsLoading(false));
-    } else {
-      return setIsLoading(false);
     }
-  };
 
-  useEffect(() => {
-    const userid = localStorage.getItem("userId");
-    $host
-      .get(
-        `https://api.makleruz.uz/products/api/v1/houses/get-wishlist-houses?user=${userid}`
-      )
-      .then((data) => {
-        setWishAllId(() => {
-          return data.data.results.map((item) => item.product.id);
-        });
-      })
-      .catch((er) => console.log(er));
-  }, [isLoading]);
+    return setIsLoading(false);
+  };
 
   return (
     <li className="cards-item">
       {isLoading && <LoadingPost />}
       <button
-        className={`btn-save ${
-          wishAllId.some((item) => item === data?.id) ? "save" : ""
-        }`}
+        className={`btn-save ${hasInWishlist ? "save" : ""}`}
         onClick={handleClick}
       >
         <svg className="svg-sprite-icon icon-save">

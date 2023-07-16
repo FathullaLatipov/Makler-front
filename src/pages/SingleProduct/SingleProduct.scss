@@ -457,3 +457,15 @@
     margin-left: 10px;
   }
 }
+
+.info-product-share {
+  display: block;
+  padding: 0 0.3125rem 0.3125rem;
+
+  & > * {
+    width: 100%;
+    margin-top: 10px;
+    font-weight: 600;
+    padding: 0.6rem 0;
+  }
+}

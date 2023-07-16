@@ -39,6 +39,7 @@ import { ToastContainer } from "react-toastify";
 import CreatePageProtect from "./components/CreatePageProtect/CreatePageProtect";
 import BottomNavbar from "./components/BottomNavbar/BottomNavbar";
 import $host from "./http";
+import axios from "axios";
 
 const CabinetPage = () => {
   const userId = localStorage.getItem("userId");
@@ -52,7 +53,7 @@ const CabinetPage = () => {
 function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [loading, setLoading] = useState(true);
-  const { addUserData, userData } = useContext(ContextApp);
+  const { addUserData, userData, setFavorites } = useContext(ContextApp);
   const navigate = useNavigate();
 
   const { openLoginModal } = useContext(ContextApp);
@@ -62,6 +63,9 @@ function App() {
     const userId = window.localStorage.getItem("userId");
 
     try {
+      const favorites = await $host.get(`/products/api/v1/houses/get-wishlist-houses?user=${userId}`)
+      setFavorites(favorites.data.results);
+
       const { data } = await $host
           .get(`/users/api/v1/${url}/${userId}`, {
             headers: {

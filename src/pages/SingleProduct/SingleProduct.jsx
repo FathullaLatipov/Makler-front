@@ -13,14 +13,17 @@ import { useContext } from "react";
 import ContextApp from "../../context/context";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import $host from "../../http";
+import {toast} from "react-toastify";
 
 
 const SingleProduct = () => {
   const { id } = useParams();
-  const [loading, setLaoding] = useState(true);
+  const [loading, setLoading] = useState(true);
   const [recomendLoading, setRecomendLoading] = useState(false);
   const [recomdend, setRecomdend] = useState([]);
-  const { houseData, getHouseData } = useContext(ContextApp);
+  const { houseData, getHouseData, loginModalFunc, favorites, setFavorites } = useContext(ContextApp);
+  const hasInWishlist = favorites.find((item) => item.product.id === +id);
+
 
   const slice = (str) => {
     return str.substr(32);
@@ -28,14 +31,14 @@ const SingleProduct = () => {
 
 
   useEffect(() => {
-    setLaoding(true);
+    setLoading(true);
     $host
       .get(`/products/web/api/v1/houses/${id}`)
       .then((data) => {
         getHouseData(data.data);
       })
       .catch((err) => console.log(err))
-      .finally(() => setLaoding(false));
+      .finally(() => setLoading(false));
   }, [id]);
 
   useEffect(() => {
@@ -46,6 +49,39 @@ const SingleProduct = () => {
       })
       .catch((err) => console.log(err));
   }, [id]);
+
+  const shareLink = () => {
+    navigator.clipboard.writeText(houseData.link);
+    toast.success("Ссылка скопирована");
+  }
+
+  const addToFavorites = async () => {
+    const userId = window.localStorage.getItem("userId");
+    if(!userId) {
+      return loginModalFunc(true);
+    }
+    setLoading(true);
+
+    try {
+      if(hasInWishlist) {
+        await $host.delete( `/products/api/v1/houses/wishlist-houses/${hasInWishlist.id}/`);
+        setFavorites(prev => prev.filter((item) => item.id !== hasInWishlist.id));
+        toast.success("Успешно!");
+      } else {
+        const { data } = await $host.post(`/products/api/v1/houses/wishlist-houses/`, {
+          user: userId,
+          product: id,
+        });
+        setFavorites(prev => ([...prev, { ...data, product: { id: data.product } }]));
+        toast.success("Успешно!");
+      }
+    } catch (e) {
+      console.log(e);
+      toast.error("Ошибка!");
+      setLoading(false);
+    }
+    setLoading(false);
+  }
 
   return (
     <div
@@ -98,6 +134,21 @@ const SingleProduct = () => {
                 <a className="btn btn-orange" href="tel:035252434">
                   Позвонить маклеру
                 </a>
+              </div>
+
+              <div className="info-product-share">
+                <button
+                    className="btn btn-dark-gray"
+                    onClick={shareLink}
+                >
+                  Поделиться
+                </button>
+                <button
+                    className={`btn ${hasInWishlist ? "btn-orange" : "btn-dark-gray"}`}
+                    onClick={addToFavorites}
+                >
+                  {hasInWishlist ? "В избранные" : "Удалить с избранного"}
+                </button>
               </div>
             </div>
             <div className="info-product-main">

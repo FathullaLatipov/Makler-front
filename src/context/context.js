@@ -11,8 +11,7 @@ export const ContextProvider = ({ children }) => {
   const [homeHouses, setHomeHouses] = useState();
   const [houseData, setHouseData] = useState();
   const [userId, setUserId] = useState();
-
-  const [carouselData, setCarouselData] = useState([]);
+  const [favorites, setFavorites] = useState([]);
 
   const navigate = useNavigate();
 
@@ -46,6 +45,8 @@ export const ContextProvider = ({ children }) => {
     <ContextApp.Provider
       value={{
         ...data,
+        favorites,
+        setFavorites,
         loginModalFunc,
         navigateToProfile,
         openLoginModal,

@@ -3,7 +3,6 @@ import sprite from "../../assets/img/symbol/sprite.svg";
 import useForm from "../../hooks/useForm";
 import {useEffect, useState} from "react";
 import Slider from "react-slick";
-// import "../../assets/scss/_slider.scss";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import {baseURL} from "../../requests/requests";
