@@ -15,15 +15,17 @@ const Categories = () => {
           <ul id="categories-list" style={{}}>
             {categories?.map((item, i) => (
               <li key={i}>
-                <Link to={`${links[i]}`}>
-                  <div className="info">
-                    <h2>{item.title}</h2>
-                    <p>{item.subtitle}</p>
-                  </div>
-                  <div className="img">
-                    <img src={item.image} alt={item.title} />
-                  </div>
-                </Link>
+                  <span>
+                    <Link to={`${links[i]}`}>
+                      <div className="info">
+                        <h2>{item.title}</h2>
+                        <p>{item.subtitle}</p>
+                      </div>
+                      <div className="img">
+                        <img src={item.image} alt={item.title} />
+                      </div>
+                    </Link>
+                  </span>
               </li>
             ))}
           </ul>

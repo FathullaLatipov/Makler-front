@@ -192,6 +192,7 @@ export default function EditMebel() {
   });
 
   useEffect(() => {
+    window.document.title = "Редактировать";
     $host
       .get(`${baseURL}/mebel/api/v1/mebels/update/${id}`)
       .then((res) => {

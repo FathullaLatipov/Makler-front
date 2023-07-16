@@ -104,6 +104,7 @@ export default function EditMaster() {
   };
 
   useEffect(() => {
+    window.document.title = "Редактировать";
     $host
       .get(`${baseURL}/master/api/v1/maklers/professions`)
       .then((res) => setNames(res.data.results))

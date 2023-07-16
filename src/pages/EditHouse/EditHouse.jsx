@@ -33,6 +33,7 @@ const EditHouse = () => {
   const { id } = useParams();
 
   useEffect(() => {
+    window.document.title = "Редактировать";
     $host
       .get(`${baseURL}/products/api/v1/houses/updates/${id}`)
       .then((res) => {

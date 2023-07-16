@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useContext } from "react";
@@ -29,8 +29,11 @@ const links = ["product", "master", "industria", "mebel"];
 //   },
 // ];
 const Categories = () => {
-  const { categories } = useContext(ContextApp);
-  const [data, setData] = useState();
+  const { categories } = useContext(ContextApp)
+
+  useEffect(() => {
+    window.document.title = "Создать";
+  }, []);
 
   return (
     <section className="content">

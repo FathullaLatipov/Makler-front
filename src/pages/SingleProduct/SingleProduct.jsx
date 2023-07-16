@@ -15,6 +15,7 @@ import ProductCard from "../../components/ProductCard/ProductCard";
 import $host, {WEB_URL} from "../../http";
 import {toast} from "react-toastify";
 import FavoriteSvg from "../../UI/FavoriteSvg";
+import ShareSvg from "../../UI/ShareSvg";
 
 
 const SingleProduct = () => {
@@ -30,13 +31,13 @@ const SingleProduct = () => {
     return str.substr(32);
   };
 
-
   useEffect(() => {
     setLoading(true);
     $host
       .get(`/products/web/api/v1/houses/${id}`)
       .then((data) => {
         getHouseData(data.data);
+        window.document.title = data?.data?.title;
       })
       .catch((err) => console.log(err))
       .finally(() => setLoading(false));
@@ -84,6 +85,7 @@ const SingleProduct = () => {
     }
     setLoading(false);
   }
+
 
   return (
     <div
@@ -142,6 +144,7 @@ const SingleProduct = () => {
                     onClick={shareLink}
                 >
                   Поделиться
+                  <ShareSvg/>
                 </button>
                 <button
                     className={`add-favorite btn ${hasInWishlist ? "btn-orange" : "btn-white"}`}
@@ -153,127 +156,128 @@ const SingleProduct = () => {
               </div>
             </div>
             <div className="info-product-main">
-              <h2 className="info-product-title">{houseData?.title}</h2>
-              <h5 className="product-small-title">Вся информация</h5>
-              <ul className="tags-list">
-                <li className="tags-item">
-                  {" "}
-                  <span>Тип аренды</span>
-                  <p>{houseData?.rental_type}</p>
-                </li>
-                <li className="tags-item">
-                  {" "}
-                  <span>Тип недвижимости</span>
-                  <p>{houseData?.property_type}</p>
-                </li>
-                <li className="tags-item">
-                  {" "}
-                  <span>Объект</span>
-                  <p>{houseData?.object}</p>
-                </li>
-                <li className="tags-item">
-                  {" "}
-                  <span>Этаж</span>
-                  <p>{houseData?.floor}</p>
-                </li>
-                <li className="tags-item">
-                  {" "}
-                  <span>Жилая площадь</span>
-                  <p>{houseData?.pm_residential}</p>
-                </li>
-                <li className="tags-item">
-                  {" "}
-                  <span>Кол-во комнат</span>
-                  <p>{houseData?.number_of_rooms}</p>
-                </li>
-                <li className="tags-item">
-                  {" "}
-                  <span>Общая плошадь</span>
-                  <p>{houseData?.pm_general}</p>
-                </li>
-                <li className="tags-item">
-                  {" "}
-                  <span>Этажность дома</span>
-                  <p>{houseData?.floor_from}</p>
-                </li>
-                <li className="tags-item">
-                  {" "}
-                  <span>Тип строения</span>
-                  <p>{houseData?.building_type}</p>
-                </li>
-                <li className="tags-item">
-                  {" "}
-                  <span>Ипотека</span>
-                  <p>{houseData?.app_ipoteka ? "Да" : "Нет"}</p>
-                </li>
-                <li className="tags-item">
-                  {" "}
-                  <span>Мебелирование</span>
-                  <p>{houseData?.app_mebel ? "Да" : "Нет"}</p>
-                </li>
-              </ul>
-              <h5 className="product-small-title">Описание</h5>
-              <p className="product-par par">{houseData?.descriptions}</p>
-              <h5 className="product-small-title">Все удобства</h5>
-              <ul className="comfort-tags-list">
-                {houseData?.amenities?.map((item, i) => (
-                  <li
-                    style={{
-                      backgroundColor: "white",
-                      border: "none",
-                    }}
-                    key={i}
-                    className="comfort-tags-item"
-                  >
-                    <svg className={`svg-sprite-icon icon-tags-${i + 1} w-16`}>
-                      <use href={`${sprite}#tags-${item.id}`}></use>
-                    </svg>
-                    <span
-                      style={{
-                        fontWeight: "600",
-                      }}
-                    >
-                      {item.title}
-                    </span>
+                <h2 className="info-product-title">{houseData?.title}</h2>
+                <h5 className="product-small-title">Вся информация</h5>
+                <ul className="tags-list">
+                  <li className="tags-item">
+                    {" "}
+                    <span>Тип аренды</span>
+                    <p>{houseData?.rental_type}</p>
                   </li>
-                ))}
-              </ul>
-              <div className="show-on-map">
-                <div className="show-on-map-address">
-                  <svg className="svg-sprite-icon icon-fi_navigation w-16 fill-w">
-                    <use href={`${sprite}#fi_navigation`}></use>
-                  </svg>
-                  <span>{houseData?.web_address_title}</span>
+                  <li className="tags-item">
+                    {" "}
+                    <span>Тип недвижимости</span>
+                    <p>{houseData?.property_type}</p>
+                  </li>
+                  <li className="tags-item">
+                    {" "}
+                    <span>Объект</span>
+                    <p>{houseData?.object}</p>
+                  </li>
+                  <li className="tags-item">
+                    {" "}
+                    <span>Этаж</span>
+                    <p>{houseData?.floor}</p>
+                  </li>
+                  <li className="tags-item">
+                    {" "}
+                    <span>Жилая площадь</span>
+                    <p>{houseData?.pm_residential}</p>
+                  </li>
+                  <li className="tags-item">
+                    {" "}
+                    <span>Кол-во комнат</span>
+                    <p>{houseData?.number_of_rooms}</p>
+                  </li>
+                  <li className="tags-item">
+                    {" "}
+                    <span>Общая плошадь</span>
+                    <p>{houseData?.pm_general}</p>
+                  </li>
+                  <li className="tags-item">
+                    {" "}
+                    <span>Этажность дома</span>
+                    <p>{houseData?.floor_from}</p>
+                  </li>
+                  <li className="tags-item">
+                    {" "}
+                    <span>Тип строения</span>
+                    <p>{houseData?.building_type}</p>
+                  </li>
+                  <li className="tags-item">
+                    {" "}
+                    <span>Ипотека</span>
+                    <p>{houseData?.app_ipoteka ? "Да" : "Нет"}</p>
+                  </li>
+                  <li className="tags-item">
+                    {" "}
+                    <span>Мебелирование</span>
+                    <p>{houseData?.app_mebel ? "Да" : "Нет"}</p>
+                  </li>
+                </ul>
+                <h5 className="product-small-title">Описание</h5>
+                <p className="product-par par">{houseData?.descriptions}</p>
+                <h5 className="product-small-title">Все удобства</h5>
+                <ul className="comfort-tags-list">
+                  {houseData?.amenities?.map((item, i) => (
+                    <li
+                      style={{
+                        backgroundColor: "#f3f2f2",
+                        border: "none",
+                      }}
+                      key={i}
+                      className="comfort-tags-item"
+                    >
+                      <svg className={`svg-sprite-icon icon-tags-${i + 1} w-16`}>
+                        <use href={`${sprite}#tags-${item.id}`}></use>
+                      </svg>
+                      <span
+                        style={{
+                          fontWeight: "600",
+                        }}
+                      >
+                        {item.title}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="show-on-map">
+                  <div className="show-on-map-address">
+                    <svg className="svg-sprite-icon icon-fi_navigation w-16 fill-w">
+                      <use href={`${sprite}#fi_navigation`}></use>
+                    </svg>
+                    <span>{houseData?.web_address_title}</span>
+                  </div>
+                  <button
+                    className="btn btn-black btn-black-big"
+                    onClick={() => {
+                      window.open(
+                        `https://maps.google.com?q=${houseData?.web_address_latitude},${houseData?.web_address_longtitude}`
+                      );
+                    }}
+                  >
+                    показать на карте
+                  </button>
                 </div>
-                <button
-                  className="btn btn-black btn-black-big"
-                  onClick={() => {
-                    window.open(
-                      `https://maps.google.com?q=${houseData?.web_address_latitude},${houseData?.web_address_longtitude}`
-                    );
-                  }}
-                >
-                  показать на карте
-                </button>
-              </div>
-              {houseData?.youtube_link ? (
-                // <Player>
-                //   <source src={houseData?.youtube_link} />
-                // </Player>
-                // <video src={houseData?.youtube_link}></video>
-                <embed
-                  // style={{
+                {houseData?.youtube_link ? (
+                  // <Player>
+                  //   <source src={houseData?.youtube_link} />
+                  // </Player>
+                  // <video src={houseData?.youtube_link}></video>
+                  <embed
+                    // style={{
 
-                  // }}
-                  className="youtube-video phone-video"
-                  src={`https://www.youtube.com/embed/${slice(
-                    houseData?.youtube_link
-                  )}`}
-                />
-              ) : (
-                ""
-              )}
-              <h5 className="product-small-title">Рекомендуем похожие </h5>
+                    // }}
+                    className="youtube-video phone-video"
+                    src={`https://www.youtube.com/embed/${slice(
+                      houseData?.youtube_link
+                    )}`}
+                  />
+                ) : (
+                  ""
+                )}
+                <h5 className="product-small-title">Рекомендуем похожие </h5>
+              </div>
             </div>
             {houseData?.youtube_link ? (
               // <Player>
@@ -302,7 +306,6 @@ const SingleProduct = () => {
                 ))}
             </ul>
           </div>
-        </div>
       </section>
       <FooterMenu />
       <DownloadApp />

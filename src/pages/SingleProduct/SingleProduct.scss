@@ -183,9 +183,13 @@
     }
   }
   &-main {
-    max-width: rem(557px);
+    max-width: rem(620px);
     width: 100%;
+    border-radius: 5px;
+    background: #ffffff;
+    padding: 20px;
   }
+
   &-sidebar {
     flex-basis: rem(261px);
     flex-shrink: 0;
@@ -243,7 +247,8 @@
       }
       margin-bottom: rem(5px);
       padding: rem(14px) rem(30px);
-      background-color: $white;
+      //background-color: $white;
+      background: #f3f2f2;
       border-radius: 50px;
     }
   }
@@ -285,7 +290,7 @@
   width: 100%;
   margin: rem(50px) 0 rem(60px);
   &-address {
-    background: $white;
+    background: #f3f2f2;
     border-radius: 3px;
     flex-grow: 1;
     flex-shrink: 1;
@@ -474,18 +479,28 @@
     color: #ffffff;
   }
 
-  .add-favorite {
+  .btn {
     display: flex;
     align-items: center;
     justify-content: center;
 
-    .favorite-icon {
+    .favorite-icon,
+    .share-icon{
       margin-left: 5px;
     }
 
     .favorite-icon > svg {
       width: 18px;
       height: 18px;
+    }
+
+    .share-icon > svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    &:hover .share-icon > svg > path {
+      stroke: #ffffff;
     }
 
     .favorite-icon > svg > path {

@@ -51,7 +51,6 @@ const UserCabinet = () => {
     getData(setUserProducts, "user-products");
   }, [mounted]);
 
-  console.log(userData);
 
   useEffect(() => {
     setStores(userProducts?.stores);
@@ -59,6 +58,11 @@ const UserCabinet = () => {
     setMaklers(userProducts?.maklers);
     setMebels(userProducts?.mebels);
   }, [userProducts, mounted]);
+
+
+  useEffect(() => {
+    window.document.title = "Профиль";
+  }, []);
 
   // console.log(maklers);
   const draftArr = [

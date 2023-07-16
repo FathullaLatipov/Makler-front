@@ -219,6 +219,7 @@ export default function EditStore() {
   });
 
   useEffect(() => {
+    window.document.title = "Редактировать";
     axios
       .get(`${baseURL}/store2/api/v1/store/update/${id}`)
       .then((res) => {

@@ -18,6 +18,7 @@ const Home = () => {
     if (!modal) {
       setBannerModal(true);
     }
+    window.document.title = "Главная";
   }, []);
   
   const closeModal = () => {
