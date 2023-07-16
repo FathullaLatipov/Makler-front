@@ -53,6 +53,7 @@
 		border-radius: rem(3px);
 		margin-bottom: rem(10px);
 		cursor: pointer;
+		box-shadow: 0px 9px 24px 0px #75380D3B;
 		&.top {
 			&:hover {
 				.cards-item-info__top {
@@ -94,9 +95,11 @@
 			.cards-item-info__top {
 				p {
 					font-weight: 700;
-					color: $orange;
+					//color: $orange;
+					color: #ffffff;
 				}
 			}
+			background: #C56622;
 		}
 		&__top {
 			height: rem(152px);
@@ -121,6 +124,11 @@
 				transition: all ease .3s;
 			}
 		}
+
+		&:hover .cards-item-info__bottom p{
+			color: #ffffff;
+		}
+
 		&-info {
 			padding: rem(13px) rem(15px) rem(16px);
 			& > div {

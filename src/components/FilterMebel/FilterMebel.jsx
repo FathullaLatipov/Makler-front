@@ -80,7 +80,7 @@ const FilterMebel = ({ change, value }) => {
       <div className="nav-search">
         <div className="container">
           <ul className="nav-search-body">
-            <li className="nav-search_how select-choose">
+            <li className="nav-search_how select-choose" style={{ marginBottom: "20px" }}>
               <label className="nav-label">Как</label>
               <span
                 onClick={() => setShow1((prev) => !prev)}
@@ -220,7 +220,7 @@ const FilterMebel = ({ change, value }) => {
                 </ul>
               </div>
             </li> */}
-            <li className="nav-search_address">
+            <li className="nav-search_address mb-0">
               <label className="nav-label">Адрес</label>
               <a>
                 <svg className="svg-sprite-icon icon-fi_navigation w-16">
@@ -235,7 +235,7 @@ const FilterMebel = ({ change, value }) => {
                 />
               </a>
             </li>
-            <li>
+            <li className="mb-0">
               <button
                 className="btn show-btn-orange btn-search"
                 onClick={() => window.location.reload()}

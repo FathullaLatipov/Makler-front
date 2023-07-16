@@ -1,7 +1,6 @@
 import axios from "axios";
-import React, { useContext, useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { FilterWorker, UserCard } from "../../components";
-import ContextApp from "../../context/context";
 import useForm from "../../hooks/useForm";
 import { baseURL } from "../../requests/requests";
 import Loading from "../../components/Loading/Loading";

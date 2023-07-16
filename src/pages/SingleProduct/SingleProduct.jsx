@@ -85,9 +85,7 @@ const SingleProduct = () => {
 
   return (
     <div
-      style={{
-        padding: "2rem 0",
-      }}
+      style={{paddingTop: "2rem"}}
     >
       {loading && <LoadingPost />}
       <section className="slider-s">
@@ -138,13 +136,13 @@ const SingleProduct = () => {
 
               <div className="info-product-share">
                 <button
-                    className="btn btn-dark-gray"
+                    className="btn btn-white"
                     onClick={shareLink}
                 >
                   Поделиться
                 </button>
                 <button
-                    className={`btn ${hasInWishlist ? "btn-orange" : "btn-dark-gray"}`}
+                    className={`btn ${hasInWishlist ? "btn-orange" : "btn-white"}`}
                     onClick={addToFavorites}
                 >
                   {hasInWishlist ? "В избранные" : "Удалить с избранного"}

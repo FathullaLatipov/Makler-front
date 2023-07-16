@@ -1,11 +1,9 @@
 import { useContext } from "react";
-import { useEffect, useId } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import sprite from "../../assets/img/symbol/sprite.svg";
 import ContextApp from "../../context/context";
-import { baseURL } from "../../requests/requests";
 import LoadingPost from "../LoadingPost/LoadingPost";
 import $host from "../../http";
 

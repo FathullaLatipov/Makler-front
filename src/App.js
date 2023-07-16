@@ -38,6 +38,7 @@ import { ToastContainer } from "react-toastify";
 import CreatePageProtect from "./components/CreatePageProtect/CreatePageProtect";
 import BottomNavbar from "./components/BottomNavbar/BottomNavbar";
 import $host from "./http";
+import AboutUs from "./components/AboutUs/AboutUs";
 
 const CabinetPage = () => {
   const userId = localStorage.getItem("userId");
@@ -156,6 +157,7 @@ function App() {
           <Route path="/industria/:id" element={<Industriya />} />
           <Route path="/industria" element={<AllIndustriya />} />
           <Route path="/create/industria" element={<CreateIndustriya />} />
+          <Route path="/aboutus" element={<AboutUs/>}/>
 
         </Routes>
         <BottomNavbar/>

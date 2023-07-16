@@ -1,16 +1,20 @@
-// import { Map, YMaps } from "@pbe/react-yandex-maps";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import spirite from "../../assets/img/symbol/sprite.svg";
 import { baseURL } from "../../requests/requests";
 import $host from "../../http";
+import {useLocation} from "react-router-dom";
 
 const FilterWorker = ({ change, value }) => {
+  const location = useLocation();
   const [show1, setShow1] = useState(false);
   const [serviceTypeValue, setServiceText] = useState("");
   const [show2, setShow2] = useState(false);
   const [profess, setProfess] = useState();
   const [option1, setOption1] = useState([]);
+  const isExceptionPages = ["/master"].includes(location.pathname);
+
+  console.log(isExceptionPages);
 
   const { profession, service } = value;
   useEffect(() => {
@@ -40,6 +44,7 @@ const FilterWorker = ({ change, value }) => {
   useEffect(() => {
     setServiceText(serviceType[service - 1]?.label);
   }, [service]);
+
 
   // useEffect(() => {
   //   if (mapConstructor) {
@@ -152,7 +157,7 @@ const FilterWorker = ({ change, value }) => {
                 </ul>
               </div>
             </li>
-            <li className="nav-search_address">
+            <li className={`nav-search_address ${isExceptionPages && "mb-0"}`}>
               <label className="nav-label">Адрес</label>
               <a>
                 <svg className="svg-sprite-icon icon-fi_navigation w-16">

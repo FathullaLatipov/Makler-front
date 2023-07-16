@@ -33,7 +33,15 @@ const BottomNavbar = () => {
                     </NavLink>
                 </li>
                 <li className="bottom-navbar__item">
-                    <NavLink to="/create">
+                    <NavLink
+                        onClick={(e) => {
+                            if(!userId) {
+                                e.preventDefault();
+                                loginModalFunc(true);
+                            }
+                        }}
+                        to="/create"
+                    >
                         <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12 22.5C17.5228 22.5 22 18.0228 22 12.5C22 6.97715 17.5228 2.5 12 2.5C6.47715 2.5 2 6.97715 2 12.5C2 18.0228 6.47715 22.5 12 22.5Z" stroke="black" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
                             <path d="M12 8.5V16.5" stroke="black" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
@@ -43,12 +51,15 @@ const BottomNavbar = () => {
                     </NavLink>
                 </li>
                 <li className="bottom-navbar__item">
-                    <NavLink to="/messages">
-                        <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4.40039 4.5H20.4004C21.5004 4.5 22.4004 5.4 22.4004 6.5V18.5C22.4004 19.6 21.5004 20.5 20.4004 20.5H4.40039C3.30039 20.5 2.40039 19.6 2.40039 18.5V6.5C2.40039 5.4 3.30039 4.5 4.40039 4.5Z" stroke="black" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
-                            <path d="M22.4004 6.5L12.4004 13.5L2.40039 6.5" stroke="black" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+                    <NavLink to="/aboutus">
+                        <svg width="25" height="25" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M23 20.9999V18.9999C22.9993 18.1136 22.7044 17.2527 22.1614 16.5522C21.6184 15.8517 20.8581 15.3515 20 15.1299" stroke="black" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21" stroke="black" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16 3.12988C16.8604 3.35018 17.623 3.85058 18.1676 4.55219C18.7122 5.2538 19.0078 6.11671 19.0078 7.00488C19.0078 7.89305 18.7122 8.75596 18.1676 9.45757C17.623 10.1592 16.8604 10.6596 16 10.8799" stroke="black" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M9 11C11.2091 11 13 9.20914 13 7C13 4.79086 11.2091 3 9 3C6.79086 3 5 4.79086 5 7C5 9.20914 6.79086 11 9 11Z" stroke="black" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
-                        <span>Уведомления</span>
+
+                        <span>О нас</span>
                     </NavLink>
                 </li>
                 <li className="bottom-navbar__item">

@@ -468,4 +468,9 @@
     font-weight: 600;
     padding: 0.6rem 0;
   }
+
+  & > .btn-white:hover {
+    background: #c56622;
+    color: #ffffff;
+  }
 }

@@ -47,16 +47,14 @@ const BannerCarousel = () => {
       console.log(error);
     }
 
-    
-
-  } 
+  }
   
   useEffect(() => {
     fetchCarousels();
   }, []);
 
   return (
-    <Container className="container" style={{ position: "relative" }}>
+    <Container style={{ position: "relative" }}>
       <div className="person-img">
         <img
             src={PersonPng}
@@ -98,7 +96,7 @@ const Container = styled.div`
     position: absolute;
     z-index: 1;
     right: 0;
-    bottom: 0;
+    bottom: 5px;
   }
 
   .person-img > img {
@@ -106,24 +104,34 @@ const Container = styled.div`
     height: 280px;
   }
 
-  @media(max-width: 640px) {
+  @media(max-width: 778px) {
     .person-img > img {
-      object-fit: contain;
       height: 200px;
     }  
   }
   
+  @media(max-width: 610px) {
+    .person-img > img {
+      height: 150px;
+    }
+  }
+
+  @media(max-width: 480px) {
+    .person-img > img {
+      height: 100px;
+    }
+  }
 `
 
 const Card = styled.div`
-  height: 415px;
+  //height: 415px;
   width: 100%;
   /* height: 10rem; */
   @media (max-width: 768px) {
-    height: 358px;
+    //height: 358px;
   }
   @media (max-width: 400px) {
-    height: 250px;
+    //height: 250px;
   }
   .slick-track {
     height: 100%;
