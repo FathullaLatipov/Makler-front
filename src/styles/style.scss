@@ -38,11 +38,16 @@ html {
 }
 
 body {
-  // overflow-x: hidden;
-  font-size: rem(12px);
-  line-height: rem(15px);
-  // min-height: 100vh;
-  background: $gray-bg;
+  //font-size: rem(12px);
+  //line-height: rem(15px);
+  //background: $gray-bg;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-size: 0.75rem;
+  line-height: 0.9375rem;
+  height: 100%;
+  background: #eee;
 }
 
 #root {
@@ -225,22 +230,12 @@ h4 {
 .wrapper {
   display: flex;
   flex-direction: column;
-  // height: 100%;
   min-height: 100vh;
+  background-image: url("../assets/img/main-bg.png");
 }
 
 .content {
   flex: 1 0 auto;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  font-size: 0.75rem;
-  line-height: 0.9375rem;
-  height: 100%;
-  background: #eee;
 }
 
 .container {
@@ -450,4 +445,12 @@ input {
       opacity: 0.4;
     }
   }
+}
+
+.body-background {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: -5;
+  object-fit: cover;
 }

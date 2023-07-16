@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from "react";
 import {
-  BrowserRouter as Router,
   Routes,
   Route,
   Navigate, useNavigate,
@@ -39,7 +38,6 @@ import { ToastContainer } from "react-toastify";
 import CreatePageProtect from "./components/CreatePageProtect/CreatePageProtect";
 import BottomNavbar from "./components/BottomNavbar/BottomNavbar";
 import $host from "./http";
-import axios from "axios";
 
 const CabinetPage = () => {
   const userId = localStorage.getItem("userId");
@@ -99,6 +97,7 @@ function App() {
   return (
     <>
       <div className="wrapper">
+
         <ToastContainer />
         <ScrollTop />
         <Navbar />
