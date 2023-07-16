@@ -32,31 +32,35 @@
       display: flex;
       justify-content: flex-start;
       @include tablet {
-        position: absolute;
-        background: #fff;
-        height: 93vh;
-        top: 100%;
-        z-index: 1000;
-        right: -400px;
-        flex-direction: column;
-        padding: 0 40px;
-        align-items: flex-end;
-        justify-content: center;
-        & > * {
-          &:not(:last-child) {
-            margin-bottom: 30px;
-          }
+
+        & > li:not(:first-child) {
+          display: none;
         }
-        margin-right: 0;
-        width: 274px;
-        opacity: 0;
-        visibility: hidden;
-        transition: all ease 0.4s;
-        &.active {
-          visibility: visible;
-          opacity: 1;
-          right: -20px;
-        }
+        //position: absolute;
+        //background: #fff;
+        //height: 93vh;
+        //top: 100%;
+        //z-index: 1000;
+        //right: -400px;
+        //flex-direction: column;
+        //padding: 0 40px;
+        //align-items: flex-end;
+        //justify-content: center;
+        //& > * {
+        //  &:not(:last-child) {
+        //    margin-bottom: 30px;
+        //  }
+        //}
+        //margin-right: 0;
+        //width: 274px;
+        //opacity: 0;
+        //visibility: hidden;
+        //transition: all ease 0.4s;
+        //&.active {
+        //  visibility: visible;
+        //  opacity: 1;
+        //  right: -20px;
+        //}
       }
 
       & > * {

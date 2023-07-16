@@ -31,6 +31,12 @@
   margin-bottom: 24px;
 }
 
+.settings {
+  background: #ffffff;
+  border-radius: 5px;
+  padding: 20px;
+}
+
 .user-info {
   margin-top: 24px;
 }

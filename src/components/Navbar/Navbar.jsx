@@ -79,17 +79,17 @@ const Navbar = () => {
             </ul>
           </div>
           <div className="header-nav">
-            <button
-              onClick={() => setShowNav((prev) => !prev)}
-              className={`hamburger hamburger--collapse ${
-                showNav ? "is-active" : ""
-              }`}
-              type="button"
-            >
-              <span className="hamburger-box">
-                <span className="hamburger-inner"></span>
-              </span>
-            </button>
+            {/*<button*/}
+            {/*  onClick={() => setShowNav((prev) => !prev)}*/}
+            {/*  className={`hamburger hamburger--collapse ${*/}
+            {/*    showNav ? "is-active" : ""*/}
+            {/*  }`}*/}
+            {/*  type="button"*/}
+            {/*>*/}
+            {/*  <span className="hamburger-box">*/}
+            {/*    <span className="hamburger-inner"></span>*/}
+            {/*  </span>*/}
+            {/*</button>*/}
             <ul className={`header-nav-list ${showNav ? "active" : ""}`}>
               <li>
                 <a href="#">

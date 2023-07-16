@@ -473,4 +473,33 @@
     background: #c56622;
     color: #ffffff;
   }
+
+  .add-favorite {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .favorite-icon {
+      margin-left: 5px;
+    }
+
+    .favorite-icon > svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .favorite-icon > svg > path {
+      stroke: #ffffff;
+    }
+
+    .favorite-icon > svg > path.active {
+      stroke: #c56622;
+      fill: #c56622;
+    }
+
+    &:hover .favorite-icon > svg > path.active {
+      stroke: #ffffff;
+      fill: #ffffff;
+    }
+  }
 }

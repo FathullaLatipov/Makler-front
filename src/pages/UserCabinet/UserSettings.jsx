@@ -4,10 +4,12 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
 import avatar_image from "../../assets/img/avatar_change.png";
+import {LoadingPost} from "../../components";
 
 const UserSettings = ({ name, email, password, number, img }) => {
   const [file, setFile] = useState(null);
   const imgRef = useRef(null);
+  const [loading, setLoading] = useState(false);
 
   const imgPath = file ? file.path : img ? img : avatar_image;
 
@@ -38,13 +40,16 @@ const UserSettings = ({ name, email, password, number, img }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(true);
     const formData = new FormData();
 
     formData.append("first_name", dataUser.name);
     formData.append("email", dataUser.email);
     formData.append("phone_number", dataUser.number);
     formData.append("password", dataUser.password);
-    formData.append("avatar_image", file.img);
+    if(file) {
+      formData.append("avatar_image", file.img);
+    }
 
     const userId = localStorage.getItem("userId");
 
@@ -57,7 +62,8 @@ const UserSettings = ({ name, email, password, number, img }) => {
       .catch((err) => {
         console.log(err);
         toast.error("Ошибка!");
-      });
+      })
+      .finally(() => setLoading(true));
   };
 
   const handleClick = () => {
@@ -72,6 +78,9 @@ const UserSettings = ({ name, email, password, number, img }) => {
 
   return (
     <div className="container-sm">
+
+      {loading && <LoadingPost/>}
+
       <div className="settings">
         <div className="settings-profile">
           <div className="settings-profile-logo">
@@ -137,8 +146,8 @@ const UserSettings = ({ name, email, password, number, img }) => {
               type="password"
               placeholder="пусто"
               name="password"
+              autoComplete={"off"}
               onChange={handleChange}
-              value={dataUser?.password}
             />
           </div>
           {/* <div className="change-password">

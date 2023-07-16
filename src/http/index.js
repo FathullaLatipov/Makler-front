@@ -2,6 +2,7 @@ import axios from "axios";
 // import { getCookie, setCookie } from "../helper";
 
 export const API_URL = "https://api.makleruz.uz/";
+export const WEB_URL = "https://makler-front.vercel.app/"
 
 const $host = axios.create({
     baseURL: API_URL,

@@ -1,16 +1,12 @@
 import "./UserCabinet.scss";
-import avatar from "../../assets/img/avatar-big.png";
-import { LoadingPost, UserContents } from "../../components";
+import { UserContents } from "../../components";
 import avatar_image from "../../assets/img/avatar_change.png";
 import spirite from "../../assets/img/symbol/sprite.svg";
 import { userCabinetNavigator } from "./userAnnounce";
 import { useContext, useEffect, useState } from "react";
 import UserSettings from "./UserSettings";
 import { useParams, useNavigate } from "react-router-dom";
-import axios from "axios";
-import { baseURL } from "../../requests/requests";
 import ContextApp from "../../context/context";
-import { useStepContext } from "@mui/material";
 import Loading from "../../components/Loading/Loading";
 import {useTranslation} from "react-i18next";
 import $host from "../../http";
@@ -537,7 +533,7 @@ const UserCabinet = () => {
               </div>
             </div>
           </section> */}
-          <div className="cabinet-nav">
+          <div className="cabinet-nav" style={{ borderRadius: "5px" }}>
             <div className="cabinet-profile">
               <div className="cabinet-profile-logo">
                 {" "}
@@ -547,7 +543,7 @@ const UserCabinet = () => {
                 </picture>
               </div>
               <div className="cabinet-profile-info">
-                <h4>Имя: Пустой</h4>
+                <h4>Имя: {userData.first_name ? userData.first_name : "Пустой"}</h4>
                 <p>id: {userData?.id}</p>
                 <p>Номер телефона: {userData?.phone_number}</p>
               </div>

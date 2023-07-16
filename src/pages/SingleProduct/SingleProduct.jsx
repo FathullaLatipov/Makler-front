@@ -12,8 +12,9 @@ import { useState } from "react";
 import { useContext } from "react";
 import ContextApp from "../../context/context";
 import ProductCard from "../../components/ProductCard/ProductCard";
-import $host from "../../http";
+import $host, {WEB_URL} from "../../http";
 import {toast} from "react-toastify";
+import FavoriteSvg from "../../UI/FavoriteSvg";
 
 
 const SingleProduct = () => {
@@ -51,7 +52,8 @@ const SingleProduct = () => {
   }, [id]);
 
   const shareLink = () => {
-    navigator.clipboard.writeText(houseData.link);
+    const link = WEB_URL + "product/" + houseData.id + "/";
+    navigator.clipboard.writeText(link);
     toast.success("Ссылка скопирована");
   }
 
@@ -142,10 +144,11 @@ const SingleProduct = () => {
                   Поделиться
                 </button>
                 <button
-                    className={`btn ${hasInWishlist ? "btn-orange" : "btn-white"}`}
+                    className={`add-favorite btn ${hasInWishlist ? "btn-orange" : "btn-white"}`}
                     onClick={addToFavorites}
                 >
                   {hasInWishlist ? "В избранные" : "Удалить с избранного"}
+                  <FavoriteSvg isActive={!hasInWishlist}/>
                 </button>
               </div>
             </div>

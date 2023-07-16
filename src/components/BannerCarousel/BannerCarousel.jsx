@@ -113,6 +113,7 @@ const Container = styled.div`
   @media(max-width: 610px) {
     .person-img > img {
       height: 150px;
+      display: none;
     }
   }
 
