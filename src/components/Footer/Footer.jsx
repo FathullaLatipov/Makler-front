@@ -7,12 +7,19 @@ import upay from "../../assets/img/svg/upay.svg";
 import spirite from "../../assets/img/symbol/sprite.svg";
 import { Link } from "react-router-dom";
 import {useTranslation} from "react-i18next";
+import useMedia from "../../hooks/useMedia";
 
 const Footer = () => {
   const { t } = useTranslation();
+  const isMobile = useMedia('(max-width: 768px)');
 
   return (
-    <footer className="footer">
+    <footer
+        className="footer"
+        style={{
+          marginBottom: isMobile ? "80px" : '0px'
+        }}
+    >
       <div className="footer__top">
         <div className="container">
           <div className="footer__top-body">

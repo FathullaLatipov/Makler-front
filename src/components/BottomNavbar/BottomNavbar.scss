@@ -1,0 +1,46 @@
+
+.bottom-navbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: #ffffff;
+  z-index: 10;
+
+  &__list {
+    display: flex;
+    justify-content: space-around;
+    height: 100%;
+  }
+
+  &__item {
+    flex: 1;
+  }
+
+  &__item > a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #0B0B0B;
+    height: 100%;
+  }
+
+  &__item > a.active {
+    background: #C56622;
+    color: #ffffff;
+  }
+
+  &__item > a.active svg  path {
+    stroke: #ffffff;
+  }
+
+  &__item > a > span {
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 13.13px;
+    margin-top: 5px;
+  }
+}
+

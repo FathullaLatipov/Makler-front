@@ -6,17 +6,14 @@ import {
   LoadingPost,
   SliderContent,
 } from "../../components";
-import img1 from "../../assets/img/slider/1.png";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
-import axios from "axios";
 import { useState } from "react";
 import { useContext } from "react";
 import ContextApp from "../../context/context";
-import { baseURL } from "../../requests/requests";
 import ProductCard from "../../components/ProductCard/ProductCard";
+import $host from "../../http";
 
-// const img = [img1, img1, img1, img1];
 
 const SingleProduct = () => {
   const { id } = useParams();
@@ -29,14 +26,11 @@ const SingleProduct = () => {
     return str.substr(32);
   };
 
-  // useEffect(() => {
-  //   slice("https://www.youtube.com/wach?v=zJwbZX4i-N4");
-  // }, []);
 
   useEffect(() => {
     setLaoding(true);
-    axios
-      .get(`${baseURL}/products/web/api/v1/houses/${id}`)
+    $host
+      .get(`/products/web/api/v1/houses/${id}`)
       .then((data) => {
         getHouseData(data.data);
       })
@@ -45,8 +39,8 @@ const SingleProduct = () => {
   }, [id]);
 
   useEffect(() => {
-    axios
-      .get(`${baseURL}/products/web/api/v1/all-web-houses/popular`)
+    $host
+      .get(`/products/web/api/v1/all-web-houses/popular`)
       .then((res) => {
         setRecomdend(res.data.results);
       })

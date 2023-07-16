@@ -1,11 +1,15 @@
 import axios from "axios";
-import React from "react";
+import React, {useRef} from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
+import avatar_image from "../../assets/img/avatar_change.png";
 
 const UserSettings = ({ name, email, password, number, img }) => {
-  const [file, setFile] = useState();
+  const [file, setFile] = useState(null);
+  const imgRef = useRef(null);
+
+  const imgPath = file ? file.path : img ? img : avatar_image;
 
   const [dataUser, setData] = useState({
     name,
@@ -40,6 +44,7 @@ const UserSettings = ({ name, email, password, number, img }) => {
     formData.append("email", dataUser.email);
     formData.append("phone_number", dataUser.number);
     formData.append("password", dataUser.password);
+    formData.append("avatar_image", file.img);
 
     const userId = localStorage.getItem("userId");
 
@@ -55,24 +60,49 @@ const UserSettings = ({ name, email, password, number, img }) => {
       });
   };
 
+  const handleClick = () => {
+    imgRef.current.click();
+  }
+
+  const handleChangeImage = (e) => {
+    const image = e.target.files[0];
+    const imagePath = URL.createObjectURL(image);
+    setFile({ img: image, path: imagePath });
+  }
+
   return (
     <div className="container-sm">
       <div className="settings">
-        {/* <div className="settings-profile">
+        <div className="settings-profile">
           <div className="settings-profile-logo">
             {" "}
             <picture>
-              <source srcSet={img} type="image/webp" />
-              <img src={img} alt="Аватар" />
+              <source srcSet={imgPath} type="image/webp" />
+              <img src={imgPath} alt="Логотип" />
             </picture>
           </div>
           <div className="settings-profile-info">
-            <h3>Abbos Janizakov</h3>
-            <button className="btn btn-border-orange">
+            <h3>{ name ? name : "Пустой" }</h3>
+
+            <input
+              style={{
+                display: "none"
+              }}
+              type="file"
+              accept="image/*"
+              onChange={handleChangeImage}
+              ref={imgRef}
+            />
+
+            <button
+                className="btn btn-border-orange"
+                onClick={handleClick}
+            >
               Изменить фото профиля{" "}
             </button>
+
           </div>
-        </div> */}
+        </div>
         <form className="settings-form" onSubmit={handleSubmit}>
           <div className="form-input">
             <label>Имя Фамилия</label>

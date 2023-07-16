@@ -13,11 +13,12 @@ import ContextApp from "../../context/context";
 import { useStepContext } from "@mui/material";
 import Loading from "../../components/Loading/Loading";
 import {useTranslation} from "react-i18next";
+import $host from "../../http";
 
 const UserCabinet = () => {
   const [holdId, setHoldId] = useState(1);
   const router = useNavigate();
-  const { getUserData, userData } = useContext(ContextApp);
+  const { userData } = useContext(ContextApp);
   const [stores, setStores] = useState(null);
   const [mounted, setMounted] = useState(false);
   const [houses, setHouses] = useState(null);
@@ -28,18 +29,19 @@ const UserCabinet = () => {
   const [filteredStores, setFilteredStores] = useState([]);
   const [filteredMebels, setFilteredMebels] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [userOwnData, setUserOwnData] = useState([]);
+  const [userProducts, setUserProducts] = useState({});
   const [draft, setDraft] = useState(null);
   const navigate = useNavigate();
   const { t, i18n } = useTranslation();
   // console.log(maklers);
   const { id } = useParams();
+
   // https://api.makleruz.uz//users/api/v1/user-products/2/
 
   const getData = (setData, url) => {
     let userToken = localStorage.getItem("access");
-    axios
-      .get(`${baseURL}/users/api/v1/${url}/${id}`, {
+    $host
+      .get(`/users/api/v1/${url}/${id}`, {
         headers: {
           Authorization: `Bearer ${userToken}`,
         },
@@ -48,20 +50,19 @@ const UserCabinet = () => {
       .catch(() => navigate("/"))
       .finally(() => setLoading(false));
   };
-  useEffect(() => {
-    getData(getUserData, "user-products");
-  }, [mounted]);
-  useEffect(() => {
-    getData(setUserOwnData, "profile");
-  }, []);
-  // console.log(userData);
 
   useEffect(() => {
-    setStores(userData?.stores);
-    setHouses(userData?.houses);
-    setMaklers(userData?.maklers);
-    setMebels(userData?.mebels);
-  }, [userData, mounted]);
+    getData(setUserProducts, "user-products");
+  }, [mounted]);
+
+  console.log(userData);
+
+  useEffect(() => {
+    setStores(userProducts?.stores);
+    setHouses(userProducts?.houses);
+    setMaklers(userProducts?.maklers);
+    setMebels(userProducts?.mebels);
+  }, [userProducts, mounted]);
 
   // console.log(maklers);
   const draftArr = [
@@ -376,11 +377,11 @@ const UserCabinet = () => {
             id="settings"
           >
             <UserSettings
-              img={userOwnData?.avatar}
-              name={userOwnData?.first_name}
-              number={userOwnData?.phone_number}
-              email={userOwnData?.email}
-              password={userOwnData?.password}
+              img={userData?.avatar_image}
+              name={userData?.first_name}
+              number={userData?.phone_number}
+              email={userData?.email}
+              password={userData?.password}
             />
           </section>
           {/* <section className="chat-s d-none" id="chat">
@@ -541,14 +542,14 @@ const UserCabinet = () => {
               <div className="cabinet-profile-logo">
                 {" "}
                 <picture>
-                  <source srcSet={avatar_image} type="image/webp" />
-                  <img src={avatar_image} alt="Логотип" />
+                  <source srcSet={userData.avatar_image ? userData.avatar_image : avatar_image} type="image/webp" />
+                  <img src={userData.avatar_image ? userData.avatar_image : avatar_image} alt="Логотип" />
                 </picture>
               </div>
               <div className="cabinet-profile-info">
                 <h4>Имя: Пустой</h4>
-                <p>id: {userOwnData?.id}</p>
-                <p>Номер телефона: {userOwnData?.phone_number}</p>
+                <p>id: {userData?.id}</p>
+                <p>Номер телефона: {userData?.phone_number}</p>
               </div>
             </div>
             <ul className="cabinet-nav-list">

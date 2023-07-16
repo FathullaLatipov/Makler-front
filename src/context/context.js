@@ -19,7 +19,7 @@ export const ContextProvider = ({ children }) => {
   const loginModalFunc = (newState) => {
     setOpenLoginModal(newState);
   };
-  const getUserData = (newState) => {
+  const addUserData = (newState) => {
     setUserData(newState);
   };
   const getUserId = (newState) => {
@@ -50,7 +50,7 @@ export const ContextProvider = ({ children }) => {
         navigateToProfile,
         openLoginModal,
         userData,
-        getUserData,
+        addUserData,
         getHouseData,
         getUserId,
         homeHousesFilter,

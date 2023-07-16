@@ -200,9 +200,12 @@
   padding: rem(40px) rem(37px) rem(64px);
   background: #ffffff;
   width: rem(342px);
-  margin-top: 2rem;
+  //margin-top: 2rem;
   @include laptop {
     padding: 20px 20px 40px;
+  }
+  @include phones {
+    width: 100%;
   }
 }
 

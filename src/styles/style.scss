@@ -9,6 +9,9 @@
 // @import "utils/vars";
 // @import "utils/mixins";
 
+$hamburger-layer-width         : 35px;
+$hamburger-layer-height        : 2px;
+
 $breakpoints: (
   "phone": 400px,
   "phone-wide": 480px,

@@ -18,6 +18,13 @@
     button {
       border-radius: 3px;
       width: 50%;
+      @include phones {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+    }
+    @include phones {
+      display: block;
     }
   }
   &-s {

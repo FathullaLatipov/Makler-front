@@ -11,6 +11,10 @@
   &-s {
     padding: rem(46px) 0 rem(293px);
   }
+
+  &-profile-logo img {
+    border-radius: 50%;
+  }
 }
 
 .all-products-header {
@@ -34,16 +38,26 @@
   .photos-work-s {
     width: rem(459px);
   }
+  .container-sm {
+    @include phones {
+      max-width: 100%;
+    }
+  }
 }
 
 .advert {
   .alert-advert {
     margin-bottom: rem(22px);
   }
+  .alert-advert-btns {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
   &-list {
     min-width: 460px;
     @media screen and (max-width: 530px) {
-      min-width: none !important;
+      min-width: 100% !important;
       width: 100%;
     }
     & > * {
@@ -279,6 +293,7 @@
       img {
         width: 100%;
         height: 100%;
+        border-radius: 50%;
         object-fit: cover;
       }
     }

@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Navigate,
+  Navigate, useNavigate,
 } from "react-router-dom";
 import {
   EditPage,
@@ -37,6 +37,8 @@ import {
 } from "./pages";
 import { ToastContainer } from "react-toastify";
 import CreatePageProtect from "./components/CreatePageProtect/CreatePageProtect";
+import BottomNavbar from "./components/BottomNavbar/BottomNavbar";
+import $host from "./http";
 
 const CabinetPage = () => {
   const userId = localStorage.getItem("userId");
@@ -49,18 +51,46 @@ const CabinetPage = () => {
 
 function App() {
   const [isLogin, setIsLogin] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const { addUserData, userData } = useContext(ContextApp);
+  const navigate = useNavigate();
 
   const { openLoginModal } = useContext(ContextApp);
 
-  useEffect(() => {
+  const getData = async (setData, url) => {
+    const userToken = localStorage.getItem("access");
+    const userId = window.localStorage.getItem("userId");
+
+    try {
+      const { data } = await $host
+          .get(`/users/api/v1/${url}/${userId}`, {
+            headers: {
+              Authorization: `Bearer ${userToken}`,
+            },
+          });
+      setData(data);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const fetchData = async () => {
     let access = localStorage.getItem("access");
     if (access) {
       setIsLogin(true);
+      await getData(addUserData, "profile");
     } else {
       setIsLogin(false);
     }
+    setLoading(false)
+
+  }
+
+  useEffect(() => {
+    fetchData();
   }, []);
 
+  if(loading) return null;
 
   return (
     <>
@@ -84,21 +114,36 @@ function App() {
             }
           />
 
+          <Route
+              path="/cabinet/:id"
+              element={
+                <CreatePageProtect user={isLogin}>
+                  <UserCabinet />
+                </CreatePageProtect>
+              }
+          />
+
+
           <Route path="/" element={<Home />} />
-          <Route path="/cabinet/:id" element={<UserCabinet />} />
           <Route path="/cabinet" element={<CabinetPage />} />
+
           <Route path="/edit-product/:id" element={<EditHouse />} />
           <Route path="/edit-master/:id" element={<EditMaster />} />
           <Route path="/edit-store/:id" element={<EditStore />} />
-          <Route path="/edit-mebel/:id" element={<EditMebel />} />
+          <Route path="/edit-mebel/:id" element={<EditMebel />}/>
+
+
           <Route path="/edit-mebel" element={<CabinetPage />} />
           <Route path="/edit-product" element={<CabinetPage />} />
           <Route path="/edit-master" element={<CabinetPage />} />
           <Route path="/edit-store" element={<CabinetPage />} />
+
           <Route path="/create/master" element={<EditPage />} />
           <Route path="/create/product" element={<CreateProduct />} />
           <Route path="/create/mebel" element={<CreateMebel />} />
           <Route path="/save-products" element={<SavedProduct />} />
+
+
           <Route path="/product/:id" element={<SingleProduct />} />
           <Route path="/product" element={<AllProducts />} />
           <Route path="/master" element={<Workers />} />
@@ -109,8 +154,8 @@ function App() {
           <Route path="/industria" element={<AllIndustriya />} />
           <Route path="/create/industria" element={<CreateIndustriya />} />
 
-          
         </Routes>
+        <BottomNavbar/>
         <Footer />
       </div>
     </>

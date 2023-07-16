@@ -33,6 +33,10 @@ const Navbar = () => {
     }
   }, [access]);
 
+  useEffect(() => {
+    setShowNav(false);
+  }, [router]);
+
 
   return (
     <header className="header">
@@ -130,7 +134,7 @@ const Navbar = () => {
                 ) : (
                   <button
                     onClick={() => {
-                      // setShowNav((prev) => !prev);
+                      setShowNav((prev) => !prev);
                       loginModalFunc(true);
                     }}
                     style={{
