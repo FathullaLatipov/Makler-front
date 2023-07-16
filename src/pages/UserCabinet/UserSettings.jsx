@@ -144,7 +144,7 @@ const UserSettings = ({ name, email, password, number, img }) => {
             <label>Пароль</label>
             <input
               type="password"
-              placeholder="пусто"
+              placeholder="*******"
               name="password"
               autoComplete={"off"}
               onChange={handleChange}
