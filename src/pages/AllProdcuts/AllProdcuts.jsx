@@ -52,6 +52,7 @@ const AllProducts = () => {
 
   useEffect(() => {
     fetchObjects();
+    window.document.title = "Продукты";
   }, []);
 
   const settings = {
