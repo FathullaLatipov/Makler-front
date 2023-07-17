@@ -57,9 +57,10 @@ const ProductCard = ({ data, wishlist, wishId, deleteMount }) => {
         className={`btn-save ${hasInWishlist ? "save" : ""}`}
         onClick={handleClick}
       >
-        <svg className="svg-sprite-icon icon-save">
-          <use href={`${sprite}#save`}></use>
+        <svg className="svg-sprite-icon icon-save" width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M19.6006 21.5L12.6006 16.5L5.60059 21.5V5.5C5.60059 4.96957 5.8113 4.46086 6.18637 4.08579C6.56145 3.71071 7.07015 3.5 7.60059 3.5H17.6006C18.131 3.5 18.6397 3.71071 19.0148 4.08579C19.3899 4.46086 19.6006 4.96957 19.6006 5.5V21.5Z" stroke="#0B0B0B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
+
       </button>
       <Link to={`/product/${data.id}`}>
         <div className="cards-item__top">

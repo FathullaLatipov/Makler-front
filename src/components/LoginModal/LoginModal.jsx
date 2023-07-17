@@ -39,12 +39,13 @@ const LoginModal = () => {
         confirmation_code: optCode,
         phone_number: number,
       });
+      console.log(data);
       if(data.error) {
         return toast.error(data.error);
       }
       localStorage.setItem("access", data.access);
       localStorage.setItem("userId", data.id);
-      window.location.reload();
+      // window.location.reload();
     } catch (error) {
       setError(error);
     }

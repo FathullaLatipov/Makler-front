@@ -80,9 +80,13 @@
 		transform: scale(1.1);
 	}
 	svg {
-		width: rem(20px);
-		height: rem(20px);
+		width: rem(22px);
+		height: rem(22px);
 		fill: none;
+	}
+
+	svg > path {
+		stroke: #ffffff;
 	}
 }
 .btn-white {
