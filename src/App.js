@@ -39,6 +39,7 @@ import CreatePageProtect from "./components/CreatePageProtect/CreatePageProtect"
 import BottomNavbar from "./components/BottomNavbar/BottomNavbar";
 import $host from "./http";
 import AboutUs from "./components/AboutUs/AboutUs";
+import {verifyUser} from "./http/userHttp";
 
 const CabinetPage = () => {
   const userId = localStorage.getItem("userId");
@@ -53,7 +54,6 @@ function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [loading, setLoading] = useState(true);
   const { addUserData, userData, setFavorites } = useContext(ContextApp);
-  const navigate = useNavigate();
 
   const { openLoginModal } = useContext(ContextApp);
 
@@ -79,13 +79,18 @@ function App() {
 
   const fetchData = async () => {
     let access = localStorage.getItem("access");
-    if (access) {
-      setIsLogin(true);
-      await getData(addUserData, "profile");
-    } else {
-      setIsLogin(false);
+    try {
+      if (access) {
+        setIsLogin(true);
+        await verifyUser();
+        await getData(addUserData, "profile");
+      } else {
+        setIsLogin(false);
+      }
+      setLoading(false)
+    } catch (e) {
+      console.log(e);
     }
-    setLoading(false)
 
   }
 

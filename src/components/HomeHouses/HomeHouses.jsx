@@ -30,7 +30,7 @@ const HomeHouses = () => {
       <div className="container">
         <div className="cards">
           <div className="cards-head">
-            <div className="cards-head-hd">
+            <div className="card-header">
               <h4>{t("houses.recommendation")}</h4>
             </div>
           </div>

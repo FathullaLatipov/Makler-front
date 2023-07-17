@@ -1,8 +1,8 @@
 import axios from "axios";
-// import { getCookie, setCookie } from "../helper";
+import Cookies from "universal-cookie/es6";
 
 export const API_URL = "https://api.makleruz.uz/";
-export const WEB_URL = "https://makler-front.vercel.app/"
+export const WEB_URL = "https://makler-front.vercel.app/";
 
 const $host = axios.create({
     baseURL: API_URL,
@@ -16,7 +16,7 @@ $host.interceptors.request.use((config) => {
     if(!token) return config;
     config.headers.Authorization = `Bearer ${token}`;
     return config;
-});
+}, (error) => Promise.reject(error));
 
 $host.interceptors.response.use((config) => {
     return config;
@@ -24,14 +24,16 @@ $host.interceptors.response.use((config) => {
     const originalRequest = error.config;
     if(error.response.status === 401 && error.config && !error.config._isRetry) {
         originalRequest._isRetry = true;
+        const cookies = new Cookies();
         try {
-            // const refreshToken = getCookie("refreshToken");
-            // const response = await $host.post("api/v1/token/refresh/" , {refresh: refreshToken});
-            // localStorage.setItem('accessToken', response.data.access);
+            const refreshToken = cookies.get('refreshToken');
+            const { data } = await $host.post("authorization/api/v1/token/refresh/" , {refresh: refreshToken});
+            window.localStorage.setItem("access", data.access);
+            $host.defaults.headers.common['Authorization'] = 'Bearer ' + data.access;
             return $host.request(originalRequest);
         } catch (error) {
-            // setCookie("refreshToken", "", 0);
-            localStorage.removeItem("accessToken");
+            cookies.set("refreshToken", "", { maxAge: 0 });
+            window.localStorage.removeItem("access");
             console.error(error);
             return Promise.reject(error);
         }

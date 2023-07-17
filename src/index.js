@@ -7,16 +7,19 @@ import { BrowserRouter } from "react-router-dom";
 
 import "./i18n";
 import AppStore from "./store/AppStore";
+import {CookiesProvider} from "react-cookie";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <>
     <BrowserRouter>
-      <ContextProvider>
-        <AppStore>
-        < App />
-        </AppStore>
-      </ContextProvider>
+        <CookiesProvider>
+          <ContextProvider>
+            <AppStore>
+            < App />
+            </AppStore>
+          </ContextProvider>
+        </CookiesProvider>
     </BrowserRouter>
   </>
 );

@@ -8,13 +8,14 @@ import { toast } from "react-toastify";
 import $host from "../../http";
 import PhoneInput from "../PhoneInput/PhoneInput";
 import usePrevious from "../../hooks/usePreviosState";
+import {useCookies} from "react-cookie";
 
 const LoginModal = () => {
   const { loginModalFunc, getUserId } = useContext(ContextApp);
   const [ step, setStep ] = useState(1);
   const prevStep = usePrevious(step);
+  const [cookie, setCookie] = useCookies();
   
-
   const [da, setDa] = useState();
   const { form, changeHandler } = useForm({
     number: "",
@@ -39,13 +40,13 @@ const LoginModal = () => {
         confirmation_code: optCode,
         phone_number: number,
       });
-      console.log(data);
       if(data.error) {
         return toast.error(data.error);
       }
       localStorage.setItem("access", data.access);
       localStorage.setItem("userId", data.id);
-      // window.location.reload();
+      setCookie("refreshToken", data.refresh, { path: "/", maxAge: 1000 * 60 * 60 * 24 * 7 });
+      window.location.reload();
     } catch (error) {
       setError(error);
     }
@@ -70,6 +71,7 @@ const LoginModal = () => {
         });
         localStorage.setItem("access", data.access);
         localStorage.setItem("userId", data.id);
+        setCookie("refreshToken", data.refresh, { path: "/", maxAge: 1000 * 60 * 60 * 24 * 7 });
         window.location.reload();
       }
   
