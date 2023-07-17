@@ -298,13 +298,15 @@ const SingleProduct = () => {
             )}
           </div>
           <div className="cards">
-            <ul className="cards-list">
-              {recomdend
-                ?.filter((_, i) => i <= 3)
-                ?.map((item, i) => (
-                  <ProductCard key={i} data={item} />
-                ))}
-            </ul>
+            <div className="container">
+              <ul className="cards-list">
+                {recomdend
+                  ?.filter((_, i) => i <= 3)
+                  ?.map((item, i) => (
+                    <ProductCard key={i} data={item} />
+                  ))}
+              </ul>
+            </div>
           </div>
       </section>
       <FooterMenu />
