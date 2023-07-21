@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import {useContext, useEffect} from "react";
 import { useState } from "react";
 import {
   BannerCarousel,
@@ -8,22 +8,27 @@ import {
   FooterMenu,
 } from "../components";
 import HomeHouses from "../components/HomeHouses/HomeHouses";
+import {useSearchParams} from "react-router-dom";
+import ContextApp from "../context/context";
 
 const Home = () => {
   const [bannerModal, setBannerModal] = useState(false);
-
+  const [query, setQuery] = useSearchParams();
+  const { setFromUser } = useContext(ContextApp);
 
   useEffect(() => {
-    const modal = sessionStorage.getItem("modal");
+    const modal = window.sessionStorage.getItem("modal");
     if (!modal) {
       setBannerModal(true);
     }
     window.document.title = "Главная";
+    const from = query.get('from');
+    setFromUser(from);
   }, []);
   
   const closeModal = () => {
     setBannerModal(false);
-    sessionStorage.setItem("modal", true);
+    window.sessionStorage.setItem("modal", true);
   };
 
   return (

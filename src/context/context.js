@@ -12,6 +12,8 @@ export const ContextProvider = ({ children }) => {
   const [houseData, setHouseData] = useState();
   const [userId, setUserId] = useState();
   const [favorites, setFavorites] = useState([]);
+  const [refferals, setRefferals] = useState([]);
+  const [fromUser, setFromUser] = useState(null);
 
   const navigate = useNavigate();
 
@@ -58,6 +60,10 @@ export const ContextProvider = ({ children }) => {
         homeHouses,
         houseData,
         userId,
+        refferals,
+        setRefferals,
+        fromUser,
+        setFromUser,
       }}
     >
       {children}

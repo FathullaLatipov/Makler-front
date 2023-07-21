@@ -1,25 +1,29 @@
-import "./UserCabinet.scss";
 import { UserContents } from "../../components";
 import avatar_image from "../../assets/img/avatar_change.png";
 import spirite from "../../assets/img/symbol/sprite.svg";
 import { userCabinetNavigator } from "./userAnnounce";
-import { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import UserSettings from "./UserSettings";
 import { useParams, useNavigate } from "react-router-dom";
 import ContextApp from "../../context/context";
 import Loading from "../../components/Loading/Loading";
 import {useTranslation} from "react-i18next";
-import $host from "../../http";
+import $host, {WEB_URL} from "../../http";
+import {useCookies} from "react-cookie";
+import "./UserCabinet.scss";
+import {toast} from "react-toastify";
 
 const UserCabinet = () => {
   const [holdId, setHoldId] = useState(1);
   const router = useNavigate();
-  const { userData } = useContext(ContextApp);
-  const [stores, setStores] = useState(null);
+  const { userData, refferals } = useContext(ContextApp);
   const [mounted, setMounted] = useState(false);
+
   const [houses, setHouses] = useState(null);
+  const [stores, setStores] = useState(null);
   const [mebels, setMebels] = useState([]);
   const [maklers, setMaklers] = useState([]);
+
   const [filtered, setFiltered] = useState();
   const [filteredMaklers, setFilteredMaklers] = useState([]);
   const [filteredStores, setFilteredStores] = useState([]);
@@ -29,20 +33,18 @@ const UserCabinet = () => {
   const [draft, setDraft] = useState(null);
   const navigate = useNavigate();
   const { t, i18n } = useTranslation();
-  // console.log(maklers);
   const { id } = useParams();
+  const [ cookies, setCookies, removeCookie ] = useCookies();
 
-  // https://api.makleruz.uz//users/api/v1/user-products/2/
+  const refferLink = `${WEB_URL}?from=${userData.id}`;
 
   const getData = (setData, url) => {
-    let userToken = localStorage.getItem("access");
     $host
-      .get(`/users/api/v1/${url}/${id}`, {
-        headers: {
-          Authorization: `Bearer ${userToken}`,
-        },
+      .get(`/users/api/v1/${url}/${id}`)
+      .then((data) => {
+        setData(data)
+        console.log(data);
       })
-      .then((data) => setData(data.data))
       .catch(() => navigate("/"))
       .finally(() => setLoading(false));
   };
@@ -64,7 +66,6 @@ const UserCabinet = () => {
     window.document.title = "Профиль";
   }, []);
 
-  // console.log(maklers);
   const draftArr = [
     {
       content: "house",
@@ -112,12 +113,57 @@ const UserCabinet = () => {
     localStorage.clear();
     router("/");
     window.location.reload();
+    removeCookie("refreshToken");
   };
+
+  const getRefferLink = () => {
+    navigator.clipboard.writeText(refferLink);
+    toast.success("Ссылка скопирована");
+  }
+
+
 
   return (
     <section className="cabinet-s">
       <div className="container">
         <div className="cabinet" id="cabinet">
+
+          <div className="cabinet-nav reffer" style={{ borderRadius: "5px", marginBottom: "1.375rem" }}>
+
+            <p>Получите шанс выиграть iPhone, просто поделившись ссылками!</p>
+
+            <div className="reffer__points">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="black" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z" stroke="black" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+
+              Мои балы: {refferals.length}
+            </div>
+
+            <div className="form-input">
+              <label>Реферальная ссылка</label>
+              <div
+                  className='reffer__input'
+                  onClick={getRefferLink}
+              >
+                <input
+                    type="text"
+                    placeholder="*******"
+                    disabled={true}
+                    value={refferLink}
+                />
+              </div>
+            </div>
+            <span
+                className="reffer__getlink"
+                onClick={getRefferLink}
+            >Получить реферальную ссылку</span>
+
+
+          </div>
+
+
           <section
             className={`advert-s ${holdId !== 1 && "d-none"}`}
             id="product"
@@ -570,7 +616,6 @@ const UserCabinet = () => {
                   </button>
                 </li>
               ))}
-              <h3 className="balls">Мои балы:0</h3>
             </ul>
             <a
               className="logout-link left-icon"

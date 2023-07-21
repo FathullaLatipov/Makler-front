@@ -29,7 +29,7 @@ $host.interceptors.response.use((config) => {
             const refreshToken = cookies.get('refreshToken');
             const { data } = await $host.post("authorization/api/v1/token/refresh/" , {refresh: refreshToken});
             window.localStorage.setItem("access", data.access);
-            $host.defaults.headers.common['Authorization'] = 'Bearer ' + data.access;
+            $host.defaults.headers.common["Authorization"] = "Bearer " + data.access;
             return $host.request(originalRequest);
         } catch (error) {
             cookies.set("refreshToken", "", { maxAge: 0 });

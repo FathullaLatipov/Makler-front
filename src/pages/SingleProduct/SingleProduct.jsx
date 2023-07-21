@@ -23,9 +23,8 @@ const SingleProduct = () => {
   const [loading, setLoading] = useState(true);
   const [recomendLoading, setRecomendLoading] = useState(false);
   const [recomdend, setRecomdend] = useState([]);
-  const { houseData, getHouseData, loginModalFunc, favorites, setFavorites } = useContext(ContextApp);
+  const { houseData, getHouseData, loginModalFunc, favorites, setFavorites, userData } = useContext(ContextApp);
   const hasInWishlist = favorites.find((item) => item.product.id === +id);
-
 
   const slice = (str) => {
     return str.substr(32);
@@ -55,6 +54,16 @@ const SingleProduct = () => {
   const shareLink = () => {
     const link = WEB_URL + "product/" + houseData.id + "/";
     navigator.clipboard.writeText(link);
+    if (navigator.share) {
+      navigator.share({
+        url: link
+      })
+          .then(() => toast.success("Ссылка скопирована"))
+          .catch((error) => toast.error('Ошибка при попытке поделиться:', error));
+    } else {
+      console.log('API поделиться не поддерживается в данном браузере.');
+    }
+    toast.success("Ссылка скопирована");
     toast.success("Ссылка скопирована");
   }
 
@@ -146,13 +155,15 @@ const SingleProduct = () => {
                   Поделиться
                   <ShareSvg/>
                 </button>
-                <button
-                    className={`add-favorite btn ${hasInWishlist ? "btn-orange" : "btn-white"}`}
-                    onClick={addToFavorites}
-                >
-                  {hasInWishlist ? "В избранные" : "Удалить с избранного"}
-                  <FavoriteSvg isActive={!hasInWishlist}/>
-                </button>
+                {userData && (
+                    <button
+                        className={`add-favorite btn ${hasInWishlist ? "btn-orange" : "btn-white"}`}
+                        onClick={addToFavorites}
+                    >
+                      {hasInWishlist ? "В избранные" : "Удалить с избранного"}
+                      <FavoriteSvg isActive={!hasInWishlist}/>
+                    </button>
+                )}
               </div>
             </div>
             <div className="info-product-main">

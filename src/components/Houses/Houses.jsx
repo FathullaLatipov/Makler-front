@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 
 import sprite from "../../assets/img/symbol/sprite.svg";
 import ProductCard from "../ProductCard/ProductCard";
@@ -8,7 +8,7 @@ import Loading from "../Loading/Loading";
 import {useTranslation} from "react-i18next";
 import $host from "../../http";
 
-const Houses = ({ value, start, focus }) => {
+const Houses = React.memo(({ value, start, focus }) => {
   const { typeRoom, room, search, building, sort } = value;
   const [displayData, setDisplayData] = useState([]);
   const [searchData, setSearchData] = useState([]);
@@ -83,7 +83,7 @@ const Houses = ({ value, start, focus }) => {
   }, [sort]);
 
   useEffect(() => {
-    if (displayData.length) {
+    if   (displayData.length) {
       switch (sort) {
         case "price":
           displayData.sort((a, b) => a.price - b.price);
@@ -200,6 +200,6 @@ const Houses = ({ value, start, focus }) => {
       </div>
     </section>
   );
-};
+});
 
 export default Houses;

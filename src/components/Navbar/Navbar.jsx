@@ -21,7 +21,8 @@ const Navbar = () => {
     master: t("navbar.master"),
     industria: t("navbar.industria"),
     mebel: t("navbar.furniture"),
-    cabinet: t("navbar.cabinet")
+    cabinet: t("navbar.cabinet"),
+    "save-products": "Избранные",
   };
 
   

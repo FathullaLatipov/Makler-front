@@ -10,6 +10,7 @@ const SavedProduct = () => {
   const [mount, setDeleteMount] = useState(true);
   useEffect(() => {
     const userid = localStorage.getItem("userId");
+    window.document.title = "Избранные";
     axios
       .get(
         `https://api.makleruz.uz/products/api/v1/houses/get-wishlist-houses?user=${userid}`
@@ -18,6 +19,7 @@ const SavedProduct = () => {
       .catch((er) => console.log(er))
       .finally(() => setIsLoading(false));
   }, [mount]);
+
 
   return (
     <div className="content">

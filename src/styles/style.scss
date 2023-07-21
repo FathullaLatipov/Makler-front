@@ -324,10 +324,10 @@ input {
   .settings-s,
   .advert-s,
   .photos-work-s {
-    margin-right: rem(129px);
-    @include laptop {
-      margin-right: 0.625rem;
-    }
+    //margin-right: rem(129px);
+    //@include laptop {
+    //  margin-right: 0.625rem;
+    //}
   }
   .photos-work-s {
     width: rem(459px);

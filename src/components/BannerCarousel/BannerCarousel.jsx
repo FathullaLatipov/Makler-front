@@ -1,12 +1,13 @@
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import sprite from "../../assets/img/symbol/sprite.svg";
 import styled from "styled-components";
-import { useContext, useEffect } from "react";
+import {useContext, useEffect, useState} from "react";
 import PersonPng from "../../assets/img/PersonImg.png";
 import { AppContext } from "../../store/AppStore";
 import $host from "../../http";
+
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
 
 function CustomLeftArrow({ className, style, onClick }) {
   return (
@@ -37,12 +38,13 @@ function CustomRightArrow({ className, style, onClick }) {
 
 const BannerCarousel = () => {
   const [ { carousel }, setStore ] = useContext(AppContext);
-
+  const [loading, setLoading] = useState(true);
   const fetchCarousels = async () => {
 
     try {
       const res = await $host.get("/api/v1/carousels/");
-      setStore(prev => ({ ...prev, carousel: { isLoading: false, list: res.data.results } }))
+      setStore(prev => ({ ...prev, carousel: { isLoading: false, list: res.data.results } }));
+      setLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -52,6 +54,8 @@ const BannerCarousel = () => {
   useEffect(() => {
     fetchCarousels();
   }, []);
+
+  if(loading) return null;
 
   return (
     <Container style={{ position: "relative" }}>
@@ -74,18 +78,17 @@ const BannerCarousel = () => {
             nextArrow={<CustomRightArrow />}
             prevArrow={<CustomLeftArrow />}
         >
-          {carousel.list?.map((item, i) => (
+          {carousel.list.map((item, i) => (
             <div key={i}>
-              {item && (
                 <div>
                   <span>
-                    <img src={item.image} alt={"products"} />
+                    <img src={item.image} alt={"products"}/>
                   </span>
                 </div>
-              )}
             </div>
           ))}
         </Slider>
+
       </Card>
     </Container>
   );
@@ -125,7 +128,6 @@ const Container = styled.div`
 `
 
 const Card = styled.div`
-  //height: 415px;
   width: 100%;
   /* height: 10rem; */
   @media (max-width: 768px) {

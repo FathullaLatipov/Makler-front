@@ -2,7 +2,7 @@ import "./LoginModal.scss";
 import modalSvg from "../../assets/img/svg/30.svg";
 import sprite from "../../assets/img/symbol/sprite.svg";
 import useForm from "../../hooks/useForm";
-import { useContext, useState } from "react";
+import {useContext, useEffect, useState} from "react";
 import ContextApp from "../../context/context";
 import { toast } from "react-toastify";
 import $host from "../../http";
@@ -11,7 +11,7 @@ import usePrevious from "../../hooks/usePreviosState";
 import {useCookies} from "react-cookie";
 
 const LoginModal = () => {
-  const { loginModalFunc, getUserId } = useContext(ContextApp);
+  const { loginModalFunc, getUserId, fromUser } = useContext(ContextApp);
   const [ step, setStep ] = useState(1);
   const prevStep = usePrevious(step);
   const [cookie, setCookie] = useCookies();
@@ -83,21 +83,23 @@ const LoginModal = () => {
           return toast.error("Ваш пароль не совпадает");
         }
         await $host
-          .post(`/authorization/signup/`, {
+          .post(`/authorization/signup/${fromUser ? `?referrer=${fromUser}` : ''}`, {
             phone_number: number,
             password: password,
-          })
+          });
         setStep(3);
       }
       
     } catch (error) {
-      if(error.response.data) {
-      
+      if(Object.keys(error.response.data).length > 0) {
         return Object.keys(error.response.data).forEach((key) => {
-          toast.error(error.response.data[key])
+          if(Array.isArray(error.response.data[key])) {
+            return toast.error(`${key}: ${error.response.data[key].join('')}`);
+          }
+          return toast.error(error.response.data[key]);
         });
       }
-      toast.error("Something went wrong!")
+      toast.error("Something went wrong!");
     } 
   };
 
@@ -108,6 +110,16 @@ const LoginModal = () => {
   const toBackFromThirdStep = () => {
     setStep(prevStep);
   }
+
+  useEffect(() => {
+    if(step === 1) {
+      window.document.title = "Логин";
+    } else if(step === 2) {
+      window.document.title = "Регистрация";
+    } else if(step === 3) {
+      window.document.title = "Подтверждение кода";
+    }
+  }, [step]);
 
   return (
     <div className="modal login-modal">

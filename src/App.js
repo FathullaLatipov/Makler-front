@@ -41,37 +41,30 @@ import $host from "./http";
 import AboutUs from "./components/AboutUs/AboutUs";
 import {verifyUser} from "./http/userHttp";
 
-const CabinetPage = () => {
-  const userId = localStorage.getItem("userId");
-  if (userId) {
-    return <Navigate to={`/cabinet/${userId}`} />;
-  }
-  return <Navigate to={`/`} />;
-};
-
 
 function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [loading, setLoading] = useState(true);
-  const { addUserData, userData, setFavorites } = useContext(ContextApp);
-
-  const { openLoginModal } = useContext(ContextApp);
+  const { addUserData, setFavorites, openLoginModal, setRefferals } = useContext(ContextApp);
 
   const getData = async (setData, url) => {
-    const userToken = localStorage.getItem("access");
     const userId = window.localStorage.getItem("userId");
 
     try {
       const favorites = await $host.get(`/products/api/v1/houses/get-wishlist-houses?user=${userId}`)
       setFavorites(favorites.data.results);
-
-      const { data } = await $host
-          .get(`/users/api/v1/${url}/${userId}`, {
-            headers: {
-              Authorization: `Bearer ${userToken}`,
-            },
-          });
+      const { data } = await $host.get(`/users/api/v1/${url}/${userId}`);
       setData(data);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const fetchRefferals = async () => {
+    const userId = window.localStorage.getItem("userId");
+    try {
+      const refferals = await $host.get(`/users/api/v1/referrals/${userId}/`);
+      setRefferals(refferals.data);
     } catch (e) {
       console.log(e);
     }
@@ -84,6 +77,7 @@ function App() {
         setIsLogin(true);
         await verifyUser();
         await getData(addUserData, "profile");
+        await fetchRefferals();
       } else {
         setIsLogin(false);
       }
@@ -134,24 +128,16 @@ function App() {
 
 
           <Route path="/" element={<Home />} />
-          <Route path="/cabinet" element={<CabinetPage />} />
 
           <Route path="/edit-product/:id" element={<EditHouse />} />
           <Route path="/edit-master/:id" element={<EditMaster />} />
           <Route path="/edit-store/:id" element={<EditStore />} />
           <Route path="/edit-mebel/:id" element={<EditMebel />}/>
 
-
-          <Route path="/edit-mebel" element={<CabinetPage />} />
-          <Route path="/edit-product" element={<CabinetPage />} />
-          <Route path="/edit-master" element={<CabinetPage />} />
-          <Route path="/edit-store" element={<CabinetPage />} />
-
           <Route path="/create/master" element={<EditPage />} />
           <Route path="/create/product" element={<CreateProduct />} />
           <Route path="/create/mebel" element={<CreateMebel />} />
           <Route path="/save-products" element={<SavedProduct />} />
-
 
           <Route path="/product/:id" element={<SingleProduct />} />
           <Route path="/product" element={<AllProducts />} />

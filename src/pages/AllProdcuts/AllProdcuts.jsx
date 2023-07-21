@@ -1,7 +1,7 @@
 import { Filter, Houses } from "../../components";
 import sprite from "../../assets/img/symbol/sprite.svg";
 import useForm from "../../hooks/useForm";
-import {useEffect, useState} from "react";
+import {useCallback, useEffect, useState} from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -22,7 +22,7 @@ const AllProducts = () => {
     sort: "",
   });
 
-  const fetchObjects = async () => {
+  const fetchObjects = useCallback(async () => {
     try {
       const response = await $host.get(`${baseURL}/products/houses/filter-web/objects`);
 
@@ -34,11 +34,10 @@ const AllProducts = () => {
       }
       setObjects(result);
       setLoading(false);
-
     } catch (e) {
       console.log(e);
     }
-  }
+  }, []);
 
   const SliderItem = styled.div`
     background: #ffffff;
@@ -48,7 +47,7 @@ const AllProducts = () => {
     text-align: center;
     margin: 0 10px;
     font-size: 15px;
-  `
+  `;
 
   useEffect(() => {
     fetchObjects();
@@ -88,7 +87,7 @@ const AllProducts = () => {
         }
       }
     ]
-  }
+  };
 
   return (
     <div className="content">
@@ -130,8 +129,8 @@ const AllProducts = () => {
                     { id: "price", text: "Дешевые" },
                     { id: "-price", text: "Дорогие" },
                     { id: "created_at", text: "Новые" },
-                  ].map((item) => (
-                    <div>
+                  ].map((item,index) => (
+                    <div key={index}>
                       <label
                         htmlFor={item.text}
                         className={`labelcha ${
@@ -169,6 +168,7 @@ const AllProducts = () => {
           >
             {objects.map((item, index) => (
               <div
+                  key={index}
                 onClick={() => {
                   if(item.object === form.building) {
                     return changeHandler({

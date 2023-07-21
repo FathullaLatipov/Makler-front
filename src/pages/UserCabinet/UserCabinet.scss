@@ -2,8 +2,9 @@
 
 .cabinet {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: flex-start;
+  flex-wrap: wrap;
   @include tablet {
     flex-direction: column;
     align-items: center;
@@ -30,10 +31,10 @@
   .settings-s,
   .advert-s,
   .photos-work-s {
-    margin-right: rem(129px);
-    @include laptop {
-      margin-right: 0.625rem;
-    }
+    //margin-right: rem(129px);
+    //@include laptop {
+    //  margin-right: 0.625rem;
+    //}
   }
   .photos-work-s {
     width: rem(459px);
@@ -375,4 +376,37 @@
     opacity: 0.4;
     margin-top: rem(10px);
   }
+}
+
+.reffer {
+
+  .form-input {
+    margin-bottom: 0.25rem;
+  }
+
+  &__getlink {
+    color: #1B74FF;
+    font-size: 12px;
+    font-weight: 400;
+    cursor: pointer;
+  }
+
+  &__input {
+    cursor: pointer;
+  }
+
+  &__points {
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    line-height: 1.125rem;
+    color: #000000;
+    font-weight: 600;
+  }
+
+  &__points > svg {
+    margin-right: 5px;
+  }
+
 }
