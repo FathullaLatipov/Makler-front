@@ -25,6 +25,8 @@ $host.interceptors.response.use((config) => {
     if(error.response.status === 401 && error.config && !error.config._isRetry) {
         originalRequest._isRetry = true;
         const cookies = new Cookies();
+        if(!cookies.get('refreshToken'))
+            return Promise.reject(error);
         try {
             const refreshToken = cookies.get('refreshToken');
             const { data } = await $host.post("authorization/api/v1/token/refresh/" , {refresh: refreshToken});

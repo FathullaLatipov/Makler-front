@@ -3,7 +3,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import sprite from "../../assets/img/symbol/sprite.svg";
 import img from "../../assets/img/slider/1.png";
-// slick-arrow
 
 function CustomLeftArrow({ className, style, onClick }) {
   return (
@@ -31,18 +30,6 @@ function CustomRightArrow({ className, style, onClick }) {
     </svg>
   );
 }
-
-// {imgUrl.map((img2, i) => {
-//   <div key={i}>
-//     {/* <img src={img} alt="photo single" /> */}
-//     {img2}
-//     1
-//   </div>
-// })}
-// <div>fsdafdsa</div>
-// <div>fsdafdsa</div>
-// {/* <div> 1</div>
-// <div> 1</div> */}
 const SliderContent = ({ imgUrl }) => {
   return (
     <Slider

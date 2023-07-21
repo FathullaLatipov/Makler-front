@@ -65,7 +65,7 @@ const SingleProduct = () => {
       console.log('API поделиться не поддерживается в данном браузере.');
     }
     toast.success("Ссылка скопирована");
-  }
+  };
 
   const addToFavorites = async () => {
     const userId = window.localStorage.getItem("userId");
@@ -93,7 +93,7 @@ const SingleProduct = () => {
       setLoading(false);
     }
     setLoading(false);
-  }
+  };
 
 
   return (
