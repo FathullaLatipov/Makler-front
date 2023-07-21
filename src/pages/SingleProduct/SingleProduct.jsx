@@ -60,10 +60,10 @@ const SingleProduct = () => {
       })
           .then(() => toast.success("Ссылка скопирована"))
           .catch((error) => toast.error('Ошибка при попытке поделиться:', error));
+      return;
     } else {
       console.log('API поделиться не поддерживается в данном браузере.');
     }
-    toast.success("Ссылка скопирована");
     toast.success("Ссылка скопирована");
   }
 
