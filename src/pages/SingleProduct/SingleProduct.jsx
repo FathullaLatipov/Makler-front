@@ -270,43 +270,16 @@ const SingleProduct = () => {
                     показать на карте
                   </button>
                 </div>
-                {houseData?.youtube_link ? (
-                  // <Player>
-                  //   <source src={houseData?.youtube_link} />
-                  // </Player>
-                  // <video src={houseData?.youtube_link}></video>
-                  <embed
-                    // style={{
-
-                    // }}
-                    className="youtube-video phone-video"
-                    src={`https://www.youtube.com/embed/${slice(
-                      houseData?.youtube_link
-                    )}`}
+                {houseData?.youtube_link && (
+                  <video
+                      style={{ width: "100%", margin: "20px 0" }}
+                      controls={true}
+                      src={houseData?.youtube_link}
                   />
-                ) : (
-                  ""
                 )}
-                <h5 className="product-small-title">Рекомендуем похожие </h5>
+                <h5 className="product-small-title">Рекомендуем похожие</h5>
               </div>
             </div>
-            {houseData?.youtube_link ? (
-              // <Player>
-              //   <source src={houseData?.youtube_link} />
-              // </Player>
-              // <video src={houseData?.youtube_link}></video>
-              <embed
-                // style={{
-
-                // }}
-                className="youtube-video desktop-video"
-                src={`https://www.youtube.com/embed/${slice(
-                  houseData?.youtube_link
-                )}`}
-              />
-            ) : (
-              ""
-            )}
           </div>
           <div className="cards">
             <div className="container">

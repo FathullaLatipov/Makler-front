@@ -81,7 +81,7 @@ function App() {
       } else {
         setIsLogin(false);
       }
-      setLoading(false)
+      setLoading(false);
     } catch (e) {
       console.log(e);
     }
@@ -129,7 +129,7 @@ function App() {
 
           <Route path="/" element={<Home />} />
 
-          <Route path="/edit-product/:id" element={<EditHouse />} />
+          <Route path="/edit-house/:id" element={<EditHouse />} />
           <Route path="/edit-master/:id" element={<EditMaster />} />
           <Route path="/edit-store/:id" element={<EditStore />} />
           <Route path="/edit-mebel/:id" element={<EditMebel />}/>

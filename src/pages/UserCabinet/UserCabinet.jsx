@@ -41,9 +41,8 @@ const UserCabinet = () => {
   const getData = (setData, url) => {
     $host
       .get(`/users/api/v1/${url}/${id}`)
-      .then((data) => {
-        setData(data)
-        console.log(data);
+      .then(({ data }) => {
+        setData(data);
       })
       .catch(() => navigate("/"))
       .finally(() => setLoading(false));
@@ -88,6 +87,8 @@ const UserCabinet = () => {
       filteredArr: filteredMebels,
     },
   ];
+
+  console.log(houses)
 
   const filterFunc = (setFilter, arr) => {
     const filtered = arr?.filter((item) => {

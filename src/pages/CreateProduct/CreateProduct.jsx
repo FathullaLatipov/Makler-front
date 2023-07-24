@@ -31,6 +31,7 @@ const CreateProduct = () => {
   const [aminities, setAminities] = useState([]);
   const [file, setFile] = useState([]);
   const [img, setImg] = useState([]);
+  const [video, setVideo] = useState();
   const mapRef = useRef(null);
   const searchRef = useRef(null);
   const [points, setPoints] = useState([]);
@@ -65,18 +66,8 @@ const CreateProduct = () => {
 
   const postData = (data) => {
     setLoading(true);
-    const userToken = localStorage.getItem("access");
-
-    $host
-      .post(
-        `https://api.makleruz.uz/products/web/api/v1/web-houses/create/`,
-        data,
-        {
-          headers: {
-            Authorization: `Bearer ${userToken}`,
-          },
-        }
-      )
+    $host.post(
+        `https://api.makleruz.uz/products/web/api/v1/web-houses/create/`, data)
       .then((res) => {
         toast.success("Успешно");
         navigateToProfile();
@@ -121,14 +112,14 @@ const CreateProduct = () => {
     formData.append("app_ipoteka", Boolean(form.app_ipoteka));
     formData.append("app_mebel", form.app_mebel);
     formData.append("app_new_building", form.app_new_building);
-    // formData.append("amenities", form.amenities);
     formData.append("phone_number", form.phone_number);
     formData.append("isBookmarked", form.isBookmarked);
-    formData.append("youtube_link", form.youtube_link);
+    formData.append("youtube_link", video);
+    console.log(video);
     formData.append("how_sale", form.how_sale);
     formData.append("draft", false);
-    for (const fi of file) {
-      formData.append("uploaded_images", fi);
+    for (const im of img) {
+      formData.append("uploaded_images", im);
     }
     for (const aminit of aminities) {
       formData.append("amenities", aminit);
@@ -166,8 +157,8 @@ const CreateProduct = () => {
     formData.append("how_sale", form.how_sale);
     formData.append("youtube_link", form.youtube_link);
     formData.append("draft", true);
-    for (const fi of file) {
-      formData.append("uploaded_images", fi);
+    for (const im of img) {
+      formData.append("uploaded_images", im);
     }
     for (const aminit of aminities) {
       formData.append("amenities", aminit);
@@ -178,61 +169,13 @@ const CreateProduct = () => {
 
   const handleChange = (e) => {
     const { files } = e.target;
-    setFile([...files]);
-    const validimg = [];
-    for (let i = 0; i < files.length; i++) {
-      const file = files[i];
-      validimg.push(file);
-    }
-    if (validimg.length) {
-      setImg(validimg);
-      return;
-    }
-    alert("Selected images are not of valid type!");
+    setImg([...files]);
   };
 
-  useEffect(() => {
-    const fileReaders = [];
-    let isCancel = false;
-    if (img?.length) {
-      const promises = img.map((file) => {
-        return new Promise((resolve, reject) => {
-          const fileReader = new FileReader();
-          fileReaders.push(fileReader);
-          fileReader.onload = (e) => {
-            const { result } = e.target;
-            if (result) {
-              resolve(result);
-            }
-          };
-          fileReader.onabort = () => {
-            reject(new Error("File reading aborted"));
-          };
-          fileReader.onerror = () => {
-            reject(new Error("Failed to read file"));
-          };
-          fileReader.readAsDataURL(file);
-        });
-      });
-      Promise.all(promises)
-        .then((images) => {
-          if (!isCancel) {
-            setImg(images);
-          }
-        })
-        .catch((reason) => {
-          console.log(reason);
-        });
-    }
-    return () => {
-      isCancel = true;
-      fileReaders.forEach((fileReader) => {
-        if (fileReader.readyState === 1) {
-          fileReader.abort();
-        }
-      });
-    };
-  }, [img]);
+  function getPathImage(image) {
+    const value = URL.createObjectURL(image);
+    return value;
+  }
 
   const mapOptions = {
     modules: ["geocode", "SuggestView"],
@@ -290,7 +233,7 @@ const CreateProduct = () => {
                 объявление
               </h2>
               <p className="subtitle">
-                Объявление будет доступно на <a href="makler.uz">Makler.uz</a> и
+                Объявление будет доступно на <a href="https://makler.uz">Makler.uz</a> и
                 в наших <br />
                 мобильных приложениях
               </p>
@@ -310,22 +253,33 @@ const CreateProduct = () => {
                 <textarea
                   placeholder="пусто"
                   id="description-product"
-                  type="text"
                   name="descriptions"
                   onChange={changeHandler}
                   required
                 ></textarea>
               </div>
-              <h5>Сылка на ютуб</h5>
-              <div className="form-input">
-                <input
-                  placeholder="пусто"
-                  id="link-product"
-                  type="text"
-                  name="youtube_link"
-                  onChange={changeHandler}
-                  required
-                />
+
+              <h5>Загрузите видео</h5>
+              <div className="image-upload mb-50">
+                <div className="image-outer">
+                  <div className="image-outer-info">
+                    <h5>Перетащите сюда свои изображения или нажмите сюда</h5>
+                    <p>Поддерживает: video/mp4,video/x-m4v,video/*</p>
+                  </div>
+                  <input
+                      type="file"
+                      name="uploaded_video"
+                      onChange={(e) => setVideo(e.target.files[0])}
+                      id="uploaded_video"
+                      accept="video/mp4,video/x-m4v,video/*"
+                  />
+                  <label htmlFor="uploaded_video">открыть</label>
+                </div>
+                {video && (
+                    <h4 style={{ marginTop: "10px" }}>
+                      Выбрано: <strong style={{color: "#c56622", cursor: "pointer"}}>{ video.name }</strong>
+                    </h4>
+                )}
               </div>
               <h5>Цена</h5>
               <div className="form-price">
@@ -514,51 +468,7 @@ const CreateProduct = () => {
                     <label htmlFor={text}>{text}</label>
                   </li>
                 ))}
-                {/* 
-                <li className="radio-btn">
-                  <input type="radio" id="room" name="object" value="room" />
-                  <label htmlFor="room">Комната</label>
-                </li>
-                <li className="radio-btn">
-                  <input
-                    type="radio"
-                    id="dacha"
-                    name="object"
-                    value="summer_cottage"
-                  />
-                  <label htmlFor="dacha">Дача</label>
-                </li>
-                <li className="radio-btn">
-                  <input type="radio" id="house" name="object" value="house" />
-                  <label htmlFor="house">Дом</label>
-                </li>
-                <li className="radio-btn">
-                  <input
-                    type="radio"
-                    id="part"
-                    name="object"
-                    value="part_house"
-                  />
-                  <label htmlFor="part">Часть дома</label>
-                </li>
-                <li className="radio-btn">
-                  <input
-                    type="radio"
-                    id="townhouse"
-                    name="object"
-                    value="townhouse"
-                  />
-                  <label htmlFor="townhouse">Таунхаус</label>
-                </li>
-                <li className="radio-btn">
-                  <input
-                    type="radio"
-                    id="some"
-                    name="object"
-                    value="bed_space"
-                  />
-                  <label htmlFor="some">Койко-место</label>
-                </li> */}
+
               </ul>
               <h5>Расположение</h5>
               <div className="map mb-50">
@@ -570,12 +480,8 @@ const CreateProduct = () => {
                       placeholder="г.Ташкент, ул.Охангарон 65 А 1"
                       id="suggest"
                       name="web_address_title"
-                      // onChange={changeHandler}
-                      // value={form.web_address_title}
                     />
-                    {/* <button className="btn btn-black" id="save-address">
-                      Сохранить
-                    </button> */}
+
                   </div>
                 </div>
                 <p className="error-par d-none">
@@ -596,7 +502,6 @@ const CreateProduct = () => {
                   >
                     <Map
                       {...mapOptions}
-                      // state={state}s
                       state={{
                         center: state?.center,
                         zoom: 12,
@@ -605,18 +510,7 @@ const CreateProduct = () => {
                       onBoundsChange={handleBoundsChange}
                       instanceRef={mapRef}
                     >
-                      {/* <div
-                        style={{
-                          width: "1rem",
-                          height: "1rem",
-                          background: "#000",
-                          position: "absolute",
-                          top: "50%",
-                          left: "50%",
-                          transform: "translate(-50%, -100%)",
-                          zIndex: 3000,
-                        }}
-                      ></div> */}
+
                       <GeolocationControl {...geolocationOptions} />
                       <ZoomControl />
                       <Placemark geometry={state.center} />
@@ -634,22 +528,19 @@ const CreateProduct = () => {
                   <input
                     type="file"
                     name="uploaded_images"
-                    // onChange={changeHandler}
-                    onChange={(e) => handleChange(e)}
+                    onChange={handleChange}
                     id="upload-images"
                     accept="image/png, image/jpeg, image/jpg"
                     multiple
                   />
-                  <label htmlFor="upload-images">открыть</label>
+                  <label htmlFor="upload-images">Открыть</label>
                 </div>
                 <ul className="image-list" id="gallery">
-                  {img.length
-                    ? img.map((im, i) => (
+                  {img.map((im, i) => (
                         <li key={i}>
-                          <img src={im} alt="house" />
+                          <img src={getPathImage(im)} alt="house" />
                         </li>
-                      ))
-                    : ""}
+                  ))}
                 </ul>
               </div>
               <h5>Вся информация об объекте</h5>
@@ -730,17 +621,6 @@ const CreateProduct = () => {
                     <label htmlFor={item.value}>{item.text}</label>
                   </li>
                 ))}
-                {/*      <li className="radio-btn">
-                  <input type="radio" id="type-monolith" name="type-building" />
-                  <label htmlFor="type-monolith">Монолит</label>
-                </li>
-FV                  <input type="radio" id="type-panel" name="type-building" />
-                  <label htmlFor="type-panel">Панель</label>
-                </li>
-                <li className="radio-btn">
-                  <input type="radio" id="type-block" name="type-building" />
-                  <label htmlFor="type-block">Блочный</label>
-                </li> */}
               </ul>
               <ul className="ipoteka-list mb-40">
                 <li className="radio-list">
@@ -860,7 +740,7 @@ FV                  <input type="radio" id="type-panel" name="type-building" />
                         fontWeight: "600",
                         cursor: "pointer",
                         background: `${
-                          aminities.includes(value) ? "#c56622" : "white"
+                          aminities.includes(value) ? "#c56622" : "#f3f2f2"
                         }`,
                         color: `${
                           aminities.includes(value) ? "white" : "black"
@@ -926,9 +806,6 @@ FV                  <input type="radio" id="type-panel" name="type-building" />
                 >
                   Опубликовать объявление
                 </button>
-                {/* <button className="btn btn-orange">
-                  Опубликовать объявление{" "}
-                </button> */}
               </div>
             </form>
             <div className="create-product__right">

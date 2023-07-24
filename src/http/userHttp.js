@@ -1,6 +1,5 @@
 import $host from "./index";
 
-
 export const verifyUser = async () => {
     try {
         const token = window.localStorage.getItem("access");
@@ -9,4 +8,4 @@ export const verifyUser = async () => {
     } catch (e) {
         console.error(e);
     }
-}
+};
