@@ -68,7 +68,7 @@ export default function CreateIndustriya() {
 
   useEffect(() => {
     $host
-      .get("/store2/api/v1/store/how_store")
+      .get("/store2/api/v1/store/amenitites")
       .then((res) => {
         setStoreAminities(res.data.results);
       })
@@ -122,6 +122,7 @@ export default function CreateIndustriya() {
   const [mapConstructor, setMapConstructor] = useState(null);
   const mapRef = useRef(null);
   const searchRef = useRef(null);
+
 
   const mapOptions = {
     modules: ["geocode", "SuggestView"],
