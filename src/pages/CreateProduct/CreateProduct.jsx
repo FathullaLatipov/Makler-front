@@ -37,7 +37,7 @@ const CreateProduct = () => {
     descriptions: "",
     price: "",
     price_type: 1,
-    type: "аренда",
+    type: "аденда",
     rental_type: "длительно",
     property_type: "жилая",
     object: "квартира",
@@ -347,7 +347,7 @@ const CreateProduct = () => {
                     type="radio"
                     name="type"
                     id="rent"
-                    checked={form.type === "аренда"}
+                    checked={form.type === "аденда"}
                     value="аренда"
                     onChange={changeHandler}
                   />

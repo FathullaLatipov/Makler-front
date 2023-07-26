@@ -226,7 +226,7 @@ export default function CreateIndustriya() {
     }
 
     $host
-      .post("https://api.makleruz.uz/store2/api/v1/store/create/", formData)
+      .post("/store2/api/v1/store/create/", formData)
       .then((res) => {
         toast.success("Успешно!");
         navigateToProfile();
