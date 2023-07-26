@@ -126,7 +126,7 @@ function App() {
               }
           />
 
-
+  
           <Route path="/" element={<Home />} />
 
           <Route path="/edit-house/:id" element={<EditHouse />} />

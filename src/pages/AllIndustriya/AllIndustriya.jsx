@@ -1,16 +1,13 @@
 import { useMemo, useState } from "react";
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
 import { FilterIndustria, ProductSingle } from "../../components";
 import Loading from "../../components/Loading/Loading";
-import ContextApp from "../../context/context";
 import useForm from "../../hooks/useForm";
-import { baseURL } from "../../requests/requests";
 import Slider from "react-slick";
 import styled from "styled-components";
 import $host from "../../http";
 
-const   AllIndustriya = () => {
-  const { stores } = useContext(ContextApp);
+const AllIndustriya = () => {
   const [ brands, setBrands ] = useState([]);
   const [data, setData] = useState([]);
   const [limit, setLimit] = useState(9);
@@ -27,7 +24,7 @@ const   AllIndustriya = () => {
   const { search, useFor, how_store_service, brand_id } = form;
   useEffect(() => {
     $host
-      .get(`${baseURL}/store2/api/v1/store/`)
+      .get(`/store2/api/v1/store/`)
       .then((data) => setData(data.data.results))
       .catch((err) => console.log(err))
       .finally(() => setLoading(false));
@@ -36,10 +33,10 @@ const   AllIndustriya = () => {
   useMemo(() => {
     setLoading(true);
     $host
-      .get(`${baseURL}/store2/api/v1/store/`, {
+      .get(`/store2/api/v1/store/`, {
         params: {
           use_for: useFor,
-          how_store_service,
+          how_store_service: how_store_service,
           brand_title: brand_id,
         },
       })
@@ -50,8 +47,8 @@ const   AllIndustriya = () => {
 
   const fetchData = async () => {
     setLoading(true);
-    const response = await $host.get(`${baseURL}/store2/api/v1/store/search?search=${search}`);
-    const brands = await $host.get(`${baseURL}/store2/api/v1/store/brands`);
+    const response = await $host.get(`/store2/api/v1/store/search?search=${search}`);
+    const brands = await $host.get(`/store2/api/v1/store/brands`);
     setBrands(brands.data.results);
     setSearchData(response.data.results)
     setLoading(false);
@@ -103,7 +100,7 @@ const   AllIndustriya = () => {
         }
       }
     ]
-  }
+  };
 
   const SliderItem = styled.div`
     background: #ffffff;
@@ -125,7 +122,7 @@ const   AllIndustriya = () => {
       width: 100%;
       height: 100%;
     }
-  `
+  `;
 
   return (
     <section className="content">

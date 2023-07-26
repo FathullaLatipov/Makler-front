@@ -25,29 +25,25 @@ const CreateProduct = () => {
     center: [40.783388, 72.350663],
     zoom: 12,
   };
-
   const [state, setState] = useState({ ...initialState });
   const [mapConstructor, setMapConstructor] = useState(null);
   const [aminities, setAminities] = useState([]);
-  const [file, setFile] = useState([]);
   const [img, setImg] = useState([]);
-  const [video, setVideo] = useState();
+  const [video, setVideo] = useState(null);
   const mapRef = useRef(null);
   const searchRef = useRef(null);
-  const [points, setPoints] = useState([]);
   const { form, changeHandler } = useForm({
     title: "",
     descriptions: "",
     price: "",
     price_type: 1,
-    type: "аденда",
+    type: "аренда",
     rental_type: "длительно",
     property_type: "жилая",
     object: "квартира",
     web_address_title: "",
     web_address_latitude: "",
     web_address_longtitude: "",
-    // uploaded_images: "",
     pm_general: "",
     pm_residential: "",
     pm_kitchen: "",
@@ -66,8 +62,7 @@ const CreateProduct = () => {
 
   const postData = (data) => {
     setLoading(true);
-    $host.post(
-        `https://api.makleruz.uz/products/web/api/v1/web-houses/create/`, data)
+    $host.post(`/products/web/api/v1/web-houses/create/`, data)
       .then((res) => {
         toast.success("Успешно");
         navigateToProfile();
@@ -114,10 +109,12 @@ const CreateProduct = () => {
     formData.append("app_new_building", form.app_new_building);
     formData.append("phone_number", form.phone_number);
     formData.append("isBookmarked", form.isBookmarked);
-    formData.append("youtube_link", video);
-    console.log(video);
     formData.append("how_sale", form.how_sale);
     formData.append("draft", false);
+    if(video) {
+      formData.append("youtube_link", video);
+    }
+
     for (const im of img) {
       formData.append("uploaded_images", im);
     }
@@ -155,7 +152,11 @@ const CreateProduct = () => {
     formData.append("phone_number", form.phone_number);
     formData.append("isBookmarked", form.isBookmarked);
     formData.append("how_sale", form.how_sale);
-    formData.append("youtube_link", form.youtube_link);
+
+    if(video) {
+      formData.append("youtube_link", video);
+    }
+
     formData.append("draft", true);
     for (const im of img) {
       formData.append("uploaded_images", im);
@@ -258,7 +259,6 @@ const CreateProduct = () => {
                   required
                 ></textarea>
               </div>
-
               <h5>Загрузите видео</h5>
               <div className="image-upload mb-50">
                 <div className="image-outer">
@@ -347,8 +347,8 @@ const CreateProduct = () => {
                     type="radio"
                     name="type"
                     id="rent"
-                    checked={form.type === "аденда"}
-                    value="аденда"
+                    checked={form.type === "аренда"}
+                    value="аренда"
                     onChange={changeHandler}
                   />
                   <label htmlFor="rent">Сдать в аренду</label>

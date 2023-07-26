@@ -8,7 +8,6 @@ import {
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { baseURL } from "../../requests/requests";
-import { toast } from "react-toastify";
 import Loading from "../../components/Loading/Loading";
 import { useLocation, useParams } from "react-router-dom";
 
@@ -20,17 +19,6 @@ const SingleMebel = () => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const { id } = useParams();
-  const router = useLocation();
-  // const getData = (url, setData) => {
-  //   setIsLoading(true);
-  //   axios
-  //     .get(`${baseURL}/${url}`)
-  //     .then((res) => setData(res.data))
-  //     .catch(() => {
-  //       toast.error("Something went wrong while uploading recommends");
-  //     })
-  //     .finally(() => setIsLoading(false));
-  // };
 
   useEffect(() => {
     axios
@@ -39,7 +27,6 @@ const SingleMebel = () => {
       .catch((err) => console.log(err))
       .finally(() => setLaoding(false));
   }, [id]);
-  console.log(data);
 
   useEffect(() => {
     setLaoding(true);

@@ -15,19 +15,22 @@ const UserSingle = ({ data, id }) => {
   const getData = (url, setData) => {
     setIsLoading(true);
     $host
-      .get(`${baseURL}/${url}`)
+      .get(`/${url}`)
       .then((res) => setData(res.data.results))
       .catch(() => {
         toast.error("Something went wrong while uploading recommends");
       })
       .finally(() => setIsLoading(false));
   };
+
   useEffect(() => {
     getData("store2/api/v1/store/popular", setStoreData);
   }, [id]);
+
   useEffect(() => {
     getData("master/api/v1/maklers/popular", setMasterData);
   }, [id]);
+
   return (
     <>
       {data ? (

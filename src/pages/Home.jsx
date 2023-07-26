@@ -13,10 +13,10 @@ import ContextApp from "../context/context";
 
 const Home = () => {
   const [bannerModal, setBannerModal] = useState(false);
-  const [query, setQuery] = useSearchParams();
+  const [query,] = useSearchParams();
   const { setFromUser } = useContext(ContextApp);
 
-  useEffect(() => {
+  const fetchData = () => {
     const modal = window.sessionStorage.getItem("modal");
     if (!modal) {
       setBannerModal(true);
@@ -24,6 +24,10 @@ const Home = () => {
     window.document.title = "Главная";
     const from = query.get('from');
     setFromUser(from);
+  }
+
+  useEffect(() => {
+    fetchData();
   }, []);
   
   const closeModal = () => {

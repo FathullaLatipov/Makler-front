@@ -1,20 +1,23 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { LoadingPost, UserSingle } from "../../components";
-import { baseURL } from "../../requests/requests";
+import $host from "../../http";
 
 const MasterPage = () => {
   const [data, setData] = useState();
   const [loading, setLaoding] = useState(true);
   const { id } = useParams();
 
+  const fetchData = () => {
+    $host
+        .get(`/master/api/v1/maklers/${id}`)
+        .then((data) => setData(data.data))
+        .catch((err) => console.log(err))
+        .finally(() => setLaoding(false));
+  }
+
   useEffect(() => {
-    axios
-      .get(`${baseURL}/master/api/v1/maklers/${id}`)
-      .then((data) => setData(data.data))
-      .catch((err) => console.log(err))
-      .finally(() => setLaoding(false));
+    fetchData();
   }, [id]);
 
   return (

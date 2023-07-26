@@ -26,10 +26,11 @@ import { LoadingPost } from "../../components";
 import { useContext } from "react";
 import ContextApp from "../../context/context";
 import { baseURL } from "../../requests/requests";
-import $host from "../../http";
+import $host, {WEB_URL} from "../../http";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
+
 const MenuProps = {
   PaperProps: {
     style: {
@@ -38,21 +39,6 @@ const MenuProps = {
     },
   },
 };
-
-const names = [
-  {
-    text: "мебель",
-    value: 1,
-  },
-  {
-    text: "для кухни",
-    value: 2,
-  },
-  {
-    text: "бытовая техника",
-    value: 3,
-  },
-];
 
 function getStyles(name, personName, theme) {
   return {
@@ -82,7 +68,7 @@ export default function CreateIndustriya() {
 
   useEffect(() => {
     $host
-      .get("https://api.makleruz.uz/store2/api/v1/store/how_store")
+      .get("/store2/api/v1/store/how_store")
       .then((res) => {
         setStoreAminities(res.data.results);
       })
@@ -151,7 +137,7 @@ export default function CreateIndustriya() {
 
   useEffect(() => {
     $host
-      .get(`${baseURL}/store2/api/v1/store/brands`)
+      .get(`/store2/api/v1/store/brands`)
       .then((res) => {
         setBrandData(res.data.results);
       })
@@ -227,10 +213,6 @@ export default function CreateIndustriya() {
     formData.append("image", img.machineImg);
     formData.append("brand_image", img.brandImg);
     formData.append("description", form.description);
-    // formData.append(
-    //   "store_amenitites",
-    //   form.store_amenitites.map((data) => data.value)
-    // );
     formData.append("brand", form.brand);
     formData.append("price", form.price);
     formData.append("use_for", form.use_for);
@@ -243,14 +225,8 @@ export default function CreateIndustriya() {
       formData.append("store_amenitites", fi.id);
     }
 
-    const userToken = localStorage.getItem("access");
-
     $host
-      .post("https://api.makleruz.uz/store2/api/v1/store/create/", formData, {
-        headers: {
-          Authorization: `Bearer ${userToken}`,
-        },
-      })
+      .post("https://api.makleruz.uz/store2/api/v1/store/create/", formData)
       .then((res) => {
         toast.success("Успешно!");
         navigateToProfile();
@@ -260,7 +236,7 @@ export default function CreateIndustriya() {
         toast.error("Ошибка!");
       })
       .finally(() => setLoading(false));
-  };
+  }
 
   return (
     <div className="container">
@@ -273,7 +249,7 @@ export default function CreateIndustriya() {
             </h1>
             <p className="edit__card__text">
               Объявление будет доступно на{" "}
-              <a target={"_blank"} className="text__link" href="">
+              <a target={"_blank"} className="text__link" href={WEB_URL}>
                 Makler.uz
               </a>{" "}
               и в наших мобильных приложениях
@@ -292,7 +268,7 @@ export default function CreateIndustriya() {
               />
               <div className="image__card">
                 <p className="avatar__name">
-                  Загрузите фото профиля или логотп компании
+                  Загрузите фото профиля или логотип компании
                 </p>
                 <label
                   htmlFor="file"
