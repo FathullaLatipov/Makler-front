@@ -1,18 +1,7 @@
 import React from "react";
-import avatar_image from "./../../assets/img/avatar_change.png";
 import { useState, useRef, useEffect } from "react";
 import sprite from "../../assets/img/symbol/sprite.svg";
 import "../../components/EditPage/EditPage.css";
-import {
-  Box,
-  MenuItem,
-  OutlinedInput,
-  Select,
-  Chip,
-  useTheme,
-  InputLabel,
-  FormControl,
-} from "@mui/material";
 import {
   GeolocationControl,
   Placemark,
@@ -21,108 +10,32 @@ import {
 } from "@pbe/react-yandex-maps";
 import useForm from "../../hooks/useForm";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
 import { LoadingPost } from "../../components";
 import { useContext } from "react";
 import ContextApp from "../../context/context";
-import { baseURL } from "../../requests/requests";
 import $host from "../../http";
+import {getPathImage} from "../../helpers/getPathImage";
 
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250,
-    },
-  },
+const initialState = {
+  title: "",
+  center: [40.783388, 72.350663],
+  zoom: 12,
 };
 
-const names = [
-  {
-    text: "мебель",
-    value: 1,
-  },
-  {
-    text: "для кухни",
-    value: 2,
-  },
-  {
-    text: "бытовая техника",
-    value: 3,
-  },
-];
-
-function getStyles(name, personName, theme) {
-  return {
-    fontWeight:
-      personName.indexOf(name) === -1
-        ? theme.typography.fontWeightRegular
-        : theme.typography.fontWeightMedium,
-  };
-}
-
 export default function CreateMebel() {
-  const theme = useTheme();
   const { navigateToProfile } = useContext(ContextApp);
   const [loading, setLoading] = useState(false);
   const [priceText, setPriceText] = useState("y.e");
   const [categoryText, setCategoryText] = useState("");
   const [navActive, setNavActive] = useState(false);
   const [navActive2, setNavActive2] = useState(false);
-  const [personName, setPersonName] = React.useState([]);
   const [categoryData, setCategoryData] = useState([]);
-  const [file, setFile] = useState();
-  const [imgUrl, setImgUrl] = useState({
-    brand: null,
-    view: null,
-  });
-
-  // const fileHandle = (file, name) => {
-  //   const img = file;
-  //   // setFile(img);
-  //   let reader = new FileReader();
-  //   reader.readAsDataURL(img);
-
-  //   reader.onloadend = function () {
-  //     setImgUrl((prev) => {
-  //       return {
-  //         ...prev,
-  //         [name]: reader.result,
-  //       };
-  //     });
-  //   };
-  // };
-
-  const handleChange = (event) => {
-    const {
-      target: { value },
-    } = event;
-    setPersonName(
-      // On autofill we get a stringified value.
-      typeof value === "string" ? value.split(",") : value
-    );
-  };
-  const MenuProps = {
-    PaperProps: {
-      style: {
-        maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-        width: 250,
-      },
-    },
-  };
-
-  const initialState = {
-    title: "",
-    center: [40.783388, 72.350663],
-    zoom: 12,
-  };
-
+  const [img, setImg] = useState([]);
   const [state, setState] = useState({ ...initialState });
   const [mapConstructor, setMapConstructor] = useState(null);
   const mapRef = useRef(null);
   const searchRef = useRef(null);
+
 
   const mapOptions = {
     modules: ["geocode", "SuggestView"],
@@ -136,13 +49,17 @@ export default function CreateMebel() {
     defaultData: { content: "Determine" },
   };
 
+  const fetchCategories = async () => {
+    try {
+      const res = await $host.get(`/mebel/api/v1/mebel-categories/`);
+      setCategoryData(res.data.results);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   useEffect(() => {
-    $host
-      .get(`${baseURL}/mebel/api/v1/mebel-categories/`)
-      .then((res) => {
-        setCategoryData(res.data.results);
-      })
-      .catch((err) => console.log(err));
+    fetchCategories();
   }, []);
 
   useEffect(() => {
@@ -175,90 +92,27 @@ export default function CreateMebel() {
     });
   };
 
-  const [img, setImg] = useState([]);
-  // const router = useNavigate();
 
   const imgHandleChange = (e) => {
     const { files } = e.target;
-    setFile([...files]);
-    const validimg = [];
-    for (let i = 0; i < files.length; i++) {
-      const file = files[i];
-      validimg.push(file);
-    }
-    if (validimg.length) {
-      setImg(validimg);
-      return;
-    }
-    alert("Selected images are not of valid type!");
+    setImg([...files]);
   };
-
-  useEffect(() => {
-    const fileReaders = [];
-    let isCancel = false;
-    if (img?.length) {
-      const promises = img.map((file) => {
-        return new Promise((resolve, reject) => {
-          const fileReader = new FileReader();
-          fileReaders.push(fileReader);
-          fileReader.onload = (e) => {
-            const { result } = e.target;
-            if (result) {
-              resolve(result);
-            }
-          };
-          fileReader.onabort = () => {
-            reject(new Error("File reading aborted"));
-          };
-          fileReader.onerror = () => {
-            reject(new Error("Failed to read file"));
-          };
-          fileReader.readAsDataURL(file);
-        });
-      });
-      Promise.all(promises)
-        .then((images) => {
-          if (!isCancel) {
-            setImg(images);
-          }
-        })
-        .catch((reason) => {
-          console.log(reason);
-        });
-    }
-    return () => {
-      isCancel = true;
-      fileReaders.forEach((fileReader) => {
-        if (fileReader.readyState === 1) {
-          fileReader.abort();
-        }
-      });
-    };
-  }, [img]);
 
   const { form, changeHandler } = useForm({
     title: "",
     descriptions: "",
     short_descriptions: "",
     price_type: 1,
-    // store_amenitites: [],
     category: "",
     price: 0,
-    // use_for: "",
-    // phoneNumber: 0,
-    // email: "",
-    // brand_title: "",
-    // how_store_service: 1,
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     const formData = new FormData();
     formData.append("title", form.title);
     formData.append("price_type", Number(form.price_type));
-    // formData.append("image", img.machineImg);
-    // formData.append("brand_image", img.brandImg);
     formData.append("long_descriptions", form.descriptions);
     formData.append("short_descriptions", form.short_descriptions);
     formData.append("price", form.price);
@@ -267,33 +121,20 @@ export default function CreateMebel() {
     formData.append("web_address_title", searchRef.current?.value);
     formData.append("web_address_latitude", state?.center[0]);
     formData.append("web_address_longtitude", state?.center[1]);
-    // formData.append("email", form.email);
-    // formData.append("brand_title", form.brand_title);
-    // formData.append("how_store_service", form.how_store_service);
-    // for (const fi of form.store_amenitites) {
-    // formData.append("store_amenitites", fi.value);
-    // }
-    for (const fi of file) {
-      formData.append("uploaded_images", fi);
+    for (const im of img) {
+      formData.append("uploaded_images", im);
     }
 
-    const userToken = localStorage.getItem("access");
-
-    $host
-      .post("https://api.makleruz.uz/mebel/api/v1/mebels/create/", formData, {
-        headers: {
-          Authorization: `Bearer ${userToken}`,
-        },
-      })
-      .then(() => {
-        toast.success("Успешно!");
-        navigateToProfile();
-      })
-      .catch((err) => {
-        console.log(err);
-        toast.error("Ошибка!");
-      })
-      .finally(() => setLoading(false));
+    try {
+      await $host.post("https://api.makleruz.uz/mebel/api/v1/mebels/create/", formData);
+      toast.success("Успешно!");
+      navigateToProfile();
+    } catch (e) {
+      console.log(e);
+      toast.error("Ошибка!");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -312,52 +153,11 @@ export default function CreateMebel() {
               </a>{" "}
               и в наших мобильных приложениях
             </p>
-            {/* <div className="card__header">
-              <img
-                className="avatar__img"
-                src={imgUrl.brand ? imgUrl.brand : avatar_image}
-                alt="avatar image"
-                width={"96px"}
-                height={"96px"}
-                style={{
-                  borderRadius: "50%",
-                  objectFit: "cover",
-                }}
-              />
-              <div className="image__card">
-                <p className="avatar__name">
-                  Загрузите фото профиля или логотп компании
-                </p>
-                <label
-                  htmlFor="file"
-                  className="change__btn"
-                  style={{
-                    cursor: "pointer",
-                  }}
-                >
-                  Изменить фото профиля
-                </label>
-                <input
-                  type={"file"}
-                  onChange={(e) => {
-                    fileHandle(e.target.files[0], "brand");
-                    imgHandle(e);
-                  }}
-                  name="brandImg"
-                  id="file"
-                  accept="image/png, image/jpeg, image/jpg"
-                  style={{
-                    display: "none",
-                  }}
-                />
-              </div>
-            </div> */}
+
             <div className="editpage__input">
               <div
                 className="form__input"
-                // style={{
-                //   alignItems: "center",
-                // }}
+
               >
                 <label htmlFor="">
                   <span>Мебельные названия</span>
@@ -369,15 +169,7 @@ export default function CreateMebel() {
                     placeholder=""
                   />
                 </label>
-                {/* <label id="email" htmlFor="">
-                  <span>Электронная почта</span>
-                  <input
-                    name={"email"}
-                    onChange={changeHandler}
-                    type={"email"}
-                    placeholder="info@gmail.com"
-                  />
-                </label> */}
+
                 <label htmlFor="">
                   <span>Номер телефона | Ваше логин</span>
                   <input
@@ -554,53 +346,7 @@ export default function CreateMebel() {
                 </div>
               </div>
             </div>
-            {/* <div className="second-card">
-              <div className="second__card">
-                <h2 className="second__card__title">
-                  Выберите раздел и специализацию *
-                </h2>
-                <p className="second__card__text">Введите род деятельности!</p>
-              </div>
-              <FormControl sx={{ m: 0, width: "100%", bgcolor: "white" }}>
-                <InputLabel id="demo-multiple-chip-label">---</InputLabel>
-                <Select
-                  labelId="demo-multiple-chip-label"
-                  id="demo-multiple-chip"
-                  multiple
-                  name="store_amenitites"
-                  value={personName}
-                  onChange={(e) => {
-                    handleChange(e);
-                    changeHandler(e);
-                  }}
-                  input={
-                    <OutlinedInput id="select-multiple-chip" label="---" />
-                  }
-                  renderValue={(selected) => (
-                    <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
-                      {selected.map((value) => (
-                        <Chip
-                          sx={{ bgcolor: "rgba(197, 102, 34, 0.1)" }}
-                          key={value.value}
-                          label={value.text}
-                        />
-                      ))}
-                    </Box>
-                  )}
-                  MenuProps={MenuProps}
-                >
-                  {names.map((name) => (
-                    <MenuItem
-                      key={name.value}
-                      value={name}
-                      style={getStyles(name.value, personName, theme)}
-                    >
-                      {name.text}
-                    </MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
-            </div> */}
+
             <h5>Расположение</h5>
             <div
               className="map"
@@ -616,8 +362,6 @@ export default function CreateMebel() {
                     placeholder="г.Ташкент, ул.Охангарон 65 А 1"
                     id="suggest"
                     name="address_title"
-                    // onChange={changeHandler}
-                    // value={form.address_title}
                   />
                 </div>
               </div>
@@ -637,7 +381,6 @@ export default function CreateMebel() {
                 >
                   <Map
                     {...mapOptions}
-                    // state={state}s
                     state={{
                       center: state?.center,
                       zoom: 12,
@@ -668,13 +411,9 @@ export default function CreateMebel() {
                   <input
                     type="file"
                     name="machineImg"
-                    // onChange={changeHandler}
                     onChange={(e) => {
-                      // fileHandle(e.target.files[0], "view");
-                      // imgHandle(e);
                       imgHandleChange(e);
                     }}
-                    // onChange={(e) => handleChange(e)}
                     id="upload-images"
                     accept="image/png, image/jpeg, image/jpg"
                     multiple
@@ -682,58 +421,15 @@ export default function CreateMebel() {
                   <label htmlFor="upload-images">открыть</label>
                 </div>
                 <ul className="image-list" id="gallery">
-                  {img.length
-                    ? img.map((im, i) => (
-                        <li key={i}>
-                          <img src={im} alt="house" />
-                        </li>
-                      ))
-                    : ""}
+                  {img.map((im, i) => (
+                      <li key={i}>
+                        <img src={getPathImage(im)} alt="house" />
+                      </li>
+                  ))}
                 </ul>
               </div>
             </div>
-            {/* <div
-              style={{
-                marginTop: "2rem",
-              }}
-            >
-              <span
-                style={{
-                  marginBottom: "1rem",
-                  display: "block",
-                }}
-              >
-                Как
-              </span>
-              <ul className="radio-list mb-50">
-                {[
-                  {
-                    text: "Аренда",
-                    value: 1,
-                  },
-                  {
-                    text: "Ремонт",
-                    value: 2,
-                  },
-                  {
-                    text: "Ремонт",
-                    value: 3,
-                  },
-                ].map(({ text, value }) => (
-                  <li className="radio-btn" key={value}>
-                    <input
-                      type="radio"
-                      id={text}
-                      name="how_store_service"
-                      onChange={changeHandler}
-                      value={value}
-                      checked={Number(form.how_store_service) === value}
-                    />
-                    <label htmlFor={text}>{text}</label>
-                  </li>
-                ))}
-              </ul>
-            </div> */}
+
             <div className="checkbox">
               <input
                 className="checkbox__input"

@@ -24,7 +24,7 @@ const AllProducts = () => {
 
   const fetchObjects = useCallback(async () => {
     try {
-      const response = await $host.get(`${baseURL}/products/houses/filter-web/objects`);
+      const response = await $host.get(`/products/houses/filter-web/objects`);
 
       let result = response.data.results;
       if(result.length > 0) {

@@ -16,7 +16,8 @@
 }
 
 .card__header {
-  width: 459px;
+  width: 100%;
+  max-width: 459px;
   height: 116px;
   background: #ffffff;
   border-radius: 3px;

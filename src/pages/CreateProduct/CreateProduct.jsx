@@ -14,6 +14,7 @@ import {
 import useForm from "../../hooks/useForm";
 import { toast } from "react-toastify";
 import $host from "../../http";
+import {getPathImage} from "../../helpers/getPathImage";
 
 const CreateProduct = () => {
   const [navActive, setNavActive] = useState(false);
@@ -28,6 +29,8 @@ const CreateProduct = () => {
   const [state, setState] = useState({ ...initialState });
   const [mapConstructor, setMapConstructor] = useState(null);
   const [aminities, setAminities] = useState([]);
+  const [aminitiesData, setAminitiesData] = useState([]);
+  // const [objects, setObjects] = useState([]);
   const [img, setImg] = useState([]);
   const [video, setVideo] = useState(null);
   const mapRef = useRef(null);
@@ -60,18 +63,18 @@ const CreateProduct = () => {
     youtube_link: "",
   });
 
-  const postData = (data) => {
+  const postData = async (data) => {
     setLoading(true);
-    $host.post(`/products/web/api/v1/web-houses/create/`, data)
-      .then((res) => {
-        toast.success("Успешно");
-        navigateToProfile();
-      })
-      .catch((err) => {
-        console.log(err);
-        toast.error("Ошибка!");
-      })
-      .finally(() => setLoading(false));
+    try {
+      await $host.post(`/products/web/api/v1/web-houses/create/`, data)
+      toast.success("Успешно");
+      navigateToProfile();
+    } catch (e) {
+      console.log(e);
+      toast.error("Ошибка!");
+    } finally {
+      setLoading(false);
+    }
   };
   const handleAmite = (e) => {
     let value = +e.target.value;
@@ -173,11 +176,6 @@ const CreateProduct = () => {
     setImg([...files]);
   };
 
-  function getPathImage(image) {
-    const value = URL.createObjectURL(image);
-    return value;
-  }
-
   const mapOptions = {
     modules: ["geocode", "SuggestView"],
     defaultOptions: { suppressMapOpenBlock: true },
@@ -189,6 +187,21 @@ const CreateProduct = () => {
     defaultOptions: { maxWidth: 128 },
     defaultData: { content: "Determine" },
   };
+
+  const fetchData = async () => {
+    try {
+      const aminitiesResponse = await $host.get("/products/api/v1/web-houses/amenities/");
+      // const objectsResponse = await $host.get("/products/houses/filter-web/objects");
+      setAminitiesData(aminitiesResponse.data.results);
+      // setObjects(objectsResponse.data.results);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   // search popup
   useEffect(() => {
@@ -456,17 +469,17 @@ const CreateProduct = () => {
                     value: "спальное",
                   },
                 ].map(({ text, value }) => (
-                  <li className="radio-btn" key={value}>
-                    <input
-                      type="radio"
-                      id={text}
-                      name="object"
-                      onChange={changeHandler}
-                      value={value}
-                      checked={form.object === value}
-                    />
-                    <label htmlFor={text}>{text}</label>
-                  </li>
+                    <li className="radio-btn" key={value}>
+                      <input
+                          type="radio"
+                          id={text}
+                          name="object"
+                          onChange={changeHandler}
+                          value={value}
+                          checked={form.object === value}
+                      />
+                      <label htmlFor={text}>{text}</label>
+                    </li>
                 ))}
 
               </ul>
@@ -537,9 +550,9 @@ const CreateProduct = () => {
                 </div>
                 <ul className="image-list" id="gallery">
                   {img.map((im, i) => (
-                        <li key={i}>
-                          <img src={getPathImage(im)} alt="house" />
-                        </li>
+                      <li key={i}>
+                        <img src={getPathImage(im)} alt="house" />
+                      </li>
                   ))}
                 </ul>
               </div>
@@ -641,7 +654,6 @@ const CreateProduct = () => {
                         type="radio"
                         id="ipoteka-no"
                         value={""}
-                        // checked={form}
                         name="app_ipoteka"
                         onChange={changeHandler}
                       />
@@ -702,48 +714,19 @@ const CreateProduct = () => {
               </ul>
               <h5>Все удобства</h5>
               <ul className="checkbox-list mb-40" id="amenities-list">
-                {[
-                  {
-                    text: "Долгосрочная аренда",
-                    value: 1,
-                  },
-                  {
-                    text: "Family",
-                    value: 2,
-                  },
-                  {
-                    text: "3 room",
-                    value: 3,
-                  },
-                  {
-                    text: "Нотариус",
-                    value: 4,
-                  },
-                  {
-                    text: "TV",
-                    value: 5,
-                  },
-                  {
-                    text: "Рядом Корзинка",
-                    value: 6,
-                  },
-                  {
-                    text: "Wi-Fi",
-                    value: 7,
-                  },
-                ].map(({ text, value }, i) => (
+                {aminitiesData.map(({ title, id }, i) => (
                   <li key={i}>
                     <label
-                      htmlFor={`html${value}`}
+                      htmlFor={`html${id}`}
                       className="create-product-label"
                       style={{
                         fontWeight: "600",
                         cursor: "pointer",
                         background: `${
-                          aminities.includes(value) ? "#c56622" : "#f3f2f2"
+                          aminities.includes(id) ? "#c56622" : "#f3f2f2"
                         }`,
                         color: `${
-                          aminities.includes(value) ? "white" : "black"
+                          aminities.includes(id) ? "white" : "black"
                         }`,
                         padding: "0.8rem 1.5rem",
                         display: "flex",
@@ -754,7 +737,7 @@ const CreateProduct = () => {
                       <svg
                         style={{
                           fill: `${
-                            aminities.includes(value) ? "white" : "black"
+                            aminities.includes(id) ? "white" : "black"
                           }`,
                         }}
                         className={`svg-sprite-icon icon-tags-${i + 1} w-16`}
@@ -766,14 +749,14 @@ const CreateProduct = () => {
                           marginLeft: "0.4rem",
                         }}
                       >
-                        {text}
+                        {title}
                       </p>
                     </label>
                     <input
                       type="text"
-                      id={`html${value}`}
+                      id={`html${id}`}
                       name="amenities"
-                      value={value}
+                      value={id}
                       onChange={handleAmite}
                       onClick={handleAmite}
                       style={{

@@ -25,20 +25,10 @@ import { useNavigate } from "react-router-dom";
 import { LoadingPost } from "../../components";
 import { useContext } from "react";
 import ContextApp from "../../context/context";
-import { baseURL } from "../../requests/requests";
 import $host, {WEB_URL} from "../../http";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
-
-const MenuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250,
-    },
-  },
-};
 
 function getStyles(name, personName, theme) {
   return {
@@ -60,24 +50,19 @@ export default function CreateIndustriya() {
   const [personName, setPersonName] = React.useState([]);
   const [brandData, setBrandData] = useState([]);
   const [file, setFile] = useState();
+  const [howStore, setHowStore] = useState([]);
   const [imgUrl, setImgUrl] = useState({
     brand: null,
     view: null,
   });
   const [storeAminities, setStoreAminities] = useState([]);
 
-  useEffect(() => {
-    $host
-      .get("/store2/api/v1/store/amenitites")
-      .then((res) => {
-        setStoreAminities(res.data.results);
-      })
-      .catch((err) => {
-        console.log(err.message);
-        toast.error(err.message);
-      });
-  }, []);
-
+  const fetchData = async () => {
+    const amenitites = await $host.get("/store2/api/v1/store/amenitites");
+    setStoreAminities(amenitites.data.results);
+    const howStoreResponse = await $host.get("/store2/api/v1/store/how_store");
+    setHowStore(howStoreResponse.data.results);
+  };
   const fileHandle = (file, name) => {
     const img = file;
     setFile(img);
@@ -99,7 +84,6 @@ export default function CreateIndustriya() {
       target: { value },
     } = event;
     setPersonName(
-      // On autofill we get a stringified value.
       typeof value === "string" ? value.split(",") : value
     );
   };
@@ -136,15 +120,19 @@ export default function CreateIndustriya() {
     defaultData: { content: "Determine" },
   };
 
+  const fetchBrands = async () => {
+    try {
+      const res = await $host.get(`/store2/api/v1/store/brands`)
+      setBrandData(res.data.results);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   useEffect(() => {
-    $host
-      .get(`/store2/api/v1/store/brands`)
-      .then((res) => {
-        setBrandData(res.data.results);
-      })
-      .catch((err) => console.log(err));
+    fetchBrands();
+    fetchData();
   }, []);
-  // console.log(brandData);
 
   useEffect(() => {
     if (mapConstructor) {
@@ -546,8 +534,6 @@ export default function CreateIndustriya() {
                     placeholder="г.Ташкент, ул.Охангарон 65 А 1"
                     id="suggest"
                     name="address_title"
-                    // onChange={changeHandler}
-                    // value={form.address_title}
                   />
                 </div>
               </div>
@@ -567,7 +553,6 @@ export default function CreateIndustriya() {
                 >
                   <Map
                     {...mapOptions}
-                    // state={state}s
                     state={{
                       center: state?.center,
                       zoom: 12,
@@ -576,20 +561,7 @@ export default function CreateIndustriya() {
                     onBoundsChange={handleBoundsChange}
                     instanceRef={mapRef}
                   >
-                    {/* <div
-                      style={{
-                        width: "1rem",
-                        height: "1rem",
-                        background: "#000",
-                        position: "absolute",
-                        top: "50%",
-                        left: "50%",
-                        transform: "translate(-50%, -100%)",
-                        zIndex: 3000,
-                      }}
-                    ></div> */}
                     <GeolocationControl {...geolocationOptions} />
-                    {/* <ZoomControl     /> */}
                     <Placemark geometry={state.center} />
                   </Map>
                 </YMaps>
@@ -611,12 +583,10 @@ export default function CreateIndustriya() {
                   <input
                     type="file"
                     name="machineImg"
-                    // onChange={changeHandler}
                     onChange={(e) => {
                       fileHandle(e.target.files[0], "view");
                       imgHandle(e);
                     }}
-                    // onChange={(e) => handleChange(e)}
                     id="upload-images"
                     accept="image/png, image/jpeg, image/jpg"
                     multiple
@@ -652,30 +622,17 @@ export default function CreateIndustriya() {
                 Как
               </span>
               <ul className="radio-list mb-50">
-                {[
-                  {
-                    text: "Аренда",
-                    value: 1,
-                  },
-                  {
-                    text: "Ремонт",
-                    value: 2,
-                  },
-                  {
-                    text: "Ремонт",
-                    value: 3,
-                  },
-                ].map(({ text, value }) => (
-                  <li className="radio-btn" key={value}>
+                {howStore.map(({ title, id }) => (
+                  <li className="radio-btn" key={id}>
                     <input
                       type="radio"
-                      id={text}
+                      id={title}
                       name="how_store_service"
                       onChange={changeHandler}
-                      value={value}
-                      checked={Number(form.how_store_service) === value}
+                      value={id}
+                      checked={Number(form.how_store_service) === id}
                     />
-                    <label htmlFor={text}>{text}</label>
+                    <label htmlFor={title}>{title}</label>
                   </li>
                 ))}
               </ul>

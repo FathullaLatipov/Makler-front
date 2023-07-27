@@ -55,6 +55,8 @@ export default function EditPage() {
   const [names, setNames] = useState([]);
   const [loading, setLoading] = useState(false);
   const [imgUrl, setImgUrl] = useState();
+  const [filterService, setFilterService] = useState([]);
+
   const fileHandle = (e) => {
     const img = e.target.files[0];
     setFile(img);
@@ -66,29 +68,22 @@ export default function EditPage() {
     };
   };
 
-  // const names = [
-  //   {
-  //     text: "architect",
-  //     value: 1,
-  //   },
-  //   {
-  //     text: "painter",
-  //     value: 2,
-  //   },
-  //   {
-  //     text: "electrician",
-  //     value: 3,
-  //   },
-  // ];
+  const fetchData = async () => {
+    try {
+      const professionsRes = await $host.get(`/master/api/v1/maklers/professions`);
+      const filterServiceRes = await $host.get("/master/api/v1/maklers/filter-service/");
+      setNames(professionsRes.data.results);
+      setFilterService(filterServiceRes.data.results);
+      console.log(filterServiceRes)
+    } catch (e) {
+      console.log(e);
+      toast.error("Ошибка!");
+    }
+  };
+
 
   useEffect(() => {
-    $host
-      .get(`${baseURL}/master/api/v1/maklers/professions`)
-      .then((res) => setNames(res.data.results))
-      .catch((err) => {
-        console.log(err);
-        toast.error("Ошибка!");
-      });
+    fetchData();
   }, []);
 
   const handleChange = (event) => {
@@ -96,7 +91,6 @@ export default function EditPage() {
       target: { value },
     } = event;
     setPersonName(
-      // On autofill we get a stringified value.
       typeof value === "string" ? value.split(",") : value
     );
   };
@@ -221,8 +215,6 @@ export default function EditPage() {
   const { form, changeHandler } = useForm({
     name: "",
     email: "",
-    // image:
-    //   "https://api.makleruz.uz//media/master_image/UIC_Group_-_Google_Chrome_25.11.2022_11_12_00.png",
     phone: 998,
     address_title: searchRef.current?.value,
     address_latitude: state.center[0],
@@ -232,7 +224,6 @@ export default function EditPage() {
     descriptions: "",
     experience: 0,
     serviceType: 1,
-    // uploaded_images: [],
   });
 
   const handeSubmit = (e) => {
@@ -488,20 +479,8 @@ export default function EditPage() {
                     onBoundsChange={handleBoundsChange}
                     instanceRef={mapRef}
                   >
-                    {/* <div
-                      style={{
-                        width: "1rem",
-                        height: "1rem",
-                        background: "#000",
-                        position: "absolute",
-                        top: "50%",
-                        left: "50%",
-                        transform: "translate(-50%, -100%)",
-                        zIndex: 3000,
-                      }}
-                    ></div> */}
+
                     <GeolocationControl {...geolocationOptions} />
-                    {/* <ZoomControl     /> */}
                     <Placemark geometry={state.center} />
                   </Map>
                 </YMaps>
@@ -517,7 +496,6 @@ export default function EditPage() {
                 <input
                   type="file"
                   name="uploaded_images"
-                  // onChange={changeHandler}
                   onChange={(e) => handleChange2(e)}
                   id="upload-images"
                   accept="image/png, image/jpeg, image/jpg"
@@ -549,26 +527,17 @@ export default function EditPage() {
                 Как
               </span>
               <ul className="radio-list mb-50">
-                {[
-                  {
-                    text: "Аренда",
-                    value: 1,
-                  },
-                  {
-                    text: "Ремонт",
-                    value: 2,
-                  },
-                ].map(({ text, value }) => (
-                  <li className="radio-btn" key={value}>
+                {filterService.map(({ title, id }) => (
+                  <li className="radio-btn" key={id}>
                     <input
                       type="radio"
-                      id={text}
+                      id={title}
                       name="serviceType"
                       onChange={changeHandler}
-                      value={value}
-                      checked={Number(form.serviceType) === value}
+                      value={id}
+                      checked={Number(form.serviceType) === id}
                     />
-                    <label htmlFor={text}>{text}</label>
+                    <label htmlFor={title}>{title}</label>
                   </li>
                 ))}
               </ul>
