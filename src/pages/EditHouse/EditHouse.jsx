@@ -10,14 +10,12 @@ import {
   YMaps,
   ZoomControl,
 } from "@pbe/react-yandex-maps";
-import useForm from "../../hooks/useForm";
 import { baseURL } from "../../requests/requests";
 import { toast } from "react-toastify";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import $host from "../../http";
 
 const EditHouse = () => {
-  const navigate = useNavigate();
   const [navActive, setNavActive] = useState(false);
   const [priceText, setPriceText] = useState("y.e");
   const [editData, setEditData] = useState([]);
@@ -34,8 +32,7 @@ const EditHouse = () => {
 
   useEffect(() => {
     window.document.title = "Редактировать";
-    $host
-      .get(`${baseURL}/products/api/v1/houses/updates/${id}`)
+    $host.get(`/products/api/v1/houses/updates/${id}`)
       .then((res) => {
         setEditData(res.data);
         setAminities((prev) => {
@@ -61,7 +58,6 @@ const EditHouse = () => {
     web_address_title: "",
     web_address_latitude: "",
     web_address_longtitude: "",
-    //: '',
     pm_general: "",
     pm_residential: "",
     pm_kitchen: "",
@@ -78,33 +74,6 @@ const EditHouse = () => {
   });
   const mapRef = useRef(null);
   const searchRef = useRef(null);
-  // const { form, changeHandler } = useForm({
-  //   title: editData?.title,
-  //   descriptions: editData?.descriptions,
-  //   price: editData?.price,
-  //   price_type: editData?.price_type,
-  //   type: editData?.type,
-  //   rental_type: editData?.rental_type,
-  //   property_type: editData?.property_type,
-  //   object: editData?.object,
-  //   web_address_title: editData?.web_address_title,
-  //   web_address_latitude: editData?.web_address_latitude,
-  //   web_address_longtitude: editData?.web_address_longtitude,
-  //   // uploaded_images: "",
-  //   pm_general: editData?.pm_general,
-  //   pm_residential: editData?.pm_residential,
-  //   pm_kitchen: editData?.pm_kitchen,
-  //   number_of_rooms: editData?.number_of_rooms,
-  //   floor: editData?.floor,
-  //   floor_from: editData?.floor_from,
-  //   building_type: editData?.building_type,
-  //   app_ipoteka: editData?.app_ipoteka,
-  //   app_mebel: editData?.app_mebel,
-  //   app_new_building: editData?.app_new_building,
-  //   phone_number: editData?.phone_number,
-  //   how_sale: editData?.how_sale,
-  //   isBookmarked: editData?.isBookmarked,
-  // });
 
   const changeHandler = (e) => {
     setFormData((prev) => {
@@ -114,7 +83,6 @@ const EditHouse = () => {
       };
     });
   };
-  console.log(editData);
 
   useEffect(() => {
     setFormData({
@@ -129,7 +97,6 @@ const EditHouse = () => {
       web_address_title: editData?.web_address_title,
       web_address_latitude: editData?.web_address_latitude,
       web_address_longtitude: editData?.web_address_longtitude,
-      // uploaded_images: "",
       pm_general: editData?.pm_general,
       pm_residential: editData?.pm_residential,
       pm_kitchen: editData?.pm_kitchen,
@@ -148,14 +115,8 @@ const EditHouse = () => {
 
   const postData = (data) => {
     setLoading(true);
-    const userToken = localStorage.getItem("access");
-
     $host
-      .put(`${baseURL}/products/api/v1/houses/updates/${id}`, data, {
-        headers: {
-          Authorization: `Bearer ${userToken}`,
-        },
-      })
+      .put(`/products/api/v1/houses/updates/${id}`, data)
       .then(() => {
         toast.success("Успешно!");
         navigateToProfile();
@@ -250,21 +211,6 @@ const EditHouse = () => {
 
     postData(formData);
   };
-
-  // const handleChange = (e) => {
-  //   const { files } = e.target;
-  //   setFile([...files]);
-  //   const validimg = [];
-  //   for (let i = 0; i < files.length; i++) {
-  //     const file = files[i];
-  //     validimg.push(file);
-  //   }
-  //   if (validimg.length) {
-  //     setImg(validimg);
-  //     return;
-  //   }
-  //   alert("Selected images are not of valid type!");
-  // };
 
   useEffect(() => {
     const fileReaders = [];

@@ -13,7 +13,7 @@ const HomeHouses = () => {
 
   const init = async () => {
     const res = await $host.get(`https://api.makleruz.uz/products/web/api/v1/all-web-houses/?limit=${limit}`);
-    setStore(prev => ({ ...prev, houses: { isLoading: false, list: res.data.results } }));
+    setStore(prev => ({ ...prev, houses: { isLoading: false, list: res.data } }));
   };
 
   useEffect(() => {
@@ -38,7 +38,6 @@ const HomeHouses = () => {
             <ul className="cards-list" id="houses-list">
               {houses.list.length ? (
                   houses.list?.map((item) => 
-                    item.product_status === 1 && 
                       <ProductCard key={item.id} data={item} />
                     )
                 ) : (
