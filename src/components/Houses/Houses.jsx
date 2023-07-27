@@ -22,53 +22,54 @@ const Houses = React.memo(({ value, start, focus }) => {
   const [prevUrl, setPrevUrl] = useState();
   const { t } = useTranslation();
 
+  console.log(searchData)
 
-  useEffect(() => {
+  const fetchData = async () => {
     setLoading(true);
-    $host
-      .get(`${baseURL}/products/web/api/v1/web-houses/search/?search=${search}`)
-      .then((res) => setSearchData(res.data.results))
-      .catch((err) => console.log(err))
-      .finally(() => {
-        setLoading(false);
-      });
-  }, [search]);
+    try {
+      const res = await $host.get(`/products/web/api/v1/web-houses/search/?search=${search}`)
+      setSearchData(res.data.results)
+    } catch (e) {
+      console.log(e);
+    } finally {
+      setLoading(false);
+    };
+  };
 
   const init = async () => {
     setLoading(true);
+    const res = await $host.get(`/products/web/api/v1/all-web-houses/`);
 
-    const res = await $host.get(
-      `https://api.makleruz.uz/products/web/api/v1/all-web-houses/`
-    );
-
-    setDisplayData(res.data.results);
+    setDisplayData(res.data);
     setLoading(false);
   };
 
   const init2 = async () => {
     setLoading(true);
     const res = await $host.get(
-      `https://api.makleruz.uz/products/web/api/v1/all-web-houses/?limit=${limit}&product_status=&object=${encodeURI(
+        `/products/web/api/v1/all-web-houses/?limit=${limit}&product_status=&object=${encodeURI(
         building
       )}&building_type=&number_of_rooms=${room}&type=${typeRoom}&rental_type=`
     );
 
-    setDisplayData(res.data.results);
-    setNextUrl(res.data.next);
-    setPrevUrl(res.data.previous);
-    
+    setDisplayData(res.data);
+    // setNextUrl(res.data.next);
+    // setPrevUrl(res.data.previous);
+    //
     setLoading(false);
   };
   const init3 = async () => {
     if (!sort) return;
     setLoading(true);
-    const res = await $host.get(
-      `https://api.makleruz.uz/products/web/api/v1/all-web-houses/?ordering=${sort}`
-    );
+    const res = await $host.get(`/products/web/api/v1/all-web-houses/?ordering=${sort}`);
 
     setDisplayData(res.data.results);
     setLoading(false);
   };
+
+  useEffect(() => {
+    fetchData();
+  }, [search]);
 
   useEffect(() => {
     init();
@@ -173,14 +174,14 @@ const Houses = React.memo(({ value, start, focus }) => {
                 displayData.length ? (
                   displayData
                     ?.slice(0, limit)
-                    ?.map((item) => item.product_status === 1 && <ProductCard key={item.id} data={item} />)
+                    ?.map((item) => <ProductCard key={item.id} data={item} />)
                 ) : (
                   <h1>{t("houses.nothing")}</h1>
                 )
               ) : searchData.length ? (
                 searchData
                   ?.slice(0, searchLimit)
-                  ?.map((item) => item.product_status === 1 && <ProductCard key={item.id} data={item} />)
+                  ?.map((item) => <ProductCard key={item.id} data={item} />)
               ) : (
                 <h1>{t("houses.notfound")}</h1>
               )}
