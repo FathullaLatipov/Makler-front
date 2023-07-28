@@ -3,7 +3,6 @@ import React, { useMemo, useState } from "react";
 import sprite from "../../assets/img/symbol/sprite.svg";
 import ProductCard from "../ProductCard/ProductCard";
 import { useEffect } from "react";
-import { baseURL } from "../../requests/requests";
 import Loading from "../Loading/Loading";
 import {useTranslation} from "react-i18next";
 import $host from "../../http";
@@ -22,13 +21,11 @@ const Houses = React.memo(({ value, start, focus }) => {
   const [prevUrl, setPrevUrl] = useState();
   const { t } = useTranslation();
 
-  console.log(searchData)
-
   const fetchData = async () => {
     setLoading(true);
     try {
       const res = await $host.get(`/products/web/api/v1/web-houses/search/?search=${search}`)
-      setSearchData(res.data.results)
+      setSearchData(res.data.results);
     } catch (e) {
       console.log(e);
     } finally {
@@ -55,7 +52,6 @@ const Houses = React.memo(({ value, start, focus }) => {
     setDisplayData(res.data);
     // setNextUrl(res.data.next);
     // setPrevUrl(res.data.previous);
-    //
     setLoading(false);
   };
   const init3 = async () => {

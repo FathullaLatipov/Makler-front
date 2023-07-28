@@ -15,6 +15,7 @@ import useForm from "../../hooks/useForm";
 import { toast } from "react-toastify";
 import $host from "../../http";
 import {getPathImage} from "../../helpers/getPathImage";
+import {useQuery} from "react-query";
 
 const CreateProduct = () => {
   const [navActive, setNavActive] = useState(false);
@@ -26,15 +27,18 @@ const CreateProduct = () => {
     center: [40.783388, 72.350663],
     zoom: 12,
   };
-  const [state, setState] = useState({ ...initialState });
+  const [state, setState] = useState(initialState);
   const [mapConstructor, setMapConstructor] = useState(null);
   const [aminities, setAminities] = useState([]);
-  const [aminitiesData, setAminitiesData] = useState([]);
-  // const [objects, setObjects] = useState([]);
   const [img, setImg] = useState([]);
   const [video, setVideo] = useState(null);
   const mapRef = useRef(null);
   const searchRef = useRef(null);
+
+  const { isLoading, error, data: aminitiesData } = useQuery("carousels", () =>
+      $host.get("/products/api/v1/web-houses/amenities/").then(({ data }) => data.results)
+  );
+
   const { form, changeHandler } = useForm({
     title: "",
     descriptions: "",
@@ -66,7 +70,7 @@ const CreateProduct = () => {
   const postData = async (data) => {
     setLoading(true);
     try {
-      await $host.post(`/products/web/api/v1/web-houses/create/`, data)
+      await $host.post(`/products/web/api/v1/web-houses/create/`, data);
       toast.success("Успешно");
       navigateToProfile();
     } catch (e) {
@@ -114,6 +118,7 @@ const CreateProduct = () => {
     formData.append("isBookmarked", form.isBookmarked);
     formData.append("how_sale", form.how_sale);
     formData.append("draft", false);
+
     if(video) {
       formData.append("youtube_link", video);
     }
@@ -187,21 +192,6 @@ const CreateProduct = () => {
     defaultOptions: { maxWidth: 128 },
     defaultData: { content: "Determine" },
   };
-
-  const fetchData = async () => {
-    try {
-      const aminitiesResponse = await $host.get("/products/api/v1/web-houses/amenities/");
-      // const objectsResponse = await $host.get("/products/houses/filter-web/objects");
-      setAminitiesData(aminitiesResponse.data.results);
-      // setObjects(objectsResponse.data.results);
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
 
   // search popup
   useEffect(() => {
@@ -714,7 +704,7 @@ const CreateProduct = () => {
               </ul>
               <h5>Все удобства</h5>
               <ul className="checkbox-list mb-40" id="amenities-list">
-                {aminitiesData.map(({ title, id }, i) => (
+                {aminitiesData?.map(({ title, id }, i) => (
                   <li key={i}>
                     <label
                       htmlFor={`html${id}`}

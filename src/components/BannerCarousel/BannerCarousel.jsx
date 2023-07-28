@@ -8,6 +8,7 @@ import $host from "../../http";
 
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
+import {useQuery} from "react-query";
 
 function CustomLeftArrow({ className, style, onClick }) {
   return (
@@ -38,24 +39,15 @@ function CustomRightArrow({ className, style, onClick }) {
 
 const BannerCarousel = () => {
   const [ { carousel }, setStore ] = useContext(AppContext);
-  const [loading, setLoading] = useState(true);
-  const fetchCarousels = async () => {
-
-    try {
-      const res = await $host.get("/api/v1/carousels/");
-      setStore(prev => ({ ...prev, carousel: { isLoading: false, list: res.data.results } }));
-      setLoading(false);
-    } catch (error) {
-      console.log(error);
+  const { isLoading, error, data } = useQuery("carousels", () =>
+      $host.get("/api/v1/carousels/").then(({ data }) => data.results)
+  , {
+    onSuccess: (data) => {
+      setStore(prev => ({ ...prev, carousel: { isLoading: false, list: data } }));
     }
+  });
 
-  }
-  
-  useEffect(() => {
-    fetchCarousels();
-  }, []);
-
-  if(loading) return null;
+  if(isLoading) return null;
 
   return (
     <Container style={{ position: "relative" }}>
