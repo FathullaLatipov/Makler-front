@@ -12,8 +12,8 @@ const HomeHouses = () => {
   const { t } = useTranslation();
 
   const init = async () => {
-    const res = await $host.get(`https://api.makleruz.uz/products/web/api/v1/all-web-houses/?limit=${limit}`);
-    setStore(prev => ({ ...prev, houses: { isLoading: false, list: res.data } }));
+    const res = await $host.get(`/products/web/api/v1/all-web-houses/?limit=${limit}`);
+    setStore(prev => ({ ...prev, houses: { isLoading: false, list: res.data.results } }));
   };
 
   useEffect(() => {

@@ -30,9 +30,8 @@ const UserCabinet = () => {
   const [filteredMebels, setFilteredMebels] = useState([]);
   const [loading, setLoading] = useState(true);
   const [userProducts, setUserProducts] = useState({});
-  const [draft, setDraft] = useState(null);
   const navigate = useNavigate();
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const { id } = useParams();
   const [ cookies, setCookies, removeCookie ] = useCookies();
 
@@ -120,9 +119,7 @@ const UserCabinet = () => {
   const getRefferLink = () => {
     navigator.clipboard.writeText(refferLink);
     toast.success("Ссылка скопирована");
-  }
-
-
+  };
 
   return (
     <section className="cabinet-s">

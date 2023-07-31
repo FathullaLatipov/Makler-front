@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from "react";
 import {
   Routes,
   Route,
-  Navigate, useNavigate,
 } from "react-router-dom";
 import {
   EditPage,
@@ -101,9 +100,7 @@ function App() {
         <ScrollTop />
         <Navbar />
 
-
         {openLoginModal && <LoginModal />}
-
 
         <Routes>
           
@@ -125,7 +122,6 @@ function App() {
               }
           />
 
-  
           <Route path="/" element={<Home />} />
 
           <Route path="/edit-house/:id" element={<EditHouse />} />

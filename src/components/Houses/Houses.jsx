@@ -37,7 +37,7 @@ const Houses = React.memo(({ value, start, focus }) => {
     setLoading(true);
     const res = await $host.get(`/products/web/api/v1/all-web-houses/`);
 
-    setDisplayData(res.data);
+    setDisplayData(res.data.results);
     setLoading(false);
   };
 
@@ -49,9 +49,9 @@ const Houses = React.memo(({ value, start, focus }) => {
       )}&building_type=&number_of_rooms=${room}&type=${typeRoom}&rental_type=`
     );
 
-    setDisplayData(res.data);
-    // setNextUrl(res.data.next);
-    // setPrevUrl(res.data.previous);
+    setDisplayData(res.data.results);
+    setNextUrl(res.data.next);
+    setPrevUrl(res.data.previous);
     setLoading(false);
   };
   const init3 = async () => {
