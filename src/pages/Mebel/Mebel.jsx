@@ -165,7 +165,7 @@ const Mebel = () => {
               >
                 <SliderItem 
                   key={index} 
-                  style={{background: item.id === form.brand_id && `#c56622`,
+                  style={{background: item.id === form.brand_id && `rgba(238,125,62,255)`,
                   color: item.id === form.brand_id && `#fff`}}
                 >
                   <div 

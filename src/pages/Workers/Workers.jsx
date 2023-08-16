@@ -155,7 +155,7 @@ const Workers = () => {
               >
                 <SliderItem 
                   key={index} 
-                  style={{background: item.id === form.profession && `#c56622`,
+                  style={{background: item.id === form.profession && `rgba(238,125,62,255)`,
                   color: item.id === form.profession && `#fff`}}
                 >
                   <div 

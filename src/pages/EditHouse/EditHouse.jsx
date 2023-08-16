@@ -810,7 +810,7 @@ const EditHouse = () => {
                         fontWeight: "600",
                         cursor: "pointer",
                         background: `${
-                          aminities?.includes(value) ? "#c56622" : "white"
+                          aminities?.includes(value) ? "rgba(238,125,62,255)" : "white"
                         }`,
                         color: `${
                           aminities?.includes(value) ? "white" : "black"

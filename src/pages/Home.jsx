@@ -37,7 +37,7 @@ const Home = () => {
 
   return (
     <>
-      {bannerModal && <BannerModal setOpen={closeModal} />}
+      {bannerModal && <BannerModal setOpen={closeModal}/>}
       <BannerCarousel />
       <Categories />
       <HomeHouses />

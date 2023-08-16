@@ -12,7 +12,7 @@
 
 .text__link {
   text-decoration: none;
-  color: #c56622;
+  color: rgba(238,125,62,255);
 }
 
 .card__header {
@@ -40,11 +40,11 @@
 
 .change__btn {
   padding: 5px 10px;
-  border: 1px solid #c56622;
+  border: 1px solid rgba(238,125,62,255);
   border-radius: 1000px;
   background-color: #fff;
 
-  color: #c56622;
+  color: rgba(238,125,62,255);
 }
 
 /* Input */
@@ -176,7 +176,7 @@
 .checkbox__input {
   width: 20px;
   height: 20px;
-  background-color: #c56622;
+  background-color: rgba(238,125,62,255);
 }
 
 .checkbox__text {
@@ -187,7 +187,7 @@
 
 .register__btn {
   margin-top: 61px;
-  background: #c56622;
+  background: rgba(238,125,62,255);
   border-radius: 3px;
   cursor: pointer;
   color: #fff;
@@ -227,7 +227,7 @@
 }
 
 .blockquote__text {
-  color: #c56622;
+  color: rgba(238,125,62,255);
 }
 
 .edit-page textarea {

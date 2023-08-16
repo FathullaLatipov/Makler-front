@@ -187,7 +187,7 @@ const AllProducts = () => {
               >
                 <SliderItem 
                   key={index} 
-                  style={{background: item.object === form.building && `#c56622`,
+                  style={{background: item.object === form.building && `rgba(238,125,62,255)`,
                   color: item.object === form.building && `#fff`, cursor: "pointer"}}
                 >
                   <div 

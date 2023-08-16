@@ -164,7 +164,7 @@ const Navbar = () => {
                     >
                       <path
                         d="M8 3.333v9.334M3.333 8h9.333"
-                        stroke="#C56622"
+                        stroke="rgba(238,125,62,255)"
                         strokeWidth="1.6"
                         strokeLinecap="round"
                         strokeLinejoin="round"

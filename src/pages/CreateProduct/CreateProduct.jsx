@@ -280,7 +280,7 @@ const CreateProduct = () => {
                 </div>
                 {video && (
                     <h4 style={{ marginTop: "10px" }}>
-                      Выбрано: <strong style={{color: "#c56622", cursor: "pointer"}}>{ video.name }</strong>
+                      Выбрано: <strong style={{color: "rgba(238,125,62,255)", cursor: "pointer"}}>{ video.name }</strong>
                     </h4>
                 )}
               </div>
@@ -713,7 +713,7 @@ const CreateProduct = () => {
                         fontWeight: "600",
                         cursor: "pointer",
                         background: `${
-                          aminities.includes(id) ? "#c56622" : "#f3f2f2"
+                          aminities.includes(id) ? "rgba(238,125,62,255)" : "#f3f2f2"
                         }`,
                         color: `${
                           aminities.includes(id) ? "white" : "black"
