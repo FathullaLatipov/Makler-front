@@ -2,7 +2,7 @@
 
 .modal {
 	width: 100%;
-  display: flex;
+  	display: flex;
 	height: 100%;
 	position: fixed;
 	left: 0;
@@ -15,18 +15,18 @@
 	&-body {
 		position: relative;
 		background: $white;
-		padding: rem(50px) rem(55px) rem(56px) rem(60px);
+		padding: _rem(50px) _rem(55px) _rem(56px) _rem(60px);
 		h4 {
 			font-family: SFProDisplay_700;
-			font-size: rem(22px);
-			line-height: rem(27px);
+			font-size: _rem(22px);
+			line-height: _rem(27px);
 			color: #000000;
-			margin-bottom: rem(5px);
+			margin-bottom: _rem(5px);
 		}
 		p {
 			font-weight: SFProDisplay_400;
-			font-size: rem(13px);
-			line-height: rem(20px);
+			font-size: _rem(13px);
+			line-height: _rem(20px);
 		}
 	}
 }
@@ -35,26 +35,26 @@
 	border-radius: 4px;
 	display: flex;
 	align-items: center;
-	padding: rem(10px) rem(16px) rem(10px);
+	padding: _rem(10px) _rem(16px) _rem(10px);
 	img {
-		margin-right: rem(6px);
+		margin-right: _rem(6px);
 	}
 	p {
 		font-family: TimesNewRoman_400;
-		font-size: rem(13px);
-		line-height: rem(17px);
+		font-size: _rem(13px);
+		line-height: _rem(17px);
 		color: $orange;
 		font-style: italic;
 	}
-	margin: rem(23px) 0 rem(30px);
+	margin: _rem(23px) 0 _rem(30px);
 }
 .login-modal {
 	.modal-body {
-		max-width: rem(576px);
+		max-width: _rem(576px);
 		width: 100%;
 	}
 	form {
-		max-width: rem(367px);
+		max-width: _rem(367px);
 		width: 100%;
 		.form-input {
 			margin-bottom: 0;
@@ -63,21 +63,21 @@
 			font-family: SFProDisplay_400;
 		}
 		button {
-			margin-top: rem(15px);
-			margin-bottom: rem(35px);
+			margin-top: _rem(15px);
+			margin-bottom: _rem(35px);
 		}
 		p {
 			color: #000;
 			a {
-				font-size: rem(13px);
-				line-height: rem(16px);
+				font-size: _rem(13px);
+				line-height: _rem(16px);
 				text-decoration-line: underline;
 				color: #1B74FF;
 				&:first-child {
-					margin-right: rem(10px);
+					margin-right: _rem(10px);
 				}
 				&:last-of-type {
-					margin-left: rem(10px);
+					margin-left: _rem(10px);
 					color: $orange
 				}
 			}
@@ -87,13 +87,13 @@
 
 .close-btn {
 	position: absolute;
-	right: rem(10px);
-	top: rem(10px);
+	right: _rem(10px);
+	top: _rem(10px);
 	display: flex;
 	transition: all ease .2s;
 	svg {
-		width: rem(24px);
-		height: rem(24px);
+		width: _rem(24px);
+		height: _rem(24px);
 	}
 	&:hover {
 		transform: scale(1.1);
@@ -102,7 +102,7 @@
 
 .confirm-modal {
 	form {
-		margin-top: rem(30px);
+		margin-top: _rem(30px);
 		label {
 			color: #0F1826;
 		}

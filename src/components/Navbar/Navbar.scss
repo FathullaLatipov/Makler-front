@@ -4,7 +4,7 @@
   background: #ffffff;
   box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.05);
   &-body {
-    padding: rem(15px) 0;
+    padding: _rem(15px) 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -15,7 +15,7 @@
     align-items: center;
     & > * {
       &:not(:last-child) {
-        margin-right: rem(40px);
+        margin-right: _rem(40px);
       }
     }
     a {
@@ -65,7 +65,7 @@
 
       & > * {
         &:not(:last-child) {
-          margin-right: rem(20px);
+          margin-right: _rem(20px);
         }
       }
       li {
@@ -76,10 +76,10 @@
           align-items: center;
           font-family: SFProDisplay_600;
           color: $black;
-          font-size: rem(13px);
+          font-size: _rem(13px);
         }
         svg {
-          margin-right: rem(5px);
+          margin-right: _rem(5px);
           fill: $white;
         }
       }
@@ -112,7 +112,7 @@
           font-family: inherit;
           color: rgba(11, 11, 11, 0.2);
           position: absolute;
-          right: rem(-10px);
+          right: _rem(-10px);
           top: 50%;
           transform: translateY(-50%);
         }
@@ -129,7 +129,7 @@
           font-family: inherit;
           color: rgba(11, 11, 11, 0.2);
           position: absolute;
-          right: rem(-10px);
+          right: _rem(-10px);
           top: 50%;
           transform: translateY(-50%);
         }
@@ -137,8 +137,8 @@
     }
     a {
       font-family: SFProDisplay_600;
-      font-size: rem(13px);
-      line-height: rem(16px);
+      font-size: _rem(13px);
+      line-height: _rem(16px);
     }
     &:last-child {
       a {
@@ -150,13 +150,13 @@
 
 .additional-nav {
   &-s {
-    padding: rem(61px) 0 rem(10px);
+    padding: _rem(61px) 0 _rem(10px);
   }
   &-list {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    gap: rem(10px);
-    margin-top: rem(24px);
+    gap: _rem(10px);
+    margin-top: _rem(24px);
     @include laptop {
       grid-template-columns: repeat(3, 1fr);
     }
@@ -176,11 +176,11 @@
     flex-basis: 16.1%;
     background: #ffffff;
     border: 1px solid #e0e0e0;
-    padding: rem(30px) rem(10px) rem(50px) rem(30px);
+    padding: _rem(30px) _rem(10px) _rem(50px) _rem(30px);
     li {
       a {
         font-weight: 400;
-        line-height: rem(15px);
+        line-height: _rem(15px);
         text-decoration-line: underline;
         color: $black;
         transition: all ease 0.2s;
@@ -191,7 +191,7 @@
     }
     & > * {
       &:not(:last-child) {
-        margin-bottom: rem(12px);
+        margin-bottom: _rem(12px);
       }
     }
   }
@@ -201,9 +201,9 @@
   padding: 10px;
 }
 .cabinet-nav {
-  padding: rem(40px) rem(37px) rem(64px);
+  padding: _rem(40px) _rem(37px) _rem(64px);
   background: #ffffff;
-  width: rem(342px);
+  width: _rem(342px);
   //margin-top: 2rem;
   @include laptop {
     padding: 20px 20px 40px;
@@ -216,27 +216,27 @@
 .cabinet {
   &-profile {
     display: flex;
-    margin-bottom: rem(40px);
+    margin-bottom: _rem(40px);
     &-logo {
-      margin-right: rem(15px);
+      margin-right: _rem(15px);
       img {
-        width: rem(96px);
-        height: rem(96px);
+        width: _rem(96px);
+        height: _rem(96px);
         object-fit: cover;
       }
     }
     &-info {
       h4 {
         font-family: SFProDisplay_700;
-        font-size: rem(17px);
-        line-height: rem(20px);
+        font-size: _rem(17px);
+        line-height: _rem(20px);
         color: #000000;
-        margin-bottom: rem(8px);
+        margin-bottom: _rem(8px);
       }
       p {
         font-family: SFProDisplay_400;
-        font-size: rem(11px);
-        line-height: rem(13px);
+        font-size: _rem(11px);
+        line-height: _rem(13px);
         color: #000000;
         opacity: 0.5;
       }
@@ -264,10 +264,10 @@
         button {
           transition: all ease 0.2s;
           font-family: SFProDisplay_400;
-          font-size: rem(15px);
-          line-height: rem(18px);
+          font-size: _rem(15px);
+          line-height: _rem(18px);
           color: #000000;
-          padding: rem(14px) rem(20px);
+          padding: _rem(14px) _rem(20px);
           width: auto;
           white-space: nowrap;
           svg {
@@ -295,12 +295,12 @@
 
 .logout-link {
   font-family: SFProDisplay_400;
-  font-size: rem(15px);
-  line-height: rem(18px);
+  font-size: _rem(15px);
+  line-height: _rem(18px);
   color: #000000;
   display: flex;
-  margin-top: rem(105px);
-  margin-left: rem(20px);
+  margin-top: _rem(105px);
+  margin-left: _rem(20px);
   svg {
     &:first-child {
       display: none;
@@ -328,12 +328,12 @@
 }
 
 .nav-search {
-  margin-top: rem(43px);
+  margin-top: _rem(43px);
   .btn-search {
     font-family: SFProDisplay_700;
-    padding: rem(15px) rem(32px);
-    font-size: rem(13px);
-    line-height: rem(16px);
+    padding: _rem(15px) _rem(32px);
+    font-size: _rem(13px);
+    line-height: _rem(16px);
     text-align: center;
     color: #ffffff;
     @include phones {
@@ -342,8 +342,8 @@
   }
   &-body {
     background: #ffffff;
-    border-radius: rem(3px);
-    padding: rem(9px) rem(10px);
+    border-radius: _rem(3px);
+    padding: _rem(9px) _rem(10px);
     display: flex;
     flex-wrap: wrap;
     & > li {
@@ -380,7 +380,7 @@
         color: $black;
       }
       .choose-btn-round {
-        padding: rem(10px) rem(14px);
+        padding: _rem(10px) _rem(14px);
       }
       .choose-btn {
         svg {
@@ -396,7 +396,7 @@
     }
   }
   &_how {
-    padding-right: rem(29px);
+    padding-right: _rem(29px);
     flex-shrink: 0;
     flex-grow: 0;
     @include phones {
@@ -406,22 +406,22 @@
   &_rooms {
     flex-grow: 1;
     flex-shrink: 0;
-    padding-right: rem(29px);
+    padding-right: _rem(29px);
   }
   &_address {
     flex-shrink: 0;
     flex-grow: 1;
-    padding-right: rem(29px);
+    padding-right: _rem(29px);
     svg {
-      margin-right: rem(6px);
+      margin-right: _rem(6px);
       fill: $white;
     }
   }
   &_type {
     flex-shrink: 0;
     flex-grow: 0;
-    padding-right: rem(29px);
-    width: rem(290px);
+    padding-right: _rem(29px);
+    width: _rem(290px);
     & > a {
       display: flex;
       justify-content: space-between;
@@ -437,8 +437,8 @@
   border-radius: 3px;
   position: absolute;
   top: calc(100% + 13px);
-  padding: rem(7px) rem(7px) rem(20px);
-  left: rem(-10px);
+  padding: _rem(7px) _rem(7px) _rem(20px);
+  left: _rem(-10px);
   z-index: 12;
   display: flex;
   width: max-content;
@@ -460,7 +460,7 @@
   }
   a,
   label {
-    width: rem(181px);
+    width: _rem(181px);
     display: flex;
     align-items: center;
   }
@@ -473,26 +473,26 @@
   display: flex;
   & > * {
     &:not(:last-child) {
-      margin-right: rem(5px);
+      margin-right: _rem(5px);
     }
   }
   li {
     a,
     label {
-      border-radius: rem(50px);
+      border-radius: _rem(50px);
       background: $gray;
       display: flex;
       width: 100%;
-      height: rem(36px);
-      min-width: rem(36px);
+      height: _rem(36px);
+      min-width: _rem(36px);
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 0 rem(14px);
+      padding: 0 _rem(14px);
       font-family: SFProDisplay_600;
       color: $black;
       transition: all ease 0.2s;
-      line-height: rem(16px);
+      line-height: _rem(16px);
       &:hover {
         background: $orange;
         color: $white;
@@ -514,7 +514,7 @@
   }
   & > * {
     &:not(:last-child) {
-      margin-right: rem(14px);
+      margin-right: _rem(14px);
     }
   }
 }

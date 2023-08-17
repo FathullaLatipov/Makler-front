@@ -5,8 +5,8 @@
 }
 
 .btn-big {
-	padding: rem(14px);
-	width: rem(211px);
+	padding: _rem(14px);
+	width: _rem(211px);
 	display: flex;
 	justify-content: center;
 }
@@ -15,7 +15,7 @@
 	color: $orange;
 	font-weight: 800;
 	background: $orange-light;
-	padding: rem(13px) rem(15px);
+	padding: _rem(13px) _rem(15px);
 	transition: all ease .2s;	
 	svg {
 		fill: $orange;
@@ -42,19 +42,19 @@
 .choose-btn-round {
 	border: 1px solid rgba(17, 17, 17, 0.2);
 	border-radius: 50px;
-	padding: 0 rem(14px);
+	padding: 0 _rem(14px);
 	height: 100%;
 	display: flex;
 	align-items: center;
-	min-width: rem(124px);
+	min-width: _rem(124px);
 	justify-content: space-between;
 	font-family: SFProDisplay_400;
 	color: $black
 }
 
 .show-btn-orange {
-	padding: 0 rem(32px);
-	font-size: rem(13px);
+	padding: 0 _rem(32px);
+	font-size: _rem(13px);
 	font-family: SFProDisplay_700;
 	background: $orange;
 	color: $white;
@@ -68,8 +68,8 @@
 
 .btn-save {
 	position: absolute;
-	right: rem(24px);
-	top: rem(15px);
+	right: _rem(24px);
+	top: _rem(15px);
 	background: transparent;
 	border: none;
 	cursor: pointer;
@@ -80,8 +80,8 @@
 		transform: scale(1.1);
 	}
 	svg {
-		width: rem(22px);
-		height: rem(22px);
+		width: _rem(22px);
+		height: _rem(22px);
 		fill: none;
 	}
 
@@ -92,7 +92,7 @@
 .btn-white {
 	background: #FFFFFF;
 	font-family: SFProDisplay_500;
-	font-size: rem(13px);
+	font-size: _rem(13px);
 	color: #121212;
 	transition: all ease .2s;
 	&:hover {
@@ -102,8 +102,8 @@
 .btn-gray {
 	background: $gray-bg;
 	border-radius: 50px;
-	width: rem(128px);
-	padding: rem(14px) 0;
+	width: _rem(128px);
+	padding: _rem(14px) 0;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -114,37 +114,37 @@
 }
 .left-icon {
 	svg {
-		margin-right: rem(5px);
+		margin-right: _rem(5px);
 	}
 }
 .btn-long {
-	width: rem(225px);
+	width: _rem(225px);
 }
 .text-left {
 	justify-content: flex-start;
-	padding-left: rem(25px);
+	padding-left: _rem(25px);
 }
 
 .btn-black {
-	padding: rem(13px) rem(20px);
+	padding: _rem(13px) _rem(20px);
 	color: $white;
 	background: $black;
-	border-radius: rem(50px);
+	border-radius: _rem(50px);
 	font-family: SFProDisplay_400;
-	font-size: rem(13px);
-	line-height: rem(18px);
+	font-size: _rem(13px);
+	line-height: _rem(18px);
 	transition: all ease .2s;
 }
 
 .btn-orange-light {
-	width: rem(186px);
-	height: rem(43px);
+	width: _rem(186px);
+	height: _rem(43px);
 	background: $white;
-	border-radius: rem(50px);
+	border-radius: _rem(50px);
 	display: flex;
 	align-items: center;
-	padding: 0 rem(20px);
-	margin-bottom: rem(5px);
+	padding: 0 _rem(20px);
+	margin-bottom: _rem(5px);
 	transition: all ease .3s;
 	&.active {
 		background: rgba(197, 102, 34, 0.1);
@@ -155,10 +155,10 @@
 }
 .btn-orange-50 {
 	background: rgba(197, 102, 34, 0.1);
-	padding: rem(14px) rem(24px);
+	padding: _rem(14px) _rem(24px);
 	font-weight: 800;
-	font-size: rem(13px);	
-	line-height: rem(16px);
+	font-size: _rem(13px);	
+	line-height: _rem(16px);
 	text-align: center;
 	color: $orange;
 	transition: all ease .2s;
@@ -171,7 +171,7 @@
 	background: $orange;
 	color: white;
 	border-radius: 3px;
-	padding: rem(14px) 0;
+	padding: _rem(14px) 0;
 	width: 100%;
 	font-family: SFProDisplay_400;
 	transition: all ease .2s;
@@ -183,20 +183,20 @@
 
 .btn-black-big {
 	font-family: SFProDisplay_600;
-	font-size: rem(14px);
-	line-height: rem(17px);
+	font-size: _rem(14px);
+	line-height: _rem(17px);
 	text-align: center;
 	color: $white;
 	border-radius: 3px;
 }
 
 .btn-border-orange {
-	padding: rem(7px) rem(20px);
+	padding: _rem(7px) _rem(20px);
 	border: 1px solid $orange;
 	border-radius: 50px;
 	font-family: SFProDisplay_700;
-	font-size: rem(15px);
-	line-height: rem(18px);
+	font-size: _rem(15px);
+	line-height: _rem(18px);
 	color: $orange;
 	transition: all ease .2s;
 	&:hover {
@@ -213,11 +213,11 @@
 		&::after {
 			content:'';
 			position: absolute;
-			left: rem(-36px);
+			left: _rem(-36px);
 			top: 50%;
 			transform: translateY(-50%);
-			width: rem(27px);
-			height: rem(18px);
+			width: _rem(27px);
+			height: _rem(18px);
 			border: 1px solid #CBCBCB;
 			border-radius: 50px;
 			transition: all ease .3s;
@@ -227,11 +227,11 @@
 			position: absolute;
 			top: 50%;
 			transform: translateY(-50%);
-			width: rem(14px);
-			height: rem(14px);
+			width: _rem(14px);
+			height: _rem(14px);
 			background: #C4C4C4;
 			border-radius: 50px;
-			left: rem(-34px);
+			left: _rem(-34px);
 			transition: all ease .3s;
 		}
 	}	
@@ -240,7 +240,7 @@
 		&:checked + label {
 			&::before {
 				background: $orange;
-				left: rem(-25px);	
+				left: _rem(-25px);	
 			}
 		}
 	}
@@ -248,27 +248,27 @@
 
 .switch-list {
 	display: flex;
-	padding-left: rem(38px);
+	padding-left: _rem(38px);
 	flex-wrap: wrap;
 	li {
 		margin-bottom: 20px;
 	}
 	& > * {&:not(:last-child) {
-		margin-right: rem(60px);
+		margin-right: _rem(60px);
 	}}
 }
 
 .btn-dark-gray {
 	font-weight: 800;
-	font-size: rem(13px);
-	line-height: rem(16px);
+	font-size: _rem(13px);
+	line-height: _rem(16px);
 	text-align: center;
 	color: #000000;
-	padding: rem(18px) rem(25px);
+	padding: _rem(18px) _rem(25px);
 	background: rgba(0, 0, 0, 0.1);
 	border-radius: 3px;
 	svg {
-		margin-right: rem(14px);
+		margin-right: _rem(14px);
 	}
 	transition: all ease .2s;
 	&:hover {
@@ -279,6 +279,6 @@
 .default-link {
 	color: rgba(27, 116, 255, 1);
 	text-decoration: underline;
-	font-size: rem(13px);
+	font-size: _rem(13px);
 	cursor: pointer;
 }

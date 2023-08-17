@@ -10,7 +10,7 @@
     align-items: center;
   }
   &-s {
-    padding: rem(46px) 0 rem(293px);
+    padding: _rem(46px) 0 _rem(293px);
   }
 
   &-profile-logo img {
@@ -31,13 +31,13 @@
   .settings-s,
   .advert-s,
   .photos-work-s {
-    //margin-right: rem(129px);
+    //margin-right: _rem(129px);
     //@include laptop {
     //  margin-right: 0.625rem;
     //}
   }
   .photos-work-s {
-    width: rem(459px);
+    width: _rem(459px);
   }
   .container-sm {
     @include phones {
@@ -48,7 +48,7 @@
 
 .advert {
   .alert-advert {
-    margin-bottom: rem(22px);
+    margin-bottom: _rem(22px);
   }
   .alert-advert-btns {
     display: flex;
@@ -63,14 +63,14 @@
     }
     & > * {
       &:not(:last-child) {
-        margin-bottom: rem(30px);
+        margin-bottom: _rem(30px);
       }
     }
   }
   &-item {
     width: 100%;
     &__top {
-      height: rem(217px);
+      height: _rem(217px);
       position: relative;
       img {
         width: 100%;
@@ -79,30 +79,30 @@
       }
     }
     &__bottom {
-      padding: rem(15px) rem(20px) rem(28px) rem(15px);
+      padding: _rem(15px) _rem(20px) _rem(28px) _rem(15px);
       background-color: $white;
     }
     &-info {
       &__top {
         display: flex;
         justify-content: space-between;
-        margin-bottom: rem(10px);
+        margin-bottom: _rem(10px);
         p,
         span {
           font-family: SFProDisplay_400;
-          line-height: rem(17px);
+          line-height: _rem(17px);
           color: #111111;
         }
       }
       &__bottom {
         display: flex;
         justify-content: space-between;
-        margin-bottom: rem(20px);
+        margin-bottom: _rem(20px);
         p,
         span {
           font-family: SFProDisplay_400;
-          font-size: rem(10px);
-          line-height: rem(12px);
+          font-size: _rem(10px);
+          line-height: _rem(12px);
           color: #783c11;
         }
       }
@@ -110,22 +110,22 @@
     &-date {
       p {
         font-family: SFProDisplay_400;
-        font-size: rem(10px);
-        line-height: rem(12px);
+        font-size: _rem(10px);
+        line-height: _rem(12px);
         color: #111111;
         opacity: 0.5;
-        margin-top: rem(10px);
+        margin-top: _rem(10px);
       }
     }
     &-status {
-      padding: rem(4px) rem(12px) rem(4px) rem(5px);
+      padding: _rem(4px) _rem(12px) _rem(4px) _rem(5px);
       position: absolute;
-      left: rem(15px);
-      top: rem(20px);
+      left: _rem(15px);
+      top: _rem(20px);
       border-radius: 50px;
       font-weight: 600;
-      font-size: rem(11px);
-      line-height: rem(13px);
+      font-size: _rem(11px);
+      line-height: _rem(13px);
       color: #ffffff;
       display: flex;
       align-items: center;
@@ -136,7 +136,7 @@
       }
       &-icon {
         display: flex;
-        @include size(rem(16px));
+        @include size(_rem(16px));
         border-radius: 50%;
         background: $white;
         display: flex;
@@ -144,8 +144,8 @@
         align-items: center;
       }
       svg {
-        max-width: rem(8px);
-        max-height: rem(8px);
+        max-width: _rem(8px);
+        max-height: _rem(8px);
         position: relative;
         right: -0.5px;
       }
@@ -174,9 +174,9 @@
     position: relative;
     &-body {
       position: absolute;
-      top: rem(55px);
-      right: rem(-14px);
-      padding: rem(25px) rem(40px) rem(25px) rem(25px);
+      top: _rem(55px);
+      right: _rem(-14px);
+      padding: _rem(25px) _rem(40px) _rem(25px) _rem(25px);
       background: $white;
       border-radius: 3px;
       box-shadow: 0px 0px 10px 3px rgb(0, 0, 0, 0.05);
@@ -198,7 +198,7 @@
       }
       span {
         font-family: SFProDisplay_600;
-        font-size: rem(14px);
+        font-size: _rem(14px);
         // width: max-content;
         white-space: nowrap;
         color: $black;
@@ -214,15 +214,15 @@
   display: flex;
   & > * {
     &:not(:last-child) {
-      margin-right: rem(30px);
+      margin-right: _rem(30px);
     }
   }
   li {
     display: flex;
     span {
       font-family: SFProDisplay_400;
-      font-size: rem(12px);
-      line-height: rem(14px);
+      font-size: _rem(12px);
+      line-height: _rem(14px);
       color: #111111;
       opacity: 0.5;
       margin-right: 9px;
@@ -230,8 +230,8 @@
     }
     strong {
       font-family: SFProDisplay_600;
-      font-size: rem(12px);
-      line-height: rem(14px);
+      font-size: _rem(12px);
+      line-height: _rem(14px);
       color: #111111;
     }
   }
@@ -239,28 +239,28 @@
 .alert-advert {
   background: #ffffff;
   border-radius: 4px;
-  padding: rem(25px);
+  padding: _rem(25px);
   h5 {
     font-family: SFProDisplay_600;
-    font-size: rem(15px);
-    line-height: rem(18px);
+    font-size: _rem(15px);
+    line-height: _rem(18px);
     color: #0b0b0b;
-    margin-bottom: rem(5px);
+    margin-bottom: _rem(5px);
   }
   p {
     font-family: SFProDisplay_400;
-    line-height: rem(17px);
+    line-height: _rem(17px);
     color: #0b0b0b;
     opacity: 0.6;
-    margin-bottom: rem(20px);
+    margin-bottom: _rem(20px);
   }
   button {
-    margin-right: rem(40px);
+    margin-right: _rem(40px);
   }
   a {
     font-weight: 800;
-    font-size: rem(13px);
-    line-height: rem(16px);
+    font-size: _rem(13px);
+    line-height: _rem(16px);
     text-align: center;
     color: $orange;
   }
@@ -272,12 +272,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: rem(40px);
-  height: rem(40px);
+  width: _rem(40px);
+  height: _rem(40px);
   border-radius: 50px;
   position: absolute;
-  right: rem(10px);
-  top: rem(10px);
+  right: _rem(10px);
+  top: _rem(10px);
 }
 
 .settings {
@@ -285,12 +285,12 @@
     display: flex;
     & > * {
       &:not(:last-child) {
-        margin-right: rem(16px);
+        margin-right: _rem(16px);
       }
     }
     &-logo {
-      width: rem(96px);
-      height: rem(96px);
+      width: _rem(96px);
+      height: _rem(96px);
       img {
         width: 100%;
         height: 100%;
@@ -299,23 +299,23 @@
       }
     }
     &-info {
-      padding-top: rem(14px);
+      padding-top: _rem(14px);
       h3 {
         font-family: SFProDisplay_700;
-        font-size: rem(17px);
-        line-height: rem(20px);
+        font-size: _rem(17px);
+        line-height: _rem(20px);
         color: #000000;
-        margin-bottom: rem(12px);
+        margin-bottom: _rem(12px);
       }
       button {
-        padding: rem(5px) rem(10px);
-        font-size: rem(11px);
-        line-height: rem(13px);
+        padding: _rem(5px) _rem(10px);
+        font-size: _rem(11px);
+        line-height: _rem(13px);
       }
     }
   }
   &-form {
-    margin-top: rem(22px);
+    margin-top: _rem(22px);
     display: flex;
     flex-wrap: wrap;
     & > *:not(:nth-child(2n)) {
@@ -330,51 +330,51 @@
   }
   .btn-orange {
     width: auto;
-    padding: rem(13px) rem(32px);
+    padding: _rem(13px) _rem(32px);
   }
 }
 
 .change-password {
   background: #ffffff;
   border-radius: 3px;
-  padding: rem(30px) rem(60px) rem(65px) rem(30px);
-  margin-bottom: rem(48px);
+  padding: _rem(30px) _rem(60px) _rem(65px) _rem(30px);
+  margin-bottom: _rem(48px);
   h3 {
     font-family: SFProDisplay_800;
-    font-size: rem(22px);
-    line-height: rem(26px);
+    font-size: _rem(22px);
+    line-height: _rem(26px);
     color: #0b0b0b;
     margin-bottom: 7px;
   }
   &-subtitle {
     font-family: SFProDisplay_400;
-    font-size: rem(11px);
-    line-height: rem(16px);
+    font-size: _rem(11px);
+    line-height: _rem(16px);
     color: #0b0b0b;
-    margin-bottom: rem(27px);
+    margin-bottom: _rem(27px);
   }
   label {
     font-family: SFProDisplay_400;
-    font-size: rem(13px);
-    line-height: rem(18px);
+    font-size: _rem(13px);
+    line-height: _rem(18px);
     color: #0f1826;
     display: flex;
-    margin-bottom: rem(10px);
+    margin-bottom: _rem(10px);
   }
   input {
     background: #ffffff;
     border: 1px solid #dedede;
     border-radius: 4px;
-    padding: rem(14px);
+    padding: _rem(14px);
     width: 100%;
   }
   &-par {
     font-family: SFProDisplay_400;
-    font-size: rem(11px);
-    line-height: rem(13px);
+    font-size: _rem(11px);
+    line-height: _rem(13px);
     color: #0f1826;
     opacity: 0.4;
-    margin-top: rem(10px);
+    margin-top: _rem(10px);
   }
 }
 

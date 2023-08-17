@@ -2,11 +2,11 @@
 
 .footer {
 	background: $black;
-	padding: rem(30px) 0 rem(20px);
+	padding: __rem(30px) 0 _rem(20px);
 
 	&__top {
 		border-bottom: 1px solid rgba(225,225,225, .1);
-		padding-bottom: rem(27px);
+		padding-bottom: _rem(27px);
 		&-body {
 			display: flex;
 			align-items: center;
@@ -32,7 +32,7 @@
 					margin-top: 50px;
 				}
 				& > * {&:not(:last-child) {
-					margin-right: rem(30px);
+					margin-right: _rem(30px);
 				}}
 				li {
 					@include laptop {
@@ -48,7 +48,7 @@
 					}
 				}
 				&:first-of-type {
-					padding-left: rem(150px);
+					padding-left: _rem(150px);
 					@include phones {
 						padding-left: 0;
 					}
@@ -57,7 +57,7 @@
 					margin-left: auto;
 					&>* {
 							&:not(:last-child) {
-								margin-right: rem(22px);
+								margin-right: _rem(22px);
 							}
 						}
 				}
@@ -65,7 +65,7 @@
 		}
 	}
 	&__center {
-		padding: rem(12px) 0;
+		padding: _rem(12px) 0;
 		border-bottom: 1px solid rgba(225, 225, 225, .1);
 		&-body {
 			display: flex;
@@ -80,12 +80,12 @@
 		}
 		p {
 			flex-shrink: 1;
-			font-size: rem(10px);
-			line-height: rem(16px);
+			font-size: _rem(10px);
+			line-height: _rem(16px);
 			color: #FFFFFF;
 			opacity: 0.4;
-			width: rem(446px);
-			padding-right: rem(10px);
+			width: _rem(446px);
+			padding-right: _rem(10px);
 		}
 		ul {
 			display: flex;
@@ -96,8 +96,8 @@
 			li {
 				background: #FFFFFF;
 				border-radius: 4px;
-				height: rem(34px);
-				width: rem(70px);
+				height: _rem(34px);
+				width: _rem(70px);
 				display: flex;
 				justify-content: center;
 				align-items: center;
@@ -109,7 +109,7 @@
 		}
 	}
 	&__bottom {
-		padding-top: rem(13px);
+		padding-top: _rem(13px);
 		&-body {
 			display: flex;
 			justify-content: space-between;
@@ -136,18 +136,18 @@
 				li {
 					p {
 						font-weight: 400;
-						font-size: rem(10px);
-						line-height: rem(19px);
+						font-size: _rem(10px);
+						line-height: _rem(19px);
 						color: #FFFFFF;
 						opacity: 0.4;
 						transition: all ease .2s;
-						margin-right: rem(28px);
+						margin-right: _rem(28px);
 						@include phones {
 							margin-right: 0;
 						}
 					}
 					a {
-						margin-right: rem(17px);
+						margin-right: _rem(17px);
 						@include phones {
 							margin-right: 0;
 						}
@@ -181,8 +181,8 @@ ul.social-links {
 }
 .line-link {
 	font-weight: 400;
-	font-size: rem(10px);
-	line-height: rem(19px);
+	font-size: _rem(10px);
+	line-height: _rem(19px);
 	text-decoration-line: underline;
 	color: #FFFFFF;
 	opacity: 0.4;

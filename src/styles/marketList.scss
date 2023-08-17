@@ -1,6 +1,6 @@
 .cards {
 	&-s {
-		padding: rem(31px) 0 rem(53px);
+		padding: _rem(31px) 0 _rem(53px);
 	}
 
 	&-head {
@@ -11,7 +11,7 @@
 		& > ul {
 			display: flex;
 			& > * {&:not(:last-child) {
-				margin-right: rem(21px);
+				margin-right: _rem(21px);
 			}}
 			li {
 				&:first-child {
@@ -38,9 +38,9 @@
 		position: relative;
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
-		margin-bottom: rem(40px);
-		margin-top: rem(20px);
-		gap: rem(10px);
+		margin-bottom: _rem(40px);
+		margin-top: _rem(20px);
+		gap: _rem(10px);
 		@include tablet {
 			grid-template-columns: repeat(2, 1fr);
 		}
@@ -52,8 +52,8 @@
 		position: relative;
 		background: #FFFFFF;
 		overflow: hidden;
-		border-radius: rem(3px);
-		margin-bottom: rem(10px);
+		border-radius: _rem(3px);
+		margin-bottom: _rem(10px);
 		cursor: pointer;
 		box-shadow: 0px 9px 24px 0px #75380D3B;
 		&.top {
@@ -67,15 +67,15 @@
 			}
 			span.top-span {
 				font-weight: 900;
-				font-size: rem(12px);
-				line-height: rem(15px);
+				font-size: _rem(12px);
+				line-height: _rem(15px);
 				color: #FFFFFF;
-				padding: rem(6px) rem(12px);
+				padding: _rem(6px) _rem(12px);
 				background: $orange;
 				border-radius: 50px;
 				position: absolute;
-				top: rem(15px);
-				left: rem(15px);
+				top: _rem(15px);
+				left: _rem(15px);
 				z-index: 10;
 			}
 			.cards-item__bottom {
@@ -108,7 +108,7 @@
 			background: rgba(238,125,62,255);
 		}
 		&__top {
-			height: rem(152px);
+			height: _rem(152px);
 			overflow: hidden;
 			position: relative;
 			&::after {
@@ -136,7 +136,7 @@
 		}
 
 		&-info {
-			padding: rem(13px) rem(15px) rem(16px);
+			padding: _rem(13px) _rem(15px) _rem(16px);
 			& > div {
 				display: flex;
 				justify-content: space-between;
@@ -144,18 +144,18 @@
 			&__top {
 				p, span {
 					font-weight: 400;
-					font-size: rem(12px);
-					line-height: rem(15px);
+					font-size: _rem(12px);
+					line-height: _rem(15px);
 					color: $black;
 					transition: all ease .2s;
 				}
-				margin-bottom: rem(5px);
+				margin-bottom: _rem(5px);
 			}
 			&__bottom {
 			p, span {
 					font-weight: 400;
-					font-size: rem(10px);
-					line-height: rem(12px);
+					font-size: _rem(10px);
+					line-height: _rem(12px);
 					color: $brown
 				}
 			}

@@ -23,7 +23,7 @@
 
 .slider {
   &-s {
-    margin-bottom: rem(40px);
+    margin-bottom: _rem(40px);
   }
   &-body {
     display: flex;
@@ -41,7 +41,7 @@
       margin-right: 0;
     }
     .swiper {
-      @include size(100%, rem(440px));
+      @include size(100%, _rem(440px));
       @include tablet {
         height: 100%;
       }
@@ -61,9 +61,9 @@
     ul {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: rem(10px);
+      gap: _rem(10px);
       li {
-        height: rem(215px);
+        height: _rem(215px);
         @include tablet {
           height: 10rem;
         }
@@ -80,7 +80,7 @@
 }
 .product-page {
   .slider-s {
-    margin-top: rem(40px);
+    margin-top: _rem(40px);
   }
 }
 .swiper {
@@ -88,10 +88,10 @@
   .swiper-button-prev,
   .swiper-button-next {
     left: auto;
-    right: rem(65px);
-    bottom: rem(18px);
+    right: _rem(65px);
+    bottom: _rem(18px);
     top: auto;
-    @include size(rem(30px));
+    @include size(_rem(30px));
     background: #ffffff;
     border-radius: 50%;
     display: flex;
@@ -102,12 +102,12 @@
       display: none !important;
     }
     svg {
-      height: rem(12px);
+      height: _rem(12px);
       transform: scale(-1);
     }
   }
   .swiper-button-next {
-    right: rem(25px);
+    right: _rem(25px);
     svg {
       transform: scale(1);
     }
@@ -115,8 +115,8 @@
   .swiper-scrollbar {
     width: 70%;
     left: auto;
-    bottom: rem(30px);
-    right: rem(135px);
+    bottom: _rem(30px);
+    right: _rem(135px);
     height: 1px;
     background: rgba(255, 255, 255, 0.3);
     @include tablet {
@@ -132,16 +132,16 @@
 
   .swiper-pagination {
     color: transparent;
-    bottom: rem(15px);
+    bottom: _rem(15px);
     width: auto;
-    left: rem(25px);
+    left: _rem(25px);
     span {
       font-family: SFProDisplay_400;
-      font-size: rem(17px);
-      line-height: rem(30px);
+      font-size: _rem(17px);
+      line-height: _rem(30px);
       color: #ffffff;
       &:last-of-type {
-        margin-left: rem(6px);
+        margin-left: _rem(6px);
         color: rgba($color: #fff, $alpha: 0.3);
         position: relative;
         &::after {
@@ -161,29 +161,29 @@
 
 .info-product {
   display: flex;
-  margin-top: rem(41px);
+  margin-top: _rem(41px);
 
    @include laptop {
      display: block;
    }
 
   &-s {
-    margin-top: rem(40px);
+    margin-top: _rem(40px);
     .product-info-title {
       font-family: SFProDisplay_500;
-      font-size: rem(17px);
-      line-height: rem(20px);
+      font-size: _rem(17px);
+      line-height: _rem(20px);
       color: $black;
-      margin-bottom: rem(7px);
+      margin-bottom: _rem(7px);
     }
     .product-info-par {
       font-weight: 400;
-      line-height: rem(12px);
+      line-height: _rem(12px);
       color: #783c11;
     }
   }
   &-main {
-    max-width: rem(620px);
+    max-width: _rem(620px);
     box-shadow: 0px 9px 24px 0px rgba(117, 56, 13, 0.231372549);
     width: 100%;
     border-radius: 5px;
@@ -192,10 +192,10 @@
   }
 
   &-sidebar {
-    flex-basis: rem(261px);
+    flex-basis: _rem(261px);
     flex-shrink: 0;
     flex-grow: 0;
-    margin-right: rem(50px);
+    margin-right: _rem(50px);
     @include laptop {
       margin-bottom: 50px;
       margin-right: 0;
@@ -208,29 +208,29 @@
   }
   &-title {
     font-family: SFProDisplay_800;
-    font-size: rem(40px);
-    line-height: rem(46px);
-    max-width: rem(625px);
+    font-size: _rem(40px);
+    line-height: _rem(46px);
+    max-width: _rem(625px);
     width: 100%;
-    margin-bottom: rem(40px);
+    margin-bottom: _rem(40px);
     @include tablet {
       display: none;
     }
   }
   .product-small-title {
     font-weight: SFProDisplay_700;
-    font-size: rem(15px);
-    line-height: rem(18px);
+    font-size: _rem(15px);
+    line-height: _rem(18px);
     color: $black;
-    margin-bottom: rem(20px);
+    margin-bottom: _rem(20px);
   }
   .tags-list {
-    margin-bottom: rem(40px);
+    margin-bottom: _rem(40px);
     display: flex;
     flex-wrap: wrap;
     & > * {
       &:not(:last-child) {
-        margin-right: rem(5px);
+        margin-right: _rem(5px);
       }
     }
     li {
@@ -238,16 +238,16 @@
         font-family: TimesNewRoman_400;
         color: #0b0b0b;
         opacity: 0.6;
-        font-style: rem(11px);
+        font-style: _rem(11px);
         font-style: italic;
       }
       p {
         font-family: SFProDisplay_500;
-        font-size: rem(13px);
-        line-height: rem(16px);
+        font-size: _rem(13px);
+        line-height: _rem(16px);
       }
-      margin-bottom: rem(5px);
-      padding: rem(14px) rem(30px);
+      margin-bottom: _rem(5px);
+      padding: _rem(14px) _rem(30px);
       //background-color: $white;
       background: #f3f2f2;
       border-radius: 50px;
@@ -256,40 +256,40 @@
 
   .par {
     font-family: SFProDisplay_400;
-    font-size: rem(14px);
-    line-height: rem(23px);
-    margin-bottom: rem(50px);
+    font-size: _rem(14px);
+    line-height: _rem(23px);
+    margin-bottom: _rem(50px);
   }
 }
 .comfort-tags {
   &-list {
     display: flex;
     flex-wrap: wrap;
-    max-width: rem(405px);
+    max-width: _rem(405px);
     width: 100%;
 
     & > * {
       &:not(:last-child) {
-        margin-right: rem(5px);
+        margin-right: _rem(5px);
       }
     }
   }
 
   &-item {
-    padding: rem(11px) rem(16px);
+    padding: _rem(11px) _rem(16px);
     border: 1px solid #000000;
     border-radius: 50px;
-    margin-bottom: rem(5px);
+    margin-bottom: _rem(5px);
 
     svg {
-      margin-right: rem(5px);
+      margin-right: _rem(5px);
     }
   }
 }
 .show-on-map {
   display: flex;
   width: 100%;
-  margin: rem(50px) 0 rem(60px);
+  margin: _rem(50px) 0 _rem(60px);
   &-address {
     background: #f3f2f2;
     border-radius: 3px;
@@ -297,13 +297,13 @@
     flex-shrink: 1;
     display: flex;
     align-items: center;
-    padding-left: rem(12px);
+    padding-left: _rem(12px);
     svg {
-      margin-right: rem(11px);
+      margin-right: _rem(11px);
     }
   }
   button {
-    margin-left: rem(10px);
+    margin-left: _rem(10px);
     flex-shrink: 0;
     flex-grow: 0;
   }
@@ -312,17 +312,17 @@
 .comments {
   position: relative;
   background: $white;
-  padding: rem(20px) rem(25px) rem(83px);
-  margin-bottom: rem(77px);
+  padding: _rem(20px) _rem(25px) _rem(83px);
+  margin-bottom: _rem(77px);
   &-profile {
     display: flex;
-    margin-bottom: rem(20px);
+    margin-bottom: _rem(20px);
     &-avatar {
-      width: rem(56px);
-      height: rem(56px);
+      width: _rem(56px);
+      height: _rem(56px);
       border-radius: 50px;
       overflow: hidden;
-      margin-right: rem(13px);
+      margin-right: _rem(13px);
       img {
         object-fit: cover;
       }
@@ -331,18 +331,18 @@
   &-message {
     background: $white;
     border: 1px solid rgba(11, 11, 11, 0.1);
-    margin-bottom: rem(28px);
+    margin-bottom: _rem(28px);
     form {
       display: flex;
-      padding: rem(7px) rem(15px);
+      padding: _rem(7px) _rem(15px);
       align-items: center;
     }
     button {
       background: transparent;
       border: none;
       svg {
-        width: rem(30px);
-        height: rem(30px);
+        width: _rem(30px);
+        height: _rem(30px);
       }
       flex-shrink: 0;
       flex-grow: 0;
@@ -350,7 +350,7 @@
       padding: 0;
       &::after {
         content: "";
-        left: rem(-10px);
+        left: _rem(-10px);
         top: 50%;
         transform: translateY(-50%);
         background: #0b0b0b20;
@@ -363,12 +363,12 @@
       flex-shrink: 1;
       flex-grow: 1;
       border: none;
-      height: rem(20px);
+      height: _rem(20px);
       font-weight: 400;
-      font-size: rem(13px);
-      line-height: rem(16px);
+      font-size: _rem(13px);
+      line-height: _rem(16px);
       color: #0b0b0b80;
-      padding-right: rem(20px);
+      padding-right: _rem(20px);
       &::placeholder {
         color: #0b0b0b80;
       }
@@ -379,44 +379,44 @@
   }
   &-name {
     font-family: SFProDisplay_700;
-    font-size: rem(17px);
-    line-height: rem(20px);
+    font-size: _rem(17px);
+    line-height: _rem(20px);
     color: #000000;
-    margin-bottom: rem(8px);
+    margin-bottom: _rem(8px);
   }
   &-id {
     font-weight: 400;
-    font-size: rem(11px);
-    line-height: rem(13px);
+    font-size: _rem(11px);
+    line-height: _rem(13px);
     color: #000000;
     opacity: 0.5;
   }
   &-list {
     & > * {
       &:not(:last-child) {
-        margin-bottom: rem(20px);
+        margin-bottom: _rem(20px);
       }
     }
   }
   &-item {
     display: flex;
     &-avatar {
-      margin-right: rem(15px);
+      margin-right: _rem(15px);
     }
     &-date {
       font-family: SFProDisplay_400;
-      font-size: rem(11px);
-      line-height: rem(13px);
+      font-size: _rem(11px);
+      line-height: _rem(13px);
       color: #0b0b0b;
       opacity: 0.4;
     }
   }
   &-text {
     font-family: SFProDisplay_400;
-    font-size: rem(13px);
-    line-height: rem(18px);
+    font-size: _rem(13px);
+    line-height: _rem(18px);
     color: #0b0b0b;
-    margin-bottom: rem(15px);
+    margin-bottom: _rem(15px);
   }
   &-show-all {
     background: linear-gradient(
@@ -431,7 +431,7 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    padding: rem(33px) rem(25px);
+    padding: _rem(33px) _rem(25px);
     button {
       transform: matrix(-1, 0, 0, 1, 0, 0) rotate(180deg);
       background: $white;
@@ -442,24 +442,24 @@
 .plashka {
   background: $white;
   border-radius: 3px;
-  padding: rem(20px) rem(5px) rem(5px);
+  padding: _rem(20px) _rem(5px) _rem(5px);
 
   h4 {
     font-family: SFProDisplay_400;
-    font-size: rem(12px);
-    line-height: rem(14px);
+    font-size: _rem(12px);
+    line-height: _rem(14px);
     opacity: 0.4;
     color: $black;
-    margin-bottom: rem(5px);
+    margin-bottom: _rem(5px);
     margin-left: 10px;
   }
   strong {
     display: flex;
     font-family: SFProDisplay_800;
-    font-size: rem(22px);
-    line-height: rem(26px);
+    font-size: _rem(22px);
+    line-height: _rem(26px);
     color: $black;
-    margin-bottom: rem(20px);
+    margin-bottom: _rem(20px);
     margin-left: 10px;
   }
 }

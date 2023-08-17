@@ -14,9 +14,10 @@ $breakpoints: (
   height: $b;
 }
 
-@function rem($px) {
+@function _rem($px) {
   @return calc($px/16px) + 0rem;
 }
+
 @function pers($px) {
   @return (calc($px/1400px)*100%);
 }
