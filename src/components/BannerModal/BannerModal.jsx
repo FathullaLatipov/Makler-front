@@ -10,7 +10,7 @@ const BannerModal = ({ setOpen }) => {
         $host.get('/api/v1/banner-ads/').then(({ data }) => data.results[0])
     );
 
-    if(isLoading) {
+    if(isLoading || error) {
         return null;
     }
 
