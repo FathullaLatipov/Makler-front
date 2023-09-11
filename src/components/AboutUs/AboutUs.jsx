@@ -1,5 +1,5 @@
 import React from 'react';
-import simple from "../../assets/img/simple.png";
+import simple from "../../assets/img/MaklerUz - 002.png";
 import adv from "../../assets/img/ads.png";
 import "./AboutUs.scss";
 
@@ -29,7 +29,7 @@ const AboutUs = () => {
                             Не упустите шанс сделать ваш дом идеальным местом для жизни. Обратитесь к нам сегодня и дайте нам помочь вам воплотить ваши мечты в жизнь!
                         </p>
                         <div className="aboutus__img">
-                            <img src={simple} alt=""/>
+                            <img style={{ width: "100%" }} src={simple} alt=""/>
                         </div>
                     </div>
                     <div className="aboutus__advertise">
