@@ -23,6 +23,7 @@ const Navbar = () => {
     mebel: t("navbar.furniture"),
     cabinet: t("navbar.cabinet"),
     "save-products": "Избранные",
+    aboutus: "О нас"
   };
 
   
