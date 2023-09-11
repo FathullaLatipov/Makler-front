@@ -128,7 +128,7 @@ const UserCabinet = () => {
 
           <div className="cabinet-nav reffer" style={{ borderRadius: "5px", marginBottom: "1.375rem" }}>
 
-            <p>Получите шанс выиграть iPhone, просто поделившись ссылками!</p>
+            <p>Получите шанс выиграть ценные призы, просто поделившись ссылкой!</p>
 
             <div className="reffer__points">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -157,8 +157,6 @@ const UserCabinet = () => {
                 className="reffer__getlink"
                 onClick={getRefferLink}
             >Получить реферальную ссылку</span>
-
-
           </div>
 
 
@@ -262,6 +260,12 @@ const UserCabinet = () => {
           >
             <div className="container-sm">
               <div className="advert">
+                <div className="alert-advert">
+                    <h5 style={{ fontSize: "1.1rem" }}>Архив</h5>
+                    <p>
+                      В этом разделе вы можете хранить и управлять архивом ваших товаров или объявлений.
+                    </p>
+                </div>
                 <ul className="advert-list">
                   {draftArr.map((draftArg, i) => (
                     <div key={i}>
@@ -317,16 +321,8 @@ const UserCabinet = () => {
                 <div className="alert-advert">
                   <h5>Продвигайте свое объявление в ТОП!</h5>
                   <p>
-                    Как только вы зарегистрируетесь в качестве мастера, вы
-                    сможете получать заказы по направлениям, введенным через наш
-                    портал!
+                    В этом разделе вы можете создавать и сохранять черновики ваших объявлений и заказов, а также вести работу над ними
                   </p>
-                  <div className="alert-advert-btns">
-                    <button className="btn btn-orange-50">
-                      Активировать в топ
-                    </button>
-                    <a href="#">Подробнее </a>
-                  </div>
                 </div>
                 <ul className="advert-list">
                   {/* {stores
@@ -591,7 +587,7 @@ const UserCabinet = () => {
                 </picture>
               </div>
               <div className="cabinet-profile-info">
-                <h4>Имя: {userData.first_name ? userData.first_name : "Пустой"}</h4>
+                <h4>Имя: {userData.first_name ? userData.first_name : "Пусто"}</h4>
                 <p>id: {userData?.id}</p>
                 <p>Номер телефона: {userData?.phone_number}</p>
               </div>

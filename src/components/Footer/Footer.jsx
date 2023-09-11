@@ -35,26 +35,24 @@ const Footer = () => {
             </Link>
             <ul>
               <li>
-                {" "}
-                <a href="#">{t("footer.advertisers")}</a>
+                <Link to="/aboutus">
+                  {" "}
+                  <a href="#">{t("footer.advertisers")}</a>
+                </Link>
               </li>
               <li>
-                {" "}
-                <a href="#">{t("footer.postingInstructions")}</a>
-              </li>
-              <li>
-                {" "}
-                <a href="#">{t("footer.postingInstructions")}</a>
+                <Link to="/aboutus">
+                  {" "}
+                  <a href="#">{t("footer.postingInstructions")}</a>
+                </Link>
               </li>
             </ul>
             <ul>
               <li>
-                {" "}
-                <a href="#">{t("footer.help")}</a>
-              </li>
-              <li>
-                {" "}
-                <a href="#">{t("footer.support")} </a>
+                <Link to="/aboutus">
+                  {" "}
+                  <a href="#">{t("footer.support")} </a>
+                </Link>
               </li>
               <li>
                 {" "}
@@ -72,8 +70,7 @@ const Footer = () => {
         <div className="container">
           <div className="footer__center-body">
             <p>
-              'Someday' is a disease that will take your dreams to the grave
-              with you. Just do it and correct course along the way.
+              Makleruz.uz - Поиск все что угодно для вашего дома и комфорта
             </p>
             <ul>
               <li>
@@ -97,17 +94,12 @@ const Footer = () => {
           <div className="footer__bottom-body">
             <ul>
               <li>
-                <p>Copyright 2022 R</p>
+                <p>Copyright {new Date().getFullYear()}</p>
               </li>
               <li>
-                <a className="line-link" href="#">
-                  {t("footer.termsofuse")}{" "}
-                </a>
-              </li>
-              <li>
-                <a className="line-link" href="#">
-                  {t("footer.privacypolicy")}
-                </a>
+                <p>
+                  Все права защищены
+                </p>
               </li>
             </ul>
             <ul className="social-links">
@@ -119,7 +111,7 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a href="https://instagram.com/makleruz.uz?igshid=MzRlODBiNWFlZA==" target="_blank">
                   <svg className="svg-sprite-icon icon-inst w-12">
                     <use href={`${spirite}#inst`}></use>
                   </svg>

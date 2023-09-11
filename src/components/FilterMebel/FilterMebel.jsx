@@ -80,8 +80,8 @@ const FilterMebel = ({ change, value }) => {
       <div className="nav-search">
         <div className="container">
           <ul className="nav-search-body">
-            <li className="nav-search_how select-choose" style={{ marginBottom: "20px" }}>
-              <label className="nav-label">Как</label>
+            <li className="nav-search_how select-choose">
+              <label className="nav-label">Категория</label>
               <span
                 onClick={() => setShow1((prev) => !prev)}
                 className="choose-btn choose-btn-round"

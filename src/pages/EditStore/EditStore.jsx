@@ -638,7 +638,7 @@ export default function EditStore() {
                   display: "block",
                 }}
               >
-                Как
+                Тип
               </span>
               <ul className="radio-list mb-50">
                 {[
@@ -691,8 +691,7 @@ export default function EditStore() {
                 </h2>
                 <p className="edit__card__text">Регистрация как мастер</p>
                 <p>
-                  Как только вы зарегистрируетесь в качестве мастера, вы сможете
-                  получать заказы по направлениям, введенным через наш портал!
+                В скором времени вы сможете опубликовать объявления и поднять в ТОП!
                 </p>
                 <div className="blockquote__card">
                   <em className="blockquote__text">

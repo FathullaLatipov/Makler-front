@@ -91,7 +91,7 @@ const UserSettings = ({ name, email, password, number, img }) => {
             </picture>
           </div>
           <div className="settings-profile-info">
-            <h3>{ name ? name : "Пустой" }</h3>
+            <h3>{ name ? name : "Пусто" }</h3>
 
             <input
               style={{

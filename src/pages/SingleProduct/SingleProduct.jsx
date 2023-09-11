@@ -143,7 +143,7 @@ const SingleProduct = () => {
                   {houseData?.price} {houseData?.price_type?.price_t}
                 </strong>
                 <a className="btn btn-orange" href="tel:035252434">
-                  Позвонить маклеру
+                  Позвонить продавцу
                 </a>
               </div>
 

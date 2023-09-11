@@ -112,7 +112,7 @@ const UserSingle = ({ data, id }) => {
                     className="worker-btn"
                   >
                     {locat.pathname.includes("master")
-                      ? "позвонить в номер"
+                      ? "Позвонить по номеру"
                       : "Позвонить"}
                   </a>
                 </div>

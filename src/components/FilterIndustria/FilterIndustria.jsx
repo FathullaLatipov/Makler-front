@@ -68,7 +68,7 @@ const FilterIndustria = ({ change, value }) => {
         <div className="container">
           <ul className="nav-search-body">
             <li className="nav-search_how select-choose">
-              <label className="nav-label">Как</label>
+              <label className="nav-label">Тип</label>
               <span
                 onClick={() => setShow1((prev) => !prev)}
                 className="choose-btn choose-btn-round"
@@ -112,7 +112,7 @@ const FilterIndustria = ({ change, value }) => {
               </div>
             </li>
             <li className="nav-search_type select-choose">
-              <label className="nav-label">Тип</label>
+              <label className="nav-label">Для</label>
               <a
                 className="choose-btn choose-btn-link"
                 id="choose-type"

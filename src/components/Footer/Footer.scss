@@ -7,6 +7,7 @@
 	&__top {
 		border-bottom: 1px solid rgba(225,225,225, .1);
 		padding-bottom: _rem(27px);
+		padding-top: _rem(27px);
 		&-body {
 			display: flex;
 			align-items: center;
@@ -110,6 +111,7 @@
 	}
 	&__bottom {
 		padding-top: _rem(13px);
+		padding-bottom: _rem(13px);
 		&-body {
 			display: flex;
 			justify-content: space-between;

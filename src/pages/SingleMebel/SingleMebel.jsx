@@ -74,7 +74,7 @@ const SingleMebel = () => {
                     <h1>{data?.phone_number}</h1>
                   </div>
                   <a href={`tel:${data?.phone_number}`} className="worker-btn">
-                    позвонить в номер
+                    Позвонить по номеру
                   </a>
                 </div>
               </div>
