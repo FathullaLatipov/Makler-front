@@ -3,14 +3,17 @@ import { useEffect, useState } from "react";
 import sprite from "../../assets/img/symbol/sprite.svg";
 import { LoadingPost } from "../../components";
 import ProductCard from "../../components/ProductCard/ProductCard";
+import { useTranslation } from "react-i18next";
 
 const SavedProduct = () => {
   const [saveProducts, setSaveProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [mount, setDeleteMount] = useState(true);
+  const { t } = useTranslation();
+
   useEffect(() => {
     const userid = localStorage.getItem("userId");
-    window.document.title = "Избранные";
+    window.document.title = t("navbar.favorites");
     axios
       .get(
         `https://api.makleruz.uz/products/api/v1/houses/get-wishlist-houses?user=${userid}`

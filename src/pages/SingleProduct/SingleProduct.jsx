@@ -16,15 +16,16 @@ import $host, {WEB_URL} from "../../http";
 import {toast} from "react-toastify";
 import FavoriteSvg from "../../UI/FavoriteSvg";
 import ShareSvg from "../../UI/ShareSvg";
+import { useTranslation } from "react-i18next";
 
 
 const SingleProduct = () => {
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
-  const [recomendLoading, setRecomendLoading] = useState(false);
   const [recomdend, setRecomdend] = useState([]);
   const { houseData, getHouseData, loginModalFunc, favorites, setFavorites, userData } = useContext(ContextApp);
   const hasInWishlist = favorites.find((item) => item.product.id === +id);
+  const { t } = useTranslation();
 
   const slice = (str) => {
     return str.substr(32);
@@ -168,26 +169,26 @@ const SingleProduct = () => {
             </div>
             <div className="info-product-main">
                 <h2 className="info-product-title">{houseData?.title}</h2>
-                <h5 className="product-small-title">Вся информация</h5>
+                <h5 className="product-small-title">{t("singleProduct.allInfo")}</h5>
                 <ul className="tags-list">
                   <li className="tags-item">
                     {" "}
-                    <span>Тип аренды</span>
+                    <span>{t("editPage.rentalType")}</span>
                     <p>{houseData?.rental_type}</p>
                   </li>
                   <li className="tags-item">
                     {" "}
-                    <span>Тип недвижимости</span>
+                    <span>{t("editPage.propertyType")}</span>
                     <p>{houseData?.property_type}</p>
                   </li>
                   <li className="tags-item">
                     {" "}
-                    <span>Объект</span>
+                    <span>{t("editPage.object")}</span>
                     <p>{houseData?.object}</p>
                   </li>
                   <li className="tags-item">
                     {" "}
-                    <span>Этаж</span>
+                    <span>{t("editPage.floor")}</span>
                     <p>{houseData?.floor}</p>
                   </li>
                   <li className="tags-item">
@@ -197,38 +198,38 @@ const SingleProduct = () => {
                   </li>
                   <li className="tags-item">
                     {" "}
-                    <span>Кол-во комнат</span>
+                    <span>{t("singleProduct.numberOfRooms")}</span>
                     <p>{houseData?.number_of_rooms}</p>
                   </li>
                   <li className="tags-item">
                     {" "}
-                    <span>Общая плошадь</span>
+                    <span>{t("singleProduct.totalArea")}</span>
                     <p>{houseData?.pm_general}</p>
                   </li>
                   <li className="tags-item">
                     {" "}
-                    <span>Этажность дома</span>
+                    <span>{t("singleProduct.floorTheHouse")}</span>
                     <p>{houseData?.floor_from}</p>
                   </li>
                   <li className="tags-item">
                     {" "}
-                    <span>Тип строения</span>
+                    <span>{t("editPage.typeOfBuilding")}</span>
                     <p>{houseData?.building_type}</p>
                   </li>
                   <li className="tags-item">
                     {" "}
-                    <span>Ипотека</span>
-                    <p>{houseData?.app_ipoteka ? "Да" : "Нет"}</p>
+                    <span>{t("editPage.mortgage")}</span>
+                    <p>{houseData?.app_ipoteka ? t("editPage.yes") : t("editPage.no")}</p>
                   </li>
                   <li className="tags-item">
                     {" "}
-                    <span>Мебелирование</span>
-                    <p>{houseData?.app_mebel ? "Да" : "Нет"}</p>
+                    <span>{t("singleProduct.furniture")}</span>
+                    <p>{houseData?.app_mebel ? t("editPage.yes") : t("editPage.no")}</p>
                   </li>
                 </ul>
-                <h5 className="product-small-title">Описание</h5>
+                <h5 className="product-small-title">{t("singleProduct.description")}</h5>
                 <p className="product-par par">{houseData?.descriptions}</p>
-                <h5 className="product-small-title">Все удобства</h5>
+                <h5 className="product-small-title">{t("editPage.allAmenities")}</h5>
                 <ul className="comfort-tags-list">
                   {houseData?.amenities?.map((item, i) => (
                     <li

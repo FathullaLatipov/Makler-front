@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import spirite from "../../assets/img/symbol/sprite.svg";
 import { baseURL } from "../../requests/requests";
 import $host from "../../http";
+import { useTranslation } from "react-i18next";
 
 const FilterIndustria = ({ change, value }) => {
   const [show1, setShow1] = useState(false);
@@ -14,6 +15,7 @@ const FilterIndustria = ({ change, value }) => {
   const [option1, setOption1] = useState([]);
   const [option2, setOption2] = useState([]);
   const [option3, setOption3] = useState([]);
+  const { t } = useTranslation();
 
   useEffect(() => {
     $host
@@ -60,8 +62,7 @@ const FilterIndustria = ({ change, value }) => {
   useEffect(() => {
     setProfess3(option3[brand_title - 1]?.title);
   }, [brand_title]);
-  console.log(brand_title);
-  console.log(option3);
+
   return (
     <section className="main-s">
       <div className="nav-search">
@@ -77,7 +78,7 @@ const FilterIndustria = ({ change, value }) => {
                   cursor: "pointer",
                 }}
               >
-                <span>{profess2 ? profess2 : "для дома"}</span>
+                <span>{profess2 ? profess2 : t("filter.forHome")}</span>
                 <svg className="svg-sprite-icon icon-fi_chevron-down w-12">
                   <use href={`${spirite}#fi_chevron-down`}></use>
                 </svg>
@@ -121,7 +122,7 @@ const FilterIndustria = ({ change, value }) => {
                   cursor: "pointer",
                 }}
               >
-                <span>{profess ? profess : "для кухни"}</span>
+                <span>{profess ? profess : t("filter.forKitchen")}</span>
                 <svg className="svg-sprite-icon icon-fi_chevron-down w-12">
                   <use href={`${spirite}#fi_chevron-down`}></use>
                 </svg>
@@ -208,7 +209,7 @@ const FilterIndustria = ({ change, value }) => {
               </div>
             </li>
             <li className="nav-search_address">
-              <label className="nav-label">Адрес</label>
+              <label className="nav-label">{t("editPage.address")}</label>
               <a>
                 <svg className="svg-sprite-icon icon-fi_navigation w-16">
                   <use href={`${spirite}#fi_navigation`}></use>

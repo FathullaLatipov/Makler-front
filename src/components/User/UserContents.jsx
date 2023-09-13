@@ -5,11 +5,14 @@ import spirite from "../../assets/img/symbol/sprite.svg";
 import { baseURL } from "../../requests/requests";
 import LoadingPost from "../LoadingPost/LoadingPost";
 import $host from "../../http";
+import { useTranslation } from "react-i18next";
 
 const UserContents = ({ data, content, mounted, draft }) => {
   const [display, setDisplay] = useState(false);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const { t } = useTranslation();
+
   const handleClick = () => {
     switch (content) {
       case "house":
@@ -188,7 +191,7 @@ const UserContents = ({ data, content, mounted, draft }) => {
                 }}
               >
                 {" "}
-                <span>Изменить </span>
+                <span>{t("editPage.change")} </span>
               </li>
               <li
                 onClick={draftHandle}
@@ -257,9 +260,9 @@ const UserContents = ({ data, content, mounted, draft }) => {
               </span>
               <span>
                 {data.product_status === 0
-                  ? "Ожидание подтверждения"
+                  ? t("cabinet.waitForConfirm")
                   : data.product_status === 1
-                  ? "Подтвержден"
+                  ? t("cabinet.confirmed")
                   : data.product_status === 2 && "Отказaна!"}
               </span>
             </div>
@@ -305,7 +308,7 @@ const UserContents = ({ data, content, mounted, draft }) => {
             <ul className="statistic-list">
               <li>
                 {" "}
-                <span>Просмотры: {data?.view_count}</span>
+                <span>{t("editPage.views")}: {data?.view_count}</span>
                 <strong>{data.pm}</strong>
               </li>
               <li>

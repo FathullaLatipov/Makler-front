@@ -4,11 +4,13 @@ import "./BottomNavbar.scss";
 import useMedia from "../../hooks/useMedia";
 import {NavLink} from "react-router-dom";
 import ContextApp from "../../context/context";
+import { useTranslation } from 'react-i18next';
 
 const BottomNavbar = () => {
     const isMobile = useMedia('(max-width: 768px)');
     const userId = localStorage.getItem("userId");
     const { openLoginModal, loginModalFunc } = useContext(ContextApp);
+    const { t } = useTranslation();
 
     if(!isMobile) return null;
 
@@ -21,7 +23,7 @@ const BottomNavbar = () => {
                             <path d="M3.2002 9.5L12.2002 2.5L21.2002 9.5V20.5C21.2002 21.0304 20.9895 21.5391 20.6144 21.9142C20.2393 22.2893 19.7306 22.5 19.2002 22.5H5.2002C4.66976 22.5 4.16105 22.2893 3.78598 21.9142C3.41091 21.5391 3.2002 21.0304 3.2002 20.5V9.5Z" stroke="#0B0B0B" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
                             <path d="M9.2002 22.5V12.5H15.2002V22.5" stroke="#0B0B0B" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>
-                        <span>Главная</span>
+                        <span>{t("navbar.main")}</span>
                     </NavLink>
                 </li>
                 <li className="bottom-navbar__item">
@@ -29,7 +31,7 @@ const BottomNavbar = () => {
                         <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M19.6006 21.5L12.6006 16.5L5.60059 21.5V5.5C5.60059 4.96957 5.8113 4.46086 6.18637 4.08579C6.56145 3.71071 7.07015 3.5 7.60059 3.5H17.6006C18.131 3.5 18.6397 3.71071 19.0148 4.08579C19.3899 4.46086 19.6006 4.96957 19.6006 5.5V21.5Z" stroke="#0B0B0B" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>
-                        <span>Избранные</span>
+                        <span>{t("navbar.favorites")}</span>
                     </NavLink>
                 </li>
                 <li className="bottom-navbar__item">
@@ -47,7 +49,7 @@ const BottomNavbar = () => {
                             <path d="M12 8.5V16.5" stroke="black" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
                             <path d="M8 12.5H16" stroke="black" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>
-                        <span>Создать</span>
+                        <span>{t("navbar.create")}</span>
                     </NavLink>
                 </li>
                 <li className="bottom-navbar__item">
@@ -69,7 +71,7 @@ const BottomNavbar = () => {
                                 <path d="M3.2002 9.5L12.2002 2.5L21.2002 9.5V20.5C21.2002 21.0304 20.9895 21.5391 20.6144 21.9142C20.2393 22.2893 19.7306 22.5 19.2002 22.5H5.2002C4.66976 22.5 4.16105 22.2893 3.78598 21.9142C3.41091 21.5391 3.2002 21.0304 3.2002 20.5V9.5Z" stroke="#0B0B0B" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
                                 <path d="M9.2002 22.5V12.5H15.2002V22.5" stroke="#0B0B0B" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
                             </svg>
-                            <span>Профиль</span>
+                            <span>{t("navbar.profile")}</span>
                         </NavLink>
                     ) : (
                         <NavLink onClick={(e) => {
@@ -82,7 +84,7 @@ const BottomNavbar = () => {
                                 <path d="M3.2002 9.5L12.2002 2.5L21.2002 9.5V20.5C21.2002 21.0304 20.9895 21.5391 20.6144 21.9142C20.2393 22.2893 19.7306 22.5 19.2002 22.5H5.2002C4.66976 22.5 4.16105 22.2893 3.78598 21.9142C3.41091 21.5391 3.2002 21.0304 3.2002 20.5V9.5Z" stroke="#0B0B0B" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
                                 <path d="M9.2002 22.5V12.5H15.2002V22.5" stroke="#0B0B0B" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
                             </svg>
-                            <span>Войти</span>
+                            <span>{t("login.signIn")}</span>
                         </NavLink>
                     )}
                 </li>

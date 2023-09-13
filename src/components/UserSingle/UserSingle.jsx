@@ -6,11 +6,13 @@ import { toast } from "react-toastify";
 import Loading from "../Loading/Loading";
 import { useLocation } from "react-router-dom";
 import $host from "../../http";
+import { useTranslation } from "react-i18next";
 const UserSingle = ({ data, id }) => {
   const locat = useLocation();
   const [masterData, setMasterData] = useState([]);
   const [storeData, setStoreData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const { t } = useTranslation();
   const router = useLocation();
   const getData = (url, setData) => {
     setIsLoading(true);
@@ -113,12 +115,12 @@ const UserSingle = ({ data, id }) => {
                   >
                     {locat.pathname.includes("master")
                       ? "Позвонить по номеру"
-                      : "Позвонить"}
+                      : t("cabinet.call")}
                   </a>
                 </div>
               </div>
               <div className="app__worker-right">
-                <h1>Описание</h1>
+                <h1>{t("singleProduct.description")}</h1>
                 <p>
                   {"description" in data
                     ? data.description

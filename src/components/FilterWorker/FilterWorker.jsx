@@ -4,6 +4,7 @@ import spirite from "../../assets/img/symbol/sprite.svg";
 import { baseURL } from "../../requests/requests";
 import $host from "../../http";
 import {useLocation} from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const FilterWorker = ({ change, value }) => {
   const location = useLocation();
@@ -13,8 +14,7 @@ const FilterWorker = ({ change, value }) => {
   const [profess, setProfess] = useState();
   const [option1, setOption1] = useState([]);
   const isExceptionPages = ["/master"].includes(location.pathname);
-
-  console.log(isExceptionPages);
+  const { t } = useTranslation();
 
   const { profession, service } = value;
   useEffect(() => {
@@ -41,27 +41,10 @@ const FilterWorker = ({ change, value }) => {
     setProfess(option1[profession - 1]?.title);
     setServiceText(serviceType[service - 1]?.label);
   }, [profession]);
+
   useEffect(() => {
     setServiceText(serviceType[service - 1]?.label);
   }, [service]);
-
-
-  // useEffect(() => {
-  //   if (mapConstructor) {
-  //     new mapConstructor.SuggestView(searchRef.current).events.add(
-  //       "select",
-  //       function (e) {
-  //         const selectedName = e.get("item")?.value;
-  //         mapConstructor?.geocode(selectedName).then((result) => {
-  //           const newCoords = result?.geoObjects
-  //             ?.get(0)
-  //             ?.geometry?.getCoordinates();
-  //           setState((prevState) => ({ ...prevState, center: newCoords }));
-  //         });
-  //       }
-  //     );
-  //   }
-  // }, [mapConstructor]);
 
   return (
     <section className="main-s">
@@ -158,7 +141,7 @@ const FilterWorker = ({ change, value }) => {
               </div>
             </li>
             <li className={`nav-search_address ${isExceptionPages && "mb-0"}`}>
-              <label className="nav-label">Адрес</label>
+              <label className="nav-label">{t("editPage.address")}</label>
               <a>
                 <svg className="svg-sprite-icon icon-fi_navigation w-16">
                   <use href={`${spirite}#fi_navigation`}></use>

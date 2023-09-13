@@ -27,6 +27,7 @@ import { useContext } from "react";
 import ContextApp from "../../context/context";
 import { baseURL } from "../../requests/requests";
 import $host from "../../http";
+import { useTranslation } from "react-i18next";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -80,6 +81,7 @@ export default function EditMebel() {
     brand: null,
     view: null,
   });
+  const { t } = useTranslation();
 
   // const fileHandle = (file, name) => {
   //   const img = file;
@@ -368,11 +370,11 @@ export default function EditMebel() {
               Изменить мебель
             </h1>
             <p className="edit__card__text">
-              Объявление будет доступно на{" "}
+            {t("editPage.announcementWillBeAvailable")}{" "}
               <a target={"_blank"} className="text__link" href="">
                 Makler.uz
               </a>{" "}
-              и в наших мобильных приложениях
+             {t("editPage.andInOurMobileApp")}
             </p>
             {/* <div className="card__header">
               <img
@@ -437,7 +439,7 @@ export default function EditMebel() {
                   />
                 </label> */}
                 <label htmlFor="">
-                  <span>Номер телефона | Ваше логин</span>
+                  <span>{t("editPage.phoneNumberAndLogin")}</span>
                   <input
                     name={"phoneNumber"}
                     value={form.phone_number}
@@ -458,11 +460,11 @@ export default function EditMebel() {
                   value={form.long_descriptions}
                   onChange={changeHandler}
                   id=""
-                  placeholder="пусто"
+                  placeholder={t("editPage.empty")}
                 ></textarea>
               </label>
               <label htmlFor="">
-                <span className="text__area">Краткое описание о себе</span>
+                <span className="text__area">{t("editPage.shortDescriptionAboutMe")}</span>
                 <textarea
                   style={{
                     width: "100%",
@@ -472,7 +474,7 @@ export default function EditMebel() {
                   value={form.short_descriptions}
                   onChange={changeHandler}
                   id=""
-                  placeholder="пусто"
+                  placeholder={t("editPage.empty")}
                 ></textarea>
               </label>
               <div
@@ -663,7 +665,7 @@ export default function EditMebel() {
                 </Select>
               </FormControl>
             </div> */}
-            <h5>Расположение</h5>
+            <h5>{t("editPage.location")}</h5>
             <div
               className="map"
               style={{
@@ -720,7 +722,7 @@ export default function EditMebel() {
                 marginTop: "2rem",
               }}
             >
-              {/* <h5>Изображения объекта</h5> */}
+              {/* <h5>{t("editPage.objectImages")}</h5> */}
               {/* <div className="image-upload mb-50">
                 <div className="image-outer">
                   <div className="image-outer-info">
@@ -804,7 +806,7 @@ export default function EditMebel() {
                 id=""
               />
               <span className="checkbox__text">
-                Я прочитал и согласен с условиями использования и публикации!
+                {t("editPage.agreeWithTerms")}
               </span>
             </div>
 
@@ -826,7 +828,7 @@ export default function EditMebel() {
                 <h2 className="right__card__title">
                   Краткое описание о нашем сервисе
                 </h2>
-                <p className="edit__card__text">Регистрация как мастер</p>
+                <p className="edit__card__text">{t("editPage.registerAsMaster")}</p>
                 <p>
                   Как только вы зарегистрируетесь в качестве мастера, вы сможете
                   получать заказы по направлениям, введенным через наш портал!

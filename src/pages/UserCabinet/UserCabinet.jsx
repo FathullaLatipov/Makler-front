@@ -61,7 +61,7 @@ const UserCabinet = () => {
 
 
   useEffect(() => {
-    window.document.title = "Профиль";
+    window.document.title = t("navbar.profile");
   }, []);
 
   const draftArr = [
@@ -261,7 +261,7 @@ const UserCabinet = () => {
             <div className="container-sm">
               <div className="advert">
                 <div className="alert-advert">
-                    <h5 style={{ fontSize: "1.1rem" }}>Архив</h5>
+                    <h5 style={{ fontSize: "1.1rem" }}>{t("cabinet.dateCreated")}</h5>
                     <p>
                       В этом разделе вы можете хранить и управлять архивом ваших товаров или объявлений.
                     </p>
@@ -587,9 +587,9 @@ const UserCabinet = () => {
                 </picture>
               </div>
               <div className="cabinet-profile-info">
-                <h4>Имя: {userData.first_name ? userData.first_name : "Пусто"}</h4>
+                <h4>Имя: {userData.first_name ? userData.first_name : t("editPage.empty")}</h4>
                 <p>id: {userData?.id}</p>
-                <p>Номер телефона: {userData?.phone_number}</p>
+                <p>{t("editPage.phoneNumber")}: {userData?.phone_number}</p>
               </div>
             </div>
             <ul className="cabinet-nav-list">
@@ -606,7 +606,7 @@ const UserCabinet = () => {
                     <svg className="svg-sprite-icon icon-fi_book fill-n w-16">
                       <use href={`${spirite}#${item.icon2}`}></use>
                     </svg>
-                    <span>{item.text}</span>
+                    <span>{t(item.text)}</span>
                   </button>
                 </li>
               ))}

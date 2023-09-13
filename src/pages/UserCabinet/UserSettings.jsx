@@ -5,11 +5,13 @@ import { useEffect } from "react";
 import { toast } from "react-toastify";
 import avatar_image from "../../assets/img/avatar_change.png";
 import {LoadingPost} from "../../components";
+import { useTranslation } from "react-i18next";
 
 const UserSettings = ({ name, email, password, number, img }) => {
   const [file, setFile] = useState(null);
   const imgRef = useRef(null);
   const [loading, setLoading] = useState(false);
+  const { t } = useTranslation();
 
   const imgPath = file ? file.path : img ? img : avatar_image;
 
@@ -91,7 +93,7 @@ const UserSettings = ({ name, email, password, number, img }) => {
             </picture>
           </div>
           <div className="settings-profile-info">
-            <h3>{ name ? name : "Пусто" }</h3>
+            <h3>{ name ? name : t("editPage.empty") }</h3>
 
             <input
               style={{
@@ -114,7 +116,7 @@ const UserSettings = ({ name, email, password, number, img }) => {
         </div>
         <form className="settings-form" onSubmit={handleSubmit}>
           <div className="form-input">
-            <label>Имя Фамилия</label>
+            <label>{t("editPage.fio")}</label>
             <input
               type="text"
               name="name"
@@ -123,7 +125,7 @@ const UserSettings = ({ name, email, password, number, img }) => {
             />
           </div>
           <div className="form-input">
-            <label>Электронная почта</label>
+            <label>{t("editPage.email")}</label>
             <input
               type="text"
               name="email"
@@ -132,7 +134,7 @@ const UserSettings = ({ name, email, password, number, img }) => {
             />
           </div>
           <div className="form-input">
-            <label>Номер телефона | Ваше логин</label>
+            <label>{t("editPage.phoneNumberAndLogin")}</label>
             <input
               type="text"
               name="number"
@@ -141,7 +143,7 @@ const UserSettings = ({ name, email, password, number, img }) => {
             />
           </div>
           <div className="form-input">
-            <label>Пароль</label>
+            <label>{t("editPage.password")}</label>
             <input
               type="password"
               placeholder="*******"
@@ -173,7 +175,7 @@ const UserSettings = ({ name, email, password, number, img }) => {
             onSubmit={handleSubmit}
             className="btn btn-orange"
           >
-            Сохранить изменения
+            {t("cabinet.saveChanges")}
           </button>
         </form>
       </div>

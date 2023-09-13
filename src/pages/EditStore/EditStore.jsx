@@ -25,6 +25,7 @@ import { LoadingPost } from "../../components";
 import { baseURL } from "../../requests/requests";
 import { useContext } from "react";
 import ContextApp from "../../context/context";
+import { useTranslation } from "react-i18next";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -71,6 +72,7 @@ export default function EditStore() {
   const [editData, setEditData] = useState([]);
   const [personName, setPersonName] = React.useState([]);
   const [file, setFile] = useState();
+  const { t } = useTranslation();
   const [imgUrl, setImgUrl] = useState({
     brand: null,
     view: null,
@@ -304,11 +306,11 @@ export default function EditStore() {
               Регистрируйтес как мастер, получите работы
             </h1>
             <p className="edit__card__text">
-              Объявление будет доступно на{" "}
+            {t("editPage.announcementWillBeAvailable")}{" "}
               <a target={"_blank"} className="text__link" href="">
                 Makler.uz
               </a>{" "}
-              и в наших мобильных приложениях
+             {t("editPage.andInOurMobileApp")}
             </p>
             {/* <div className="card__header">
               <img
@@ -353,7 +355,7 @@ export default function EditStore() {
             <div className="editpage__input">
               <div className="form__input">
                 <label htmlFor="">
-                  <span>Имя Фамилия</span>
+                  <span>{t("editPage.fio")}</span>
                   <input
                     name={"name"}
                     onChange={changeHandler}
@@ -364,7 +366,7 @@ export default function EditStore() {
                   />
                 </label>
                 <label id="email" htmlFor="">
-                  <span>Электронная почта</span>
+                  <span>{t("editPage.email")}</span>
                   <input
                     name={"email"}
                     onChange={changeHandler}
@@ -374,7 +376,7 @@ export default function EditStore() {
                   />
                 </label>
                 <label htmlFor="">
-                  <span>Номер телефона | Ваше логин</span>
+                  <span>{t("editPage.phoneNumberAndLogin")}</span>
                   <input
                     name={"phoneNumber"}
                     onChange={changeHandler}
@@ -394,14 +396,14 @@ export default function EditStore() {
                   />
                 </label> */}
                 <label htmlFor="">
-                  <span className="text__area">Краткое описание о себе</span>
+                  <span className="text__area">{t("editPage.shortDescriptionAboutMe")}</span>
                   <textarea
                     className="textarea"
                     name="description"
                     onChange={changeHandler}
                     value={form.description}
                     id=""
-                    placeholder="пусто"
+                    placeholder={t("editPage.empty")}
                   ></textarea>
                 </label>
               </div>
@@ -410,7 +412,7 @@ export default function EditStore() {
                   marginTop: "2rem",
                 }}
               >
-                <h5>Цена</h5>
+                <h5>{t("editPage.price")}</h5>
                 <div className="form-price">
                   <input
                     type="number"
@@ -476,9 +478,9 @@ export default function EditStore() {
             <div className="second-card">
               <div className="second__card">
                 <h2 className="second__card__title">
-                  Выберите раздел и специализацию *
+                  {t("editPage.selectSectionAndSpecialization")}
                 </h2>
-                <p className="second__card__text">Введите род деятельности!</p>
+                <p className="second__card__text">{t("editPage.enterYourOcupation")}</p>
               </div>
               <FormControl sx={{ m: 0, width: "100%", bgcolor: "white" }}>
                 <InputLabel id="demo-multiple-chip-label">---</InputLabel>
@@ -520,7 +522,7 @@ export default function EditStore() {
                 </Select>
               </FormControl>
             </div>
-            <h5>Расположение</h5>
+            <h5>{t("editPage.location")}</h5>
             <div
               className="map"
               style={{
@@ -590,7 +592,7 @@ export default function EditStore() {
                 marginTop: "2rem",
               }}
             >
-              {/* <h5>Изображения объекта</h5> */}
+              {/* <h5>{t("editPage.objectImages")}</h5> */}
               {/* <div className="image-upload mb-50">
                 <div className="image-outer">
                   <div className="image-outer-info">
@@ -673,7 +675,7 @@ export default function EditStore() {
                 id=""
               />
               <span className="checkbox__text">
-                Я прочитал и согласен с условиями использования и публикации!
+                {t("editPage.agreeWithTerms")}
               </span>
             </div>
 
@@ -689,7 +691,7 @@ export default function EditStore() {
                 <h2 className="right__card__title">
                   Краткое описание о нашем сервисе
                 </h2>
-                <p className="edit__card__text">Регистрация как мастер</p>
+                <p className="edit__card__text">{t("editPage.registerAsMaster")}</p>
                 <p>
                 В скором времени вы сможете опубликовать объявления и поднять в ТОП!
                 </p>

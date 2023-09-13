@@ -1,6 +1,6 @@
 import "./CreateProduct.scss";
 import sprite from "../../assets/img/symbol/sprite.svg";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState, useTransition } from "react";
 import { LoadingPost } from "../../components";
 import ContextApp from "../../context/context";
 import { useRef } from "react";
@@ -16,6 +16,7 @@ import { toast } from "react-toastify";
 import $host from "../../http";
 import {getPathImage} from "../../helpers/getPathImage";
 import {useQuery} from "react-query";
+import { useTranslation } from "react-i18next";
 
 const CreateProduct = () => {
   const [navActive, setNavActive] = useState(false);
@@ -34,6 +35,7 @@ const CreateProduct = () => {
   const [video, setVideo] = useState(null);
   const mapRef = useRef(null);
   const searchRef = useRef(null);
+  const { t } = useTranslation();
 
   const { isLoading, error, data: aminitiesData } = useQuery("carousels", () =>
       $host.get("/products/api/v1/web-houses/amenities/").then(({ data }) => data.results)
@@ -237,14 +239,14 @@ const CreateProduct = () => {
                 объявление
               </h2>
               <p className="subtitle">
-                Объявление будет доступно на <a href="https://makler.uz">Makler.uz</a> и
-                в наших <br />
-                мобильных приложениях
+                {t("editPage.announcementWillBeAvailable")}
+                <a href="https://makler.uz">Makler.uz</a> и
+                {t("editPage.andInOurMobileApp")}
               </p>
               <h5>Заголовка объявления</h5>
               <div className="form-input">
                 <input
-                  placeholder="пусто"
+                  placeholder={t("editPage.empty")}
                   id="title-product"
                   type="text"
                   name="title"
@@ -252,10 +254,10 @@ const CreateProduct = () => {
                   required
                 />
               </div>
-              <h5>Краткое описание </h5>
+              <h5>{t("editPage.shortDescription")}</h5>
               <div className="form-textarea">
                 <textarea
-                  placeholder="пусто"
+                  placeholder={t("editPage.empty")}
                   id="description-product"
                   name="descriptions"
                   onChange={changeHandler}
@@ -284,7 +286,7 @@ const CreateProduct = () => {
                     </h4>
                 )}
               </div>
-              <h5>Цена</h5>
+              <h5>{t("editPage.price")}</h5>
               <div className="form-price">
                 <input
                   type="number"
@@ -343,7 +345,7 @@ const CreateProduct = () => {
                   </div>
                 </div>
               </div>
-              <h5>Выберите тип объявления</h5>
+              <h5>{t("editPage.selectAdType")}</h5>
               <div className="create-product-btns mb-30">
                 <div className="radio-btn-big">
                   <input
@@ -354,7 +356,7 @@ const CreateProduct = () => {
                     value="аренда"
                     onChange={changeHandler}
                   />
-                  <label htmlFor="rent">Сдать в аренду</label>
+                  <label htmlFor="rent">{t("editPage.toRent")}</label>
                 </div>
                 <div className="radio-btn-big">
                   <input
@@ -365,10 +367,10 @@ const CreateProduct = () => {
                     value="продать"
                     onChange={changeHandler}
                   />
-                  <label htmlFor="sale">Продажа недвижимости</label>
+                  <label htmlFor="sale">{t("editPage.propertyForSale")}</label>
                 </div>
               </div>
-              <h5>Тип аренды</h5>
+              <h5>{t("editPage.rentalType")}</h5>
               <ul className="switch-list mb-40">
                 <li className="switch-btn">
                   <input
@@ -379,7 +381,7 @@ const CreateProduct = () => {
                     checked={form.rental_type === "длительно"}
                     value="длительно"
                   />
-                  <label htmlFor="long">Длительно</label>
+                  <label htmlFor="long">{t("editPage.longTerm")}</label>
                 </li>
                 <li className="switch-btn">
                   <input
@@ -399,10 +401,10 @@ const CreateProduct = () => {
                     name="rental_type"
                     value="посуточно"
                   />
-                  <label htmlFor="day">Посуточно</label>
+                  <label htmlFor="day">{t("editPage.daily")}</label>
                 </li>
               </ul>
-              <h5>Тип недвижимости</h5>
+              <h5>{t("editPage.propertyType")}</h5>
               <ul className="radio-list mb-60">
                 <li className="radio-btn">
                   <input
@@ -413,7 +415,7 @@ const CreateProduct = () => {
                     onChange={changeHandler}
                     name="property_type"
                   />
-                  <label htmlFor="living">Жилая</label>
+                  <label htmlFor="living">{t("editPage.residential")}</label>
                 </li>
                 <li className="radio-btn">
                   <input
@@ -424,38 +426,38 @@ const CreateProduct = () => {
                     onChange={changeHandler}
                     name="property_type"
                   />
-                  <label htmlFor="commercial">Коммерческая </label>
+                  <label htmlFor="commercial">{t("editPage.commercial")} </label>
                 </li>
               </ul>
-              <h5>Объект</h5>
+              <h5>{t("editPage.object")}</h5>
               <ul className="radio-list mb-50">
                 {[
                   {
-                    text: "Квартира",
+                    text: t("editPage.apartment"),
                     value: "квартира",
                   },
                   {
-                    text: "Комната",
+                    text: t("editPage.room"),
                     value: "комната",
                   },
                   {
-                    text: "Дача",
+                    text: t("editPage.countryHouse"),
                     value: "дача",
                   },
                   {
-                    text: "Дом",
+                    text: t("editPage.house"),
                     value: "дома",
                   },
                   {
-                    text: "Часть дома",
+                    text: t("editPage.partOfHouse"),
                     value: "участка",
                   },
                   {
-                    text: "Таунхаус",
+                    text: t("editPage.townHouse"),
                     value: "таунхаус",
                   },
                   {
-                    text: "Койко-место",
+                    text: t("editPage.bedSpace"),
                     value: "спальное",
                   },
                 ].map(({ text, value }) => (
@@ -473,7 +475,7 @@ const CreateProduct = () => {
                 ))}
 
               </ul>
-              <h5>Расположение</h5>
+              <h5>{t("editPage.location")}</h5>
               <div className="map mb-50">
                 <div className="map-info">
                   <h5>Где находится?</h5>
@@ -521,12 +523,12 @@ const CreateProduct = () => {
                   </YMaps>
                 </div>
               </div>
-              <h5>Изображения объекта</h5>
+              <h5>{t("editPage.objectImages")}</h5>
               <div className="image-upload mb-50">
                 <div className="image-outer">
                   <div className="image-outer-info">
                     <h5>Перетащите сюда свои изображения или нажмите сюда</h5>
-                    <p>Поддерживает: .jpg, .png, .jpeg</p>
+                    <p>{t("editPage.supportsImgExt")}</p>
                   </div>
                   <input
                     type="file"
@@ -546,12 +548,12 @@ const CreateProduct = () => {
                   ))}
                 </ul>
               </div>
-              <h5>Вся информация об объекте</h5>
+              <h5>{t("editPage.allInfoObjects")}</h5>
               <div className="sizes mb-50">
-                <p>Площадь, м² *</p>
+                <p>{t("editPage.area")}</p>
                 <div className="sizes-inputs">
                   <input
-                    placeholder="Общая"
+                    placeholder={t("editPage.general")}
                     type="number"
                     id="general"
                     name="pm_general"
@@ -559,7 +561,7 @@ const CreateProduct = () => {
                     required
                   />
                   <input
-                    placeholder="Жилая"
+                    placeholder={t("editPage.residential")}
                     name="pm_residential"
                     onChange={changeHandler}
                     type="number"
@@ -574,9 +576,9 @@ const CreateProduct = () => {
                   />
                 </div>
                 <div className="sizes-input">
-                  <label>Количество комнат *</label>
+                  <label>{t("editPage.numberOfRooms")}</label>
                   <input
-                    placeholder="Общая"
+                    placeholder={t("editPage.general")}
                     name="number_of_rooms"
                     type="number"
                     onChange={changeHandler}
@@ -584,9 +586,9 @@ const CreateProduct = () => {
                   />
                 </div>
                 <div className="sizes-input">
-                  <label>Этаж*</label>
+                  <label>{t("editPage.floor")}*</label>
                   <input
-                    placeholder="Общая"
+                    placeholder={t("editPage.general")}
                     name="floor"
                     type="number"
                     onChange={changeHandler}
@@ -594,9 +596,9 @@ const CreateProduct = () => {
                   />
                 </div>
                 <div className="sizes-input">
-                  <label>Этаж из*</label>
+                  <label>{t("editPage.floorFrom")}</label>
                   <input
-                    placeholder="Общая"
+                    placeholder={t("editPage.general")}
                     name="floor_from"
                     onChange={changeHandler}
                     type="number"
@@ -604,13 +606,13 @@ const CreateProduct = () => {
                   />
                 </div>
               </div>
-              <h5>Тип строения</h5>
+              <h5>{t("editPage.typeOfBuilding")}</h5>
               <ul className="radio-list mb-50">
                 {[
-                  { value: "кирпич", text: "Кирпич" },
-                  { value: "монолит", text: "Монолит" },
-                  { value: "панель", text: "Панель" },
-                  { value: "блочный", text: "Блочный" },
+                  { value: "кирпич", text: t("editPage.brick") },
+                  { value: "монолит", text: t("editPage.monolith") },
+                  { value: "панель", text: t("editPage.panel") },
+                  { value: "блочный", text: t("editPage.blocky") },
                 ].map((item) => (
                   <li className="radio-btn" key={item.value}>
                     <input
@@ -627,7 +629,7 @@ const CreateProduct = () => {
               </ul>
               <ul className="ipoteka-list mb-40">
                 <li className="radio-list">
-                  <h5>Ипотека</h5>
+                  <h5>{t("editPage.mortgage")}</h5>
                   <div className="radios">
                     <div className="radio-btn">
                       <input
@@ -637,7 +639,7 @@ const CreateProduct = () => {
                         onChange={changeHandler}
                         name="app_ipoteka"
                       />
-                      <label htmlFor="ipoteka-yes">да</label>
+                      <label htmlFor="ipoteka-yes">{t("editPage.yes")}</label>
                     </div>
                     <div className="radio-btn">
                       <input
@@ -647,7 +649,7 @@ const CreateProduct = () => {
                         name="app_ipoteka"
                         onChange={changeHandler}
                       />
-                      <label htmlFor="ipoteka-no">нет </label>
+                      <label htmlFor="ipoteka-no">{t("editPage.no")} </label>
                     </div>
                   </div>
                 </li>
@@ -662,7 +664,7 @@ const CreateProduct = () => {
                         onChange={changeHandler}
                         value={"true"}
                       />
-                      <label htmlFor="new-buildings-yes">да</label>
+                      <label htmlFor="new-buildings-yes">{t("editPage.yes")}</label>
                     </div>
                     <div className="radio-btn">
                       <input
@@ -672,7 +674,7 @@ const CreateProduct = () => {
                         onChange={changeHandler}
                         value={""}
                       />
-                      <label htmlFor="new-buildings-no">нет </label>
+                      <label htmlFor="new-buildings-no">{t("editPage.no")} </label>
                     </div>
                   </div>
                 </li>
@@ -687,7 +689,7 @@ const CreateProduct = () => {
                         onChange={changeHandler}
                         value={"true"}
                       />
-                      <label htmlFor="furnishings-yes">да</label>
+                      <label htmlFor="furnishings-yes">{t("editPage.yes")}</label>
                     </div>
                     <div className="radio-btn">
                       <input
@@ -697,12 +699,12 @@ const CreateProduct = () => {
                         value={""}
                         name="app_mebel"
                       />
-                      <label htmlFor="furnishings-no">нет </label>
+                      <label htmlFor="furnishings-no">{t("editPage.no")} </label>
                     </div>
                   </div>
                 </li>
               </ul>
-              <h5>Все удобства</h5>
+              <h5>{t("editPage.allAmenities")}</h5>
               <ul className="checkbox-list mb-40" id="amenities-list">
                 {aminitiesData?.map(({ title, id }, i) => (
                   <li key={i}>
@@ -770,21 +772,21 @@ const CreateProduct = () => {
               </div>
               <div className="btns">
                 <button className="btn btn-black" onClick={handeDraftData}>
-                  Сохранить как черновик
+                  {t("editPage.saveAsDraft")}
                 </button>
                 <button
                   className="btn btn-orange"
                   type="submit"
                   onClick={handleSubmit}
                 >
-                  Опубликовать объявление
+                  {t("editPage.postAnAdd")}
                 </button>
               </div>
             </form>
             <div className="create-product__right">
               <h5>Контактная информация</h5>
               <div className="form">
-                <h3>Вы зарегистрированы?</h3>
+                <h3>{t("login.areYouRegistered")}</h3>
                 <p>
                   Если вы уже зарегистрированы, нажмите на кнопку{" "}
                   <span
@@ -797,21 +799,21 @@ const CreateProduct = () => {
                       cursor: "pointer",
                     }}
                   >
-                    Войти
+                    {t("login.signIn")}
                   </span>
                   .{" "}
                 </p>
                 <form>
                   <div className="form-input">
-                    <label>Имя Фамилия*</label>
+                    <label>{t("editPage.fio")}*</label>
                     <input type="text" placeholder="ФИО" />
                   </div>
                   <div className="form-input">
-                    <label>Номер телефона*</label>
+                    <label>{t("editPage.phoneNumber")}*</label>
                     <input type="text" defaultValue="+998" />
                   </div>
                   <div className="form-input">
-                    <label>Дополнительный номер телефона!*</label>
+                    <label>{t("editPage.additionalPhone")}</label>
                     <input type="text" defaultValue="+998" />
                   </div>
                   <p>Telegram</p>

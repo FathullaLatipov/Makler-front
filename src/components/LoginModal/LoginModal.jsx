@@ -9,12 +9,14 @@ import $host from "../../http";
 import PhoneInput from "../PhoneInput/PhoneInput";
 import usePrevious from "../../hooks/usePreviosState";
 import {useCookies} from "react-cookie";
+import { useTranslation } from "react-i18next";
 
 const LoginModal = () => {
   const { loginModalFunc, getUserId, fromUser } = useContext(ContextApp);
   const [ step, setStep ] = useState(1);
   const prevStep = usePrevious(step);
   const [cookie, setCookie] = useCookies();
+  const { t } = useTranslation();
   
   const [da, setDa] = useState();
   const { form, changeHandler } = useForm({
@@ -140,7 +142,7 @@ const LoginModal = () => {
 
         {step === 1 ? (
           <>
-            <h4>Войти</h4>
+            <h4>{t("login.signIn")}</h4>
             <p>
               Пожалуйста, введите номер телефона, который подтвердил вашу учетную
               запись!
@@ -155,12 +157,12 @@ const LoginModal = () => {
             <form onSubmit={handeSubmit}>
               <div className="form-input">
                 <PhoneInput 
-                  labelName="Номер телефона" 
+                  labelName={t("editPage.phoneNumber")}
                   changeHandler={changeHandler}
                   value={form.number}
                 />
 
-                <label className="mt-4">Пароль</label>
+                <label className="mt-4">{t("editPage.password")}</label>
     
                 <input
                   type="password"
@@ -170,16 +172,16 @@ const LoginModal = () => {
                 />
 
                 <button className="btn btn-orange">
-                  Войти
+                  {t("login.signIn")}
                 </button>
               </div>
             </form>
 
-            <div className="default-link" onClick={() => changeStep(2)}>Зарегистрироваться</div>
+            <div className="default-link" onClick={() => changeStep(2)}>{t("login.register")}</div>
           </>
         ) : step === 2 ? (
           <>
-            <h4>Зарегистрироваться</h4>
+            <h4>{t("login.register")}</h4>
             <p>
               Пожалуйста, введите номер телефона, который подтвердил вашу учетную
               запись!
@@ -194,12 +196,12 @@ const LoginModal = () => {
             <form onSubmit={handeSubmit}>
               <div className="form-input">
                 <PhoneInput 
-                  labelName="Номер телефона" 
+                  labelName={t("editPage.phoneNumber")} 
                   changeHandler={changeHandler}
                   value={form.number}
                 />
 
-                <label className="mt-4">Пароль</label>
+                <label className="mt-4">{t("editPage.password")}</label>
     
                 <input
                   type="password"
@@ -219,12 +221,12 @@ const LoginModal = () => {
 
                 <button className="btn btn-orange">
                   {/* Подтвердить номер телефона */}
-                  Зарегистрироваться
+                  {t("login.register")}
                 </button>
               </div>
             </form>
 
-            <div className="default-link" onClick={() => changeStep(1)}>Войти</div>
+            <div className="default-link" onClick={() => changeStep(1)}>{t("login.signIn")}</div>
           </>
         ) : step === 3 && (
           <>

@@ -22,7 +22,7 @@ const Navbar = () => {
     industria: t("navbar.industria"),
     mebel: t("navbar.furniture"),
     cabinet: t("navbar.cabinet"),
-    "save-products": "Избранные",
+    "save-products": t("navbar.favorites"),
     aboutus: "О нас"
   };
 

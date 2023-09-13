@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useTransition } from "react";
 import avatar_image from "./../../assets/img/avatar_change.png";
 import { useState, useRef, useEffect } from "react";
 import sprite from "../../assets/img/symbol/sprite.svg";
@@ -26,6 +26,7 @@ import { LoadingPost } from "../../components";
 import { useContext } from "react";
 import ContextApp from "../../context/context";
 import $host, {WEB_URL} from "../../http";
+import { useTranslation } from "react-i18next";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -56,6 +57,7 @@ export default function CreateIndustriya() {
     view: null,
   });
   const [storeAminities, setStoreAminities] = useState([]);
+  const { t } = useTranslation();
 
   const fetchData = async () => {
     const amenitites = await $host.get("/store2/api/v1/store/amenitites");
@@ -237,11 +239,11 @@ export default function CreateIndustriya() {
               Создайте свой товар
             </h1>
             <p className="edit__card__text">
-              Объявление будет доступно на{" "}
+              {t("editPage.announcementWillBeAvailable")}{" "}
               <a target={"_blank"} className="text__link" href={WEB_URL}>
                 Makler.uz
               </a>{" "}
-              и в наших мобильных приложениях
+             {t("editPage.andInOurMobileApp")}
             </p>
             <div className="card__header">
               <img
@@ -257,7 +259,7 @@ export default function CreateIndustriya() {
               />
               <div className="image__card">
                 <p className="avatar__name">
-                  Загрузите фото профиля или логотип компании
+                  {t("editPage.uploadAvatarImage")}
                 </p>
                 <label
                   htmlFor="file"
@@ -296,7 +298,7 @@ export default function CreateIndustriya() {
                   />
                 </label>
                 <label id="email" htmlFor="">
-                  <span>Электронная почта</span>
+                  <span>{t("editPage.email")}</span>
                   <input
                     name={"email"}
                     onChange={changeHandler}
@@ -310,7 +312,7 @@ export default function CreateIndustriya() {
                     marginTop: "1rem",
                   }}
                 >
-                  <span>Номер телефона | Ваше логин</span>
+                  <span>{t("editPage.phoneNumberAndLogin")}</span>
                   <input
                     name={"phoneNumber"}
                     onChange={changeHandler}
@@ -320,7 +322,7 @@ export default function CreateIndustriya() {
                 </label>
               </div>
               <label htmlFor="">
-                <span className="text__area">Краткое описание о себе</span>
+                <span className="text__area">{t("editPage.shortDescriptionAboutMe")}</span>
                 <textarea
                   style={{
                     width: "100%",
@@ -329,7 +331,7 @@ export default function CreateIndustriya() {
                   name="description"
                   onChange={changeHandler}
                   id=""
-                  placeholder="пусто"
+                  placeholder={t("editPage.empty")}
                 ></textarea>
               </label>
               <div
@@ -475,9 +477,9 @@ export default function CreateIndustriya() {
             <div className="second-card">
               <div className="second__card">
                 <h2 className="second__card__title">
-                  Выберите раздел и специализацию *
+                  {t("editPage.selectSectionAndSpecialization")}
                 </h2>
-                <p className="second__card__text">Введите род деятельности!</p>
+                <p className="second__card__text">{t("editPage.enterYourOcupation")}</p>
               </div>
               <FormControl sx={{ m: 0, width: "100%", bgcolor: "white" }}>
                 <InputLabel id="demo-multiple-chip-label">---</InputLabel>
@@ -519,7 +521,7 @@ export default function CreateIndustriya() {
                 </Select>
               </FormControl>
             </div>
-            <h5>Расположение</h5>
+            <h5>{t("editPage.location")}</h5>
             <div
               className="map"
               style={{
@@ -573,12 +575,12 @@ export default function CreateIndustriya() {
                 marginTop: "2rem",
               }}
             >
-              <h5>Изображения объекта</h5>
+              <h5>{t("editPage.objectImages")}</h5>
               <div className="image-upload mb-50">
                 <div className="image-outer">
                   <div className="image-outer-info">
                     <h5>Перетащите сюда свои изображения или нажмите сюда</h5>
-                    <p>Поддерживает: .jpg, .png, .jpeg</p>
+                    <p>{t("editPage.supportsImgExt")}</p>
                   </div>
                   <input
                     type="file"
@@ -645,7 +647,7 @@ export default function CreateIndustriya() {
                 id=""
               />
               <span className="checkbox__text">
-                Я прочитал и согласен с условиями использования и публикации!
+                {t("editPage.agreeWithTerms")}
               </span>
             </div>
 
@@ -667,7 +669,7 @@ export default function CreateIndustriya() {
                 <h2 className="right__card__title">
                   Краткое описание о нашем сервисе
                 </h2>
-                <p className="edit__card__text">Регистрация как мастер</p>
+                <p className="edit__card__text">{t("editPage.registerAsMaster")}</p>
                 <p>
                 В скором времени вы сможете опубликовать объявления и поднять в ТОП!
                 </p>

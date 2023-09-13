@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import spirite from "../../assets/img/symbol/sprite.svg";
+import { useTranslation } from "react-i18next";
 
 const Filter = React.memo(({ value, change, start }) => {
   const [show1, setShow1] = useState(false);
   const [show2, setShow2] = useState(false);
   const [print, setPrint] = useState("");
+  const { t } = useTranslation();
 
   return (
     <section className="main-s">
@@ -57,7 +59,7 @@ const Filter = React.memo(({ value, change, start }) => {
                         value.typeRoom === "купить" ? "active" : ""
                       }`}
                     >
-                      купить
+                      {t("editPage.buy")}
                       <input
                         type="text"
                         id="roomtype2"
@@ -79,7 +81,7 @@ const Filter = React.memo(({ value, change, start }) => {
                         value.typeRoom === "продать" ? "active" : ""
                       }`}
                     >
-                      продать
+                      {t("editPage.sell")}
                       <input
                         type="text"
                         id="roomtype3"
@@ -107,7 +109,7 @@ const Filter = React.memo(({ value, change, start }) => {
                   cursor: "pointer",
                 }}
               >
-                <span>{print ? print : "Квартиру"}</span>
+                <span>{print ? print : t("editPage.apartment")}</span>
                 <svg className="svg-sprite-icon icon-fi_chevron-down w-12">
                   <use href={`${spirite}#fi_chevron-down`}></use>
                 </svg>
@@ -116,15 +118,15 @@ const Filter = React.memo(({ value, change, start }) => {
                 <ul>
                   {[
                     {
-                      label: "Квартиру",
+                      label: t("editPage.apartment"),
                       value: "квартира",
                     },
                     {
-                      label: "Комната",
+                      label: t("editPage.room"),
                       value: "комната",
                     },
                     {
-                      label: "Дача",
+                      label: t("editPage.countryHouse"),
                       value: "дача",
                     },
                   ].map((item, i) => (
@@ -192,7 +194,7 @@ const Filter = React.memo(({ value, change, start }) => {
               </div>
             </li>
             <li className="nav-search_address">
-              <label className="nav-label">Адрес</label>
+              <label className="nav-label">{t("editPage.address")}</label>
               <a>
                 <svg className="svg-sprite-icon icon-fi_navigation w-16">
                   <use href={`${spirite}#fi_navigation`}></use>
@@ -207,7 +209,7 @@ const Filter = React.memo(({ value, change, start }) => {
               </a>
             </li>
             <li className="nav-search_rooms">
-              <label className="nav-label">Кол-во комнат</label>
+              <label className="nav-label">{t("singleProduct.numberOfRooms")}</label>
               <ul className="rooms-list" id="choose-room">
                 {[1, 2, 3, 4, 5].map((item) => (
                   <li key={item}>

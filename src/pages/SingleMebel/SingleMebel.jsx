@@ -10,15 +10,16 @@ import axios from "axios";
 import { baseURL } from "../../requests/requests";
 import Loading from "../../components/Loading/Loading";
 import { useLocation, useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const SingleMebel = () => {
   const locat = useLocation();
   const [recomendData, setRecomendedData] = useState([]);
   const [loading, setLaoding] = useState(true);
-  const [storeData, setStoreData] = useState([]);
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const { id } = useParams();
+  const { t } = useTranslation();
 
   useEffect(() => {
     axios
@@ -79,7 +80,7 @@ const SingleMebel = () => {
                 </div>
               </div>
               <div className="app__worker-right">
-                <h1>Описание</h1>
+                <h1>{t("singleProduct.description")}</h1>
                 <p>{data?.long_descriptions}</p>
               </div>
             </div>
