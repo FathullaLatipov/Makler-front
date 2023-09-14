@@ -14,7 +14,7 @@ const Filter = React.memo(({ value, change, start }) => {
         <div className="container">
           <ul className="nav-search-body">
             <li className="nav-search_how select-choose">
-              <label className="nav-label">Как</label>
+              <label className="nav-label">{t("editPage.how")}</label>
               <div
                 className="choose-btn choose-btn-round"
                 id="choose-how"

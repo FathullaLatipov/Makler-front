@@ -144,7 +144,7 @@ const SingleProduct = () => {
                   {houseData?.price} {houseData?.price_type?.price_t}
                 </strong>
                 <a className="btn btn-orange" href="tel:035252434">
-                  Позвонить продавцу
+                  {t("singleProduct.callTheSeller")}
                 </a>
               </div>
 
@@ -153,7 +153,7 @@ const SingleProduct = () => {
                     className="btn btn-white"
                     onClick={shareLink}
                 >
-                  Поделиться
+                  {t("singleProduct.share")}
                   <ShareSvg/>
                 </button>
                 {userData && (
@@ -161,7 +161,7 @@ const SingleProduct = () => {
                         className={`add-favorite btn ${hasInWishlist ? "btn-orange" : "btn-white"}`}
                         onClick={addToFavorites}
                     >
-                      {hasInWishlist ? "В избранные" : "Удалить с избранного"}
+                      {hasInWishlist ? t("singleProduct.addToFavorites") : t("singleProduct.removeFromFavorites")}
                       <FavoriteSvg isActive={!hasInWishlist}/>
                     </button>
                 )}

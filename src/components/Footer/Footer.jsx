@@ -70,7 +70,7 @@ const Footer = () => {
         <div className="container">
           <div className="footer__center-body">
             <p>
-              Makleruz.uz - Поиск все что угодно для вашего дома и комфорта
+              Makleruz.uz - {t("footer.footerText")}
             </p>
             <ul>
               <li>
@@ -118,7 +118,7 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a href="https://t.me/makleruzuz">
                   <svg className="svg-sprite-icon icon-telegram w-12">
                     <use href={`${spirite}#telegram`}></use>
                   </svg>

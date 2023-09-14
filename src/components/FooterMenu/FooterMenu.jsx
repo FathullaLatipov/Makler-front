@@ -3,157 +3,157 @@ import {useTranslation} from "react-i18next";
 const menu = [
   [
     {
-      label: "Новостройки",
+      label: "footer.buildings",
       value: "",
     },
     {
-      label: "Земельные",
+      label: "footer.land",
       value: "",
     },
     {
-      label: "Выбор риелтораа",
+      label: "footer.choosingRealtor",
       value: "",
     },
     {
-      label: "Застройщики",
+      label: "footer.developers",
       value: "",
     },
     {
-      label: "Рекомендуемые",
+      label: "footer.recommend",
       value: "",
     },
     {
-      label: "Квартиры",
-      value: "",
-    },
-  ],
-  [
-    {
-      label: "Новостройки",
-      value: "",
-    },
-    {
-      label: "Земельные",
-      value: "",
-    },
-    {
-      label: "Выбор риелтора",
-      value: "",
-    },
-    {
-      label: "Застройщики",
-      value: "",
-    },
-    {
-      label: "Рекомендуемые",
-      value: "",
-    },
-    {
-      label: "Квартиры",
+      label: "footer.appartments",
       value: "",
     },
   ],
   [
     {
-      label: "Новостройки",
+      label: "footer.buildings",
       value: "",
     },
     {
-      label: "Земельные",
+      label: "footer.land",
       value: "",
     },
     {
-      label: "Выбор риелтора",
+      label: "footer.choosingRealtor",
       value: "",
     },
     {
-      label: "Застройщики",
+      label: "footer.developers",
       value: "",
     },
     {
-      label: "Рекомендуемые",
+      label: "footer.recommend",
       value: "",
     },
     {
-      label: "Квартиры",
-      value: "",
-    },
-  ],
-  [
-    {
-      label: "Новостройки",
-      value: "",
-    },
-    {
-      label: "Земельные",
-      value: "",
-    },
-    {
-      label: "Выбор риелтора",
-      value: "",
-    },
-    {
-      label: "Застройщики",
-      value: "",
-    },
-    {
-      label: "Рекомендуемые",
-      value: "",
-    },
-    {
-      label: "Квартиры",
+      label: "footer.appartments",
       value: "",
     },
   ],
   [
     {
-      label: "Новостройки",
+      label: "footer.buildings",
       value: "",
     },
     {
-      label: "Земельные",
+      label: "footer.land",
       value: "",
     },
     {
-      label: "Выбор риелтора",
+      label: "footer.choosingRealtor",
       value: "",
     },
     {
-      label: "Застройщики",
+      label: "footer.developers",
       value: "",
     },
     {
-      label: "Рекомендуемые",
+      label: "footer.recommend",
       value: "",
     },
     {
-      label: "Квартиры",
+      label: "footer.appartments",
       value: "",
     },
   ],
   [
     {
-      label: "Новостройки",
+      label: "footer.buildings",
       value: "",
     },
     {
-      label: "Земельные",
+      label: "footer.land",
       value: "",
     },
     {
-      label: "Выбор риелтора",
+      label: "footer.choosingRealtor",
       value: "",
     },
     {
-      label: "Застройщики",
+      label: "footer.developers",
       value: "",
     },
     {
-      label: "Рекомендуемые",
+      label: "footer.recommend",
       value: "",
     },
     {
-      label: "Квартиры",
+      label: "footer.appartments",
+      value: "",
+    },
+  ],
+  [
+    {
+      label: "footer.buildings",
+      value: "",
+    },
+    {
+      label: "footer.land",
+      value: "",
+    },
+    {
+      label: "footer.choosingRealtor",
+      value: "",
+    },
+    {
+      label: "footer.developers",
+      value: "",
+    },
+    {
+      label: "footer.recommend",
+      value: "",
+    },
+    {
+      label: "footer.appartments",
+      value: "",
+    },
+  ],
+  [
+    {
+      label: "footer.buildings",
+      value: "",
+    },
+    {
+      label: "footer.land",
+      value: "",
+    },
+    {
+      label: "footer.choosingRealtor",
+      value: "",
+    },
+    {
+      label: "footer.developers",
+      value: "",
+    },
+    {
+      label: "footer.recommend",
+      value: "",
+    },
+    {
+      label: "footer.appartments",
       value: "",
     },
   ],
@@ -172,7 +172,7 @@ const FooterMenu = () => {
               <ul key={i}>
                 {item.map(({ label, value }, i) => (
                   <li key={i}>
-                    <a href={value}>{label}</a>
+                    <a href={value}>{t(label)}</a>
                   </li>
                 ))}
               </ul>

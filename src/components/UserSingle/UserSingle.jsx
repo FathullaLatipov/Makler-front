@@ -1,7 +1,6 @@
 import "./UserSingle.scss";
 import { ProductSingle, SliderContent, UserCard } from "../../components";
 import { useEffect, useState } from "react";
-import { baseURL } from "../../requests/requests";
 import { toast } from "react-toastify";
 import Loading from "../Loading/Loading";
 import { useLocation } from "react-router-dom";
@@ -115,7 +114,7 @@ const UserSingle = ({ data, id }) => {
                   >
                     {locat.pathname.includes("master")
                       ? "Позвонить по номеру"
-                      : t("cabinet.call")}
+                      : t("singleProduct.call")}
                   </a>
                 </div>
               </div>

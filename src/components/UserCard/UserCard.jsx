@@ -1,9 +1,11 @@
 import React from "react";
 import "./UserCard.css";
-import UserImg from "../../assets/img/avatar-big.png";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const UserCard = ({ data, mebel }) => {
+  const { t } = useTranslation();
+
   return (
     <Link
       to={
@@ -53,7 +55,7 @@ const UserCard = ({ data, mebel }) => {
                 <p className="user-level">{data?.short_descriptions}</p>
               ) : (
                 <p className="user-level">
-                  Мастер, {data.experience} года опыта
+                  {t("navbar.master")}, {data.experience}{t("cabinet.yearExperience")}
                 </p>
               )}
             </div>

@@ -43,7 +43,14 @@ i18next
                         help: "Помощь",
                         support: "Тех поддержка",
                         termsofuse: "Условия использование",
-                        privacypolicy: "Политика конфеденциалности"
+                        privacypolicy: "Политика конфеденциалности",
+                        buildings: "Новостройки",
+                        land: "Земельные",
+                        choosingRealtor: "Выбор риелтора",
+                        developers: "Застройщики",
+                        recommend: "Рекомендуемые",
+                        appartments: "Квартиры",
+                        footerText: "Поиск все что угодно для вашего дома и комфорта"
                     },
                     cabinet: {
                         addToTheTop: "Продвигайте свое объявление в ТОП!",
@@ -56,7 +63,8 @@ i18next
                         myAnnouncements: "Мои объявления",
                         archive: "Архив",
                         draft: "Черновик",
-                        setUpProfile: "Настроить профиль"
+                        setUpProfile: "Настроить профиль",
+                        yearExperience: " года опыта"
                     },
                     editPage: {
                         uploadAvatarImage: "Загрузите фото профиля или логотип компании",
@@ -119,11 +127,13 @@ i18next
                         daily: "Посуточно",
                         forFewMonths: "На несколько месяцев",
                         sell: "Продать",
-                        buy: "Купить"
+                        buy: "Купить",
+                        how: "Как"
                     },
                     filter: {
                         forHome: "для дома",
-                        forKitchen: "для кухни"
+                        forKitchen: "для кухни",
+                        activitiesMaster: "Деятельности мастера"
                     },
                     singleProduct: {
                         description: "Описание",
@@ -132,7 +142,11 @@ i18next
                         numberOfRooms: "Кол-во комнат",
                         totalArea: "Общая плошадь",
                         furniture: "Мебелирование",
-                        call: "Позвонить"
+                        call: "Позвонить",
+                        callTheSeller: "Позвонить продавцу",
+                        share: "Поделиться",
+                        addToFavorites: "В избранные",
+                        removeFromFavorites: "Удалить с избранного"
                     },
                     login: {
                         register: "Зарегистрироваться",
@@ -177,6 +191,13 @@ i18next
                         support: "Texnik yordam",
                         termsofuse: "Foydalanish shartlari",
                         privacypolicy: "Maxfiylik siyosati",
+                        buildings: "Yangi binolar",
+                        land: "Yer",
+                        choosingRealtor: "Rieltor tanlash",
+                        developers: "Dasturchilar",
+                        recommend: "Tavsiya etilgan",
+                        appartments: "Kvartiralar",
+                        footerText: "Uyingiz va barcha qulayligingiz uchun"
                     },
                     cabinet: {
                         addToTheTop: "E'loningizni TOP ga ko'taring!",
@@ -188,7 +209,8 @@ i18next
                         saveChanges: "O'zgartirishlarni saqlash",
                         myAnnouncements: "Mening e'lonlarim",
                         archive: "Arxiv",
-                        draft: "Qoralama"
+                        draft: "Qoralama",
+                        yearExperience: " yil tajriba ga ega"
                     },
                     editPage: {
                         uploadAvatarImage: "Profil rasmini yoki kompaniya logotipini yuklang",
@@ -251,11 +273,13 @@ i18next
                         daily: "Kunlik",
                         forFewMonths: "Bir necha oy",
                         sell: "Sotish",
-                        buy: "Sotib olish"
+                        buy: "Sotib olish",
+                        how: "Turi"
                     },
                     filter: {
                         forHome: "uy uchun",
-                        forKitchen: "oshxona uchun"
+                        forKitchen: "oshxona uchun",
+                        activitiesMaster: "Quruvchilar faoliyati"
                     },
                     singleProduct: {
                         description: "Tavsif",
@@ -264,7 +288,11 @@ i18next
                         numberOfRooms: "Xonalar soni",
                         totalArea: "Umumiy maydoni",
                         furniture: "Mebel bilan jihozlangani",
-                        call: "Qo'ng'iroq qilish"
+                        call: "Qo'ng'iroq qilish",
+                        callTheSeller: "Sotuvchiga qo'ng'iroq qilish",
+                        share: "Ulashish",
+                        addToFavorites: "Sevimlilarga qo'shish",
+                        removeFromFavorites: "Sevimlilardan olib tashlash"
                     },
                     login: {
                         register: "Ro'yxatdan o'tish",

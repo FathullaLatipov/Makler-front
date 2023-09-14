@@ -52,7 +52,7 @@ const FilterWorker = ({ change, value }) => {
         <div className="container">
           <ul className="nav-search-body">
             <li className="nav-search_how select-choose">
-              <label className="nav-label">Как</label>
+              <label className="nav-label">{t("editPage.how")}</label>
               <span
                 onClick={() => setShow1((prev) => !prev)}
                 className="choose-btn choose-btn-round"
@@ -97,7 +97,7 @@ const FilterWorker = ({ change, value }) => {
               </div>
             </li>
             <li className="nav-search_type select-choose">
-              <label className="nav-label">Деятельности мастера</label>
+              <label className="nav-label">{t("filter.activitiesMaster")}</label>
               <a
                 className="choose-btn choose-btn-link"
                 id="choose-type"
