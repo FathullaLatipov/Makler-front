@@ -109,7 +109,7 @@ const UserSettings = ({ name, email, password, number, img }) => {
                 className="btn btn-border-orange"
                 onClick={handleClick}
             >
-              Изменить фото профиля{" "}
+              {t("create.changeAvatarImg")}{" "}
             </button>
 
           </div>

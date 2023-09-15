@@ -64,11 +64,12 @@ const FilterMebel = ({ change, value }) => {
                         <input
                           type="text"
                           id={`category${item.id}`}
-                          name="category"
+                          name="brand_id"
                           value={item.id}
                           onClick={(e) => {
                             change(e);
                             setShow1(false);
+                            setProfess(item.title);
                           }}
                           onChange={change}
                           style={{ display: "none" }}
@@ -79,102 +80,6 @@ const FilterMebel = ({ change, value }) => {
                 </ul>
               </div>
             </li>
-            {/* <li className="nav-search_type select-choose">
-              <label className="nav-label">Тип</label>
-              <a
-                className="choose-btn choose-btn-link"
-                id="choose-type"
-                onClick={() => setShow2((prev) => !prev)}
-                style={{
-                  cursor: "pointer",
-                }}
-              >
-                <span>{profess ? profess : "для кухни"}</span>
-                <svg className="svg-sprite-icon icon-fi_chevron-down w-12">
-                  <use href={`${spirite}#fi_chevron-down`}></use>
-                </svg>
-              </a>
-              <div className={`nav-body-choose ${show2 ? "active" : ""}`}>
-                <ul>
-                  {option1.map((item) => (
-                    <li key={item.id}>
-                      <label
-                        htmlFor={`useFor${item.id}`}
-                        className={`btn btn-orange-light ${
-                          Number(useFor) === item.id ? "active" : ""
-                        }`}
-                      >
-                        {item.title}
-                        <input
-                          type="text"
-                          id={`useFor${item.id}`}
-                          name="useFor"
-                          value={item.id}
-                          onClick={(e) => {
-                            change(e);
-                            setShow2(false);
-                          }}
-                          onChange={change}
-                          style={{ display: "none" }}
-                        />
-                      </label>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </li> */}
-            {/* <li className="nav-search_type select-choose">
-              <label className="nav-label">Бренд</label>
-              <a
-                className="choose-btn choose-btn-link"
-                id="choose-type"
-                onClick={() => setShow3((prev) => !prev)}
-                style={{
-                  cursor: "pointer",
-                }}
-              >
-                <span>{profess3 ? profess3 : "Samsung"}</span>
-                <svg className="svg-sprite-icon icon-fi_chevron-down w-12">
-                  <use href={`${spirite}#fi_chevron-down`}></use>
-                </svg>
-              </a>
-              <div
-                className={`nav-body-choose ${
-                  show3 ? "active" : ""
-                } brand_select`}
-                style={{
-                  maxHeight: "15rem",
-                  overflowY: "auto",
-                }}
-              >
-                <ul>
-                  {option3?.map((item) => (
-                    <li key={item.id}>
-                      <label
-                        htmlFor={`brand_title${item.id}`}
-                        className={`btn btn-orange-light ${
-                          Number(brand_title) === item.id ? "active" : ""
-                        }`}
-                      >
-                        {item.title}
-                        <input
-                          type="text"
-                          id={`brand_title${item.id}`}
-                          name="brand_title"
-                          value={item.id}
-                          onClick={(e) => {
-                            change(e);
-                            setShow3(false);
-                          }}
-                          onChange={change}
-                          style={{ display: "none" }}
-                        />
-                      </label>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </li> */}
             <li className="nav-search_address mb-0">
               <label className="nav-label">{t("editPage.address")}</label>
               <a>

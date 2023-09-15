@@ -268,7 +268,7 @@ export default function CreateIndustriya() {
                     cursor: "pointer",
                   }}
                 >
-                  Изменить фото профиля
+                  {t("create.changeAvatarImg")}
                 </label>
                 <input
                   type={"file"}
@@ -416,7 +416,7 @@ export default function CreateIndustriya() {
                 <div className="form-price">
                   <input
                     type="number"
-                    placeholder="Стоимость"
+                    placeholder={t("create.price")}
                     required
                     name="price"
                     onChange={changeHandler}
@@ -529,7 +529,7 @@ export default function CreateIndustriya() {
               }}
             >
               <div className="map-info">
-                <h5>Где находится?</h5>
+                <h5>{t("create.whereIs")}</h5>
                 <div className="map-address">
                   <input
                     ref={searchRef}
@@ -579,7 +579,7 @@ export default function CreateIndustriya() {
               <div className="image-upload mb-50">
                 <div className="image-outer">
                   <div className="image-outer-info">
-                    <h5>Перетащите сюда свои изображения или нажмите сюда</h5>
+                    <h5>{t("create.dragImageText")}</h5>
                     <p>{t("editPage.supportsImgExt")}</p>
                   </div>
                   <input
@@ -659,7 +659,7 @@ export default function CreateIndustriya() {
                   cursor: "pointer",
                 }}
               >
-                Зарегистрироватся
+                 {t("create.register")}
               </button>
             </div>
           </form>

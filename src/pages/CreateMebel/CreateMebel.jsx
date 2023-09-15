@@ -146,7 +146,7 @@ export default function CreateMebel() {
         <div className="create-product edit-page">
           <form className="create-product__left" onSubmit={handleSubmit}>
             <h1 className="edit__card__title">
-              Создайте и продавайте мебели
+              {t("create.createFurniture")}
             </h1>
             <p className="edit__card__text">
               {t("editPage.announcementWillBeAvailable")}{" "}
@@ -162,7 +162,7 @@ export default function CreateMebel() {
 
               >
                 <label htmlFor="">
-                  <span>Мебельные названия</span>
+                  <span>{t("create.furnitureNames")}</span>
                   <input
                     name={"title"}
                     onChange={changeHandler}
@@ -183,7 +183,7 @@ export default function CreateMebel() {
                 </label>
               </div>
               <label htmlFor="">
-                <span className="text__area">Краткое описание</span>
+                <span className="text__area">{t("editPage.shortDescription")}</span>
                 <textarea
                   style={{
                     width: "100%",
@@ -290,7 +290,7 @@ export default function CreateMebel() {
                 <div className="form-price">
                   <input
                     type="number"
-                    placeholder="Стоимость"
+                    placeholder={t("create.price")}
                     required
                     name="price"
                     onChange={changeHandler}
@@ -357,7 +357,7 @@ export default function CreateMebel() {
               }}
             >
               <div className="map-info">
-                <h5>Где находится?</h5>
+                <h5>{t("create.whereIs")}</h5>
                 <div className="map-address">
                   <input
                     ref={searchRef}
@@ -407,7 +407,7 @@ export default function CreateMebel() {
               <div className="image-upload mb-50">
                 <div className="image-outer">
                   <div className="image-outer-info">
-                    <h5>Перетащите сюда свои изображения или нажмите сюда</h5>
+                    <h5>{t("create.dragImageText")}</h5>
                     <p>{t("editPage.supportsImgExt")}</p>
                   </div>
                   <input
@@ -452,7 +452,7 @@ export default function CreateMebel() {
                   cursor: "pointer",
                 }}
               >
-                Зарегистрироватся
+                 {t("create.register")}
               </button>
             </div>
           </form>

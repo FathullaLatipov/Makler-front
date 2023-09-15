@@ -309,15 +309,14 @@ const EditHouse = () => {
           <div className="create-product">
             <form className="create-product__left" id="create-product">
               <h2>
-                Добавить новое <br />
-                объявление
+                {t("create.title")}
               </h2>
               <p className="subtitle">
                 {t("editPage.announcementWillBeAvailable")}
                 <a href="makler.uz">Makler.uz</a> и
                 {t("editPage.andInOurMobileApp")}
               </p>
-              <h5>Заголовка объявления</h5>
+              <h5>{t("create.adTitle")}</h5>
               <div className="form-input">
                 <input
                   placeholder={t("editPage.empty")}
@@ -345,7 +344,7 @@ const EditHouse = () => {
               <div className="form-price">
                 <input
                   type="number"
-                  placeholder="Стоимость"
+                  placeholder={t("create.price")}
                   value={form.price}
                   required
                   name="price"
@@ -542,7 +541,7 @@ const EditHouse = () => {
               <h5>{t("editPage.location")}</h5>
               <div className="map mb-50">
                 <div className="map-info">
-                  <h5>Где находится?</h5>
+                  <h5>{t("create.whereIs")}</h5>
                   <div className="map-address">
                     <input
                       ref={searchRef}
@@ -718,7 +717,7 @@ const EditHouse = () => {
                   </div>
                 </li>
                 <li className="radio-list">
-                  <h5>Новостройка</h5>
+                  <h5>{t("create.buildings")}</h5>
                   <div className="radios">
                     <div className="radio-btn">
                       <input
@@ -745,7 +744,7 @@ const EditHouse = () => {
                   </div>
                 </li>
                 <li className="radio-list">
-                  <h5>Меблирована</h5>
+                  <h5>{t("create.furnished")}</h5>
                   <div className="radios">
                     <div className="radio-btn">
                       <input
@@ -859,8 +858,7 @@ const EditHouse = () => {
                 <input type="checkbox" id="confirm-data" />
                 <label htmlFor="confirm-data">
                   <p>
-                    Я прочитал и согласен с условиями использования <br />и
-                    публикации!
+                  {t("create.agreeWithTerms")}
                   </p>
                   <svg className="svg-sprite-icon icon-check w-12">
                     <use href={`${sprite}#check`}></use>

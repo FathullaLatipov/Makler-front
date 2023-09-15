@@ -6,11 +6,10 @@ import {
   UserCard,
 } from "../../components";
 import { useEffect, useState } from "react";
-import axios from "axios";
-import { baseURL } from "../../requests/requests";
 import Loading from "../../components/Loading/Loading";
 import { useLocation, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import $host from "../../http";
 
 const SingleMebel = () => {
   const locat = useLocation();
@@ -22,8 +21,8 @@ const SingleMebel = () => {
   const { t } = useTranslation();
 
   useEffect(() => {
-    axios
-      .get(`${baseURL}/mebel/api/v1/mebels/${id}`)
+    $host
+      .get(`mebel/api/v1/mebels/${id}`)
       .then((data) => setData(data.data))
       .catch((err) => console.log(err))
       .finally(() => setLaoding(false));
@@ -31,8 +30,8 @@ const SingleMebel = () => {
 
   useEffect(() => {
     setLaoding(true);
-    axios
-      .get(`${baseURL}/mebel/api/v1/mebels/popular`)
+    $host
+      .get(`mebel/api/v1/mebels/popular`)
       .then((data) => setRecomendedData(data.data.results))
       .catch((err) => console.log(err))
       .finally(() => setLaoding(false));

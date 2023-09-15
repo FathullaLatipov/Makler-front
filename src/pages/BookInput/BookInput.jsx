@@ -20,7 +20,7 @@ export default function BookInput() {
               <p className="avatar__name">
                 {t("editPage.uploadAvatarImage")}
               </p>
-              <button className="change__btn">Изменить фото профиля</button>
+              <button className="change__btn">{t("create.changeAvatarImg")}</button>
             </div>
           </div>
           <div className="editpage__input">
@@ -91,7 +91,7 @@ export default function BookInput() {
 
           <div className="register">
             <form action="">
-              <button className="register__btn">Зарегистрироватся</button>
+              <button className="register__btn"> {t("create.register")}</button>
             </form>
           </div>
         </div>

@@ -303,7 +303,7 @@ export default function EditStore() {
         <div className="create-product edit-page">
           <form className="create-product__left" onSubmit={handleSubmit}>
             <h1 className="edit__card__title">
-              Регистрируйтес как мастер, получите работы
+              {t("create.registerAsMaster")}
             </h1>
             <p className="edit__card__text">
             {t("editPage.announcementWillBeAvailable")}{" "}
@@ -312,46 +312,6 @@ export default function EditStore() {
               </a>{" "}
              {t("editPage.andInOurMobileApp")}
             </p>
-            {/* <div className="card__header">
-              <img
-                className="avatar__img"
-                src={imgUrl.brand ? imgUrl.brand : avatar_image}
-                alt="avatar image"
-                width={"96px"}
-                height={"96px"}
-                style={{
-                  borderRadius: "50%",
-                  objectFit: "cover",
-                }}
-              />
-              <div className="image__card">
-                <p className="avatar__name">
-                  Загрузите фото профиля или логотп компании
-                </p>
-                <label
-                  htmlFor="file"
-                  className="change__btn"
-                  style={{
-                    cursor: "pointer",
-                  }}
-                >
-                  Изменить фото профиля
-                </label>
-                <input
-                  type={"file"}
-                  onChange={(e) => {
-                    fileHandle(e.target.files[0], "brand");
-                    imgHandle(e);
-                  }}
-                  name="brandImg"
-                  id="file"
-                  accept="image/png, image/jpeg, image/jpg"
-                  style={{
-                    display: "none",
-                  }}
-                />
-              </div>
-            </div> */}
             <div className="editpage__input">
               <div className="form__input">
                 <label htmlFor="">
@@ -385,16 +345,6 @@ export default function EditStore() {
                     placeholder="+998 90 123-45-67"
                   />
                 </label>
-                {/* <label htmlFor="">
-                  <span>brand name</span>
-                  <input
-                    name={"brand"}
-                    type="text"
-                    placeholder="пусто"
-                    onChange={changeHandler}
-                    value={form.brand}
-                  />
-                </label> */}
                 <label htmlFor="">
                   <span className="text__area">{t("editPage.shortDescriptionAboutMe")}</span>
                   <textarea
@@ -416,7 +366,7 @@ export default function EditStore() {
                 <div className="form-price">
                   <input
                     type="number"
-                    placeholder="Стоимость"
+                    placeholder={t("create.price")}
                     required
                     name="price"
                     value={form.price}
@@ -530,7 +480,7 @@ export default function EditStore() {
               }}
             >
               <div className="map-info">
-                <h5>Где находится?</h5>
+                <h5>{t("create.whereIs")}</h5>
                 <div className="map-address">
                   <input
                     ref={searchRef}
@@ -592,42 +542,6 @@ export default function EditStore() {
                 marginTop: "2rem",
               }}
             >
-              {/* <h5>{t("editPage.objectImages")}</h5> */}
-              {/* <div className="image-upload mb-50">
-                <div className="image-outer">
-                  <div className="image-outer-info">
-                    <h5>Перетащите сюда свои изображения или нажмите сюда</h5>
-                    <p>Поддерживает: .jpg, .png, .jpeg</p>
-                  </div>
-                  <input
-                    type="file"
-                    name="machineImg"
-                    // onChange={changeHandler}
-                    onChange={(e) => {
-                      fileHandle(e.target.files[0], "view");
-                      imgHandle(e);
-                    }}
-                    // onChange={(e) => handleChange(e)}
-                    id="upload-images"
-                    accept="image/png, image/jpeg, image/jpg"
-                    multiple
-                  />
-                  <label htmlFor="upload-images">открыть</label>
-                </div>
-                <ul className="image-list" id="gallery">
-                  {imgUrl.view && (
-                    <li>
-                      <img
-                        src={imgUrl.view}
-                        alt="house"
-                        style={{
-                          objectFit: "cover",
-                        }}
-                      />
-                    </li>
-                  )}
-                </ul>
-              </div> */}
             </div>
             <div
               style={{
@@ -681,7 +595,7 @@ export default function EditStore() {
 
             <div className="register">
               <button className="register__btn" type="submit">
-                Зарегистрироватся
+                {t("create.register")}
               </button>
             </div>
           </form>

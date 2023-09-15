@@ -118,7 +118,7 @@ const UserCabinet = () => {
 
   const getRefferLink = () => {
     navigator.clipboard.writeText(refferLink);
-    toast.success("Ссылка скопирована");
+    toast.success(t("cabinet.linkCopied"));
   };
 
   return (
@@ -263,35 +263,12 @@ const UserCabinet = () => {
                 <div className="alert-advert">
                     <h5 style={{ fontSize: "1.1rem" }}>{t("cabinet.dateCreated")}</h5>
                     <p>
-                      В этом разделе вы можете хранить и управлять архивом ваших товаров или объявлений.
+                      {t("cabinet.managaArchive")}
                     </p>
                 </div>
                 <ul className="advert-list">
                   {draftArr.map((draftArg, i) => (
                     <div key={i}>
-                      {/* {<span className="all-products-header">
-                        /* {draftArg.content === "house"
-                          ? "Маклера"
-                          : draftArg.content === "store"
-                          ? "обустройства"
-                          : draftArg.content === "master"
-                          ? "мастера"
-                          : "Мебель"}
-                        {draftArg.content === "house" &&
-                        houses?.filter((item) => item.draft === true).length
-                          ? "Маклера"
-                          : draftArg.content === "store" &&
-                            stores?.filter((item) => item.draft === true).length
-                          ? "обустройства"
-                          : draftArg.content === "master" &&
-                            maklers?.filter((item) => item.draft === true)
-                              .length
-                          ? "мастера"
-                          : draftArg.content === "master" &&
-                            mebels?.filter((item) => item.draft === true).length
-                          ? "Мебель"
-                          : ""}
-                      </span> } */}
                       {draftArg.arr
                         ?.filter(
                           (item) =>
@@ -319,7 +296,7 @@ const UserCabinet = () => {
             <div className="container-sm">
               <div className="advert">
                 <div className="alert-advert">
-                  <h5>Продвигайте свое объявление в ТОП!</h5>
+                  <h5>{t("cabinet.addToTheTop")}</h5>
                   <p>
                     В этом разделе вы можете создавать и сохранять черновики ваших объявлений и заказов, а также вести работу над ними
                   </p>

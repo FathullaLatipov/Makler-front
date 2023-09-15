@@ -376,50 +376,10 @@ export default function EditMebel() {
               </a>{" "}
              {t("editPage.andInOurMobileApp")}
             </p>
-            {/* <div className="card__header">
-              <img
-                className="avatar__img"
-                src={imgUrl.brand ? imgUrl.brand : avatar_image}
-                alt="avatar image"
-                width={"96px"}
-                height={"96px"}
-                style={{
-                  borderRadius: "50%",
-                  objectFit: "cover",
-                }}
-              />
-              <div className="image__card">
-                <p className="avatar__name">
-                  Загрузите фото профиля или логотп компании
-                </p>
-                <label
-                  htmlFor="file"
-                  className="change__btn"
-                  style={{
-                    cursor: "pointer",
-                  }}
-                >
-                  Изменить фото профиля
-                </label>
-                <input
-                  type={"file"}
-                  onChange={(e) => {
-                    fileHandle(e.target.files[0], "brand");
-                    imgHandle(e);
-                  }}
-                  name="brandImg"
-                  id="file"
-                  accept="image/png, image/jpeg, image/jpg"
-                  style={{
-                    display: "none",
-                  }}
-                />
-              </div>
-            </div> */}
             <div className="editpage__input">
               <div className="form__input">
                 <label htmlFor="">
-                  <span>Мебельные названия</span>
+                  <span>{t("create.furnitureNames")}</span>
                   <input
                     name={"title"}
                     value={form.title}
@@ -429,15 +389,6 @@ export default function EditMebel() {
                     placeholder=""
                   />
                 </label>
-                {/* <label id="email" htmlFor="">
-                  <span>Электронная почта</span>
-                  <input
-                    name={"email"}
-                    onChange={changeHandler}
-                    type={"email"}
-                    placeholder="info@gmail.com"
-                  />
-                </label> */}
                 <label htmlFor="">
                   <span>{t("editPage.phoneNumberAndLogin")}</span>
                   <input
@@ -450,7 +401,7 @@ export default function EditMebel() {
                 </label>
               </div>
               <label htmlFor="">
-                <span className="text__area">Краткое описание</span>
+                <span className="text__area">{t("editPage.shortDescription")}</span>
                 <textarea
                   style={{
                     width: "100%",
@@ -559,7 +510,7 @@ export default function EditMebel() {
                 <div className="form-price">
                   <input
                     type="number"
-                    placeholder="Стоимость"
+                    placeholder={t("create.price")}
                     value={form.price}
                     required
                     name="price"
@@ -618,53 +569,6 @@ export default function EditMebel() {
                 </div>
               </div>
             </div>
-            {/* <div className="second-card">
-              <div className="second__card">
-                <h2 className="second__card__title">
-                  Выберите раздел и специализацию *
-                </h2>
-                <p className="second__card__text">Введите род деятельности!</p>
-              </div>
-              <FormControl sx={{ m: 0, width: "100%", bgcolor: "white" }}>
-                <InputLabel id="demo-multiple-chip-label">---</InputLabel>
-                <Select
-                  labelId="demo-multiple-chip-label"
-                  id="demo-multiple-chip"
-                  multiple
-                  name="store_amenitites"
-                  value={personName}
-                  onChange={(e) => {
-                    handleChange(e);
-                    changeHandler(e);
-                  }}
-                  input={
-                    <OutlinedInput id="select-multiple-chip" label="---" />
-                  }
-                  renderValue={(selected) => (
-                    <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
-                      {selected.map((value) => (
-                        <Chip
-                          sx={{ bgcolor: "rgba(197, 102, 34, 0.1)" }}
-                          key={value.value}
-                          label={value.text}
-                        />
-                      ))}
-                    </Box>
-                  )}
-                  MenuProps={MenuProps}
-                >
-                  {names.map((name) => (
-                    <MenuItem
-                      key={name.value}
-                      value={name}
-                      style={getStyles(name.value, personName, theme)}
-                    >
-                      {name.text}
-                    </MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
-            </div> */}
             <h5>{t("editPage.location")}</h5>
             <div
               className="map"
@@ -673,15 +577,13 @@ export default function EditMebel() {
               }}
             >
               <div className="map-info">
-                <h5>Где находится?</h5>
+                <h5>{t("create.whereIs")}</h5>
                 <div className="map-address">
                   <input
                     ref={searchRef}
                     placeholder="г.Ташкент, ул.Охангарон 65 А 1"
                     id="suggest"
                     name="address_title"
-                    // onChange={changeHandler}
-                    // value={form.address_title}
                   />
                 </div>
               </div>
@@ -722,82 +624,7 @@ export default function EditMebel() {
                 marginTop: "2rem",
               }}
             >
-              {/* <h5>{t("editPage.objectImages")}</h5> */}
-              {/* <div className="image-upload mb-50">
-                <div className="image-outer">
-                  <div className="image-outer-info">
-                    <h5>Перетащите сюда свои изображения или нажмите сюда</h5>
-                    <p>Поддерживает: .jpg, .png, .jpeg</p>
-                  </div>
-                  <input
-                    type="file"
-                    name="uploaded_images"
-                    // onChange={changeHandler}
-                    onChange={(e) => {
-                      // fileHandle(e.target.files[0], "view");
-                      // imgHandle(e);
-                      imgHandleChange(e);
-                    }}
-                    // onChange={(e) => handleChange(e)}
-                    id="upload-images"
-                    accept="image/png, image/jpeg, image/jpg"
-                    multiple
-                  />
-                  <label htmlFor="upload-images">открыть</label>
-                </div>
-                <ul className="image-list" id="gallery">
-                  {img.length
-                    ? img.map((im, i) => (
-                        <li key={i}>
-                          <img src={im} alt="house" />
-                        </li>
-                      ))
-                    : ""}
-                </ul>
-              </div> */}
             </div>
-            {/* <div
-              style={{
-                marginTop: "2rem",
-              }}
-            >
-              <span
-                style={{
-                  marginBottom: "1rem",
-                  display: "block",
-                }}
-              >
-                Как
-              </span>
-              <ul className="radio-list mb-50">
-                {[
-                  {
-                    text: "Аренда",
-                    value: 1,
-                  },
-                  {
-                    text: "Ремонт",
-                    value: 2,
-                  },
-                  {
-                    text: "Ремонт",
-                    value: 3,
-                  },
-                ].map(({ text, value }) => (
-                  <li className="radio-btn" key={value}>
-                    <input
-                      type="radio"
-                      id={text}
-                      name="how_store_service"
-                      onChange={changeHandler}
-                      value={value}
-                      checked={Number(form.how_store_service) === value}
-                    />
-                    <label htmlFor={text}>{text}</label>
-                  </li>
-                ))}
-              </ul>
-            </div> */}
             <div className="checkbox">
               <input
                 className="checkbox__input"
@@ -818,7 +645,7 @@ export default function EditMebel() {
                   cursor: "pointer",
                 }}
               >
-                Зарегистрироватся
+                {t("create.register")}
               </button>
             </div>
           </form>

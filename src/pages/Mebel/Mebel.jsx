@@ -21,18 +21,23 @@ const Mebel = () => {
     search: "",
     category: "",
   });
-  const { search, category, service } = form;
-  useEffect(() => {
+  const { search, service, brand_id } = form;
+
+  const fetchMebelData = async () => {
     $host
       .get("mebel/api/v1/mebels/", {
         params: {
-          category,
+          category: brand_id,
         },
       })
       .then((data) => setDisplayData(data.data.results))
       .catch((err) => console.log(err))
       .finally(() => setLoading(false));
-  }, [category]);
+  }
+
+  useEffect(() => {
+    fetchMebelData();
+  }, [brand_id]);
 
   const fetchData = async () => {
     setLoading(true);
@@ -46,39 +51,6 @@ const Mebel = () => {
   useEffect(() => {
     fetchData();
   }, [search]);
-
-  // useMemo(() => {
-  //   setLoading(true);
-  //   const params = {
-  //     profession,
-  //     how_service: service,
-  //   };
-  //   if (!profession) {
-  //     delete params.profession;
-  //   } else if (!service) {
-  //     delete params.how_service;
-  //   }
-  //   axios
-  //     .get(`https://api.makleruz.uz//mebel/api/v1/mebels/`, {
-  //       params,
-  //     })
-  //     .then((data) => {
-  //       setDisplayData(data.data.results);
-  //     })
-  //     .catch((err) => console.log(err))
-  //     .finally(() => setLoading(false));
-  // }, [profession, service]);
-
-  // useEffect(() => {
-  //   setLoading(true);
-  //   axios
-  //     .get(`${baseURL}/master/api/v1/maklers/search/?search=${search}`)
-  //     .then((res) => setSearchData(res.data.results))
-  //     .catch((err) => console.log(err))
-  //     .finally(() => {
-  //       setLoading(false);
-  //     });
-  // }, [search]);
 
   const handleLoad = () => {
     if (!search) {
@@ -213,26 +185,6 @@ const Mebel = () => {
           ) : (
             <Loading />
           )}
-          {/* <div className="app__cards--wrapper">
-            {!loading ? (
-              displayData.length ? (
-                displayData?.slice(0, limit)?.map((data, i) => (
-                  <div
-                    key={i}
-                    style={{
-                      marginRight: "0.5rem",
-                    }}
-                  >
-                    <UserCard data={data} mebel />
-                  </div>
-                ))
-              ) : (
-                <h1>Ничего нет</h1>
-              )
-            ) : (
-              <Loading />
-            )}
-          </div> */}
         </div>
         <button
           onClick={handleLoad}

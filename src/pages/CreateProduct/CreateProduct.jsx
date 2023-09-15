@@ -235,15 +235,14 @@ const CreateProduct = () => {
           <div className="create-product">
             <form className="create-product__left" id="create-product">
               <h2>
-                Добавить новое <br />
-                объявление
+                {t("create.title")}
               </h2>
               <p className="subtitle">
                 {t("editPage.announcementWillBeAvailable")}
                 <a href="https://makler.uz">Makler.uz</a> и
                 {t("editPage.andInOurMobileApp")}
               </p>
-              <h5>Заголовка объявления</h5>
+              <h5>{t("create.adTitle")}</h5>
               <div className="form-input">
                 <input
                   placeholder={t("editPage.empty")}
@@ -264,12 +263,12 @@ const CreateProduct = () => {
                   required
                 ></textarea>
               </div>
-              <h5>Загрузите видео</h5>
+              <h5>{t("create.uploadVideo")}</h5>
               <div className="image-upload mb-50">
                 <div className="image-outer">
                   <div className="image-outer-info">
-                    <h5>Перетащите сюда свои изображения или нажмите сюда</h5>
-                    <p>Поддерживает: video/mp4,video/x-m4v,video/*</p>
+                    <h5>{t("create.dragImageText")}</h5>
+                    <p>{t("create.supportsVideoExt")}</p>
                   </div>
                   <input
                       type="file"
@@ -290,7 +289,7 @@ const CreateProduct = () => {
               <div className="form-price">
                 <input
                   type="number"
-                  placeholder="Стоимость"
+                  placeholder={t("create.price")}
                   required
                   name="price"
                   onChange={changeHandler}
@@ -391,7 +390,7 @@ const CreateProduct = () => {
                     name="rental_type"
                     value="несколько месяцев"
                   />
-                  <label htmlFor="month">Несколько месяцев</label>
+                  <label htmlFor="month">{t("create.fewMonths")}</label>
                 </li>
                 <li className="switch-btn">
                   <input
@@ -478,7 +477,7 @@ const CreateProduct = () => {
               <h5>{t("editPage.location")}</h5>
               <div className="map mb-50">
                 <div className="map-info">
-                  <h5>Где находится?</h5>
+                  <h5>{t("create.whereIs")}</h5>
                   <div className="map-address">
                     <input
                       ref={searchRef}
@@ -527,7 +526,7 @@ const CreateProduct = () => {
               <div className="image-upload mb-50">
                 <div className="image-outer">
                   <div className="image-outer-info">
-                    <h5>Перетащите сюда свои изображения или нажмите сюда</h5>
+                    <h5>{t("create.dragImageText")}</h5>
                     <p>{t("editPage.supportsImgExt")}</p>
                   </div>
                   <input
@@ -654,7 +653,7 @@ const CreateProduct = () => {
                   </div>
                 </li>
                 <li className="radio-list">
-                  <h5>Новостройка</h5>
+                  <h5>{t("create.buildings")}</h5>
                   <div className="radios">
                     <div className="radio-btn">
                       <input
@@ -679,7 +678,7 @@ const CreateProduct = () => {
                   </div>
                 </li>
                 <li className="radio-list">
-                  <h5>Меблирована</h5>
+                  <h5>{t("create.furnished")}</h5>
                   <div className="radios">
                     <div className="radio-btn">
                       <input
@@ -762,8 +761,7 @@ const CreateProduct = () => {
                 <input type="checkbox" id="confirm-data" />
                 <label htmlFor="confirm-data">
                   <p>
-                    Я прочитал и согласен с условиями использования <br />и
-                    публикации!
+                    {t("create.agreeWithTerms")}
                   </p>
                   <svg className="svg-sprite-icon icon-check w-12">
                     <use href={`${sprite}#check`}></use>

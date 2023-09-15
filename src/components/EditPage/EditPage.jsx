@@ -279,7 +279,7 @@ export default function EditPage() {
         <div className="create-product">
           <form className="create-product__left" onSubmit={handeSubmit}>
             <h1 className="edit__card__title">
-              Регистрируйтес как мастер, получите работы
+              {t("create.registerAsMaster")}
             </h1>
             <p className="edit__card__text">
               {t("editPage.announcementWillBeAvailable")}{" "}
@@ -311,7 +311,7 @@ export default function EditPage() {
                     cursor: "pointer",
                   }}
                 >
-                  Изменить фото профиля
+                  {t("create.changeAvatarImg")}
                 </label>
                 <input
                   type={"file"}
@@ -444,7 +444,7 @@ export default function EditPage() {
               }}
             >
               <div className="map-info">
-                <h5>Где находится?</h5>
+                <h5>{t("create.whereIs")}</h5>
                 <div className="map-address">
                   <input
                     ref={searchRef}
@@ -492,7 +492,7 @@ export default function EditPage() {
             <div className="image-upload mb-50">
               <div className="image-outer">
                 <div className="image-outer-info">
-                  <h5>Перетащите сюда свои изображения или нажмите сюда</h5>
+                  <h5>{t("create.dragImageText")}</h5>
                   <p>{t("editPage.supportsImgExt")}</p>
                 </div>
                 <input
@@ -564,7 +564,7 @@ export default function EditPage() {
                   onSubmit={handeSubmit}
                   className="register__btn"
                 >
-                  Зарегистрироватся
+                  {t("create.register")}
                 </button>
               </div>
             </div>

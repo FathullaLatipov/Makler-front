@@ -139,7 +139,7 @@ const SingleProduct = () => {
           <div className="info-product">
             <div className="info-product-sidebar">
               <div className="plashka">
-                <h4>Стоимость:</h4>
+                <h4>{t("create.price")}:</h4>
                 <strong>
                   {houseData?.price} {houseData?.price_type?.price_t}
                 </strong>

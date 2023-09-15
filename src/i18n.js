@@ -76,7 +76,9 @@ i18next
                         moreDetails: "Подробнее",
                         name: "Имя",
                         logout: "Выйти из профиля",
-                        hereEmpty: "Тут ничего нету"
+                        hereEmpty: "Тут ничего нету",
+                        linkCopied: "Ссылка скопирована",
+                        managaArchive: "В этом разделе вы можете хранить и управлять архивом ваших товаров или объявлений."
                     },
                     editPage: {
                         uploadAvatarImage: "Загрузите фото профиля или логотип компании",
@@ -177,7 +179,8 @@ i18next
                         share: "Поделиться",
                         addToFavorites: "В избранные",
                         removeFromFavorites: "Удалить с избранного",
-                        callForNumber: "Позвонить по номеру"
+                        callForNumber: "Позвонить по номеру",
+                        noProducts: "В списке желаний пока нет товаров!"
                     },
                     login: {
                         register: "Зарегистрироваться",
@@ -198,6 +201,24 @@ i18next
                         На нашем сайте мы уделяем внимание каждой детали, чтобы обеспечить вас лучшими предложениями и качественными услугами. Мы также предоставляем возможность просматривать изображения и видеоматериалы в высоком качестве, чтобы вы могли получить полное представление о товарах и услугах, которые мы предлагаем.
                         <br/><br/>
                         Не упустите шанс сделать ваш дом идеальным местом для жизни. Обратитесь к нам сегодня и дайте нам помочь вам воплотить ваши мечты в жизнь!`
+                    },
+                    create: {
+                        title: "Добавить новое объявление",
+                        adTitle: "Заголовка объявления",
+                        uploadVideo: "Загрузите видео",
+                        dragImageText: "Перетащите сюда свои изображения или нажмите сюда",
+                        supportsVideoExt: "Поддерживает: video/mp4,video/x-m4v,video/*",
+                        price: "Стоимость",
+                        fewMonths: "Несколько месяцев",
+                        whereIs: "Где находится?",
+                        buildings: "Новостройка",
+                        furnished: "Меблирована",
+                        agreeWithTerms: "Я прочитал и согласен с условиями использования и публикации!",
+                        registerAsMaster: "Зарегистрируйтесь как мастер, получите работы",
+                        changeAvatarImg: "Изменить фото профиля",
+                        register: "Зарегистрироватся",
+                        createFurniture: "Создайте и продавайте мебели",
+                        furnitureNames: "Мебельные названия"
                     }
                 }
             },
@@ -268,7 +289,9 @@ i18next
                         moreDetails: "Batafsil",
                         name: "Ism",
                         logout: "Profildan chiqish",
-                        hereEmpty: "Bu yerda hech narsa yo‘q"
+                        hereEmpty: "Bu yerda hech narsa yo‘q",
+                        linkCopied: "Havola nusxalandi",
+                        managaArchive: "In this section you can store and manage an archive of your products or advertisements."
                     },
                     editPage: {
                         uploadAvatarImage: "Profil rasmini yoki kompaniya logotipini yuklang",
@@ -369,7 +392,8 @@ i18next
                         share: "Ulashish",
                         addToFavorites: "Sevimlilarga qo'shish",
                         removeFromFavorites: "Sevimlilardan olib tashlash",
-                        callForNumber: "Raqamga qo'ng'iroq qiling"
+                        callForNumber: "Raqamga qo'ng'iroq qiling",
+                        noProducts: "Sevimlilar ro'yxatida hali biror narsa yo'q!"
                     },
                     login: {
                         register: "Ro'yxatdan o'tish",
@@ -390,6 +414,24 @@ i18next
                         Bizning veb-saytimizda sizga eng yaxshi takliflar va sifatli xizmatlarni taqdim etish uchun har bir tafsilotga e'tibor qaratamiz. Shuningdek, biz yuqori sifatli tasvirlar va videolarni ko'rish imkoniyatini taqdim etamiz, shunda siz biz taklif qilayotgan mahsulot va xizmatlar haqida to'liq tushunchaga ega bo'lishingiz mumkin.
                         <br/><br/>
                         Uyingizni yashash uchun eng zo'r joyga aylantirish imkoniyatini qo'ldan boy bermang. Bugun biz bilan bog'laning va orzularingizni ro'yobga chiqarishingizga yordam beramiz!`
+                    },
+                    create: {
+                        title: "Yangi e'lon qo'shish",
+                        adTitle: "Reklama sarlavhasi",
+                        uploadVideo: "Video yuklash",
+                        dragImageText: "Rasmlaringizni shu yerga torting yoki shu yerni bosing",
+                        supportsVideoExt: "Qo'llaydi: video/mp4, video/x-m4v, video/*",
+                        price: "Narxi",
+                        fewMonths: "Bir necha oy",
+                        whereIs: "Qayerda?",
+                        buildings: "Yangi bino",
+                        furnished: "Mebel bilan jihozlangan",
+                        agreeWithTerms: "Men foydalanish shartlarini o'qib chiqdim va roziman va nashrlar!",
+                        registerAsMaster: "Usta sifatida ro'yxatdan o'ting, ish toping",
+                        changeAvatarImg: "Profil rasmini o'zgartirish",
+                        register: "Ro'yxatdan o'tish",
+                        createFurniture: "Mebel yaratish va sotish",
+                        furnitureNames: "Mebel nomlari"
                     }
                 }
             }

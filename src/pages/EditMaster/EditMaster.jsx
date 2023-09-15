@@ -277,42 +277,6 @@ export default function EditMaster() {
               </a>{" "}
              {t("editPage.andInOurMobileApp")}
             </p>
-            {/* <div className="card__header">
-              <img
-                className="avatar__img"
-                src={imgUrl ? imgUrl : avatar_image}
-                alt="avatar image"
-                width={"96px"}
-                height={"96px"}
-                style={{
-                  borderRadius: "50%",
-                  objectFit: "cover",
-                }}
-              />
-              <div className="image__card">
-                <p className="avatar__name">
-                  Загрузите фото профиля или логотп компании
-                </p>
-                <label
-                  htmlFor="file"
-                  className="change__btn"
-                  style={{
-                    cursor: "pointer",
-                  }}
-                >
-                  Изменить фото профиля
-                </label>
-                <input
-                  type={"file"}
-                  onChange={fileHandle}
-                  id="file"
-                  accept="image/png, image/jpeg, image/jpg"
-                  style={{
-                    display: "none",
-                  }}
-                />
-              </div>
-            </div> */}
             <div className="editMaster__input">
               <div className="form__input">
                 <label htmlFor="">
@@ -438,7 +402,7 @@ export default function EditMaster() {
               }}
             >
               <div className="map-info">
-                <h5>Где находится?</h5>
+                <h5>{t("create.whereIs")}</h5>
                 <div className="map-address">
                   <input
                     ref={searchRef}
@@ -552,7 +516,7 @@ export default function EditMaster() {
                   onSubmit={handeSubmit}
                   className="register__btn"
                 >
-                  Зарегистрироватся
+                   {t("create.register")}
                 </button>
               </div>
             </div>
