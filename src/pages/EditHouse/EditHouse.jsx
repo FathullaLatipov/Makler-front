@@ -120,7 +120,7 @@ const EditHouse = () => {
     $host
       .put(`/products/api/v1/houses/updates/${id}`, data)
       .then(() => {
-        toast.success("Успешно!");
+        toast.success(t("editPage.success"));
         navigateToProfile();
       })
       .catch((err) => {

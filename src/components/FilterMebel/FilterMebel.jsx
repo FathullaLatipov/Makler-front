@@ -26,8 +26,6 @@ const FilterMebel = ({ change, value }) => {
 
   const { useFor, how_store_service, brand_title, category } = value;
 
-  console.log(category2)
-
   useEffect(() => {
     setProfess(category2[category - 1]?.title);
   }, [category]);

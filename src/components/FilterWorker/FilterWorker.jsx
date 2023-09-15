@@ -19,7 +19,7 @@ const FilterWorker = ({ change, value }) => {
   const { profession, service } = value;
   useEffect(() => {
     $host
-      .get(`${baseURL}/master/api/v1/maklers/professions`)
+      .get(`master/api/v1/maklers/professions`)
       .then((res) => setOption1(res.data.results))
       .catch((err) => {
         console.log(err);

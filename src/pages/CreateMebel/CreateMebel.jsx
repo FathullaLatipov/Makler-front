@@ -129,7 +129,7 @@ export default function CreateMebel() {
 
     try {
       await $host.post("https://api.makleruz.uz/mebel/api/v1/mebels/create/", formData);
-      toast.success("Успешно!");
+      toast.success(t("editPage.success"));
       navigateToProfile();
     } catch (e) {
       console.log(e);

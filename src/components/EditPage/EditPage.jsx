@@ -72,7 +72,7 @@ export default function EditPage() {
 
   const fetchData = async () => {
     try {
-      const professionsRes = await $host.get(`/master/api/v1/maklers/professions`);
+      const professionsRes = await $host.get(`master/api/v1/maklers/professions`);
       const filterServiceRes = await $host.get("/master/api/v1/maklers/filter-service/");
       setNames(professionsRes.data.results);
       setFilterService(filterServiceRes.data.results);
@@ -262,7 +262,7 @@ export default function EditPage() {
         },
       })
       .then(() => {
-        toast.success("Успешно!");
+        toast.success(t("editPage.success"));
         navigateToProfile();
       })
       .catch((err) => {

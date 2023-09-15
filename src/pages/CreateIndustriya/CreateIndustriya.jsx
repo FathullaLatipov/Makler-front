@@ -219,7 +219,7 @@ export default function CreateIndustriya() {
     $host
       .post("/store2/api/v1/store/create/", formData)
       .then((res) => {
-        toast.success("Успешно!");
+        toast.success(t("editPage.success"));
         navigateToProfile();
       })
       .catch((err) => {

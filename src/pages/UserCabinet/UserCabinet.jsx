@@ -128,7 +128,7 @@ const UserCabinet = () => {
 
           <div className="cabinet-nav reffer" style={{ borderRadius: "5px", marginBottom: "1.375rem" }}>
 
-            <p>Получите шанс выиграть ценные призы, просто поделившись ссылкой!</p>
+            <p>{t("cabinet.chanceToWin")}</p>
 
             <div className="reffer__points">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -136,11 +136,11 @@ const UserCabinet = () => {
                 <path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z" stroke="black" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
 
-              Мои балы: {refferals.length}
+              {t("cabinet.myPoints")}: {refferals.length}
             </div>
 
             <div className="form-input">
-              <label>Реферальная ссылка</label>
+              <label>{t("cabinet.refferalLink")}</label>
               <div
                   className='reffer__input'
                   onClick={getRefferLink}
@@ -156,7 +156,7 @@ const UserCabinet = () => {
             <span
                 className="reffer__getlink"
                 onClick={getRefferLink}
-            >Получить реферальную ссылку</span>
+            >{t("cabinet.getRefferalLink")}</span>
           </div>
 
 
@@ -173,16 +173,16 @@ const UserCabinet = () => {
                   </p>
                   <div className="alert-advert-btns">
                     <button className="btn btn-orange-50">
-                      Активировать в топ
+                      {t("cabinet.activateToTop")}
                     </button>
-                    <a>Подробнее </a>
+                    <a>{t("cabinet.moreDetails")}</a>
                   </div>
                 </div>
                 {!loading ? (
                   <ul className="advert-list">
                     {draftArr.every(
                       (item) => item.filteredArr?.length === 0
-                    ) && <span>Тут ничего нету</span>}
+                    ) && <span>{t("cabinet.hereEmpty")}</span>}
                     {draftArr.map((draftArg, i) => (
                       <div key={i}>
                         <span className="all-products-header">
@@ -587,7 +587,7 @@ const UserCabinet = () => {
                 </picture>
               </div>
               <div className="cabinet-profile-info">
-                <h4>Имя: {userData.first_name ? userData.first_name : t("editPage.empty")}</h4>
+                <h4>{t("cabinet.name")}: {userData.first_name ? userData.first_name : t("editPage.empty")}</h4>
                 <p>id: {userData?.id}</p>
                 <p>{t("editPage.phoneNumber")}: {userData?.phone_number}</p>
               </div>
@@ -625,7 +625,7 @@ const UserCabinet = () => {
               <svg className="svg-sprite-icon icon-fi_log-out fill-n w-16">
                 <use href={`${spirite}#fi_log-out`}></use>
               </svg>
-              <span>Выйти из профиля</span>
+              <span>{t("cabinet.logout")}</span>
             </a>
           </div>
         </div>

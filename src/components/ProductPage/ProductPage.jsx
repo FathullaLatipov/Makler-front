@@ -53,7 +53,7 @@ export default function ProductCard({ data }) {
             </p>
             <em className="product-type">{data.use_for?.title}</em>
           </div>
-          <p className="product-price">{data.price}$</p>
+          <p className="product-price">{data.price}{data.price_type === 1 ? "$": "som"}</p>
         </div>
       </div>
     </Link>

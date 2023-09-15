@@ -49,8 +49,8 @@ const AllIndustriya = () => {
 
   const fetchData = async () => {
     setLoading(true);
-    const response = await $host.get(`/store2/api/v1/store/search?search=${search}`);
-    const brands = await $host.get(`/store2/api/v1/store/brands`);
+    const response = await $host.get(`store2/api/v1/store/search?search=${search}`);
+    const brands = await $host.get(`store2/api/v1/store/brands`);
     setBrands(brands.data.results);
     setSearchData(response.data.results)
     setLoading(false);

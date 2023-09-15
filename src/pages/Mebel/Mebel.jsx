@@ -1,17 +1,13 @@
-import axios from "axios";
 import React, { useContext, useEffect, useMemo, useState } from "react";
 import { FilterMebel, FilterWorker, UserCard } from "../../components";
-import ContextApp from "../../context/context";
 import useForm from "../../hooks/useForm";
-import { baseURL } from "../../requests/requests";
 import Loading from "../../components/Loading/Loading";
 import Slider from "react-slick";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
+import $host from "../../http";
 
 const Mebel = () => {
-  // const { masters } = useContext(ContextApp);
-
   const [ categories, setCategories ] = useState([]);
   const [displayData, setDisplayData] = useState("");
   const [loading, setLoading] = useState(true);
@@ -27,8 +23,8 @@ const Mebel = () => {
   });
   const { search, category, service } = form;
   useEffect(() => {
-    axios
-      .get("https://api.makleruz.uz/mebel/api/v1/mebels/", {
+    $host
+      .get("mebel/api/v1/mebels/", {
         params: {
           category,
         },
@@ -40,8 +36,8 @@ const Mebel = () => {
 
   const fetchData = async () => {
     setLoading(true);
-    const response = await axios.get(`${baseURL}/mebel/api/v1/mebels/?search=${search}`)
-    const categories = await axios.get(`${baseURL}/mebel/api/v1/mebel-categories/`);
+    const response = await $host.get(`mebel/api/v1/mebels/?search=${search}`)
+    const categories = await $host.get(`mebel/api/v1/mebel-categories/`);
     setSearchData(response.data.results);
     setCategories(categories.data.results);
     setLoading(false);

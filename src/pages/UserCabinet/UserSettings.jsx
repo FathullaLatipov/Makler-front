@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, {useRef} from "react";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -6,6 +5,7 @@ import { toast } from "react-toastify";
 import avatar_image from "../../assets/img/avatar_change.png";
 import {LoadingPost} from "../../components";
 import { useTranslation } from "react-i18next";
+import $host from "../../http";
 
 const UserSettings = ({ name, email, password, number, img }) => {
   const [file, setFile] = useState(null);
@@ -55,10 +55,10 @@ const UserSettings = ({ name, email, password, number, img }) => {
 
     const userId = localStorage.getItem("userId");
 
-    axios
-      .put(`https://api.makleruz.uz/users/api/v1/update-user/${userId}/`, formData)
+    $host
+      .put(`users/api/v1/update-user/${userId}/`, formData)
       .then(() => {
-        toast.success("Успешно!");
+        toast.success(t("editPage.success"));
         window.location.reload();
       })
       .catch((err) => {

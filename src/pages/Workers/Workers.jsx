@@ -1,14 +1,13 @@
-import axios from "axios";
 import React, { useEffect, useMemo, useState } from "react";
 import { FilterWorker, UserCard } from "../../components";
 import useForm from "../../hooks/useForm";
-import { baseURL } from "../../requests/requests";
 import Loading from "../../components/Loading/Loading";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styled from "@emotion/styled";
 import { useTranslation } from "react-i18next";
+import $host from "../../http";
 
 const Workers = () => {
   const [ masters, setMasters ] = useState([]);
@@ -25,8 +24,8 @@ const Workers = () => {
   const { t } = useTranslation();
   const { search, profession, service } = form;
   useEffect(() => {
-    axios
-      .get(`https://api.makleruz.uz/master/api/v1/maklers/`)
+    $host
+      .get(`master/api/v1/maklers/`)
       .then((data) => setDisplayData(data.data.results))
       .catch((err) => console.log(err))
       .finally(() => setLoading(false));
@@ -43,8 +42,8 @@ const Workers = () => {
     } else if (!service) {
       delete params.how_service;
     }
-    axios
-      .get(`https://api.makleruz.uz/master/api/v1/maklers/`, {
+    $host
+      .get(`master/api/v1/maklers/`, {
         params,
       })
       .then((data) => {
@@ -56,8 +55,8 @@ const Workers = () => {
 
   const fetchData = async () => {
     setLoading(true);
-    const masters = await axios.get(`${baseURL}/master/api/v1/maklers/professions`);
-    const response = await axios.get(`${baseURL}/master/api/v1/maklers/search/?search=${search}`)
+    const masters = await $host.get(`master/api/v1/maklers/professions`);
+    const response = await $host.get(`master/api/v1/maklers/search/?search=${search}`)
     let result = masters.data.results;
     if(result.length > 0) {
       while(result.length < 6) {

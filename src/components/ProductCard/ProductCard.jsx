@@ -6,11 +6,13 @@ import sprite from "../../assets/img/symbol/sprite.svg";
 import ContextApp from "../../context/context";
 import LoadingPost from "../LoadingPost/LoadingPost";
 import $host from "../../http";
+import { useTranslation } from "react-i18next";
 
 const ProductCard = ({ data, wishlist, wishId, deleteMount }) => {
   const [isLoading, setIsLoading] = useState(false);
   const { loginModalFunc, favorites, setFavorites } = useContext(ContextApp);
   const hasInWishlist = favorites.find((item) => item.product.id === data.id);
+  const { t } = useTranslation();
 
   const handleClick = () => {
     const userId = localStorage.getItem("userId");
@@ -20,10 +22,10 @@ const ProductCard = ({ data, wishlist, wishId, deleteMount }) => {
     }
     setIsLoading(true);
     if (hasInWishlist) {
-      $host.delete( `/products/api/v1/houses/wishlist-houses/${hasInWishlist.id}/`)
+      $host.delete( `products/api/v1/houses/wishlist-houses/${hasInWishlist.id}/`)
         .then(() => {
           setFavorites(prev => prev.filter((item) => item.id !== hasInWishlist.id));
-          toast.success("Успешно!");
+          toast.success(t("editPage.success"));
         })
         .catch((err) => {
           console.log(err);
@@ -38,7 +40,7 @@ const ProductCard = ({ data, wishlist, wishId, deleteMount }) => {
         })
         .then(({ data }) => {
           setFavorites(prev => ([...prev, { ...data, product: { id: data.product } }]));
-          toast.success("Успешно!");
+          toast.success(t("editPage.success"));
         })
         .catch((err) => {
           console.log(err);

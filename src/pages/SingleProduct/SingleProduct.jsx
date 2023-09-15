@@ -79,14 +79,14 @@ const SingleProduct = () => {
       if(hasInWishlist) {
         await $host.delete( `/products/api/v1/houses/wishlist-houses/${hasInWishlist.id}/`);
         setFavorites(prev => prev.filter((item) => item.id !== hasInWishlist.id));
-        toast.success("Успешно!");
+        toast.success(t("editPage.success"));
       } else {
         const { data } = await $host.post(`/products/api/v1/houses/wishlist-houses/`, {
           user: userId,
           product: id,
         });
         setFavorites(prev => ([...prev, { ...data, product: { id: data.product } }]));
-        toast.success("Успешно!");
+        toast.success(t("editPage.success"));
       }
     } catch (e) {
       console.log(e);

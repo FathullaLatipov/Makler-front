@@ -36,7 +36,7 @@ const UserContents = ({ data, content, mounted, draft }) => {
     $host
       .delete(`${url}/${id}/`)
       .then(() => {
-        toast.success("Успешно");
+        toast.success(t("editPage.success"));
         mounted((prev) => !prev);
       })
       .catch((err) => {
@@ -76,7 +76,7 @@ const UserContents = ({ data, content, mounted, draft }) => {
         product_status: 0,
       })
       .then(() => {
-        toast.success("Успешно!");
+        toast.success(t("editPage.success"));
         mounted((prev) => !prev);
       })
       .catch((err) => {
@@ -96,7 +96,7 @@ const UserContents = ({ data, content, mounted, draft }) => {
         draft: false,
       })
       .then(() => {
-        toast.success("Успешно!");
+        toast.success(t("editPage.success"));
         mounted((prev) => !prev);
       })
       .catch((err) => {

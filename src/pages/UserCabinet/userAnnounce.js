@@ -128,6 +128,6 @@ export const userCabinetNavigator = [
     class: "svg-sprite-icon icon-fi_settings-o fill-n w-16",
     icon1: "fi_settings-o",
     icon2: "fi_settings",
-    text: "Настроить профиль",
+    text: "cabinet.setUpProfile",
   },
 ];

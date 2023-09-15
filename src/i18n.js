@@ -67,7 +67,16 @@ i18next
                         draft: "Черновик",
                         setUpProfile: "Настроить профиль",
                         yearExperience: " года опыта",
-                        showInMap: "Показать на карте"
+                        showInMap: "Показать на карте",
+                        chanceToWin: "Получите шанс выиграть ценные призы, просто поделившись ссылкой!",
+                        myPoints: "Мои балы",
+                        refferalLink: "Реферальная ссылка",
+                        getRefferalLink: "Получить реферальную ссылку",
+                        activateToTop: "Активировать в топ",
+                        moreDetails: "Подробнее",
+                        name: "Имя",
+                        logout: "Выйти из профиля",
+                        hereEmpty: "Тут ничего нету"
                     },
                     editPage: {
                         uploadAvatarImage: "Загрузите фото профиля или логотип компании",
@@ -134,7 +143,8 @@ i18next
                         how: "Как",
                         livingSpace: "Жилая площадь",
                         recommendSimilar: "Рекомендуем похожие",
-                        type: "Тип"
+                        type: "Тип",
+                        success: "Успешно"
                     },
                     filter: {
                         forHome: "для дома",
@@ -173,6 +183,21 @@ i18next
                         register: "Зарегистрироваться",
                         signIn: "Войти",
                         areYouRegistered: "Вы зарегистрированы?"
+                    },
+                    aboutUs: {
+                        title: "Добро пожаловать на наш сайт Makleruz.uz!",
+                        text: `Мы рады приветствовать вас на платформе, где ваши домашние мечты становятся реальностью. Наш сайт предлагает широкий спектр услуг для тех, кто ищет идеальный дом, искусственное украшение или профессионального мастера для ремонта. 
+                        <br/>Мы предоставляем следующие услуги:
+                        <br/>
+                        <b>1</b>. Продажа недвижимости: Ищете новый дом или квартиру? Наши агенты помогут вам найти идеальное жилье, отвечающее вашим потребностям и бюджету.
+                        <br/>
+                        <b>2</b>. Мастера и ремонтные услуги: Независимо от того, нужен вам мастер для ремонта или обслуживания, у нас есть опытные специалисты для каждой задачи.
+                        <br/>
+                        <b>3</b>. Домашнее оборудование и мебель: Мы предлагаем широкий выбор домашнего оборудования и мебели от лучших производителей. Выбирайте из нашего ассортимента и создавайте уют и комфорт в своем доме.
+                        <br/>
+                        На нашем сайте мы уделяем внимание каждой детали, чтобы обеспечить вас лучшими предложениями и качественными услугами. Мы также предоставляем возможность просматривать изображения и видеоматериалы в высоком качестве, чтобы вы могли получить полное представление о товарах и услугах, которые мы предлагаем.
+                        <br/><br/>
+                        Не упустите шанс сделать ваш дом идеальным местом для жизни. Обратитесь к нам сегодня и дайте нам помочь вам воплотить ваши мечты в жизнь!`
                     }
                 }
             },
@@ -198,7 +223,6 @@ i18next
                         nothing: "Hech narsa mavjud emas",
                         notfound: "Hech narsa mavjud emas",
                         showmore: "Ko'proq ko'rsatish",
-                        setUpProfile: "Настроить профиль"
                     },
                     footer: {
                         auxiliary: "Yordamchi menyular",
@@ -231,10 +255,20 @@ i18next
                         waitForConfirm: "Tasdiqlash kutilmoqda",
                         saveChanges: "O'zgartirishlarni saqlash",
                         myAnnouncements: "Mening e'lonlarim",
+                        setUpProfile: "Profilni sozlash",
                         archive: "Arxiv",
                         draft: "Qoralama",
                         yearExperience: " yil tajriba ga ega",
-                        showInMap: "Xaritada ko'rsatish"
+                        showInMap: "Xaritada ko'rsatish",
+                        chanceToWin: "Havolani baham ko'rish orqali qimmatbaho sovg'alarni yutib olish imkoniyatiga ega bo'ling!",
+                        myPoints: "Mening ballim",
+                        refferalLink: "Yo'naltiruvchi havola",
+                        getRefferalLink: "Yo'naltiruvchi havolani oling",
+                        activateToTop: "TOP ga chiqarish",
+                        moreDetails: "Batafsil",
+                        name: "Ism",
+                        logout: "Profildan chiqish",
+                        hereEmpty: "Bu yerda hech narsa yo‘q"
                     },
                     editPage: {
                         uploadAvatarImage: "Profil rasmini yoki kompaniya logotipini yuklang",
@@ -300,8 +334,9 @@ i18next
                         buy: "Sotib olish",
                         how: "Turi",
                         livingSpace: "Yashash maydoni",
-                        recommendSimilar: "Biz shunga o'xshash narsalarni tavsiya qilamiz",
-                        type: "Turi"
+                        recommendSimilar: "Oʻxshash mahsulotlar",
+                        type: "Turi",
+                        success: "Muvaffaqiyatli"
                     },
                     filter: {
                         forHome: "uy uchun",
@@ -340,6 +375,21 @@ i18next
                         register: "Ro'yxatdan o'tish",
                         signIn: "Kirish",
                         areYouRegistered: "Siz ro'yxatdan o'tganmisiz?"
+                    },
+                    aboutUs: {
+                        title: "Makleruz.uz saytimizga xush kelibsiz!",
+                        text: `Sizni uy orzularingiz ro'yobga chiqadigan platformaga xush kelibsiz. Bizning sayt mukammal uy, sun'iy bezak yoki ta'mirlash uchun professional usta izlayotganlar uchun keng turdagi xizmatlarni taklif etadi.
+                        <br/>Biz quyidagi xizmatlarni taqdim etamiz:
+                        <br/>
+                        <b>1</b>. Ko'chmas mulkni sotish: Yangi uy yoki kvartira qidiryapsizmi? Bizning agentlarimiz sizning ehtiyojlaringiz va byudjetingizga mos keladigan mukammal uyni topishga yordam beradi.
+                        <br/>
+                        <b>2</b>. Hunarmandlar va ta'mirlash xizmatlari: Sizga ta'mirlash yoki texnik xizmat ko'rsatish uchun savdogar kerak bo'ladimi, bizda har bir vazifa uchun tajribali texniklar mavjud.
+                        <br/>
+                        <b>3</b>. Uy jihozlari va mebellari: Biz eng yaxshi ishlab chiqaruvchilarning uy jihozlari va mebellarining keng tanlovini taklif qilamiz. Bizning assortimentimizdan tanlang va uyingizda qulaylik va qulaylik yarating.
+                        <br/>
+                        Bizning veb-saytimizda sizga eng yaxshi takliflar va sifatli xizmatlarni taqdim etish uchun har bir tafsilotga e'tibor qaratamiz. Shuningdek, biz yuqori sifatli tasvirlar va videolarni ko'rish imkoniyatini taqdim etamiz, shunda siz biz taklif qilayotgan mahsulot va xizmatlar haqida to'liq tushunchaga ega bo'lishingiz mumkin.
+                        <br/><br/>
+                        Uyingizni yashash uchun eng zo'r joyga aylantirish imkoniyatini qo'ldan boy bermang. Bugun biz bilan bog'laning va orzularingizni ro'yobga chiqarishingizga yordam beramiz!`
                     }
                 }
             }

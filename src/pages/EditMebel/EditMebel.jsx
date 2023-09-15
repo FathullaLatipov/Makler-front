@@ -350,7 +350,7 @@ export default function EditMebel() {
         },
       })
       .then(() => {
-        toast.success("Успешно!");
+        toast.success(t("editPage.success"));
         navigateToProfile();
       })
       .catch((err) => {

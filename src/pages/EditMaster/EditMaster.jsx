@@ -108,7 +108,7 @@ export default function EditMaster() {
   useEffect(() => {
     window.document.title = "Редактировать";
     $host
-      .get(`${baseURL}/master/api/v1/maklers/professions`)
+      .get(`master/api/v1/maklers/professions`)
       .then((res) => setNames(res.data.results))
       .catch((err) => {
         console.log(err);
@@ -251,7 +251,7 @@ export default function EditMaster() {
         },
       })
       .then(() => {
-        toast.success("Успешно!");
+        toast.success(t("editPage.success"));
         navigateToProfile();
       })
       .catch((err) => {

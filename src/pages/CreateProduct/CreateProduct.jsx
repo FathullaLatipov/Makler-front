@@ -73,7 +73,7 @@ const CreateProduct = () => {
     setLoading(true);
     try {
       await $host.post(`/products/web/api/v1/web-houses/create/`, data);
-      toast.success("Успешно");
+      toast.success(t("editPage.success"));
       navigateToProfile();
     } catch (e) {
       console.log(e);
