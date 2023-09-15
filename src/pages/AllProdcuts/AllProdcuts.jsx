@@ -7,11 +7,13 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styled from "styled-components";
 import $host from "../../http";
+import { useTranslation } from "react-i18next";
 
 const AllProducts = () => {
   const [ objects, setObjects ] = useState([]);
   const [show1, setShow1] = useState(false);
   const [ loading, setLoading ] = useState(true);
+  const { t } = useTranslation();
 
   const { form, changeHandler } = useForm({
     typeRoom: "",
@@ -116,7 +118,7 @@ const AllProducts = () => {
                 }}
                 onClick={() => setShow1((prev) => !prev)}
               >
-                Сортировка
+                {t("filter.sort")}
                 <svg className="svg-sprite-icon icon-fi_chevron-down w-12">
                   <use href={`${sprite}#fi_chevron-down`}></use>
                 </svg>
@@ -125,9 +127,9 @@ const AllProducts = () => {
               <div className={`nav-body-choose ${show1 && "active"}`}>
                 <ul>
                   {[
-                    { id: "price", text: "Дешевые" },
-                    { id: "-price", text: "Дорогие" },
-                    { id: "created_at", text: "Новые" },
+                    { id: "price", text: t("filter.cheapest") },
+                    { id: "-price", text: t("filter.expensive") },
+                    { id: "created_at", text: t("filter.newest") },
                   ].map((item,index) => (
                     <div key={index}>
                       <label
@@ -168,21 +170,21 @@ const AllProducts = () => {
             {objects.map((item, index) => (
               <div
                   key={index}
-                onClick={() => {
-                  if(item.object === form.building) {
-                    return changeHandler({
+                  onClick={() => {
+                    if(item.object === form.building) {
+                      return changeHandler({
+                        target: {
+                          name: "building",
+                          value: ""
+                        }
+                      });
+                    }
+                    changeHandler({
                       target: {
                         name: "building",
-                        value: ""
+                        value: item.object
                       }
-                    });
-                  }
-                  changeHandler({
-                    target: {
-                      name: "building",
-                      value: item.object
-                    }
-                  })
+                    })
                 }}
               >
                 <SliderItem 

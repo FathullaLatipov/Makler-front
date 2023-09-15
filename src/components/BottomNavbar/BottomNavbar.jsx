@@ -61,7 +61,7 @@ const BottomNavbar = () => {
                             <path d="M9 11C11.2091 11 13 9.20914 13 7C13 4.79086 11.2091 3 9 3C6.79086 3 5 4.79086 5 7C5 9.20914 6.79086 11 9 11Z" stroke="black" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>
 
-                        <span>О нас</span>
+                        <span>{t("navbar.aboutMe")}</span>
                     </NavLink>
                 </li>
                 <li className="bottom-navbar__item">

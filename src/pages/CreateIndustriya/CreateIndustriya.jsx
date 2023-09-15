@@ -339,7 +339,7 @@ export default function CreateIndustriya() {
                   marginTop: "2rem",
                 }}
               >
-                <h5>Бренд</h5>
+                <h5>{t("filter.brand")}</h5>
                 <div
                   className="form-price"
                   style={{
@@ -621,7 +621,7 @@ export default function CreateIndustriya() {
                   display: "block",
                 }}
               >
-                Тип
+                {t("editPage.type")}
               </span>
               <ul className="radio-list mb-50">
                 {howStore.map(({ title, id }) => (

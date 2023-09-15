@@ -98,18 +98,11 @@ const Footer = () => {
               </li>
               <li>
                 <p>
-                  Все права защищены
+                  {t("footer.allRightReserved")}
                 </p>
               </li>
             </ul>
             <ul className="social-links">
-              <li>
-                <a href="#">
-                  <svg className="svg-sprite-icon icon-fb w-12">
-                    <use href={`${spirite}#fb`}></use>
-                  </svg>
-                </a>
-              </li>
               <li>
                 <a href="https://instagram.com/makleruz.uz?igshid=MzRlODBiNWFlZA==" target="_blank">
                   <svg className="svg-sprite-icon icon-inst w-12">
@@ -121,20 +114,6 @@ const Footer = () => {
                 <a href="https://t.me/makleruzuz">
                   <svg className="svg-sprite-icon icon-telegram w-12">
                     <use href={`${spirite}#telegram`}></use>
-                  </svg>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <svg className="svg-sprite-icon icon-tw w-12">
-                    <use href={`${spirite}#tw`}></use>
-                  </svg>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <svg className="svg-sprite-icon icon-in w-12">
-                    <use href={`${spirite}#in`}></use>
                   </svg>
                 </a>
               </li>

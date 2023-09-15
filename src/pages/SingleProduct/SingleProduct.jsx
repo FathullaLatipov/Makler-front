@@ -193,7 +193,7 @@ const SingleProduct = () => {
                   </li>
                   <li className="tags-item">
                     {" "}
-                    <span>Жилая площадь</span>
+                    <span>{t("editPage.livingSpace")}</span>
                     <p>{houseData?.pm_residential}</p>
                   </li>
                   <li className="tags-item">
@@ -268,7 +268,7 @@ const SingleProduct = () => {
                       );
                     }}
                   >
-                    показать на карте
+                    {t("cabinet.showInMap")}
                   </button>
                 </div>
                 {houseData?.youtube_link && (
@@ -278,7 +278,7 @@ const SingleProduct = () => {
                       src={houseData?.youtube_link}
                   />
                 )}
-                <h5 className="product-small-title">Рекомендуем похожие</h5>
+                <h5 className="product-small-title">{t("editPage.recommendSimilar")}</h5>
               </div>
             </div>
           </div>

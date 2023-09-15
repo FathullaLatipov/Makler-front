@@ -75,7 +75,7 @@ const SingleMebel = () => {
                     <h1>{data?.phone_number}</h1>
                   </div>
                   <a href={`tel:${data?.phone_number}`} className="worker-btn">
-                    Позвонить по номеру
+                    {t("singleProduct.callForNumber")}
                   </a>
                 </div>
               </div>
@@ -133,7 +133,7 @@ const SingleMebel = () => {
                   marginBottom: "1rem",
                 }}
               >
-                Рекомендуем похожие
+                {t("editPage.recommendSimilar")}
               </h1>
               <div
                 className="workers-group"

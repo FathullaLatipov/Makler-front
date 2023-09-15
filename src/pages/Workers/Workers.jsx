@@ -8,6 +8,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styled from "@emotion/styled";
+import { useTranslation } from "react-i18next";
 
 const Workers = () => {
   const [ masters, setMasters ] = useState([]);
@@ -21,6 +22,7 @@ const Workers = () => {
     search: "",
     service: "",
   });
+  const { t } = useTranslation();
   const { search, profession, service } = form;
   useEffect(() => {
     axios
@@ -216,7 +218,7 @@ const Workers = () => {
             margin: "4rem auto",
           }}
         >
-          Показать ещё
+          {t("houses.showmore")}
         </button>
       </div>
     </section>

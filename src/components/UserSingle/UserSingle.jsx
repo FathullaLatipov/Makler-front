@@ -113,7 +113,7 @@ const UserSingle = ({ data, id }) => {
                     className="worker-btn"
                   >
                     {locat.pathname.includes("master")
-                      ? "Позвонить по номеру"
+                      ? t("singleProduct.callForNumber")
                       : t("singleProduct.call")}
                   </a>
                 </div>
@@ -180,7 +180,7 @@ const UserSingle = ({ data, id }) => {
                   marginBottom: "1rem",
                 }}
               >
-                Рекомендуем похожие
+                {t("editPage.recommendSimilar")}
               </h1>
               <div
                 className="workers-group"

@@ -23,7 +23,8 @@ i18next
                         furniture: "Мебель",
                         cabinet: "Кабинет",
                         favorites: "Избранные",
-                        create: "Создать"
+                        create: "Создать",
+                        aboutMe: "О нас"
                     },
                     houses: {
                         recommendation: "Рекомендованные Жилой Комплексы",
@@ -50,7 +51,8 @@ i18next
                         developers: "Застройщики",
                         recommend: "Рекомендуемые",
                         appartments: "Квартиры",
-                        footerText: "Поиск все что угодно для вашего дома и комфорта"
+                        footerText: "Поиск все что угодно для вашего дома и комфорта",
+                        allRightReserved: "Все права защищены"
                     },
                     cabinet: {
                         addToTheTop: "Продвигайте свое объявление в ТОП!",
@@ -64,7 +66,8 @@ i18next
                         archive: "Архив",
                         draft: "Черновик",
                         setUpProfile: "Настроить профиль",
-                        yearExperience: " года опыта"
+                        yearExperience: " года опыта",
+                        showInMap: "Показать на карте"
                     },
                     editPage: {
                         uploadAvatarImage: "Загрузите фото профиля или логотип компании",
@@ -128,12 +131,29 @@ i18next
                         forFewMonths: "На несколько месяцев",
                         sell: "Продать",
                         buy: "Купить",
-                        how: "Как"
+                        how: "Как",
+                        livingSpace: "Жилая площадь",
+                        recommendSimilar: "Рекомендуем похожие",
+                        type: "Тип"
                     },
                     filter: {
                         forHome: "для дома",
                         forKitchen: "для кухни",
-                        activitiesMaster: "Деятельности мастера"
+                        activitiesMaster: "Деятельности мастера",
+                        rent: "аpенда",
+                        clear: "Очистить",
+                        sort: "Сортировка",
+                        houses: "Дома",
+                        plot: "Участка",
+                        cheapest: "Дешевые",
+                        expensive: "Дорогие",
+                        newest: "Новые",
+                        repair: "Ремонт",
+                        euroRepair: "Евро",
+                        muhandis: "Инженер",
+                        for: "Для",
+                        brand: "Бренд",
+                        category: "Категория"
                     },
                     singleProduct: {
                         description: "Описание",
@@ -146,7 +166,8 @@ i18next
                         callTheSeller: "Позвонить продавцу",
                         share: "Поделиться",
                         addToFavorites: "В избранные",
-                        removeFromFavorites: "Удалить с избранного"
+                        removeFromFavorites: "Удалить с избранного",
+                        callForNumber: "Позвонить по номеру"
                     },
                     login: {
                         register: "Зарегистрироваться",
@@ -169,7 +190,8 @@ i18next
                         furniture: "Mebel",
                         cabinet: "Kabinet",
                         favorites: "Sevimlilar",
-                        create: "Yaratish"
+                        create: "Yaratish",
+                        aboutMe: "Biz haqimizda"
                     },
                     houses: {
                         recommendation: "Tanlangan turar-joy majmuasi",
@@ -181,7 +203,7 @@ i18next
                     footer: {
                         auxiliary: "Yordamchi menyular",
                         downloadApp: "Ilovamizni yuklab oling",
-                        moreConvinient: "M-makler ilovamiz bilan bu yanada qulayroq!",
+                        moreConvinient: "MAKLERUZ ilovamiz bilan bu yanada qulayroq!",
                         download: "Hujjat shaklini yuklab oling",
                         foradvertisers: "Reklama beruvchilar uchun",
                         recommendation: "Qidiruvni soddalashtirish uchun biz tavsiyalar tizimini joriy qildik shunga o'xshash reklamalar.",
@@ -197,7 +219,8 @@ i18next
                         developers: "Dasturchilar",
                         recommend: "Tavsiya etilgan",
                         appartments: "Kvartiralar",
-                        footerText: "Uyingiz va barcha qulayligingiz uchun"
+                        footerText: "Uyingiz va barcha qulayligingiz uchun",
+                        allRightReserved: "Barcha huquqlar himoyalangan"
                     },
                     cabinet: {
                         addToTheTop: "E'loningizni TOP ga ko'taring!",
@@ -210,7 +233,8 @@ i18next
                         myAnnouncements: "Mening e'lonlarim",
                         archive: "Arxiv",
                         draft: "Qoralama",
-                        yearExperience: " yil tajriba ga ega"
+                        yearExperience: " yil tajriba ga ega",
+                        showInMap: "Xaritada ko'rsatish"
                     },
                     editPage: {
                         uploadAvatarImage: "Profil rasmini yoki kompaniya logotipini yuklang",
@@ -274,12 +298,29 @@ i18next
                         forFewMonths: "Bir necha oy",
                         sell: "Sotish",
                         buy: "Sotib olish",
-                        how: "Turi"
+                        how: "Turi",
+                        livingSpace: "Yashash maydoni",
+                        recommendSimilar: "Biz shunga o'xshash narsalarni tavsiya qilamiz",
+                        type: "Turi"
                     },
                     filter: {
                         forHome: "uy uchun",
                         forKitchen: "oshxona uchun",
-                        activitiesMaster: "Quruvchilar faoliyati"
+                        activitiesMaster: "Quruvchilar faoliyati",
+                        rent: "Ijara",
+                        clear: "Tozalash",
+                        sort: "Tartiblash",
+                        houses: "Uylar",
+                        plot: "Uchastka",
+                        cheapest: "Arzon",
+                        expensive: "Qimmat",
+                        newest: "Yangi",
+                        repair: "Ta'mirlash",
+                        euroRepair: "Evro",
+                        muhandis: "Muhandis",
+                        for: "Uchun",
+                        brand: "Brend",
+                        category: "Toifasi"
                     },
                     singleProduct: {
                         description: "Tavsif",
@@ -292,7 +333,8 @@ i18next
                         callTheSeller: "Sotuvchiga qo'ng'iroq qilish",
                         share: "Ulashish",
                         addToFavorites: "Sevimlilarga qo'shish",
-                        removeFromFavorites: "Sevimlilardan olib tashlash"
+                        removeFromFavorites: "Sevimlilardan olib tashlash",
+                        callForNumber: "Raqamga qo'ng'iroq qiling"
                     },
                     login: {
                         register: "Ro'yxatdan o'tish",

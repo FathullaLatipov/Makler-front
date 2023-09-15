@@ -1,9 +1,11 @@
 import { useState } from "react";
 import Loading from "../Loading/Loading";
 import ProductCard from "../ProductCard/ProductCard";
+import { useTranslation } from "react-i18next";
 
 const SearchResults = ({ data, loading }) => {
   const [limit, setLimit] = useState(8);
+  const { t } = useTranslation();
 
   const handleClick = () => {};
 
@@ -41,7 +43,7 @@ const SearchResults = ({ data, loading }) => {
               className="btn btn-big btn-white"
               id="show-more"
             >
-              Показать ещё
+              {t("houses.showmore")}
             </button>
           ) : (
             ""

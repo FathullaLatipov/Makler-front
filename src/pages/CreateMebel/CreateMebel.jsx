@@ -213,7 +213,7 @@ export default function CreateMebel() {
                   marginTop: "2rem",
                 }}
               >
-                <h5>Бренд</h5>
+                <h5>{t("filter.brand")}</h5>
                 <div
                   className="form-price"
                   style={{

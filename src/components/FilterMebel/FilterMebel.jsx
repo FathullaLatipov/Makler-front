@@ -26,6 +26,8 @@ const FilterMebel = ({ change, value }) => {
 
   const { useFor, how_store_service, brand_title, category } = value;
 
+  console.log(category2)
+
   useEffect(() => {
     setProfess(category2[category - 1]?.title);
   }, [category]);
@@ -36,7 +38,7 @@ const FilterMebel = ({ change, value }) => {
         <div className="container">
           <ul className="nav-search-body">
             <li className="nav-search_how select-choose">
-              <label className="nav-label">Категория</label>
+              <label className="nav-label">{t("filter.category")}</label>
               <span
                 onClick={() => setShow1((prev) => !prev)}
                 className="choose-btn choose-btn-round"
@@ -45,7 +47,7 @@ const FilterMebel = ({ change, value }) => {
                   cursor: "pointer",
                 }}
               >
-                <span>{profess ? profess : "Категория"}</span>
+                <span>{profess ? profess : t("filter.category")}</span>
                 <svg className="svg-sprite-icon icon-fi_chevron-down w-12">
                   <use href={`${spirite}#fi_chevron-down`}></use>
                 </svg>
@@ -195,7 +197,7 @@ const FilterMebel = ({ change, value }) => {
                 className="btn show-btn-orange btn-search"
                 onClick={() => window.location.reload()}
               >
-                Очистить
+                {t("filter.clear")}
               </button>
             </li>
           </ul>

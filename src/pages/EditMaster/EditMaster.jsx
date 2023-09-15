@@ -505,7 +505,7 @@ export default function EditMaster() {
                   display: "block",
                 }}
               >
-                Тип
+                {t("editPage.type")}
               </span>
               <ul className="radio-list mb-50">
                 {[
@@ -514,7 +514,7 @@ export default function EditMaster() {
                     value: 1,
                   },
                   {
-                    text: "Ремонт",
+                    text: t("filter.repair"),
                     value: 2,
                   },
                 ].map(({ text, value }) => (

@@ -23,7 +23,7 @@ const Filter = React.memo(({ value, change, start }) => {
                   cursor: "pointer",
                 }}
               >
-                <span>{value.typeRoom ? value.typeRoom : "аpенда"}</span>
+                <span>{value.typeRoom ? value.typeRoom : t("filter.rent")}</span>
                 <svg className="svg-sprite-icon icon-fi_chevron-down w-12">
                   <use href={`${spirite}#fi_chevron-down`}></use>
                 </svg>
@@ -37,7 +37,7 @@ const Filter = React.memo(({ value, change, start }) => {
                         value.typeRoom === "аденда" ? "active" : ""
                       }`}
                     >
-                      аpенда
+                      {t("filter.rent")}
                       <input
                         type="text"
                         id="roomtype"
@@ -100,7 +100,7 @@ const Filter = React.memo(({ value, change, start }) => {
               </div>
             </li>
             <li className="nav-search_type select-choose">
-              <label className="nav-label">Тип</label>
+              <label className="nav-label">{t("editPage.type")}</label>
               <div
                 className="choose-btn choose-btn-link"
                 id="choose-type"
@@ -158,11 +158,11 @@ const Filter = React.memo(({ value, change, start }) => {
                 <ul>
                   {[
                     {
-                      label: "Дома",
+                      label: t("filter.houses"),
                       value: "дома",
                     },
                     {
-                      label: "Участка",
+                      label: t("filter.plot"),
                       value: "участка",
                     },
                   ].map((item) => (
@@ -242,7 +242,7 @@ const Filter = React.memo(({ value, change, start }) => {
                 className="btn show-btn-orange btn-search"
                 onClick={() => window.location.reload()}
               >
-                Очистить
+                {t("filter.clear")}
               </button>
             </li>
           </ul>

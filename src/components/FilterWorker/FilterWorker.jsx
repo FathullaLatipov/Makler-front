@@ -29,11 +29,11 @@ const FilterWorker = ({ change, value }) => {
  
   const serviceType = [
     {
-      label: "Ремонт",
+      label: t("filter.repair"),
       value: 1,
     },
     {
-      label: "Eвро",
+      label: t("filter.euroRepair"),
       value: 2,
     },
   ];
@@ -62,7 +62,7 @@ const FilterWorker = ({ change, value }) => {
                   cursor: "pointer",
                 }}
               >
-                <span>{serviceTypeValue ? serviceTypeValue : "Ремонт"}</span>
+                <span>{serviceTypeValue ? serviceTypeValue : t("filter.repair")}</span>
                 <svg className="svg-sprite-icon icon-fi_chevron-down w-12">
                   <use href={`${spirite}#fi_chevron-down`}></use>
                 </svg>
@@ -106,7 +106,7 @@ const FilterWorker = ({ change, value }) => {
                   cursor: "pointer",
                 }}
               >
-                <span>{profess ? profess : "Инженер"}</span>
+                <span>{profess ? profess : t("filter.muhandis")}</span>
                 <svg className="svg-sprite-icon icon-fi_chevron-down w-12">
                   <use href={`${spirite}#fi_chevron-down`}></use>
                 </svg>
@@ -160,7 +160,7 @@ const FilterWorker = ({ change, value }) => {
                 className="btn show-btn-orange btn-search"
                 onClick={() => window.location.reload()}
               >
-                Очистить
+                {t("filter.clear")}
               </button>
             </li>
           </ul>

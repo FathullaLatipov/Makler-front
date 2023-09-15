@@ -7,6 +7,7 @@ import { baseURL } from "../../requests/requests";
 import Loading from "../../components/Loading/Loading";
 import Slider from "react-slick";
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 
 const Mebel = () => {
   // const { masters } = useContext(ContextApp);
@@ -18,6 +19,7 @@ const Mebel = () => {
   const [searchLimit, setSearchLimit] = useState(8);
   const [searchData, setSearchData] = useState([]);
   const [limit, setLimit] = useState(6);
+  const { t } = useTranslation();
   const { form, changeHandler } = useForm({
     // profession: "",
     search: "",
@@ -244,7 +246,7 @@ const Mebel = () => {
             margin: "4rem auto",
           }}
         >
-          Показать ещё
+          {t("houses.showmore")}
         </button>
       </div>
     </section>

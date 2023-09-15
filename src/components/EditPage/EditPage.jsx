@@ -526,7 +526,7 @@ export default function EditPage() {
                   display: "block",
                 }}
               >
-                Тип
+                {t("editPage.type")}
               </span>
               <ul className="radio-list mb-50">
                 {filterService.map(({ title, id }) => (

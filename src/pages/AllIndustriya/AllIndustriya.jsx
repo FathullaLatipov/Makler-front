@@ -6,6 +6,7 @@ import useForm from "../../hooks/useForm";
 import Slider from "react-slick";
 import styled from "styled-components";
 import $host from "../../http";
+import { useTranslation } from "react-i18next";
 
 const AllIndustriya = () => {
   const [ brands, setBrands ] = useState([]);
@@ -20,6 +21,7 @@ const AllIndustriya = () => {
     how_store_service: "",
     brand_id: -1,
   });
+  const { t } = useTranslation();
 
   const { search, useFor, how_store_service, brand_id } = form;
   useEffect(() => {
@@ -219,7 +221,7 @@ const AllIndustriya = () => {
               margin: "4rem auto",
             }}
           >
-            Показать ещё
+            {t("houses.showmore")}
           </button>
         </div>
       </div>
