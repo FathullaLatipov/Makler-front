@@ -1,0 +1,57 @@
+
+.aboutus {
+
+    .container {
+      max-width: 929px;
+    }
+  
+    &__inner {
+      display: flex;
+      justify-content: center;
+      margin-top: 63px;
+      margin-bottom: 155px;
+    }
+  
+    &__content {
+      max-width: 519px;
+      width: 100%;
+      margin-bottom: 30px;
+  
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 5px;
+    }
+  
+    &__advertise {
+      background: #ffffff;
+      height: 362px;
+    }
+  
+    &__title {
+      font-weight: 800;
+      font-size: 28px;
+      line-height: 33.41px;
+    }
+  
+    &__shortly {
+      margin: 20px 0;
+      font-style: italic;
+      font-size: 13px;
+      line-height: 18px;
+    }
+  
+    &__text {
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 23px;
+      margin-bottom: 10px;
+    }
+  
+    &__img {
+      overflow: hidden;
+    }
+  
+    &__img > img {
+      object-fit: cover;
+    }
+  }

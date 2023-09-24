@@ -101,6 +101,13 @@ const Footer = () => {
                   {t("footer.allRightReserved")}
                 </p>
               </li>
+              <li
+                style={{display: "flex", alignItems: "center"}}
+              >
+                <Link to="/privacy" style={{color: "#ffffff", opacity: "0.4", fontSize: "0.625rem"}}>
+                  {t("footer.privacyPolicy")}
+                </Link>
+              </li>
             </ul>
             <ul className="social-links">
               <li>

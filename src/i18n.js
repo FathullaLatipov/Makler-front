@@ -52,7 +52,8 @@ i18next
                         recommend: "Рекомендуемые",
                         appartments: "Квартиры",
                         footerText: "Поиск все что угодно для вашего дома и комфорта",
-                        allRightReserved: "Все права защищены"
+                        allRightReserved: "Все права защищены",
+                        privacyPolicy: "Политика конфиденциальности"
                     },
                     cabinet: {
                         addToTheTop: "Продвигайте свое объявление в ТОП!",
@@ -219,6 +220,85 @@ i18next
                         register: "Зарегистрироватся",
                         createFurniture: "Создайте и продавайте мебели",
                         furnitureNames: "Мебельные названия"
+                    },
+                    privacy: {
+                        text: `
+                            Политика конфиденциальности
+                            <br/>
+                            <br/>
+                            Эта политика конфиденциальности объясняет, как информация о вас собирается и используется.
+                            <br/>
+                            Политика конфиденциальности распространяется на данные, которые мы собираем при использовании нашего приложения.
+                            <br/>
+                            Мы можем время от времени изменять эту политику конфиденциальности.
+                            <br/>
+                            В случае изменений мы сообщим вам, пересмотрев дату в верхней части нашей политики конфиденциальности.
+                            <br/>
+                            <br/>
+                            Сбор данных
+                            <br/>
+                            <br/>
+                            1. Информация, которую вы нам предоставляете.
+                            <br/>
+                            <br/>
+                            Makleruz собирает информацию, которую вы предоставляете нам напрямую.
+                            <br/>
+                            Например, мы собираем информацию, когда вы регистрируетесь или обновляете свои данные;
+                            <br/>
+                            Когда вы публикуете данные для продажи любого товара через Makleruz;
+                            <br/>
+                            Makleruz, когда вы обращаетесь в службу поддержки или иным образом связываетесь с нами;
+                            <br/>
+                            Тип информации, которую мы можем собрать, может включать ваше имя, номер телефона, фотографии, письменное описание размещенного товара, любые предложения или комментарии, которые вы можете сделать.
+                            <br/>
+                            Использование информации.
+                            <br/>
+                            <br/>
+                            2. Общее использование.
+                            <br/>
+                            <br/>
+                            Makleruz использует информацию о вас для различных целей. Например:
+                            <br/>
+                            Обслуживание, поддержка и административные сообщения, напоминания,
+                            <br/>
+                            для отправки необходимых технических сообщений, обновлений, безопасности, предупреждений
+                            <br/>
+                            Обмен информацией.
+                            <br/>
+                            <br/>
+                            3. Общее.
+                            <br/>
+                            <br/>
+                            Политика конфиденциальности может предоставить информацию о вас в случае:
+                            <br/>
+                            Если мы считаем, что ваши действия противоречат установленным правилам.
+                            <br/>
+                            Рекламные и аналитические услуги, предоставляемые другими
+                            <br/>
+                            <br/>
+                            4. Рекламные и аналитические услуги.
+                            <br/>
+                            <br/>
+                            Мы можем разрешить другим организациям показывать рекламу от нашего имени, и эти организации могут использовать файлы cookie;
+                            <br/>
+                            <br/>
+                            5. Учетные данные.
+                            <br/>
+                            <br/>
+                            Вы можете обновить, исправить или удалить информацию об учетной записи в любое время
+                            <br/>
+                            Но помните, что мы можем сохранить некоторые из ваших данных.
+                            <br/>
+                            Makleruz может хранить кеш даже после отмены вашей учетной записи.То есть
+                            <br/>
+                            он может хранить архивные копии информации о вас в течение определенного периода времени.
+                            <br/>
+                            <br/>
+                            6. Информация о местоположении.
+                            <br/>
+                            <br/>
+                            В некоторых функциях Makleruz использует сервисы Google Maps/Google Maps Map.
+                        `
                     }
                 }
             },
@@ -265,7 +345,8 @@ i18next
                         recommend: "Tavsiya etilgan",
                         appartments: "Kvartiralar",
                         footerText: "Uyingiz va barcha qulayligingiz uchun",
-                        allRightReserved: "Barcha huquqlar himoyalangan"
+                        allRightReserved: "Barcha huquqlar himoyalangan",
+                        privacyPolicy: "Maxfiylik siyosati"
                     },
                     cabinet: {
                         addToTheTop: "E'loningizni TOP ga ko'taring!",
@@ -432,6 +513,86 @@ i18next
                         register: "Ro'yxatdan o'tish",
                         createFurniture: "Mebel yaratish va sotish",
                         furnitureNames: "Mebel nomlari"
+                    },
+                    privacy: {
+                        text: `
+                            Maxfiylik siyosati
+                            <br/>
+                            <br/>
+                            Bu Maxfiylik siyosati siz haqingizda ma’lumot qanday to’planishi va ishlatilishini tushuntiradi .
+                            <br/>
+                            Maxfiylik siyosati bizning ilovamizdan foydalanganingizda biz to’playdigan ma’lumotlarga nisbatan qo’llaniladi.
+                            <br/>
+                            Vaqti -vaqti bilan ushbu Maxfiylik siyosatini o’zgartirishimiz mumkin.
+                            <br/>
+                            O’zgarishlar bo’lsa, biz Maxfiylik siyosatining yuqori qismidagi sanani qayta ko’rib chiqish orqali sizga xabar beramiz.
+                            <br/>
+                            Maxfiylik siyosatini har safar kirganingizda ko’rib chiqishingizni tavsiya qilamiz.
+                            <br/>
+                            <br/>
+                            Ma’lumot yig’ish
+                            <br/>
+                            <br/>
+                            1. Siz bizga taqdim etayotgan ma’lumotlar.
+                            <br/>
+                            <br/>
+                            Makleruz siz bizga to’g’ridan -to’g’ri taqdim etadigan ma’lumotlarni to’playdi.
+                            <br/>
+                            Masalan, biz ro’yxatdan o’tganingizda yoki ma’lumotlaringizni yangilaganingizda ma’lumot to’playmiz;
+                            <br/>
+                            Har qanday tovarni Makleruz orqali sotish uchun ma’lumotlarni joylashtirganingizda;
+                            <br/>
+                            Makleruz, mijozlarni qo’llab -quvvatlash xizmatini so’rganingizda yoki biz bilan boshqa yo’l bilan bog’langaningizda;
+                            <br/>
+                            Biz to’plashimiz mumkin bo’lgan ma’lumotlar turiga sizning ismingiz, telefon raqamingiz, fotosuratlar, joylashtirilgan tovarlarning yozma tavsifi, siz taklif qilgan har qanday takliflar yoki sharhlar kirishi mumkin.
+                            <br/>
+                            Axborotdan foydalanish.
+                            <br/>
+                            <br/>
+                            2. Umumiy foydalanish.
+                            <br/>
+                            <br/>
+                            Makleruz siz haqingizdagi ma’lumotlarni turli maqsadlarda ishlatadi. Masalan:
+                            <br/>
+                            Sizga xizmat ko’rsatish, qo’llab -quvvatlash va ma’muriy xabarlar, eslatmalar,
+                            <br/>
+                            talab qilingan texnik xabarlar, yangilanishlar, xavfsizlik, ogohlantirishlar jo’natish uchun
+                            <br/>
+                            Ma’lumot almashish.
+                            <br/>
+                            <br/>
+                            3. Umumiy.
+                            <br/>
+                            <br/>
+                            Maxfiylik siyosatida siz haqingizda ma’lumotlarni quyidagi holatda taqdim qilishi mumkin:
+                            <br/>
+                            Agar biz sizning harakatlaringiz belgilangan qonun-qoidalarga  zid deb hisoblasak.
+                            <br/>
+                            Boshqalar tomonidan taqdim etiladigan reklama va tahlil xizmatlari
+                            <br/>
+                            <br/>
+                            4. Reklama va tahlil xizmatlari.
+                            <br/>
+                            <br/>
+                            Biz boshqa tashkilotlarga o’z nomimizdan reklama ko’rsatishga ruxsat berishimiz mumkin va bu tashkilotlar cookie fayllaridan foydalanishi mumkin;
+                            <br/>
+                            <br/>
+                            5. Hisob ma’lumotlari.
+                            <br/>
+                            <br/>
+                            Siz istalgan vaqtda hisob qaydnomasi ma’lumotlarini yangilashingiz, to’g’rilashingiz yoki o’chirishingiz mumkin
+                            <br/>
+                            Lekin shuni esda tutingki, biz ba’zi ma’lumotlaringizni saqlashimiz mumkin.
+                            <br/>
+                            Makleruz sizning hisobingiz bekor qilingandan keyin ham keshni saqlashi mumkin.Ya’ni
+                            <br/>
+                            ma’lum vaqt davomida siz haqingizda ma’lumotlarning arxivlangan nusxalarini saqlashi mumkin.
+                            <br/>
+                            <br/>
+                            6. Joylashuv haqida ma’lumot.
+                            <br/>
+                            <br/>
+                            Ba’zi funktsiyalarda Makleruz Google Maps/Google xaritalarini tuzish xizmatlaridan foydalanadi.`
                     }
                 }
             }

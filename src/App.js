@@ -39,6 +39,7 @@ import BottomNavbar from "./components/BottomNavbar/BottomNavbar";
 import $host from "./http";
 import AboutUs from "./components/AboutUs/AboutUs";
 import {verifyUser} from "./http/userHttp";
+import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
 
 
 function App() {
@@ -144,6 +145,7 @@ function App() {
           <Route path="/industria" element={<AllIndustriya />} />
           <Route path="/create/industria" element={<CreateIndustriya />} />
           <Route path="/aboutus" element={<AboutUs/>}/>
+          <Route path="/privacy" element={<PrivacyPolicy/>}/>
 
         </Routes>
         <BottomNavbar/>
