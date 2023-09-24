@@ -221,6 +221,82 @@ i18next
                         createFurniture: "Создайте и продавайте мебели",
                         furnitureNames: "Мебельные названия"
                     },
+                    condition: {
+                        title: "Условия использования",
+                        text: `
+                            Последнее обновление: 27 мая 2021 г.
+                            <br/><br/>
+                            Настоящие Условия обслуживания (' <b>Условия</b> ') применяется к нашему (нам) мобильному приложению, чтобы вы могли получить к нему доступ и использовать его. , ' <b>Пожалуйста, внимательно прочитайте эти условия</b>
+                            <br/><br/>
+                            Время от времени мы можем вносить изменения в эти условия. Если мы внесем изменения, мы уведомим вас об изменениях, таких как отправка уведомления через наши службы или обновление даты в верхней части этих условий. Если вы продолжите пользоваться нашими услугами после того, как мы предоставим такое уведомление, это подтвердит, что вы приняли изменения. Если вы не согласны с измененными условиями, вы должны прекратить использование наших услуг.
+                            <br/><br/>
+                            Время от времени Joyla представляет новые функции, доступные только для некоторых пользователей. Правила настоящих Условий использования, касающиеся новых функций, могут применяться не ко всем пользователям.
+                            <br/><br/>
+                            Agar ushbu Shartlar yoki Xizmatlarimiz haqida savollaringiz bo’lsa, iltimos, joyla.organization@gmail.com elektron manziliga murojaat qiling . 
+                            <br/><br/>
+                            <b>1. Конфиденциальность</b>
+                            <br/><br/>
+                            Чтобы узнать, как мы собираем, используем, делимся информацией о вас наша политика конфиденциальности qarang . 
+                            <br/><br/>
+                            <b>2. Соответствие</b>
+                            <br/><br/>
+                            Вам должно быть не менее 16 лет, чтобы пользоваться нашими услугами. Если вы являетесь родителем или законным опекуном пользователя в возрасте до 18 лет (или несовершеннолетнего), вы несете полную ответственность за действия или бездействие такого Пользователя в отношении наших услуг.
+                            <br/><br/>
+                            <b>3. Услуги Joyla</b>
+                            <br/><br/>
+                            <b>A. Размещение элементов</b>
+                            <br/><br/>
+                            Услуги Joyla позволяют выставлять продукты на продажу, загружая изображения и предоставляя описания продуктов. Вы можете рекламировать свой продукт за плату. Если вы платите за продвижение своего продукта, Joyla постарается разместить ваш продукт в самом верху основного раздела. Joyla предлагает различные ценовые пакеты для размещения и рекламы продуктов. Детали цен доступны через Joyla Services.
+                            <br/><br/>
+                            <b>B. Покупка и продажа</b>
+                            <br/><br/>
+                            Когда покупатель и продавец договариваются о цене продукта, размещенного для продажи в сервисах, у них есть разные варианты для завершения сделки.
+                            <br/><br/>
+                            Если покупатель и продавец согласны, такие платежи производятся между покупателем и продавцом в соответствии с установленными ими условиями после завершения их сделок. Joyla никак не может помочь вернуть деньги, связанные с такими сделками.
+                            <br/><br/>
+                            <b>C. Платежные счета</b>
+                            <br/><br/>
+                            Joyla оставляет за собой право периодически менять плату за обслуживание. 
+                            <br/><br/>
+                            <b>D. Доставка</b>
+                            <br/><br/>
+                            Joyla сделки между покупателями и продавцами или отгрузка товаров от продавцов покупателям yдоставка, не несет ответственности за любой ущерб или задержку.
+                            <br/><br/>
+                            <b>4. Запрещенное поведение</b>
+                            <br/><br/>
+                            Вы не нарушаете и не нарушаете применимый закон, договор, права интеллектуальной собственности или другие права третьих лиц при использовании наших услуг и несете ответственность за свое поведение при использовании наших услуг.
+                            <br/><br/>
+                            • Любое преследование, угрозы, запугивание;              
+                            <br/><br/>
+                            • Продажа, коммерческое использование услуг Joyla;             
+                            <br/><br/>
+                            • Попытка продать запрещенные предметы;                
+                            <br/><br/>
+                            • Предоставление ложной, неточной или вводящей в заблуждение информации нашим поставщикам услуг или службам;
+                            <br/><br/>
+                            • Копирование, дублирование, распространение, публичное воспроизведение или публичное показ всех или части наших услуг, включая основной контент и исходный код;              
+                            <br/><br/>
+                            • Использование сервисов Joyla или использование любых автоматизированных инструментов для сбора или извлечения данных Joyla, таких как бот-сборщик, робот, паук, скрипт, сканер или скребок;             
+                            <br/><br/>
+                            • Использование услуг Joyla для нарушения или нарушения прав интеллектуальной собственности или других прав другого лица (включая Joyla).                                    
+                            <br/><br/>
+                            • попытка получить пароль, учетные данные или другую информацию о безопасности другого пользователя запрещена.         
+                            <br/><br/>
+                            Если вы выполните действия, описанные выше, Joyla может прекратить доступ к вашим услугам.
+                            <br/><br/>
+                            <b>5. Обратная связь</b>
+                            <br/><br/>
+                            Вы можете добровольно разместить или отправить любые вопросы, комментарии, предложения, идеи, оригинальные или креативные материалы или другую информацию о наших услугах.
+                            <br/><br/>
+                            <b>6. Принятие риска</b>
+                            <br/><br/>
+                            Узнайте и примите, что вы рискуете взаимодействовать с другими людьми, используя интернет-рынок. Вы несете ответственность за принятие всех необходимых мер предосторожности при общении с другими пользователями, особенно при первой встрече с незнакомцем.
+                            <br/><br/>
+                            <b>7. Изменение и прекращение наших услуг</b>
+                            <br/><br/>
+                            Мы имеем право изменять наши услуги или приостанавливать или приостанавливать некоторые из наших услуг в любое время. Вы имеете право прекратить использование наших услуг в любое время. Мы не несем ответственности за то, что вы не можете получить доступ или повредить наши услуги.
+                        `
+                    },
                     privacy: {
                         text: `
                             Политика конфиденциальности
@@ -513,6 +589,82 @@ i18next
                         register: "Ro'yxatdan o'tish",
                         createFurniture: "Mebel yaratish va sotish",
                         furnitureNames: "Mebel nomlari"
+                    },
+                    condition: {
+                        title: "Xizmat ko’rsatish shartlari",
+                        text: `
+                            Oxirgi yangilanish: 2021 yil 27 -may
+                            <br><br>
+                            Ushbu Xizmat shartlari (» <b>Shartlar</b> «) bizning ( biz ) mobil ilovamizga  kirishingiz va undan foydalanishingiz uchun qo’llaniladi. , » <b>Iltimos, ushbu shartlarni diqqat bilan o’qing</b>
+                            <br><br>
+                            Vaqti - vaqti bilan ushbu Shartlarga o’zgartirishlar kiritishimiz mumkin. Agar biz o’zgartirishlar kiritadigan bo’lsak, sizga Xizmatlarimiz orqali bildirishnoma yuborish yoki ushbu Shartlarning yuqori qismidagi sanani yangilash kabi o’zgarishlar to’g’risida xabar beramiz. Biz bunday xabarni berganimizdan so’ng siz bizning Xizmatlarimizdan foydalanishni davom ettirsangiz, bu o’zgarishlarni qabul qilganligingizni tasdiqlaydi. Agar siz o’zgartirilgan shartlarga rozi bo’lmasangiz, siz bizning xizmatlarimizdan foydalanishni to’xtatishingiz kerak.
+                            <br><br>
+                            Vaqti -vaqti bilan Joyla faqat ba’zi foydalanuvchilar uchun mavjud bo’lgan yangi xususiyatlarni taqdim etadi. Ushbu Foydalanish shartlarining yangi xususiyatlarga oid qoidalari hamma foydalanuvchilarga tegishli bo’lmasligi mumkin.
+                            <br><br>
+                            Agar ushbu Shartlar yoki Xizmatlarimiz haqida savollaringiz bo’lsa, iltimos, joyla.organization@gmail.com elektron manziliga murojaat qiling . 
+                            <br><br>
+                            <b>1. Maxfiylik</b>
+                            <br><br>
+                            Siz haqingizdagi ma’lumotlarni qanday yig’ishimiz, ishlatishimiz, bo’lishishimiz haqida ma’lumot olish uchun maxfiylik siyosatimizga qarang . 
+                            <br><br>
+                            <b>2. Muvofiqlik</b>
+                            <br><br>
+                            Bizning xizmatlardan foydalanish uchun siz kamida 16 yoshda bo’lishingiz kerak.  Agar siz 18 yoshga to’lmagan (yoki qonuniy voyaga yetmagan) foydalanuvchining ota -onasi yoki qonuniy qo’riqchisi bo’lsangiz, siz bizning Xizmatlarimizga nisbatan bunday foydalanuvchining xatti -harakatlari yoki harakatsizligi uchun to’liq javobgar bo’lsiz.
+                            <br><br>
+                            <b>3. Joyla xizmatlari</b>
+                            <br><br>
+                            <b>A. Elementlarni joylashtirish</b>
+                            <br><br>
+                            Joyla xizmatlari sizga rasmlarni yuklash va mahsulot tavsiflarini taqdim etish orqali mahsulotlarni sotuvga qo’yishga imkon beradi.  Siz haq evaziga mahsulotingizni reklama qilishingiz mumkin. Agar siz mahsulotingizni reklama qilish uchun pul to’lasangiz, Joyla sizning mahsulotingizni Asosiy bo’limda eng tepada joylashtirishga harakat qiladi. Joyla mahsulotlarni joylashtirish va reklama qilish uchun har xil narxlar paketlarini taklif qiladi. Narxlar tafsilotlari Joyla Services orqali taqdim etiladi.
+                            <br><br>
+                            <b>B. Sotib olish va sotish</b>
+                            <br><br>
+                            Qachonki xaridor va sotuvchi Xizmatlarda sotish uchun joylashtirilgan mahsulot narxiga kelishib olsalar, ular bitimni bajarish uchun har xil variantlarga ega.
+                            <br><br>
+                            Agar xaridor va sotuvchi rozi bo’lsa, bunday to’lovlar xaridor va sotuvchi o’rtasida, ular belgilagan shartlarga muvofiq, o’z bitimlarini tugatgandan so’ng amalga oshiriladi. Joyla bunday bitimlar bilan bog’liq pulni qaytarishga hech qanday yordam bera olmaydi.
+                            <br><br>
+                            <b>C. To’lov hisoblari</b>
+                            <br><br>
+                            Joyla xizmat haqini vaqti -vaqti bilan o’zgartirish huquqini o’zida saqlab qoladi. 
+                            <br><br>
+                            <b>D. Yetkazib berish</b>
+                            <br><br>
+                            Joyla xaridorlar va sotuvchilar o’rtasida tuzilgan bitimlar yoki sotuvchilardan xaridorlarga yuklarni yetkazib berish, har qanday zarar yoki kechikish uchun javobgar emas.
+                            <br><br>
+                            <b>4. Taqiqlangan xatti -harakatlar</b>
+                            <br><br>
+                            Siz bizning Xizmatlarimizdan foydalanganda amaldagi qonun, shartnoma, intellektual mulk huquqi yoki boshqa uchinchi tomon huquqlarini buzmaysiz yoki buzg’unchilik qilmaysiz va bizning Xizmatlarimizdan foydalanganingizda xatti-harakatlaringiz uchun javobgar bo’lasiz.
+                            <br><br>
+                            •    Har qanday ta’qib qilish, tahdid qilish, qo’rqitish;              
+                            <br><br>
+                            • Joyla xizmatlarini sotish, tijorat maqsadlarida ishlatish;             
+                            <br><br>
+                            • Taqiqlangan narsalarni sotishga harakat qilish;                
+                            <br><br>
+                            • Joyla yoki xizmat ko’rsatuvchi provayderlarimizga yolg’on, noaniq yoki chalg’ituvchi ma’lumotlarni taqdim etish;
+                            <br><br>
+                            • Xizmatlarimizning barcha yoki bir qismini, jumladan, asosiy tarkib va ​​manba kodini nusxa ko’chirish, ko’paytirish, tarqatish, ommaviy ijro etish yoki hammaga ko’rsatish;              
+                            <br><br>
+                            • Joyla xizmatlaridan foydalanish yoki Joyla ma’lumotlarini yig’ish yoki olish uchun har qanday avtomatlashtirilgan vositalardan foydalanish, masalan, yig’ish boti, robot, o’rgimchak, skript, skaner yoki qirg’ichlardan foydalanish;             
+                            <br><br>
+                            • Joyla xizmatlaridan intellektual mulk huquqlarini yoki boshqa birovning (shu jumladan, Joyla) boshqa huquqlarini buzish yoki buzish uchun foydalanish.                                    
+                            <br><br>
+                            • boshqa foydalanuvchining parolini, hisob ma’lumotlarini yoki boshqa xavfsizlik ma’lumotlarini olishga urinish taqiqlanadi.         
+                            <br><br>
+                            Agar siz yuqorida tavsiflangan xatti -harakatlar bilan shug’ullansangiz, Joyla sizning Xizmatlarga kirish huquqingizni  to’xtatishi mumkin
+                            <br><br>
+                            <b>5. Qayta aloqa</b>
+                            <br><br>
+                            Siz ixtiyoriy ravishda Joyla yoki bizning Xizmatlarimiz haqidagi har qanday savollar, sharhlar, takliflar, g’oyalar, original yoki ijodiy materiallar yoki boshqa ma’lumotlarni joylashtirishingiz, yuborishingiz mumkin.
+                            <br><br>
+                            <b>6. Xavfni qabul qilish</b>
+                            <br><br>
+                            Bilib oling va qabul qiling, Internetga asoslangan bozorni ishlatib, boshqa shaxslar bilan o’zaro aloqada bo’lish xavfi bor. Boshqa foydalanuvchilar bilan muloqotda bo’lganingizda, ayniqsa, begona odam bilan birinchi marta uchrashganda, barcha kerakli ehtiyot choralarini ko’rishingiz uchun siz javobgarsiz.
+                            <br><br>
+                            <b>7. Xizmatlarimizni o’zgartirish va to’xtatish</b>
+                            <br><br>
+                            Biz Xizmatlarimizni o’zgartirish huquqiga egamiz yoki istalgan vaqtda Xizmatlarimizning bir qismini to’xtatib qo’yish yoki to’xtatish huquqiga egamiz. Siz istalgan vaqtda bizning xizmatlarimizdan foydalanishni to’xtatishga haqlisiz. Biz sizning Xizmatlarimizga kira olmasligingiz yoki zarar etkazishingiz uchun javobgar emasmiz.
+                        `
                     },
                     privacy: {
                         text: `

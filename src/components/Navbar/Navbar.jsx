@@ -23,7 +23,9 @@ const Navbar = () => {
     mebel: t("navbar.furniture"),
     cabinet: t("navbar.cabinet"),
     "save-products": t("navbar.favorites"),
-    aboutus: t("navbar.aboutMe")
+    aboutus: t("navbar.aboutMe"),
+    "terms-and-conditions": t("condition.title"),
+    "privacy-policy": t("footer.privacyPolicy")
   };
 
   

@@ -40,6 +40,7 @@ import $host from "./http";
 import AboutUs from "./components/AboutUs/AboutUs";
 import {verifyUser} from "./http/userHttp";
 import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
+import TermsCondition from "./pages/TermsCondition/TermsCondition";
 
 
 function App() {
@@ -145,7 +146,8 @@ function App() {
           <Route path="/industria" element={<AllIndustriya />} />
           <Route path="/create/industria" element={<CreateIndustriya />} />
           <Route path="/aboutus" element={<AboutUs/>}/>
-          <Route path="/privacy" element={<PrivacyPolicy/>}/>
+          <Route path="/privacy-policy" element={<PrivacyPolicy/>}/>
+          <Route path="/terms-and-conditions" element={<TermsCondition/>}/>
 
         </Routes>
         <BottomNavbar/>
