@@ -224,15 +224,13 @@ i18next
                     condition: {
                         title: "Условия использования",
                         text: `
-                            Последнее обновление: 27 мая 2021 г.
+                            Последнее обновление: 23 мая 2023 г.
                             <br/><br/>
                             Настоящие Условия обслуживания (' <b>Условия</b> ') применяется к нашему (нам) мобильному приложению, чтобы вы могли получить к нему доступ и использовать его. , ' <b>Пожалуйста, внимательно прочитайте эти условия</b>
                             <br/><br/>
                             Время от времени мы можем вносить изменения в эти условия. Если мы внесем изменения, мы уведомим вас об изменениях, таких как отправка уведомления через наши службы или обновление даты в верхней части этих условий. Если вы продолжите пользоваться нашими услугами после того, как мы предоставим такое уведомление, это подтвердит, что вы приняли изменения. Если вы не согласны с измененными условиями, вы должны прекратить использование наших услуг.
                             <br/><br/>
                             Время от времени Makleruz представляет новые функции, доступные только для некоторых пользователей. Правила настоящих Условий использования, касающиеся новых функций, могут применяться не ко всем пользователям.
-                            <br/><br/>
-                            Agar ushbu Shartlar yoki Xizmatlarimiz haqida savollaringiz bo’lsa, iltimos, makleruz.uz@gmail.com elektron manziliga murojaat qiling . 
                             <br/><br/>
                             <b>1. Конфиденциальность</b>
                             <br/><br/>
@@ -593,15 +591,13 @@ i18next
                     condition: {
                         title: "Xizmat ko’rsatish shartlari",
                         text: `
-                            Oxirgi yangilanish: 2021 yil 27 -may
+                            Oxirgi yangilanish: 2023 yil 23 -may
                             <br><br>
                             Ushbu Xizmat shartlari (» <b>Shartlar</b> «) bizning ( biz ) mobil ilovamizga  kirishingiz va undan foydalanishingiz uchun qo’llaniladi. , » <b>Iltimos, ushbu shartlarni diqqat bilan o’qing</b>
                             <br><br>
                             Vaqti - vaqti bilan ushbu Shartlarga o’zgartirishlar kiritishimiz mumkin. Agar biz o’zgartirishlar kiritadigan bo’lsak, sizga Xizmatlarimiz orqali bildirishnoma yuborish yoki ushbu Shartlarning yuqori qismidagi sanani yangilash kabi o’zgarishlar to’g’risida xabar beramiz. Biz bunday xabarni berganimizdan so’ng siz bizning Xizmatlarimizdan foydalanishni davom ettirsangiz, bu o’zgarishlarni qabul qilganligingizni tasdiqlaydi. Agar siz o’zgartirilgan shartlarga rozi bo’lmasangiz, siz bizning xizmatlarimizdan foydalanishni to’xtatishingiz kerak.
                             <br><br>
                             Vaqti -vaqti bilan Makleruz faqat ba’zi foydalanuvchilar uchun mavjud bo’lgan yangi xususiyatlarni taqdim etadi. Ushbu Foydalanish shartlarining yangi xususiyatlarga oid qoidalari hamma foydalanuvchilarga tegishli bo’lmasligi mumkin.
-                            <br><br>
-                            Agar ushbu Shartlar yoki Xizmatlarimiz haqida savollaringiz bo’lsa, iltimos, makleruz.uz@gmail.com elektron manziliga murojaat qiling . 
                             <br><br>
                             <b>1. Maxfiylik</b>
                             <br><br>
