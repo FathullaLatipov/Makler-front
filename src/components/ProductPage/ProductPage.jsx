@@ -36,7 +36,7 @@ export default function ProductCard({ data }) {
               maxHeight: "237px",
               width: "100%",
               height: "100%",
-              objectFit: "cover",
+              objectFit: "contain",
             }}
           />
         </div>
