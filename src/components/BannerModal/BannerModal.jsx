@@ -4,13 +4,12 @@ import spirite from "../../assets/img/symbol/sprite.svg";
 import $host from "../../http";
 import {useQuery} from "react-query";
 
-
 const BannerModal = ({ setOpen }) => {
     const { isLoading, error, data: image } = useQuery('banner', () =>
         $host.get('/api/v1/banner-ads/').then(({ data }) => data.results[0])
     );
 
-    if(isLoading || error) {
+    if(isLoading || !image) {
         return null;
     }
 
