@@ -20,10 +20,11 @@ const AllIndustriya = () => {
     search: "",
     how_store_service: "",
     brand_id: -1,
+    brand_title: ""
   });
   const { t } = useTranslation();
 
-  const { search, useFor, how_store_service, brand_id } = form;
+  const { search, useFor, how_store_service, brand_id, brand_title } = form;
   useEffect(() => {
     $host
       .get(`/store2/api/v1/store/`)
@@ -39,13 +40,13 @@ const AllIndustriya = () => {
         params: {
           use_for: useFor,
           how_store_service: how_store_service,
-          brand_title: brand_id,
+          brand_title: brand_title,
         },
       })
       .then((data) => setData(data.data.results))
       .catch((err) => console.log(err))
       .finally(() => setLoading(false));
-  }, [useFor, how_store_service, brand_id]);
+  }, [useFor, how_store_service, brand_id, brand_title]);
 
   const fetchData = async () => {
     setLoading(true);
@@ -157,16 +158,16 @@ const AllIndustriya = () => {
                   })
                 }}
               >
-                <SliderItem 
-                  key={index} 
+                <SliderItem
+                  key={index}
                   style={{background: item.id === form.brand_id && `rgba(238,125,62,255)`,
                   color: item.id === form.brand_id && `#fff`}}
                 >
-                  <div 
+                  <div
                     className="slider-item"
                   >
                     <div className="slider-image">
-                      <img 
+                      <img
                         src={item.image}
                       />
                     </div>
@@ -176,10 +177,11 @@ const AllIndustriya = () => {
               </div>
             ))}
           </Slider>
-          {!loading ? (
+          {loading && <Loading />}
+          {!loading && (
             <div className="app__cards--wrapper">
               {!search.length ? (
-                data.length ? (
+                data.length > 0 ? (
                   data?.slice(0, limit)?.map((data) => data.product_status === 1 && (
                     <div
                       style={{
@@ -210,8 +212,6 @@ const AllIndustriya = () => {
                 <h1>Предметы не найдены!</h1>
               )}
             </div>
-          ) : (
-            <Loading />
           )}
           <button
             onClick={handleLoad}
