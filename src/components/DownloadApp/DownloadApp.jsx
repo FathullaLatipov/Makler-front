@@ -11,18 +11,22 @@ const DownloadApp = () => {
         <div className="download-app">
           <div className="app">
             <div className="app-btns">
+            <a href="https://play.google.com/store/apps/details?id=uz.makler.app" target="_blank" rel="noopener noreferrer">
               <button className="btn btn-gray left-icon">
                 <svg className="svg-sprite-icon icon-google-play w-16">
                   <use href={`${sprite}#google-play`}></use>
                 </svg>
                 <span>Google Play</span>
               </button>
-              <button className="btn btn-gray left-icon">
-                <svg className="svg-sprite-icon icon-apple w-16">
-                  <use href={`${sprite}#apple`}></use>
-                </svg>
-                <span>AppStore</span>
-              </button>
+              </a>
+              <a href="https://apps.apple.com/uz/app/makleruz/id6466745648" target="_blank" rel="noopener noreferrer">
+                <button className="btn btn-gray left-icon">
+                  <svg className="svg-sprite-icon icon-apple w-16">
+                    <use href={`${sprite}#apple`}></use>
+                  </svg>
+                  <span>AppStore</span>
+                </button>
+              </a>
             </div>
             <h3 className="small-title">{t("footer.downloadApp")}</h3>
             <p>{t("footer.moreConvinient")}</p>
