@@ -1,17 +1,17 @@
-import { UserContents } from "../../components";
-import avatar_image from "../../assets/img/avatar_change.png";
-import spirite from "../../assets/img/symbol/sprite.svg";
-import { userCabinetNavigator } from "./userAnnounce";
-import React, { useContext, useEffect, useState } from "react";
-import UserSettings from "./UserSettings";
-import { useParams, useNavigate } from "react-router-dom";
-import ContextApp from "../../context/context";
-import Loading from "../../components/Loading/Loading";
-import {useTranslation} from "react-i18next";
-import $host, {WEB_URL} from "../../http";
-import {useCookies} from "react-cookie";
-import "./UserCabinet.scss";
-import {toast} from "react-toastify";
+import { UserContents } from '../../components';
+import avatar_image from '../../assets/img/avatar_change.png';
+import spirite from '../../assets/img/symbol/sprite.svg';
+import { userCabinetNavigator } from './userAnnounce';
+import React, { useContext, useEffect, useState } from 'react';
+import UserSettings from './UserSettings';
+import { useParams, useNavigate } from 'react-router-dom';
+import ContextApp from '../../context/context';
+import Loading from '../../components/Loading/Loading';
+import { useTranslation } from 'react-i18next';
+import $host, { WEB_URL } from '../../http';
+import { useCookies } from 'react-cookie';
+import './UserCabinet.scss';
+import { toast } from 'react-toastify';
 
 const UserCabinet = () => {
   const [holdId, setHoldId] = useState(1);
@@ -33,9 +33,9 @@ const UserCabinet = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const { id } = useParams();
-  const [ cookies, setCookies, removeCookie ] = useCookies();
+  const [cookies, setCookies, removeCookie] = useCookies();
 
-  const refferLink = `${WEB_URL}?from=${userData.id}`;
+  const refferLink = `https://makleruz.uz/login?ref=${userData.referral_code}`;
 
   const getData = (setData, url) => {
     $host
@@ -43,14 +43,13 @@ const UserCabinet = () => {
       .then(({ data }) => {
         setData(data);
       })
-      .catch(() => navigate("/"))
+      .catch(() => navigate('/'))
       .finally(() => setLoading(false));
   };
 
   useEffect(() => {
-    getData(setUserProducts, "user-products");
+    getData(setUserProducts, 'user-products');
   }, [mounted]);
-
 
   useEffect(() => {
     setStores(userProducts?.stores);
@@ -59,38 +58,39 @@ const UserCabinet = () => {
     setMebels(userProducts?.mebels);
   }, [userProducts, mounted]);
 
-
   useEffect(() => {
-    window.document.title = t("navbar.profile");
+    window.document.title = t('navbar.profile');
   }, []);
+
+  console.log(refferals);
 
   const draftArr = [
     {
-      content: "house",
+      content: 'house',
       arr: houses,
       filteredArr: filtered,
     },
     {
-      content: "master",
+      content: 'master',
       arr: maklers,
       filteredArr: filteredMaklers,
     },
     {
-      content: "store",
+      content: 'store',
       arr: stores,
       filteredArr: filteredStores,
     },
     {
-      content: "mebel",
+      content: 'mebel',
       arr: mebels,
       filteredArr: filteredMebels,
     },
   ];
 
-  console.log(houses)
+  console.log(houses);
 
   const filterFunc = (setFilter, arr) => {
-    const filtered = arr?.filter((item) => {
+    const filtered = arr?.filter(item => {
       return item.product_status !== 3 && item.draft !== true;
     });
     setFilter(filtered);
@@ -111,94 +111,105 @@ const UserCabinet = () => {
 
   const handleLogOut = () => {
     localStorage.clear();
-    router("/");
+    router('/');
     window.location.reload();
-    removeCookie("refreshToken");
+    removeCookie('refreshToken');
   };
 
   const getRefferLink = () => {
     navigator.clipboard.writeText(refferLink);
-    toast.success(t("cabinet.linkCopied"));
+    toast.success(t('cabinet.linkCopied'));
   };
 
   return (
     <section className="cabinet-s">
       <div className="container">
         <div className="cabinet" id="cabinet">
-
-          <div className="cabinet-nav reffer" style={{ borderRadius: "5px", marginBottom: "1.375rem" }}>
-
-            <p>{t("cabinet.chanceToWin")}</p>
+          <div
+            className="cabinet-nav reffer"
+            style={{ borderRadius: '5px', marginBottom: '1.375rem' }}
+          >
+            <p>{t('cabinet.chanceToWin')}</p>
 
             <div className="reffer__points">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="black" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z" stroke="black" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21"
+                  stroke="black"
+                  strokeWidth="1.6"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z"
+                  stroke="black"
+                  strokeWidth="1.6"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
-
-              {t("cabinet.myPoints")}: {refferals.length}
+              {t('cabinet.myPoints')}: {userData.score}
             </div>
 
             <div className="form-input">
-              <label>{t("cabinet.refferalLink")}</label>
-              <div
-                  className='reffer__input'
-                  onClick={getRefferLink}
-              >
+              <label>{t('cabinet.refferalLink')}</label>
+              <div className="reffer__input" onClick={getRefferLink}>
                 <input
-                    type="text"
-                    placeholder="*******"
-                    disabled={true}
-                    value={refferLink}
+                  type="text"
+                  placeholder="*******"
+                  disabled={true}
+                  value={refferLink}
                 />
               </div>
             </div>
-            <span
-                className="reffer__getlink"
-                onClick={getRefferLink}
-            >{t("cabinet.getRefferalLink")}</span>
+            <span className="reffer__getlink" onClick={getRefferLink}>
+              {t('cabinet.getRefferalLink')}
+            </span>
           </div>
 
-
           <section
-            className={`advert-s ${holdId !== 1 && "d-none"}`}
+            className={`advert-s ${holdId !== 1 && 'd-none'}`}
             id="product"
           >
             <div className="container-sm">
               <div className="advert">
                 <div className="alert-advert">
                   <h5>{t('cabinet.addToTheTop')}</h5>
-                  <p>
-                    {t("cabinet.addToTheTopText")}
-                  </p>
+                  <p>{t('cabinet.addToTheTopText')}</p>
                   <div className="alert-advert-btns">
                     <button className="btn btn-orange-50">
-                      {t("cabinet.activateToTop")}
+                      {t('cabinet.activateToTop')}
                     </button>
-                    <a>{t("cabinet.moreDetails")}</a>
+                    <a>{t('cabinet.moreDetails')}</a>
                   </div>
                 </div>
                 {!loading ? (
                   <ul className="advert-list">
-                    {draftArr.every(
-                      (item) => item.filteredArr?.length === 0
-                    ) && <span>{t("cabinet.hereEmpty")}</span>}
+                    {draftArr.every(item => item.filteredArr?.length === 0) && (
+                      <span>{t('cabinet.hereEmpty')}</span>
+                    )}
                     {draftArr.map((draftArg, i) => (
                       <div key={i}>
                         <span className="all-products-header">
-                          {draftArg.content === "house" &&
+                          {draftArg.content === 'house' &&
                           draftArg.filteredArr?.length
-                            ? "Маклера"
-                            : draftArg.content === "store" &&
+                            ? 'Маклера'
+                            : draftArg.content === 'store' &&
                               draftArg.filteredArr?.length
-                            ? "обустройства"
-                            : draftArg.content === "master" &&
+                            ? 'обустройства'
+                            : draftArg.content === 'master' &&
                               draftArg.filteredArr?.length
-                            ? "мастера"
-                            : draftArg.content === "mebel" &&
+                            ? 'мастера'
+                            : draftArg.content === 'mebel' &&
                               draftArg.filteredArr?.length
-                            ? "Мебель"
-                            : ""}
+                            ? 'Мебель'
+                            : ''}
                         </span>
                         {draftArg.filteredArr?.map((item, i) => (
                           <UserContents
@@ -255,23 +266,23 @@ const UserCabinet = () => {
             </div>
           </section>
           <section
-            className={`advert-s ${holdId !== 3 && "d-none"}`}
+            className={`advert-s ${holdId !== 3 && 'd-none'}`}
             id="archive"
           >
             <div className="container-sm">
               <div className="advert">
                 <div className="alert-advert">
-                    <h5 style={{ fontSize: "1.1rem" }}>{t("cabinet.dateCreated")}</h5>
-                    <p>
-                      {t("cabinet.managaArchive")}
-                    </p>
+                  <h5 style={{ fontSize: '1.1rem' }}>
+                    {t('cabinet.dateCreated')}
+                  </h5>
+                  <p>{t('cabinet.managaArchive')}</p>
                 </div>
                 <ul className="advert-list">
                   {draftArr.map((draftArg, i) => (
                     <div key={i}>
                       {draftArg.arr
                         ?.filter(
-                          (item) =>
+                          item =>
                             item.draft === true && item.product_status !== 3
                         )
                         ?.map((item, i) => (
@@ -290,15 +301,16 @@ const UserCabinet = () => {
             </div>
           </section>
           <section
-            className={`advert-s ${holdId !== 4 && "d-none"}`}
+            className={`advert-s ${holdId !== 4 && 'd-none'}`}
             id="draft"
           >
             <div className="container-sm">
               <div className="advert">
                 <div className="alert-advert">
-                  <h5>{t("cabinet.addToTheTop")}</h5>
+                  <h5>{t('cabinet.addToTheTop')}</h5>
                   <p>
-                    В этом разделе вы можете создавать и сохранять черновики ваших объявлений и заказов, а также вести работу над ними
+                    В этом разделе вы можете создавать и сохранять черновики
+                    ваших объявлений и заказов, а также вести работу над ними
                   </p>
                 </div>
                 <ul className="advert-list">
@@ -338,7 +350,7 @@ const UserCabinet = () => {
                           : ""}
                       </span> } */}
                       {draftArg.arr
-                        ?.filter((item) => item?.product_status === 3)
+                        ?.filter(item => item?.product_status === 3)
                         ?.map((item, i) => (
                           <UserContents
                             key={i}
@@ -390,7 +402,7 @@ const UserCabinet = () => {
             </div>
           </section>
           <section
-            className={`settings-s ${holdId !== 5 && "d-none"}`}
+            className={`settings-s ${holdId !== 5 && 'd-none'}`}
             id="settings"
           >
             <UserSettings
@@ -554,25 +566,46 @@ const UserCabinet = () => {
               </div>
             </div>
           </section> */}
-          <div className="cabinet-nav" style={{ borderRadius: "5px" }}>
+          <div className="cabinet-nav" style={{ borderRadius: '5px' }}>
             <div className="cabinet-profile">
               <div className="cabinet-profile-logo">
-                {" "}
+                {' '}
                 <picture>
-                  <source srcSet={userData.avatar_image ? userData.avatar_image : avatar_image} type="image/webp" />
-                  <img src={userData.avatar_image ? userData.avatar_image : avatar_image} alt="Логотип" />
+                  <source
+                    srcSet={
+                      userData.avatar_image
+                        ? userData.avatar_image
+                        : avatar_image
+                    }
+                    type="image/webp"
+                  />
+                  <img
+                    src={
+                      userData.avatar_image
+                        ? userData.avatar_image
+                        : avatar_image
+                    }
+                    alt="Логотип"
+                  />
                 </picture>
               </div>
               <div className="cabinet-profile-info">
-                <h4>{t("cabinet.name")}: {userData.first_name ? userData.first_name : t("editPage.empty")}</h4>
+                <h4>
+                  {t('cabinet.name')}:{' '}
+                  {userData.first_name
+                    ? userData.first_name
+                    : t('editPage.empty')}
+                </h4>
                 <p>id: {userData?.id}</p>
-                <p>{t("editPage.phoneNumber")}: {userData?.phone_number}</p>
+                <p>
+                  {t('editPage.phoneNumber')}: {userData?.phone_number}
+                </p>
               </div>
             </div>
             <ul className="cabinet-nav-list">
-              {userCabinetNavigator.map((item) => (
+              {userCabinetNavigator.map(item => (
                 <li
-                  className={`${holdId === item.id && "active"}`}
+                  className={`${holdId === item.id && 'active'}`}
                   key={item.id}
                   onClick={() => setHoldId(item.id)}
                 >
@@ -593,7 +626,7 @@ const UserCabinet = () => {
               onClick={handleLogOut}
               id="log-out"
               style={{
-                cursor: "pointer",
+                cursor: 'pointer',
               }}
             >
               <svg className="svg-sprite-icon icon-fi_log-out-o fill-n w-16">
@@ -602,7 +635,7 @@ const UserCabinet = () => {
               <svg className="svg-sprite-icon icon-fi_log-out fill-n w-16">
                 <use href={`${spirite}#fi_log-out`}></use>
               </svg>
-              <span>{t("cabinet.logout")}</span>
+              <span>{t('cabinet.logout')}</span>
             </a>
           </div>
         </div>
